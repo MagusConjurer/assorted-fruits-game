@@ -4,4 +4,5 @@
 // to allow for more unique experiences where randomness is being used.
 // randomize();
 
-// Initialize global variables
+// Initialize global variables.
+global.current_level = rm_level_one;
