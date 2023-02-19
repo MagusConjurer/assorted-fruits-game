@@ -2,12 +2,15 @@
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
   "name": "obj_player_ov",
-  "eventList": [],
+  "eventList": [
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
+  ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "Overworld",
+    "path": "folders/Objects/Overworld.yy",
   },
   "parentObjectId": null,
   "persistent": false,
@@ -25,7 +28,10 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": null,
+  "spriteId": {
+    "name": "spr_player_default",
+    "path": "sprites/spr_player_default/spr_player_default.yy",
+  },
   "spriteMaskId": null,
   "visible": true,
 }

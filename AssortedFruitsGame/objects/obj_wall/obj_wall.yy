@@ -1,13 +1,13 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_dialogue",
+  "name": "obj_wall",
   "eventList": [],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "Parents",
+    "path": "folders/Objects/Parents.yy",
   },
   "parentObjectId": null,
   "persistent": false,
@@ -25,7 +25,10 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": null,
+  "spriteId": {
+    "name": "spr_wall",
+    "path": "sprites/spr_wall/spr_wall.yy",
+  },
   "spriteMaskId": null,
-  "visible": true,
+  "visible": false,
 }

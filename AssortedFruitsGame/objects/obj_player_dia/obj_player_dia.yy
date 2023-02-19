@@ -1,13 +1,13 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_wall_parent",
+  "name": "obj_player_dia",
   "eventList": [],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Parents",
-    "path": "folders/Objects/Parents.yy",
+    "name": "Dialogue",
+    "path": "folders/Objects/Dialogue.yy",
   },
   "parentObjectId": null,
   "persistent": false,
