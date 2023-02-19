@@ -10,7 +10,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "MainMenu",
-    "path": "folders/Objects/MainMenu.yy",
+    "path": "folders/Objects/Menus/MainMenu.yy",
   },
   "parentObjectId": {
     "name": "obj_button_parent",

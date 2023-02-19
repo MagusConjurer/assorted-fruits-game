@@ -10,7 +10,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "PauseMenu",
-    "path": "folders/Objects/PauseMenu.yy",
+    "path": "folders/Objects/Menus/PauseMenu.yy",
   },
   "parentObjectId": {
     "name": "obj_button_parent",

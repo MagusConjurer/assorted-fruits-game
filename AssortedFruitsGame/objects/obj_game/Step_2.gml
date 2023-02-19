@@ -1,6 +1,6 @@
 /// @description 
 
-if (keyboard_check_pressed(vk_escape))
+if (keyboard_check_pressed(vk_escape) && pause_menu_visible == false)
 {
 	global.game_paused = true;
 	pause_menu_visible = true;

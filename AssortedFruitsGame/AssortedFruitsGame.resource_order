@@ -17,8 +17,8 @@
     {"name":"Defaults","order":5,"path":"folders/Sprites/Defaults.yy",},
     {"name":"Macros","order":3,"path":"folders/Scripts/Macros.yy",},
     {"name":"Parents","order":8,"path":"folders/Objects/Parents.yy",},
-    {"name":"MainMenu","order":9,"path":"folders/Objects/MainMenu.yy",},
-    {"name":"PauseMenu","order":10,"path":"folders/Objects/PauseMenu.yy",},
+    {"name":"PauseMenu","order":1,"path":"folders/Objects/Menus/PauseMenu.yy",},
+    {"name":"Menus","order":11,"path":"folders/Objects/Menus.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"spr_projectile_default","order":1,"path":"sprites/spr_projectile_default/spr_projectile_default.yy",},
