@@ -11,7 +11,8 @@ if((!has_been_interacted || INTERACT_REPEATABLE) && keyboard_check(ord(INTERACT_
 		
 		// Do any action here
 		
-		
+		global.game_state = BULLET_HELL;
+		global.prev_state = OVERWORLD;
 		
 		// Remove popup if it is no longer needed
 		if(!INTERACT_REPEATABLE)

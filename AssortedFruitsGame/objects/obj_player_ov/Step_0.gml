@@ -1,6 +1,6 @@
 /// @description
 
-if (global.game_paused == false) 
+if (global.game_state == OVERWORLD) 
 {
 	key_up = keyboard_check(vk_up);
 	key_down = keyboard_check(vk_down);
