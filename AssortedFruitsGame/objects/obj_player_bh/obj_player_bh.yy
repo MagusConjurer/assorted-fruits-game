@@ -2,14 +2,20 @@
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
   "name": "obj_player_bh",
-  "eventList": [],
+  "eventList": [
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
+  ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
     "name": "BulletHell",
     "path": "folders/Objects/BulletHell.yy",
   },
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "obj_player_parent",
+    "path": "objects/obj_player_parent/obj_player_parent.yy",
+  },
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,
@@ -25,7 +31,10 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": null,
+  "spriteId": {
+    "name": "spr_player_bh_default",
+    "path": "sprites/spr_player_bh_default/spr_player_bh_default.yy",
+  },
   "spriteMaskId": null,
   "visible": true,
 }

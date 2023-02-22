@@ -1,7 +1,6 @@
 /// @description 
 
-// Player Movement
-xSpeed = 0;
-ySpeed = 0;
+event_inherited();
 
 moveSpeed = WALKING_SPEED;
+active_state = OVERWORLD;

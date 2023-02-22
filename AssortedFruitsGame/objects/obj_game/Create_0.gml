@@ -5,3 +5,6 @@
 
 pause_menu_visible = false;
 pause_menu_buttons = [];
+
+bh_active = false;
+bh_objects = [];
