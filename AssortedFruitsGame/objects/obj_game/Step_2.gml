@@ -27,5 +27,12 @@ if (global.game_state == BULLET_HELL && bh_active = false)
 {
 	bh_active = true;
 	
-	bh_objects[0] = instance_create_layer(RESOLUTION_W * 0.5, RESOLUTION_H * 0.5, "Bullet_Hell", obj_player_bh);
+	start_bullet_hell(bubbleXPosition);
+}
+else if (global.game_state == BULLET_HELL && bh_active = true)
+{
+	if(alarm_get(0) < 0) 
+	{
+		alarm_set(0,room_speed * 5);
+	}
 }

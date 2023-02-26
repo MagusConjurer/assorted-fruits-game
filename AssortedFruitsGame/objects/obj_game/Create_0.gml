@@ -8,3 +8,5 @@ pause_menu_buttons = [];
 
 bh_active = false;
 bh_objects = [];
+
+bubbleXPosition = room_width - 250;

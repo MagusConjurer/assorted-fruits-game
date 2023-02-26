@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_player_projectile",
+  "name": "obj_bubble_projectile",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
@@ -32,8 +32,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_player_projectile_def",
-    "path": "sprites/spr_player_projectile_def/spr_player_projectile_def.yy",
+    "name": "spr_bubble_projectile_def",
+    "path": "sprites/spr_bubble_projectile_def/spr_bubble_projectile_def.yy",
   },
   "spriteMaskId": null,
   "visible": true,
