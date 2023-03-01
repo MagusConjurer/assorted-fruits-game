@@ -6,7 +6,14 @@
 pause_menu_visible = false;
 pause_menu_buttons = [];
 
-bh_active = false;
-bh_objects = [];
 
+
+// Bullet Hell
+bh_active = false;
+
+bh_player_health = 0;
+
+num_active_bubbles = 0;
 bubbleXPosition = room_width - 250;
+bubble_popped_time = 0;
+bh_time_spent = 0;

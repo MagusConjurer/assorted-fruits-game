@@ -1,5 +1,7 @@
 /// @description 
 
+
+// Pause Menu and while paused functionality
 if (keyboard_check_pressed(vk_escape) && pause_menu_visible == false)
 {
 	global.prev_state = global.game_state;
@@ -23,16 +25,36 @@ if (global.game_state != PAUSED && pause_menu_visible == true)
 	}
 }
 
+if (global.game_state == PAUSED) 
+{
+	// This will pause the timer so no obj_game alarms activate while paused
+	alarm[0]++; 
+}
+
+
+// Bullet Hell Functionality
 if (global.game_state == BULLET_HELL && bh_active = false)
 {
 	bh_active = true;
 	
 	start_bullet_hell(bubbleXPosition);
+	
+	bh_time_spent = 0;
 }
 else if (global.game_state == BULLET_HELL && bh_active = true)
 {
-	if(alarm_get(0) < 0) 
+	// Time in seconds
+	bh_time_spent += delta_time / 1000000;
+
+	if(bh_player_health <= 0)
+	{
+		bh_cleanup();
+		bh_active = false;
+	} 
+	else if(alarm_get(0) < 0) 
 	{
 		alarm_set(0,room_speed * 5);
 	}
 }
+
+// Dialogue Functionality

@@ -9,5 +9,4 @@ global.current_level = rm_level_one;
 global.game_state = MENU;
 global.prev_state = OVERWORLD;
 
-// Bullet Hell
-global.num_active_bubbles = 0;
+
