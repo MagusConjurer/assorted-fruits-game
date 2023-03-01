@@ -1,4 +1,4 @@
-/// @description Draw the vignette
+/// @description Draw the vignette and screen darkening
 
 if (bh_active)
 {
