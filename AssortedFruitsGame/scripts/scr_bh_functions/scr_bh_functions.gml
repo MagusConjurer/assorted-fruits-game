@@ -29,12 +29,27 @@ function bh_update()
 
 
 function bh_start(x_pos){
+	// Player
 	instance_create_layer(RESOLUTION_W * 0.5, RESOLUTION_H * 0.5, "Bullet_Hell", obj_player_bh);
 	
-	instance_create_layer(x_pos, room_height * 0.25, "Bullet_Hell", obj_bubble);
+	// Ability Buttons
+	instance_create_layer(50,RESOLUTION_H - 50, "Bullet_Hell", obj_ability_button);
 	
+	// First bubble
+	instance_create_layer(x_pos, room_height * 0.25, "Bullet_Hell", obj_bubble);
 	num_active_bubbles = 1;
+	
+	
 }
+
+function bh_ability(ability)
+{
+	if(ability = BH_ABILITY_ONE)
+	{
+		
+	}
+}
+
 
 function bh_spawn_bubble(x_pos){
 	if(num_active_bubbles <= BH_MAX_BUBBLES && bh_active == true)

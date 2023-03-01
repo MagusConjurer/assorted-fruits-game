@@ -45,6 +45,7 @@
   },
   "resources": [
     {"id":{"name":"spr_projectile_default","path":"sprites/spr_projectile_default/spr_projectile_default.yy",},"order":0,},
+    {"id":{"name":"obj_bh_ability_parent","path":"objects/obj_bh_ability_parent/obj_bh_ability_parent.yy",},"order":0,},
     {"id":{"name":"scr_bh_functions","path":"scripts/scr_bh_functions/scr_bh_functions.yy",},"order":0,},
     {"id":{"name":"obj_button_parent","path":"objects/obj_button_parent/obj_button_parent.yy",},"order":0,},
     {"id":{"name":"obj_projectile_parent","path":"objects/obj_projectile_parent/obj_projectile_parent.yy",},"order":0,},
@@ -55,6 +56,7 @@
     {"id":{"name":"obj_bubble_projectile","path":"objects/obj_bubble_projectile/obj_bubble_projectile.yy",},"order":0,},
     {"id":{"name":"obj_player_projectile","path":"objects/obj_player_projectile/obj_player_projectile.yy",},"order":0,},
     {"id":{"name":"obj_player_dia","path":"objects/obj_player_dia/obj_player_dia.yy",},"order":0,},
+    {"id":{"name":"spr_ability_default","path":"sprites/spr_ability_default/spr_ability_default.yy",},"order":0,},
     {"id":{"name":"spr_wall","path":"sprites/spr_wall/spr_wall.yy",},"order":0,},
     {"id":{"name":"scr_init","path":"scripts/scr_init/scr_init.yy",},"order":0,},
     {"id":{"name":"obj_player_parent","path":"objects/obj_player_parent/obj_player_parent.yy",},"order":0,},
@@ -90,6 +92,7 @@
     {"id":{"name":"obj_bh_parent","path":"objects/obj_bh_parent/obj_bh_parent.yy",},"order":0,},
     {"id":{"name":"spr_player_dia_default","path":"sprites/spr_player_dia_default/spr_player_dia_default.yy",},"order":0,},
     {"id":{"name":"obj_tree","path":"objects/obj_tree/obj_tree.yy",},"order":0,},
+    {"id":{"name":"obj_ability_button","path":"objects/obj_ability_button/obj_ability_button.yy",},"order":0,},
     {"id":{"name":"scr_dia_macros","path":"scripts/scr_dia_macros/scr_dia_macros.yy",},"order":0,},
     {"id":{"name":"ts_default","path":"tilesets/ts_default/ts_default.yy",},"order":0,},
     {"id":{"name":"scr_bh_macros","path":"scripts/scr_bh_macros/scr_bh_macros.yy",},"order":0,},

@@ -4,9 +4,12 @@ event_inherited();
 
 if (global.game_state == active_state) 
 {
-	if(keyboard_check_pressed(vk_space))
+	if(keyboard_check(vk_space))
 	{
-		instance_create_layer(x,y,"Bullet_Hell",obj_player_projectile);
+		if(alarm[0] < 0)
+		{
+			alarm[0] = BH_PLAYER_PROJECTILE_DELAY;
+		}
 	}
 	
 	// Check for collision with bubble projectiles

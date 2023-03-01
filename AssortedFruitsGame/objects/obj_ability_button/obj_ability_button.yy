@@ -1,11 +1,9 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_player_bh",
+  "name": "obj_ability_button",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
@@ -14,8 +12,8 @@
     "path": "folders/Objects/BulletHell.yy",
   },
   "parentObjectId": {
-    "name": "obj_player_parent",
-    "path": "objects/obj_player_parent/obj_player_parent.yy",
+    "name": "obj_bh_ability_parent",
+    "path": "objects/obj_bh_ability_parent/obj_bh_ability_parent.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,
@@ -33,8 +31,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_player_bh_default",
-    "path": "sprites/spr_player_bh_default/spr_player_bh_default.yy",
+    "name": "spr_ability_default",
+    "path": "sprites/spr_ability_default/spr_ability_default.yy",
   },
   "spriteMaskId": null,
   "visible": true,
