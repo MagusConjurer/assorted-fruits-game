@@ -52,6 +52,7 @@
     {"name":"spr_bubble_projectile_def","order":13,"path":"sprites/spr_bubble_projectile_def/spr_bubble_projectile_def.yy",},
     {"name":"obj_popup","order":5,"path":"objects/obj_popup/obj_popup.yy",},
     {"name":"obj_menu_button","order":1,"path":"objects/obj_menu_button/obj_menu_button.yy",},
+    {"name":"scr_pause_functions","order":7,"path":"scripts/scr_pause_functions/scr_pause_functions.yy",},
     {"name":"spr_bubble_default","order":7,"path":"sprites/spr_bubble_default/spr_bubble_default.yy",},
     {"name":"scr_misc_macros","order":3,"path":"scripts/scr_misc_macros/scr_misc_macros.yy",},
     {"name":"spr_button_default","order":6,"path":"sprites/spr_button_default/spr_button_default.yy",},

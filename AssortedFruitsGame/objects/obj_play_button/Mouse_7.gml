@@ -3,7 +3,7 @@
 // Inherit the parent event
 event_inherited();
 
-return_to_prev_state(MENU);
+set_game_state(OVERWORLD);
 
 room_goto(global.current_level);
 

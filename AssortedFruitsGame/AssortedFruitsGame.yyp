@@ -75,6 +75,7 @@
     {"id":{"name":"obj_popup","path":"objects/obj_popup/obj_popup.yy",},"order":0,},
     {"id":{"name":"obj_player_bh","path":"objects/obj_player_bh/obj_player_bh.yy",},"order":0,},
     {"id":{"name":"obj_menu_button","path":"objects/obj_menu_button/obj_menu_button.yy",},"order":0,},
+    {"id":{"name":"scr_pause_functions","path":"scripts/scr_pause_functions/scr_pause_functions.yy",},"order":0,},
     {"id":{"name":"obj_box","path":"objects/obj_box/obj_box.yy",},"order":0,},
     {"id":{"name":"spr_bubble_default","path":"sprites/spr_bubble_default/spr_bubble_default.yy",},"order":0,},
     {"id":{"name":"scr_misc_macros","path":"scripts/scr_misc_macros/scr_misc_macros.yy",},"order":0,},
