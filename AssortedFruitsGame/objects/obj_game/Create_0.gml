@@ -14,6 +14,6 @@ bh_active = false;
 bh_player_health = 0;
 
 num_active_bubbles = 0;
-bubbleXPosition = room_width - 250;
+bubble_x_pos = room_width - 250;
 bubble_popped_time = 0;
 bh_time_spent = 0;

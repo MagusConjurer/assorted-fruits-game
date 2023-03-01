@@ -1,3 +1,3 @@
 /// @description Spawn a new bubble
 
-spawn_new_bubble(bubbleXPosition);
+bh_spawn_bubble(bubble_x_pos);

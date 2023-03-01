@@ -13,7 +13,7 @@ if (global.game_state == active_state)
 	var _inst = instance_place(x,y,obj_bubble_projectile);
 	if (_inst != noone)
 	{
-		update_player_health(_inst.damage);
+		bh_update_player_health(_inst.damage);
 		instance_destroy(_inst);
 	}
 	

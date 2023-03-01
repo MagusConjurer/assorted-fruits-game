@@ -45,7 +45,7 @@
   },
   "resources": [
     {"id":{"name":"spr_projectile_default","path":"sprites/spr_projectile_default/spr_projectile_default.yy",},"order":0,},
-    {"id":{"name":"scr_bullet_hell","path":"scripts/scr_bullet_hell/scr_bullet_hell.yy",},"order":0,},
+    {"id":{"name":"scr_bh_functions","path":"scripts/scr_bh_functions/scr_bh_functions.yy",},"order":0,},
     {"id":{"name":"obj_button_parent","path":"objects/obj_button_parent/obj_button_parent.yy",},"order":0,},
     {"id":{"name":"obj_projectile_parent","path":"objects/obj_projectile_parent/obj_projectile_parent.yy",},"order":0,},
     {"id":{"name":"fnt_button","path":"fonts/fnt_button/fnt_button.yy",},"order":0,},
@@ -94,6 +94,7 @@
     {"id":{"name":"scr_bh_macros","path":"scripts/scr_bh_macros/scr_bh_macros.yy",},"order":0,},
     {"id":{"name":"spr_bh_vignette_2","path":"sprites/spr_bh_vignette_2/spr_bh_vignette_2.yy",},"order":0,},
     {"id":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},"order":0,},
+    {"id":{"name":"scr_game_functions","path":"scripts/scr_game_functions/scr_game_functions.yy",},"order":0,},
     {"id":{"name":"spr_tiles_default","path":"sprites/spr_tiles_default/spr_tiles_default.yy",},"order":0,},
     {"id":{"name":"rm_menu","path":"rooms/rm_menu/rm_menu.yy",},"order":0,},
   ],

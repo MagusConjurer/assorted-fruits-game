@@ -14,7 +14,7 @@ if(global.game_state == BULLET_HELL)
 
 	if(bubble_health <= 0)
 	{
-		bubble_destroyed();
+		bh_bubble_destroyed();
 		instance_destroy();
 	}
 
