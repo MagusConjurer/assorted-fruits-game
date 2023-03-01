@@ -12,3 +12,5 @@ draw_text(x, y, text);
 // Reset the text alignment
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
+
+depth = MENU_DEPTH;

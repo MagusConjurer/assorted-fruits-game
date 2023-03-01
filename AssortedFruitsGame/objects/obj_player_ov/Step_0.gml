@@ -1,12 +1,9 @@
 /// @description
 
-if (global.game_paused == false) 
-{
-	key_up = keyboard_check(vk_up);
-	key_down = keyboard_check(vk_down);
-	key_left = keyboard_check(vk_left);
-	key_right = keyboard_check(vk_right);
+event_inherited();
 
+if(global.game_state == active_state) 
+{
 	// May want to move all the movement checking to a script function for readability
 
 	// Get x and y speed
@@ -26,7 +23,7 @@ if (global.game_paused == false)
 	// Move the player -- this is after all the checks have been done above
 	x += xSpeed;
 	y += ySpeed;
-	
+
 	// Depth -- allows player to be drawn below/above other sprites
 	depth = -bbox_bottom;
 }

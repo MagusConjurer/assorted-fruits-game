@@ -2,8 +2,11 @@
 
 // Enable to randomize the seed that is used each time the game is run
 // to allow for more unique experiences where randomness is being used.
-// randomize();
+randomize();
 
 // Initialize global variables.
 global.current_level = rm_level_one;
-global.game_paused = false;
+global.game_state = MENU;
+global.prev_state = OVERWORLD;
+
+
