@@ -1,15 +1,15 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_continue_button",
+  "name": "obj_return_button",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Pause",
-    "path": "folders/Objects/Menus/Pause.yy",
+    "name": "Settings",
+    "path": "folders/Objects/Menus/Main/Settings.yy",
   },
   "parentObjectId": {
     "name": "obj_button_parent",

@@ -1,7 +1,5 @@
-/// @description
 
 // Inherit the parent event
 event_inherited();
 
-game_end();
-
+script_to_run = settings_cb_music;

@@ -1,7 +1,5 @@
-/// @description
 
 // Inherit the parent event
 event_inherited();
 
-return_to_prev_state(PAUSED);
-
+script_to_run = settings_cb_sfx;

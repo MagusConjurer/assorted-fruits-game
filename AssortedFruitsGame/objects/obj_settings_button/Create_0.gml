@@ -3,9 +3,7 @@
 // Inherit the parent event
 event_inherited();
 
-text = "Play";
+text = "Settings";
 
-script_to_run = main_menu_play;
+script_to_run = main_menu_settings;
 layer_to_check = "Main_Menu";
-
-

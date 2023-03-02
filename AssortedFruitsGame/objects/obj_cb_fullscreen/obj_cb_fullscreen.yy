@@ -1,19 +1,19 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_continue_button",
+  "name": "obj_cb_fullscreen",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Pause",
-    "path": "folders/Objects/Menus/Pause.yy",
+    "name": "Settings",
+    "path": "folders/Objects/Menus/Main/Settings.yy",
   },
   "parentObjectId": {
-    "name": "obj_button_parent",
-    "path": "objects/obj_button_parent/obj_button_parent.yy",
+    "name": "obj_checkbox_parent",
+    "path": "objects/obj_checkbox_parent/obj_checkbox_parent.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,
@@ -31,8 +31,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_button_default",
-    "path": "sprites/spr_button_default/spr_button_default.yy",
+    "name": "spr_checkbox_default",
+    "path": "sprites/spr_checkbox_default/spr_checkbox_default.yy",
   },
   "spriteMaskId": null,
   "visible": true,

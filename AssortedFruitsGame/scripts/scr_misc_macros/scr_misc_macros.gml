@@ -18,8 +18,9 @@
 #macro MENU 4
 
 // Depths
-#macro MENU_DEPTH -1000
 #macro DARKENING_DEPTH -995
 #macro BH_DEPTH DARKENING_DEPTH-1
 
-// 
+// SETTINGS
+#macro SETTINGS_BG_COLOR $5A9C6D // color in hex
+#macro SETTINGS_FONT_COLOR c_black
