@@ -7,6 +7,7 @@ randomize();
 // Settings Variables
 global.resolution_w = 1920;
 global.resolution_h = 1080;
+global.resize_enabled = false;
 global.fullscreen_enabled = true;
 global.music_enabled = false;
 global.music_volume = 0.5;

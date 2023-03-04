@@ -17,6 +17,7 @@
     {"name":"inst_115FA792","path":"rooms/rm_menu/rm_menu.yy",},
     {"name":"inst_152F0505","path":"rooms/rm_menu/rm_menu.yy",},
     {"name":"inst_7CB890B3","path":"rooms/rm_menu/rm_menu.yy",},
+    {"name":"inst_752A0B6B","path":"rooms/rm_menu/rm_menu.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -28,6 +29,7 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_115FA792","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_return_button","path":"objects/obj_return_button/obj_return_button.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":961.0,"y":752.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_152F0505","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_slider_music","path":"objects/obj_slider_music/obj_slider_music.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":736.0,"y":525.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_7CB890B3","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_slider_sfx","path":"objects/obj_slider_sfx/obj_slider_sfx.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":736.0,"y":625.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_752A0B6B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_dropdown_resolution","path":"objects/obj_dropdown_resolution/obj_dropdown_resolution.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":736.0,"y":425.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Main_Menu","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_20BAE2A3","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_quit_button","path":"objects/obj_quit_button/obj_quit_button.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":960.0,"y":608.0,},

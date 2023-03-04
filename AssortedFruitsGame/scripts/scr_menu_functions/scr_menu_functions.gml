@@ -41,6 +41,29 @@ function settings_cb_sfx()
 	global.sfx_enabled = !global.sfx_enabled;
 }
 
+function settings_update_resolution(value)
+{
+	switch(value)
+	{
+		case "3840x2160":
+			global.resolution_w = 3840;
+			global.resolution_h = 2160;
+			break;
+		case "1920x1080":
+			global.resolution_w = 1920;
+			global.resolution_h = 1080;
+			break;
+		case "1366x768":
+			global.resolution_w = 1366;
+			global.resolution_h = 768;
+			break;
+		case "1280x1024":
+			global.resolution_w = 1280;
+			global.resolution_h = 1024;
+			break;
+	}
+}
+
 // Pause Menu
 function pause_menu_main()
 {
