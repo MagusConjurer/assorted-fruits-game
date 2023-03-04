@@ -1,5 +1,5 @@
 /// @description 
 
-checked = false;
+event_inherited();
 
-script_to_run = 0;
+checked = false;

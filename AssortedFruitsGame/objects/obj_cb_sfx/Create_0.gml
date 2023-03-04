@@ -2,4 +2,5 @@
 // Inherit the parent event
 event_inherited();
 
-script_to_run = settings_cb_sfx;
+description_text = "Sound Effects Enabled"
+checked = global.sfx_enabled;

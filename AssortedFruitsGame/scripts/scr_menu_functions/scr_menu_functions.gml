@@ -2,6 +2,7 @@
 function main_menu_play()
 {
 	set_game_state(OVERWORLD);
+	play_background_music(temp_music);
 
 	room_goto(global.current_level);
 }
@@ -39,7 +40,6 @@ function settings_cb_sfx()
 {
 	global.sfx_enabled = !global.sfx_enabled;
 }
-
 
 // Pause Menu
 function pause_menu_main()

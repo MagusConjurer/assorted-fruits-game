@@ -33,7 +33,7 @@ function bh_start(x_pos){
 	instance_create_layer(RESOLUTION_W * 0.5, RESOLUTION_H * 0.5, "Bullet_Hell", obj_player_bh);
 	
 	// Ability Buttons
-	instance_create_layer(50,RESOLUTION_H - 50, "BH_GUI", obj_ability_button);
+	instance_create_layer(50,RESOLUTION_H - 50, "Bullet_Hell", obj_ability_button);
 	
 	// First bubble
 	instance_create_layer(x_pos, room_height * 0.25, "Bullet_Hell", obj_bubble);

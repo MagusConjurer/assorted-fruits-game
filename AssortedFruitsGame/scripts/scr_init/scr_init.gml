@@ -7,9 +7,16 @@ randomize();
 // Settings Variables
 global.resolution_w = 1920;
 global.resolution_h = 1080;
-global.fullscreen_enabled = false;
+global.fullscreen_enabled = true;
 global.music_enabled = false;
+global.music_volume = 0.5;
 global.sfx_enabled = false;
+global.sfx_volume = 0.5;
+
+window_set_fullscreen(global.fullscreen_enabled);
+
+// Audio Variables
+global.current_bg_track = 0;
 
 // Initialize global variables.
 global.current_level = rm_level_one;

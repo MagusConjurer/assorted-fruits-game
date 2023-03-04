@@ -1,22 +1,20 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_checkbox_parent",
+  "name": "obj_slider_sfx",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":7,"eventType":6,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":64,"eventType":8,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":10,"eventType":7,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Parents",
-    "path": "folders/Objects/Parents.yy",
+    "name": "Settings",
+    "path": "folders/Objects/Menus/Main/Settings.yy",
   },
   "parentObjectId": {
-    "name": "obj_settings_ui",
-    "path": "objects/obj_settings_ui/obj_settings_ui.yy",
+    "name": "obj_slider_parent",
+    "path": "objects/obj_slider_parent/obj_slider_parent.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,
@@ -33,7 +31,10 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": null,
+  "spriteId": {
+    "name": "spr_slider_bar",
+    "path": "sprites/spr_slider_bar/spr_slider_bar.yy",
+  },
   "spriteMaskId": null,
   "visible": true,
 }
