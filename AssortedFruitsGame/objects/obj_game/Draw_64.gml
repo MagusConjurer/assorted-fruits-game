@@ -2,6 +2,7 @@
 
 if (bh_active)
 {
+
 	image_speed = 0.05;
 	
 	draw_set_color(c_green);
