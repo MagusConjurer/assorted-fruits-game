@@ -1,21 +1,18 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_player_dia",
+  "name": "obj_dialogue_parent",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Dialogue",
-    "path": "folders/Objects/Dialogue.yy",
+    "name": "Parents",
+    "path": "folders/Objects/Parents.yy",
   },
-  "parentObjectId": {
-    "name": "obj_dialogue_parent",
-    "path": "objects/obj_dialogue_parent/obj_dialogue_parent.yy",
-  },
+  "parentObjectId": null,
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,
@@ -31,10 +28,7 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": {
-    "name": "spr_player_dia_default",
-    "path": "sprites/spr_player_dia_default/spr_player_dia_default.yy",
-  },
+  "spriteId": null,
   "spriteMaskId": null,
   "visible": true,
 }

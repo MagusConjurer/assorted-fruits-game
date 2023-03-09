@@ -11,7 +11,7 @@ if((!has_been_interacted || INTERACT_REPEATABLE) && keyboard_check(ord(INTERACT_
 		
 		// Do any action here
 		
-		set_game_state(BULLET_HELL);
+		set_game_state(DIALOGUE);
 		
 		// Remove popup if it is no longer needed
 		if(!INTERACT_REPEATABLE)

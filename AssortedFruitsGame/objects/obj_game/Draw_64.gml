@@ -1,4 +1,4 @@
-/// @description Draw the vignette and screen darkening
+/// @description Draw sprites or details on the GUI level
 
 if (bh_active)
 {

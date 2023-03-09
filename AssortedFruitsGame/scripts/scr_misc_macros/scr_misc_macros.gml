@@ -20,6 +20,7 @@
 // Depths
 #macro DARKENING_DEPTH -995
 #macro BH_DEPTH DARKENING_DEPTH-1
+#macro DIA_DEPTH BH_DEPTH
 
 // SETTINGS
 #macro SETTINGS_BG_COLOR $5A9C6D // color in hex
