@@ -21,3 +21,6 @@ bh_time_spent = 0;
 
 // Dialogue
 dialogue_active = false;
+dialogue_level = 1;
+conversation_index = 0;
+conversation_boxes = [];

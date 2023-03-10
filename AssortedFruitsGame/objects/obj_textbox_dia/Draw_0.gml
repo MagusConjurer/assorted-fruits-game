@@ -2,6 +2,7 @@
 // You can write your code in this editor
 
 draw_self();
+image_blend = box_tint;
 
 // Draw Text
 draw_set_font(fnt_dialogue);

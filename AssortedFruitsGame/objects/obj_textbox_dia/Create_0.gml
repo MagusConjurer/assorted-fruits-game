@@ -5,6 +5,7 @@
 event_inherited();
 
 box = spr_dia_box_default;
+box_tint = c_white; // white is no tint
 
 box_width = sprite_get_width(box);
 box_height = sprite_get_height(box);
