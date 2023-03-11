@@ -28,8 +28,8 @@ function dialogue_update()
 
 function dialogue_start()
 {
-	instance_create_layer(0, 0, "Dialogue", obj_player_dia);
-	instance_create_layer(0, 0, "Dialogue", obj_other_dia);
+	dialogue_player = instance_create_layer(0, 0, "Dialogue", obj_player_dia);
+	dialogue_other = instance_create_layer(0, 0, "Dialogue", obj_other_dia);
 	dialogue_button = instance_create_layer(0, 0, "Dialogue", obj_continue_dia);
 	dialogue_button.text = CONTINUE_DIA_TEXT;
 	
@@ -37,25 +37,28 @@ function dialogue_start()
 	draw_textbox();
 }
 
-function get_textbox_color(index)
+function set_textbox_properties(textbox)
 {
-	color_decision = index mod 2;
+	alternate = obj_game.conversation_index mod 2;
+	
+	textbox.current_text = obj_game.conversation[obj_game.conversation_index];
 				
-	if(color_decision == 0)
+	if(alternate == 0)
 	{
-		return c_aqua;
+		textbox.box_tint = obj_game.dialogue_player.textbox_color;
+		textbox.current_name = obj_game.dialogue_player.textbox_name;
 	}
 	else
 	{
-		return c_green;
+		textbox.box_tint = obj_game.dialogue_other.textbox_color;
+		textbox.current_name = obj_game.dialogue_other.textbox_name;
 	}
 }
 
 function draw_textbox()
 {
 	obj_game.textbox_inst = instance_create_layer(0,0,"Dialogue",obj_textbox_dia);
-	obj_game.textbox_inst.box_tint = get_textbox_color(obj_game.conversation_index);
-	obj_game.textbox_inst.current_text = obj_game.conversation[obj_game.conversation_index];
+	set_textbox_properties(obj_game.textbox_inst);
 	
 	obj_game.conversation_boxes[conversation_index] = textbox_inst;
 	obj_game.conversation_index++;
@@ -98,8 +101,7 @@ function continue_conversation()
 		if(!ENABLE_MULTI_TEXTBOX)
 		{
 			obj_game.box = obj_game.conversation_boxes[0];
-			obj_game.box.current_text = obj_game.conversation[obj_game.conversation_index];
-			obj_game.box.box_tint = get_textbox_color(obj_game.conversation_index);
+			set_textbox_properties(obj_game.box);
 				
 			obj_game.conversation_index++;
 		}

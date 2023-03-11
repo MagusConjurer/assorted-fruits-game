@@ -11,3 +11,6 @@ player_height = sprite_get_height(player_portrait);
 x = PORTRAIT_MARGIN;
 y = global.resolution_h - (player_height/2) - PORTRAIT_MARGIN;
 
+textbox_color = c_aqua;
+textbox_name = "Player";
+
