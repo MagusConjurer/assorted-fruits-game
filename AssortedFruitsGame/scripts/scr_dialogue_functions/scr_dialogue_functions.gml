@@ -14,11 +14,13 @@ function dialogue_update()
 	{
 		if(keyboard_check_released(vk_space))
 		{
-			continue_conversation();
-			
-			if(conversation_index == array_length(conversation) + 1)
+			if(conversation_index >= array_length(conversation))
 			{
 				end_conversation()
+			}
+			else
+			{
+				continue_conversation();
 			}
 		}
 	}
