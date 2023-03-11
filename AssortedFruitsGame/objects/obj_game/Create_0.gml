@@ -24,3 +24,4 @@ dialogue_active = false;
 dialogue_level = 1;
 conversation_index = 0;
 conversation_boxes = [];
+dialogue_button = 0;

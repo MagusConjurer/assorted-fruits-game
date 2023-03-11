@@ -18,7 +18,6 @@ function bh_update()
 		if(bh_player_health <= 0)
 		{
 			bh_cleanup();
-			bh_active = false;
 		} 
 		else if(alarm_get(0) < 0) 
 		{
@@ -102,8 +101,8 @@ function bh_cleanup()
 	instance_destroy(obj_player_bh);
 	instance_destroy(obj_bh_parent);
 	
-	global.prev_state = BULLET_HELL;
-	global.game_state = OVERWORLD;
+	bh_active = false;
+	set_game_state(OVERWORLD);
 	
 	obj_game.alarm[0] = -1;
 }

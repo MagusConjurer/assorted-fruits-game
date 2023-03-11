@@ -4,14 +4,15 @@
 // Inherit the parent event
 event_inherited();
 
-box = spr_dia_box_default;
+box_sprite = spr_dia_box_default;
 box_tint = c_white; // white is no tint
 
-box_width = sprite_get_width(box);
-box_height = sprite_get_height(box);
+box_width = sprite_get_width(box_sprite);
+box_height = sprite_get_height(box_sprite);
 
 x = (global.resolution_w - box_width) * 0.5;
 y = global.resolution_h - box_height - TEXTBOX_MARGIN;
+
 
 current_text = "This is what text looks like. If you write a lot of text then it should wrap to the next line. That could mean that you need a lot of text. Or a bigger font. Or smaller boxes.";
 

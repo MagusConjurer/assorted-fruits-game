@@ -116,6 +116,7 @@
     {"id":{"name":"obj_slider_parent","path":"objects/obj_slider_parent/obj_slider_parent.yy",},"order":0,},
     {"id":{"name":"ts_test","path":"tilesets/ts_test/ts_test.yy",},"order":0,},
     {"id":{"name":"rm_level_one","path":"rooms/rm_level_one/rm_level_one.yy",},"order":1,},
+    {"id":{"name":"obj_continue_dia","path":"objects/obj_continue_dia/obj_continue_dia.yy",},"order":0,},
     {"id":{"name":"fnt_menu","path":"fonts/fnt_menu/fnt_menu.yy",},"order":1,},
     {"id":{"name":"spr_player_bh_default","path":"sprites/spr_player_bh_default/spr_player_bh_default.yy",},"order":11,},
     {"id":{"name":"obj_continue_button","path":"objects/obj_continue_button/obj_continue_button.yy",},"order":0,},

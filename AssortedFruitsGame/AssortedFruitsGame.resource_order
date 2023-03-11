@@ -86,6 +86,7 @@
     {"name":"obj_slider_parent","order":10,"path":"objects/obj_slider_parent/obj_slider_parent.yy",},
     {"name":"ts_test","order":2,"path":"tilesets/ts_test/ts_test.yy",},
     {"name":"rm_level_one","order":1,"path":"rooms/rm_level_one/rm_level_one.yy",},
+    {"name":"obj_continue_dia","order":5,"path":"objects/obj_continue_dia/obj_continue_dia.yy",},
     {"name":"fnt_menu","order":1,"path":"fonts/fnt_menu/fnt_menu.yy",},
     {"name":"spr_player_bh_default","order":11,"path":"sprites/spr_player_bh_default/spr_player_bh_default.yy",},
     {"name":"obj_bh_parent","order":7,"path":"objects/obj_bh_parent/obj_bh_parent.yy",},
