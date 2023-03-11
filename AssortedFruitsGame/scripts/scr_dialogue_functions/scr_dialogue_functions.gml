@@ -29,7 +29,6 @@ function dialogue_update()
 function dialogue_start()
 {
 	dialogue_player = instance_create_layer(0, 0, "Dialogue", obj_player_dia);
-	dialogue_other = instance_create_layer(0, 0, "Dialogue", obj_other_dia);
 	dialogue_button = instance_create_layer(0, 0, "Dialogue", obj_continue_dia);
 	dialogue_button.text = CONTINUE_DIA_TEXT;
 	
@@ -39,11 +38,11 @@ function dialogue_start()
 
 function set_textbox_properties(textbox)
 {
-	alternate = obj_game.conversation_index mod 2;
+	alternate = (obj_game.conversation_index + obj_game.conversation_player_first) mod 2;
 	
 	textbox.current_text = obj_game.conversation[obj_game.conversation_index];
 				
-	if(alternate == 0)
+	if(alternate == 1)
 	{
 		textbox.box_tint = obj_game.dialogue_player.textbox_color;
 		textbox.current_name = obj_game.dialogue_player.textbox_name;
@@ -78,11 +77,16 @@ function draw_multi_textbox()
 	draw_textbox();
 }
 
+/// May want to move the conversation elsewhere
+/// Can create separate duplicate objects for each character to make it easier to swap out sprites/colors/names/etc
 function load_conversation(level)
 {
 	switch(level)
 	{
 		case 1:
+			dialogue_other = instance_create_layer(0, 0, "Dialogue", obj_other_dia);
+			conversation_player_first = true;
+			
 			conversation[0] = "First";
 			conversation[1] = "Second";
 			conversation[2] = "Third";
