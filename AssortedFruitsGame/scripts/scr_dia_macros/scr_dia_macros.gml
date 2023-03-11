@@ -6,5 +6,6 @@
 
 #macro CONTINUE_DIA_TEXT "Continue"
 #macro COMPLETE_DIA_TEXT "Leave"
+#macro SELECTION "SELECT"
 
 #macro ENABLE_MULTI_TEXTBOX false // additional changes would be needed for multi positioning to work

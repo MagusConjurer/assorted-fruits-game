@@ -62,6 +62,7 @@
     {"name":"obj_settings_ui","order":11,"path":"objects/obj_settings_ui/obj_settings_ui.yy",},
     {"name":"spr_temp_bus_stop","order":1,"path":"sprites/spr_temp_bus_stop/spr_temp_bus_stop.yy",},
     {"name":"obj_interactable_parent","order":1,"path":"objects/obj_interactable_parent/obj_interactable_parent.yy",},
+    {"name":"obj_selection_dia","order":6,"path":"objects/obj_selection_dia/obj_selection_dia.yy",},
     {"name":"spr_player_projectile_def","order":12,"path":"sprites/spr_player_projectile_def/spr_player_projectile_def.yy",},
     {"name":"Sprite12","order":2,"path":"sprites/Sprite12/Sprite12.yy",},
     {"name":"obj_bubble","order":2,"path":"objects/obj_bubble/obj_bubble.yy",},

@@ -85,6 +85,7 @@
     {"id":{"name":"spr_temp_bus_stop","path":"sprites/spr_temp_bus_stop/spr_temp_bus_stop.yy",},"order":0,},
     {"id":{"name":"obj_interactable_parent","path":"objects/obj_interactable_parent/obj_interactable_parent.yy",},"order":0,},
     {"id":{"name":"obj_game","path":"objects/obj_game/obj_game.yy",},"order":0,},
+    {"id":{"name":"obj_selection_dia","path":"objects/obj_selection_dia/obj_selection_dia.yy",},"order":0,},
     {"id":{"name":"spr_player_projectile_def","path":"sprites/spr_player_projectile_def/spr_player_projectile_def.yy",},"order":12,},
     {"id":{"name":"obj_cb_music","path":"objects/obj_cb_music/obj_cb_music.yy",},"order":0,},
     {"id":{"name":"Sprite12","path":"sprites/Sprite12/Sprite12.yy",},"order":15,},

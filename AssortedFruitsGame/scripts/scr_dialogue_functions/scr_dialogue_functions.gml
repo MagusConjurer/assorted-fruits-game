@@ -8,10 +8,19 @@ function dialogue_update()
 		dialogue_active = true;
 		conversation_index = 0;
 		conversation_boxes = [];
+		dialogue_selection_options = [];
+		dialogue_selection_buttons = [];
 		dialogue_start();
 	}
 	else if (global.game_state == DIALOGUE && dialogue_active = true)
 	{
+		if(is_in_selection())
+		{
+			if(dialogue_selection_visible == false)
+			{
+				show_options();
+			}
+		}
 		if(keyboard_check_released(vk_space))
 		{
 			if(conversation_index >= array_length(conversation))
@@ -93,6 +102,12 @@ function load_conversation(level)
 			conversation[3] = "Fourth";
 			conversation[4] = "Fifth";
 			conversation[5] = "Sixth";
+			conversation[6] = SELECTION;
+			conversation[7] = "Thanks Bye";
+			
+			dialogue_selection_options[0] = "Health";
+			dialogue_selection_options[1] = "Defense";
+			dialogue_selection_options[2] = "Offense";
 		break;
 	}
 
@@ -128,4 +143,57 @@ function end_conversation()
 	
 	obj_game.dialogue_active = false;
 	set_game_state(OVERWORLD);
+}
+
+function show_options()
+{
+	for(i = 0; i < array_length(dialogue_selection_options); i++)
+	{
+		if(!ENABLE_MULTI_TEXTBOX)
+		{
+			box = conversation_boxes[0];
+		}
+		else
+		{
+			box = conversation_boxes[conversation_index];
+		}
+		
+		box.current_text = "";
+		box.box_tint = c_gray;
+		
+		option_button = instance_create_layer(0, 0, "Dialogue", obj_selection_dia);
+		option_button.text = dialogue_selection_options[i];
+		option_button.x = box.x + ((box.sprite_width*0.25) * (i+1));
+		option_button.y = box.y + (box.sprite_height*0.5);
+		
+		dialogue_selection_buttons[i] = option_button;
+	}
+	
+	dialogue_button.enabled = false;
+	dialogue_selection_visible = true;
+}
+
+function is_in_selection()
+{
+	if(conversation_index < array_length(conversation))
+	{
+		if(conversation[conversation_index] == SELECTION)
+		{
+			return true;
+		}
+	}
+}
+
+function complete_selection()
+{
+	for(i = 0; i < array_length(obj_game.dialogue_selection_buttons); i++)
+	{
+		instance_destroy(obj_game.dialogue_selection_buttons[i]);
+	}
+	
+	obj_game.dialogue_button.enabled = true;
+	obj_game.dialogue_selection_visible = false;
+		
+	obj_game.conversation_index++;
+	continue_conversation();
 }

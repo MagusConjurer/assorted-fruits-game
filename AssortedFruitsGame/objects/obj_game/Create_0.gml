@@ -28,3 +28,6 @@ conversation_player_first = true;
 dialogue_button = 0;
 dialogue_player = 0;
 dialogue_other = 0;
+dialogue_selection_options = [];
+dialogue_selection_buttons = [];
+dialogue_selection_visible = false;

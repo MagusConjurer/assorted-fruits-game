@@ -1,3 +1,7 @@
 /// @description
 
-image_index = BUTTON_DEFAULT;
+if(enabled)
+{
+	image_index = BUTTON_DEFAULT;
+}
+
