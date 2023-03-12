@@ -1,3 +1,6 @@
 /// @description 
 
-image_index = BUTTON_PRESSED;
+if(enabled)
+{
+	image_index = BUTTON_PRESSED;
+}

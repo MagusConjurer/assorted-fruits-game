@@ -1,3 +1,7 @@
 /// @description
 
-image_index = BUTTON_HOVER;
+if(enabled)
+{
+	image_index = BUTTON_HOVER;
+}
+
