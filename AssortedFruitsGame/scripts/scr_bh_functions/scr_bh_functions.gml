@@ -44,9 +44,8 @@ function bh_start(x_pos){
 
 function bh_ability(ability)
 {
-	if(ability = BH_ABILITY_ONE)
-	{
-		
+	with(obj_player_bh) {
+		event_user(1);
 	}
 }
 
