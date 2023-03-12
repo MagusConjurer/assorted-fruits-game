@@ -12,6 +12,8 @@ pause_menu_buttons = [];
 bh_active = false;
 
 bh_player_health = 0;
+bh_ability_index = 0;
+bh_ability_cooldown = 1;
 
 num_active_bubbles = 0;
 bubble_x_pos = room_width - 250;

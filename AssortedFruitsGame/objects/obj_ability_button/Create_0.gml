@@ -3,5 +3,4 @@
 // Inherit the parent event
 event_inherited();
 
-ability = BH_ABILITY_ONE;
-
+ability = obj_game.bh_ability_index;
