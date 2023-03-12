@@ -51,8 +51,12 @@ function bh_set_ability(ability)
 		case BH_ABILITY_SHIELD:
 			obj_game.bh_ability_cooldown = BH_SHIELD_COOLDOWN;
 		break;
+		case BH_ABILITY_HEAL:
+			obj_game.bh_ability_cooldown = BH_HEAL_COOLDOWN;
+		break;
 		default:
 			obj_game.bh_ability_index = 0;
+			obj_game.bh_ability_cooldown = 1;
 	}
 }
 

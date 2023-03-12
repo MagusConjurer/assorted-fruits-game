@@ -1,7 +1,7 @@
 
 if(text == "Health")
 {
-	
+	bh_set_ability(BH_ABILITY_HEAL);
 }
 else if(text == "Defense")
 {
