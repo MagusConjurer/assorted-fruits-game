@@ -41,10 +41,25 @@ function bh_start(x_pos){
 	
 }
 
+function bh_set_ability(ability)
+{
+	obj_game.bh_ability_index = ability;
+	switch(ability) {
+		case BH_ABILITY_DASH:
+			obj_game.bh_ability_cooldown = BH_DASH_COOLDOWN;
+		break;
+		case BH_ABILITY_SHIELD:
+			obj_game.bh_ability_cooldown = BH_SHIELD_COOLDOWN;
+		break;
+		default:
+			obj_game.bh_ability_index = 0;
+	}
+}
+
 function bh_ability(ability)
 {
 	with(obj_player_bh) {
-		event_user(1);
+		event_user(ability);
 	}
 }
 

@@ -4,3 +4,4 @@
 event_inherited();
 
 ability = 0;
+usable = true;
