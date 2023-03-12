@@ -1,6 +1,6 @@
 /// @description
 
 text = "Button";
+enabled = true;
 
-script_to_run = 0;
 layer_to_check = 0;
