@@ -32,8 +32,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_bubble_default",
-    "path": "sprites/spr_bubble_default/spr_bubble_default.yy",
+    "name": "Spr_wordbubble_combined",
+    "path": "sprites/Spr_wordbubble_combined/Spr_wordbubble_combined.yy",
   },
   "spriteMaskId": null,
   "visible": true,

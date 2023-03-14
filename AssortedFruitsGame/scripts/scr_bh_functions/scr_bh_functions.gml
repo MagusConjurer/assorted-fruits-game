@@ -6,7 +6,7 @@ function bh_update()
 	{
 		bh_active = true;
 	
-		bh_start(bubble_x_pos);
+		bh_start();
 	
 		bh_time_spent = 0;
 	}
@@ -27,7 +27,7 @@ function bh_update()
 }
 
 
-function bh_start(x_pos){
+function bh_start(){
 	// Player
 	instance_create_layer(RESOLUTION_W * 0.5, RESOLUTION_H * 0.5, "Bullet_Hell", obj_player_bh);
 	
@@ -35,10 +35,7 @@ function bh_start(x_pos){
 	instance_create_layer(50,RESOLUTION_H - 50, "Bullet_Hell", obj_ability_button);
 	
 	// First bubble
-	instance_create_layer(x_pos, room_height * 0.25, "Bullet_Hell", obj_bubble);
-	num_active_bubbles = 1;
-	
-	
+	bh_spawn_bubble();
 }
 
 function bh_set_ability(ability)
@@ -68,12 +65,12 @@ function bh_ability(ability)
 }
 
 
-function bh_spawn_bubble(x_pos){
+function bh_spawn_bubble(){
 	if(num_active_bubbles <= BH_MAX_BUBBLES && bh_active == true)
 	{
-		variance = random_range(-100,100);
+		variance = random_range(-100, (room_height/2) - 100);
 
-		instance_create_layer(x_pos + variance, room_height * 0.25, "Bullet_Hell", obj_bubble);
+		instance_create_layer(room_width * 0.8, (room_height/2) + variance, "Bullet_Hell", obj_bubble);
 		num_active_bubbles++;
 	}
 }

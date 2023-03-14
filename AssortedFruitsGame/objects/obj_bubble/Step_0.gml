@@ -19,21 +19,19 @@ if(global.game_state == BULLET_HELL)
 	}
 
 	// Movement
+	bubble_below = place_empty(x + xSpeed, y, obj_bubble);
+	player_below = place_meeting(x + xSpeed, y, obj_player_bh);
 
-
-	bubble_below = place_empty(x, y + ySpeed, obj_bubble);
-	player_below = place_meeting(x,y + ySpeed, obj_player_bh);
-
-	if (y > room_height - 250 || !bubble_below || player_below)
+	if (x < 100 || !bubble_below || player_below)
 	{
-		yDirection = 0;
+		xDirection = 0;
 	} 
 	else 
 	{
-		yDirection = 1;
+		xDirection = -1;
 	}
 
-	y += yDirection * ySpeed;
+	x += xDirection * xSpeed;
 }
 
 

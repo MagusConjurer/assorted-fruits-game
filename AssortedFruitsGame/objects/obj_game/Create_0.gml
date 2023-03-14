@@ -16,7 +16,6 @@ bh_ability_index = 0;
 bh_ability_cooldown = 1;
 
 num_active_bubbles = 0;
-bubble_x_pos = room_width - 250;
 bubble_popped_time = 0;
 bh_time_spent = 0;
 
