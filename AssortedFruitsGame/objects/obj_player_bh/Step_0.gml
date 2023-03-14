@@ -27,8 +27,15 @@ if (global.game_state == active_state)
 		xSpeed = (key_right - key_left) * moveSpeed;
 		ySpeed = (key_down - key_up) * moveSpeed;
 	}
-	y += ySpeed;
-	x += xSpeed;
+	
+	if(place_meeting(x + xSpeed, y, obj_bubble))
+	{
+		xSpeed = 0;
+	}
+	if(place_meeting(x, y + ySpeed, obj_bubble))
+	{
+		ySpeed = 0;
+	}
 	
 	// Draws the player above the darkened area
 	depth = BH_DEPTH;

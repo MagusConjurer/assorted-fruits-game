@@ -32,8 +32,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_bubble_projectile_def",
-    "path": "sprites/spr_bubble_projectile_def/spr_bubble_projectile_def.yy",
+    "name": "spr_projectile_combined",
+    "path": "sprites/spr_projectile_combined/spr_projectile_combined.yy",
   },
   "spriteMaskId": null,
   "visible": true,

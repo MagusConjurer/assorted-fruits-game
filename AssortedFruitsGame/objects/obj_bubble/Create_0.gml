@@ -2,7 +2,7 @@
 
 event_inherited();
 
-yDirection = 0;
-ySpeed = BH_BUBBLE_FALL_SPEED;
+xDirection = 0;
+xSpeed = BH_BUBBLE_MOVE_SPEED;
 
 bubble_health = BH_STARTING_BUBBLE_HEALTH;

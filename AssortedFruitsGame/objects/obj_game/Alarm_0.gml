@@ -1,3 +1,6 @@
 /// @description Spawn a new bubble
 
-bh_spawn_bubble(bubble_x_pos);
+for(i = 0; i < BH_NUM_BUBBLES_PER_SPAWN; i++)
+{
+	bh_spawn_random_bubble();
+}
