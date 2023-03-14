@@ -63,7 +63,7 @@
   ],
   "isEcma": false,
   "MetaData": {
-    "IDEVersion": "2023.1.1.62",
+    "IDEVersion": "2023.1.0.58",
   },
   "resources": [
     {"id":{"name":"obj_cans","path":"objects/obj_cans/obj_cans.yy",},"order":4,},

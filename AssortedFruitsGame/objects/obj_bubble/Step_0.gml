@@ -19,7 +19,7 @@ if(global.game_state == BULLET_HELL)
 	}
 
 	// Movement
-	bubble_below = place_empty(x + xSpeed, y, obj_bubble);
+	bubble_below = place_empty(x - xSpeed, y, obj_bubble);
 	player_below = place_meeting(x + xSpeed, y, obj_player_bh);
 
 	if (x < 100 || !bubble_below || player_below)
