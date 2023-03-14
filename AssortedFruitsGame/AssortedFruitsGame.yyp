@@ -131,7 +131,7 @@
     {"id":{"name":"obj_cb_music","path":"objects/obj_cb_music/obj_cb_music.yy",},"order":0,},
     {"id":{"name":"stella_unimpressed6","path":"sprites/stella_unimpressed6/stella_unimpressed6.yy",},"order":4,},
     {"id":{"name":"Alex_sit_normal","path":"sprites/Alex_sit_normal/Alex_sit_normal.yy",},"order":6,},
-    {"id":{"name":"Spr_wordbubble_combined","path":"sprites/Spr_wordbubble_combined/Spr_wordbubble_combined.yy",},"order":0,},
+    {"id":{"name":"spr_wordbubble_combined","path":"sprites/spr_wordbubble_combined/spr_wordbubble_combined.yy",},"order":0,},
     {"id":{"name":"spr_bed_01","path":"sprites/spr_bed_01/spr_bed_01.yy",},"order":1,},
     {"id":{"name":"alex_shocked2","path":"sprites/alex_shocked2/alex_shocked2.yy",},"order":8,},
     {"id":{"name":"Sprite12","path":"sprites/Sprite12/Sprite12.yy",},"order":2,},

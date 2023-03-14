@@ -37,9 +37,6 @@ if (global.game_state == active_state)
 		ySpeed = 0;
 	}
 	
-	y += ySpeed;
-	x += xSpeed;
-	
 	// Draws the player above the darkened area
 	depth = BH_DEPTH;
 }

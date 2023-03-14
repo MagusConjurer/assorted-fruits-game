@@ -17,8 +17,16 @@ function bh_update()
 
 		if(bh_player_health <= 0)
 		{
+			// Put any lose actions here
+			// Let player reenter?
 			bh_cleanup();
 		} 
+		else if(bh_bubbles_popped >= BH_NUM_BUBBLES_TO_POP)
+		{
+			// Put any win actions here
+			// Don't let player reenter?
+			bh_cleanup();
+		}
 		else if(alarm_get(0) < 0) 
 		{
 			alarm_set(0,room_speed * 5);
@@ -34,8 +42,9 @@ function bh_start(){
 	// Ability Buttons
 	instance_create_layer(50,RESOLUTION_H - 50, "Bullet_Hell", obj_ability_button);
 	
-	// First bubble
-	bh_spawn_bubble();
+	// First wall of bubbles
+	bh_spawn_initial_bubbles();
+
 }
 
 function bh_set_ability(ability)
@@ -64,14 +73,38 @@ function bh_ability(ability)
 	}
 }
 
+function bh_spawn_bubble(y_index)
+{
+	x_pos = room_width * 0.9;
+	y_pos = (0.5 * bubble_height) + (possible_bubble_spots * y_index);
+	
+	show_debug_message(["Spawning new bubble at y = ", y_pos]);
+	
+	instance_create_layer(x_pos, y_pos, "Bullet_Hell", obj_bubble);
 
-function bh_spawn_bubble(){
+	num_active_bubbles++;
+}
+
+
+function bh_spawn_random_bubble(){	
 	if(num_active_bubbles <= BH_MAX_BUBBLES && bh_active == true)
 	{
-		variance = random_range(-100, (room_height/2) - 100);
+		bubble_rand = irandom_range(0,BH_NUM_STARTING_BUBBLES);
+		while(bubble_rand == bh_prev_bubble_rand)
+		{
+			bubble_rand = irandom_range(0,BH_NUM_STARTING_BUBBLES);
+		}
+		bh_prev_bubble_rand = bubble_rand;
 
-		instance_create_layer(room_width * 0.8, (room_height/2) + variance, "Bullet_Hell", obj_bubble);
-		num_active_bubbles++;
+		bh_spawn_bubble(bubble_rand);
+	}
+}
+
+function bh_spawn_initial_bubbles()
+{
+	for(i=0; i< BH_NUM_STARTING_BUBBLES; i++)
+	{
+		bh_spawn_bubble(i);
 	}
 }
 
@@ -82,6 +115,7 @@ function bh_bubble_destroyed(){
 	}
 	
 	obj_game.num_active_bubbles--;
+	obj_game.bh_bubbles_popped++;
 	obj_game.bubble_popped_time = obj_game.bh_time_spent;
 }
 
