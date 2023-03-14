@@ -32,8 +32,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_player_default",
-    "path": "sprites/spr_player_default/spr_player_default.yy",
+    "name": "spr_Alex_overworld_combined",
+    "path": "sprites/spr_Alex_overworld_combined/spr_Alex_overworld_combined.yy",
   },
   "spriteMaskId": null,
   "visible": true,
