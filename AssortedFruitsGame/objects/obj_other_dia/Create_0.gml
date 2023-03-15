@@ -13,5 +13,5 @@ other_height = sprite_get_height(other_portrait);
 x = global.resolution_w - PORTRAIT_MARGIN;
 y = global.resolution_h - (other_height/2) - PORTRAIT_MARGIN;
 
-textbox_color = c_green;
-textbox_name = "Other";
+textbox_color = c_yellow;
+textbox_name = "Alex";
