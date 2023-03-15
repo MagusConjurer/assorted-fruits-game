@@ -3,21 +3,21 @@
 // Inherit the parent event
 event_inherited();
 
-if((!has_been_interacted || INTERACT_REPEATABLE) && keyboard_check(ord(INTERACT_KEY)))
+player_is_close = collision_circle(x,y,200,obj_player_ov, false, true);
+
+if((!has_been_interacted || interact_repeatable) && player_is_close)
 {
-	if(collision_circle(x,y,radius,obj_player_ov, false, true))
+	has_been_interacted = true;
+		
+	// Do any action here
+		
+	set_game_state(DIALOGUE);
+		
+	// Remove popup if it is no longer needed
+	if(!interact_repeatable)
 	{
-		has_been_interacted = true;
-		
-		// Do any action here
-		
-		set_game_state(DIALOGUE);
-		
-		// Remove popup if it is no longer needed
-		if(!INTERACT_REPEATABLE)
-		{
-			instance_destroy(popup_id);
-		}
+		instance_destroy(popup_id);
+		instance_destroy();
 	}
 }
 

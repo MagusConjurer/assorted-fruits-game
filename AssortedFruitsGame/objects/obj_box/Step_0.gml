@@ -3,7 +3,7 @@
 // Inherit the parent event
 event_inherited();
 
-if((!has_been_interacted || INTERACT_REPEATABLE) && keyboard_check(ord(INTERACT_KEY)))
+if((!has_been_interacted || interact_repeatable) && keyboard_check(ord(INTERACT_KEY)))
 {
 	if(collision_circle(x,y,radius,obj_player_ov, false, true))
 	{
@@ -14,7 +14,7 @@ if((!has_been_interacted || INTERACT_REPEATABLE) && keyboard_check(ord(INTERACT_
 		set_game_state(BULLET_HELL);
 		
 		// Remove popup if it is no longer needed
-		if(!INTERACT_REPEATABLE)
+		if(!interact_repeatable)
 		{
 			instance_destroy(popup_id);
 		}
