@@ -2,7 +2,7 @@
 function main_menu_play()
 {
 	set_game_state(OVERWORLD);
-	play_background_music(temp_music);
+	play_background_music(BG_music);
 
 	room_goto(global.current_level);
 }

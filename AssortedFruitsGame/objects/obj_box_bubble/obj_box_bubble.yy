@@ -1,20 +1,19 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_player_dia",
+  "name": "obj_box_bubble",
   "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Dialogue",
-    "path": "folders/Objects/Dialogue.yy",
+    "name": "Interactables",
+    "path": "folders/Objects/Overworld/Interactables.yy",
   },
   "parentObjectId": {
-    "name": "obj_dialogue_parent",
-    "path": "objects/obj_dialogue_parent/obj_dialogue_parent.yy",
+    "name": "obj_interactable_parent",
+    "path": "objects/obj_interactable_parent/obj_interactable_parent.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,
@@ -32,8 +31,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "BusGuy_duh2",
-    "path": "sprites/BusGuy_duh2/BusGuy_duh2.yy",
+    "name": "spr_wordbubble_combined",
+    "path": "sprites/spr_wordbubble_combined/spr_wordbubble_combined.yy",
   },
   "spriteMaskId": null,
   "visible": true,

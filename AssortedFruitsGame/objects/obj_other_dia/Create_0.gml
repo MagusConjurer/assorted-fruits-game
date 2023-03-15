@@ -6,7 +6,7 @@ event_inherited();
 
 other_portrait = spr_player_dia_default;
 image_index = 0;
-image_blend = c_lime;
+
 
 other_height = sprite_get_height(other_portrait);
 

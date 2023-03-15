@@ -31,8 +31,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_interactable_default",
-    "path": "sprites/spr_interactable_default/spr_interactable_default.yy",
+    "name": "spr_interactable_default2",
+    "path": "sprites/spr_interactable_default2/spr_interactable_default2.yy",
   },
   "spriteMaskId": null,
   "visible": true,

@@ -9,10 +9,10 @@ global.resolution_w = 1920;
 global.resolution_h = 1080;
 global.resize_enabled = false;
 global.fullscreen_enabled = true;
-global.music_enabled = false;
+global.music_enabled = true;
 global.music_volume = 0.5;
-global.sfx_enabled = false;
-global.sfx_volume = 0.5;
+global.sfx_enabled = true;
+global.sfx_volume = 0.3;
 
 window_set_fullscreen(global.fullscreen_enabled);
 
