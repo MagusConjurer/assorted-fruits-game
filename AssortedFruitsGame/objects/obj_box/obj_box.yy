@@ -31,9 +31,12 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_interactable_default",
-    "path": "sprites/spr_interactable_default/spr_interactable_default.yy",
+    "name": "spr_projectile_combined",
+    "path": "sprites/spr_projectile_combined/spr_projectile_combined.yy",
   },
-  "spriteMaskId": null,
+  "spriteMaskId": {
+    "name": "spr_interactable_default2",
+    "path": "sprites/spr_interactable_default2/spr_interactable_default2.yy",
+  },
   "visible": true,
 }

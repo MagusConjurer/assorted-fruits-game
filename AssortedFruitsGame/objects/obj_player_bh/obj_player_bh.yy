@@ -38,8 +38,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_player_bh_default",
-    "path": "sprites/spr_player_bh_default/spr_player_bh_default.yy",
+    "name": "spr_alex_Bullethell_temp_R",
+    "path": "sprites/spr_alex_Bullethell_temp_R/spr_alex_Bullethell_temp_R.yy",
   },
   "spriteMaskId": null,
   "visible": true,

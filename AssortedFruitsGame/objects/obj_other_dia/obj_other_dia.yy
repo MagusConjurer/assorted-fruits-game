@@ -32,8 +32,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_player_dia_default",
-    "path": "sprites/spr_player_dia_default/spr_player_dia_default.yy",
+    "name": "alex_shocked2",
+    "path": "sprites/alex_shocked2/alex_shocked2.yy",
   },
   "spriteMaskId": null,
   "visible": true,
