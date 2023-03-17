@@ -6,8 +6,6 @@
 pause_menu_visible = false;
 pause_menu_buttons = [];
 
-
-
 // Bullet Hell
 bh_active = false;
 
@@ -25,13 +23,14 @@ bh_time_spent = 0;
 
 // Dialogue
 dialogue_active = false;
-dialogue_level = 1;
-conversation_index = 0;
+dialogue_selection_visible = false;
+dialogue_level = 0;
+conversation_index = 1; // starts at 1 since data is index 0
+conversation = [];
 conversation_boxes = [];
-conversation_player_first = true;
 dialogue_button = 0;
-dialogue_player = 0;
-dialogue_other = 0;
+dialogue_left = 0;
+dialogue_right = 0;
 dialogue_selection_options = [];
 dialogue_selection_buttons = [];
-dialogue_selection_visible = false;
+

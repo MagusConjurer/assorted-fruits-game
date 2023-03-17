@@ -1,12 +1,11 @@
-conversation = [];
-
 /// Called by obj_game to check for necessary dialogue updates
 function dialogue_update()
 {
 	if (global.game_state == DIALOGUE && dialogue_active = false)
 	{
 		dialogue_active = true;
-		conversation_index = 0;
+		conversation_index = 1;
+		conversation = [];
 		conversation_boxes = [];
 		dialogue_selection_options = [];
 		dialogue_selection_buttons = [];
@@ -14,14 +13,7 @@ function dialogue_update()
 	}
 	else if (global.game_state == DIALOGUE && dialogue_active = true)
 	{
-		if(is_in_selection())
-		{
-			if(dialogue_selection_visible == false)
-			{
-				show_options();
-			}
-		}
-		if(keyboard_check_released(vk_space))
+		if(!dialogue_selection_visible && keyboard_check_released(vk_space))
 		{
 			if(conversation_index >= array_length(conversation))
 			{
@@ -37,7 +29,6 @@ function dialogue_update()
 
 function dialogue_start()
 {
-	dialogue_player = instance_create_layer(0, 0, "Dialogue", obj_player_dia);
 	dialogue_button = instance_create_layer(0, 0, "Dialogue", obj_continue_dia);
 	dialogue_button.text = CONTINUE_DIA_TEXT;
 	
@@ -47,19 +38,18 @@ function dialogue_start()
 
 function set_textbox_properties(textbox)
 {
-	alternate = (obj_game.conversation_index + obj_game.conversation_player_first) mod 2;
+	current_line = obj_game.conversation[obj_game.conversation_index];
 	
-	textbox.current_text = obj_game.conversation[obj_game.conversation_index];
-				
-	if(alternate == 1)
+	textbox.current_text = current_line.text;
+	if(current_line.on_the_left)
 	{
-		textbox.box_tint = obj_game.dialogue_player.textbox_color;
-		textbox.current_name = obj_game.dialogue_player.textbox_name;
+		textbox.box_tint = dialogue_left.textbox_color;
+		textbox.current_name = dialogue_left.textbox_name;
 	}
 	else
 	{
-		textbox.box_tint = obj_game.dialogue_other.textbox_color;
-		textbox.current_name = obj_game.dialogue_other.textbox_name;
+		textbox.box_tint = dialogue_right.textbox_color;
+		textbox.current_name = dialogue_right.textbox_name;
 	}
 }
 
@@ -68,7 +58,7 @@ function draw_textbox()
 	obj_game.textbox_inst = instance_create_layer(0,0,"Dialogue",obj_textbox_dia);
 	set_textbox_properties(obj_game.textbox_inst);
 	
-	obj_game.conversation_boxes[conversation_index] = textbox_inst;
+	obj_game.conversation_boxes[conversation_index-1] = textbox_inst;
 	obj_game.conversation_index++;
 }
 
@@ -86,38 +76,32 @@ function draw_multi_textbox()
 	draw_textbox();
 }
 
-/// May want to move the conversation elsewhere
-/// Can create separate duplicate objects for each character to make it easier to swap out sprites/colors/names/etc
 function load_conversation(level)
 {
 	switch(level)
 	{
+		case 0:
+			conversation_data = global.conversations[0];
+			break;
 		case 1:
-			dialogue_other = instance_create_layer(0, 0, "Dialogue", obj_other_dia);
-			conversation_player_first = true;
-			
-			conversation[0] = "Eugh.";
-			conversation[1] = "...";
-			conversation[2] = "F@$%!t.";
-			conversation[3] = "(internal) Did he seriously say that to me? I didn't even do anything to him! What should I do?";
-			conversation[4] = SELECTION;
-			conversation[5] = "...";
-			conversation[6] = "What, can't even look at me when I'm talking to you?";
-			conversation[7] = "....";
-			conversation[8] = "Lookin' away ain't egonna do you any favors, kid.";
-			conversation[9] = "Please stop."
-			conversation[10] = "What, I'm just stating the obvious. You're practically screaming it to the entire town looking like that.";
-			conversation[11] = "It's not a nice thing to say, though.";
-			conversation[12] = "I don't gotta be nice to you."
-			conversation[13] = "(internal) My heart's beating really fast.... I just wanna get away, but I have to catch this bus.";
-			conversation[14] = "Hey! You deaf or something?";
-			
-			dialogue_selection_options[0] = "Health";
-			dialogue_selection_options[1] = "Defense";
-			dialogue_selection_options[2] = "Offense";
+
 		break;
 	}
-
+	
+	dialogue_left  = instance_create_layer(0,0, "Dialogue", conversation_data[0].left_speaker);
+	dialogue_right = instance_create_layer(0,0, "Dialogue", conversation_data[0].right_speaker);
+	
+	for(i = 1; i < array_length(conversation_data); i++)
+	{
+		conversation[i] = conversation_data[i];
+		if(conversation[i].type == "selection")
+		{
+			for(j = 0; j < array_length(conversation[i].option_descriptions); j++)
+			{
+				dialogue_selection_options[j] = conversation[i].option_descriptions[j];
+			}
+		}
+	}
 }
 
 function continue_conversation()
@@ -127,19 +111,27 @@ function continue_conversation()
 		if(!ENABLE_MULTI_TEXTBOX)
 		{
 			obj_game.box = obj_game.conversation_boxes[0];
-			set_textbox_properties(obj_game.box);
-				
-			obj_game.conversation_index++;
+			if(obj_game.conversation[obj_game.conversation_index].type == "line")
+			{
+				set_textbox_properties(obj_game.box);
+				obj_game.conversation_index++;
+			}
+			else
+			{
+				if(obj_game.dialogue_selection_visible == false)
+				{
+					show_options();
+				}
+			}
 		}
 		else
 		{
 			draw_multi_textbox()
-		}
-				
-		if(obj_game.conversation_index == array_length(obj_game.conversation))
-		{
-			obj_game.dialogue_button.text = COMPLETE_DIA_TEXT;
-		}
+		}	
+	}
+	else
+	{
+		obj_game.dialogue_button.text = COMPLETE_DIA_TEXT;
 	}
 }
 
@@ -154,41 +146,45 @@ function end_conversation()
 
 function show_options()
 {
-	for(i = 0; i < array_length(dialogue_selection_options); i++)
+	options = obj_game.dialogue_selection_options;
+	num_options = array_length(options);
+	for(i = 0; i < num_options; i++)
 	{
 		if(!ENABLE_MULTI_TEXTBOX)
 		{
-			box = conversation_boxes[0];
+			box = obj_game.conversation_boxes[0];
 		}
 		else
 		{
-			box = conversation_boxes[conversation_index];
+			box = obj_game.conversation_boxes[obj_game.conversation_index-1];
 		}
 		
-		box.current_text = "";
-		box.box_tint = c_gray;
+		current_selection = obj_game.conversation[obj_game.conversation_index];
+		
+		box.current_text = current_selection.text_to_show;
+		box.box_tint = current_selection.color;
 		
 		option_button = instance_create_layer(0, 0, "Dialogue", obj_selection_dia);
-		option_button.text = dialogue_selection_options[i];
-		option_button.x = box.x + ((box.sprite_width*0.25) * (i+1));
+		option_button.text = options[i];
+		
+		spacing = 1;
+		if(num_options == 3)
+		{
+			spacing = 0.25;
+		}
+		else if(num_options == 2)
+		{
+			spacing = 0.3
+		}
+		
+		option_button.x = box.x + ((box.sprite_width*spacing) * (i+1));
 		option_button.y = box.y + (box.sprite_height*0.5);
 		
-		dialogue_selection_buttons[i] = option_button;
+		obj_game.dialogue_selection_buttons[i] = option_button;
 	}
 	
-	dialogue_button.enabled = false;
-	dialogue_selection_visible = true;
-}
-
-function is_in_selection()
-{
-	if(conversation_index < array_length(conversation))
-	{
-		if(conversation[conversation_index] == SELECTION)
-		{
-			return true;
-		}
-	}
+	obj_game.dialogue_button.enabled = false;
+	obj_game.dialogue_selection_visible = true;
 }
 
 function complete_selection()
