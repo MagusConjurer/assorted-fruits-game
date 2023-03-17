@@ -24,7 +24,7 @@ bh_time_spent = 0;
 // Dialogue
 dialogue_active = false;
 dialogue_selection_visible = false;
-dialogue_level = 0;
+dialogue_level = 1;
 conversation_index = 1; // starts at 1 since data is index 0
 conversation = [];
 conversation_boxes = [];

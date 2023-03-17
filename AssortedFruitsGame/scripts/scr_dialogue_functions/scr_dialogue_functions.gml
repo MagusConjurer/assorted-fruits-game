@@ -43,13 +43,13 @@ function set_textbox_properties(textbox)
 	textbox.current_text = current_line.text;
 	if(current_line.on_the_left)
 	{
-		textbox.box_tint = dialogue_left.textbox_color;
-		textbox.current_name = dialogue_left.textbox_name;
+		textbox.box_tint = obj_game.dialogue_left.textbox_color;
+		textbox.current_name = obj_game.dialogue_left.textbox_name;
 	}
 	else
 	{
-		textbox.box_tint = dialogue_right.textbox_color;
-		textbox.current_name = dialogue_right.textbox_name;
+		textbox.box_tint = obj_game.dialogue_right.textbox_color;
+		textbox.current_name = obj_game.dialogue_right.textbox_name;
 	}
 }
 
@@ -78,27 +78,19 @@ function draw_multi_textbox()
 
 function load_conversation(level)
 {
-	switch(level)
-	{
-		case 0:
-			conversation_data = global.conversations[0];
-			break;
-		case 1:
-
-		break;
-	}
+	conversation_data = global.conversations[level];
 	
-	dialogue_left  = instance_create_layer(0,0, "Dialogue", conversation_data[0].left_speaker);
-	dialogue_right = instance_create_layer(0,0, "Dialogue", conversation_data[0].right_speaker);
+	obj_game.dialogue_left  = instance_create_layer(0,0, "Dialogue", conversation_data[0].left_speaker);
+	obj_game.dialogue_right = instance_create_layer(0,0, "Dialogue", conversation_data[0].right_speaker);
 	
 	for(i = 1; i < array_length(conversation_data); i++)
 	{
-		conversation[i] = conversation_data[i];
-		if(conversation[i].type == "selection")
+		obj_game.conversation[i] = conversation_data[i];
+		if(obj_game.conversation[i].type == "selection")
 		{
 			for(j = 0; j < array_length(conversation[i].option_descriptions); j++)
 			{
-				dialogue_selection_options[j] = conversation[i].option_descriptions[j];
+				obj_game.dialogue_selection_options[j] = obj_game.conversation[i].option_descriptions[j];
 			}
 		}
 	}
@@ -129,7 +121,9 @@ function continue_conversation()
 			draw_multi_textbox()
 		}	
 	}
-	else
+	
+	// allows it to update directly after final line
+	if(obj_game.conversation_index == array_length(obj_game.conversation))
 	{
 		obj_game.dialogue_button.text = COMPLETE_DIA_TEXT;
 	}

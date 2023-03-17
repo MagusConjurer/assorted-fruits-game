@@ -4,7 +4,7 @@
 // to allow for more unique experiences where randomness is being used.
 randomize();
 
-global.debugging = true;
+global.debugging = false;
 
 // Settings Variables
 global.resolution_w = 1920;

@@ -16,3 +16,5 @@
 
 /// Emotions
 #macro ALEX_ANXIOUS 6
+
+#macro BUS_GUY_RUDE 0
