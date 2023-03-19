@@ -86,11 +86,13 @@ function load_conversation(level)
 	for(i = 1; i < array_length(conversation_data); i++)
 	{
 		obj_game.conversation[i] = conversation_data[i];
-		if(obj_game.conversation[i].type == "selection")
+		current_conversation = obj_game.conversation[i];
+		if(current_conversation.type == "selection")
 		{
 			for(j = 0; j < array_length(conversation[i].option_descriptions); j++)
 			{
-				obj_game.dialogue_selection_options[j] = obj_game.conversation[i].option_descriptions[j];
+				obj_game.dialogue_selection_options[j] = current_conversation.option_descriptions[j];
+				obj_game.dialogue_selection_jumps[j]   = current_conversation.option_jump_index[j];
 			}
 		}
 	}
@@ -103,9 +105,15 @@ function continue_conversation()
 		if(!ENABLE_MULTI_TEXTBOX)
 		{
 			obj_game.box = obj_game.conversation_boxes[0];
-			if(obj_game.conversation[obj_game.conversation_index].type == "line")
+			current_line = obj_game.conversation[obj_game.conversation_index];
+			if(current_line.type == "line")
 			{
 				set_textbox_properties(obj_game.box);
+				if(current_line.jump_to > 0)
+				{
+					obj_game.conversation_index = current_line.jump_to;
+				}
+				
 				obj_game.conversation_index++;
 			}
 			else
@@ -141,6 +149,7 @@ function end_conversation()
 function show_options()
 {
 	options = obj_game.dialogue_selection_options;
+	jumps   = obj_game.dialogue_selection_jumps;
 	num_options = array_length(options);
 	for(i = 0; i < num_options; i++)
 	{
@@ -160,6 +169,7 @@ function show_options()
 		
 		option_button = instance_create_layer(0, 0, "Dialogue", obj_selection_dia);
 		option_button.text = options[i];
+		option_button.jump_index = jumps[i];
 		
 		spacing = 1;
 		if(num_options == 3)
@@ -179,6 +189,11 @@ function show_options()
 	
 	obj_game.dialogue_button.enabled = false;
 	obj_game.dialogue_selection_visible = true;
+}
+
+function dialogue_jump_to(index)
+{
+	obj_game.conversation_index = index;
 }
 
 function complete_selection()
