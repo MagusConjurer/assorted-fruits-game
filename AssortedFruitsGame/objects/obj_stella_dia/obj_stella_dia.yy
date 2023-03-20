@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_player_dia",
+  "name": "obj_stella_dia",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,},
@@ -9,8 +9,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Dialogue",
-    "path": "folders/Objects/Dialogue.yy",
+    "name": "Characters",
+    "path": "folders/Objects/Dialogue/Characters.yy",
   },
   "parentObjectId": {
     "name": "obj_dialogue_parent",
@@ -32,8 +32,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "BusGuy_duh2",
-    "path": "sprites/BusGuy_duh2/BusGuy_duh2.yy",
+    "name": "stella_happy3",
+    "path": "sprites/stella_happy3/stella_happy3.yy",
   },
   "spriteMaskId": null,
   "visible": true,

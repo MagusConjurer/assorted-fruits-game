@@ -2,19 +2,20 @@
 
 setup_data = {
 	type: "data",
-	left_speaker: obj_other_dia,
-	right_speaker: obj_player_dia
+	left_speaker: obj_alex_dia,
+	right_speaker: obj_stella_dia,
+	in_person: true
 }
 
 line_0 = {
-	type: "line",
-	on_the_left: 0,          // Which side their object will be on  
+	type: "line",			 // "line" for in person, "message" for phone 
+	on_the_left: true,       // Which side their object will be on  
 	emotion: ALEX_ANXIOUS,   // The macro for that person's emotion
 	text: "The dialogue",    // The text of what they are saying
 	jump_to: 0				 // An index to jump to after this line
 }
 
-selection_0 = {
+selection_1 = {
 	type: "selection",
 	text_to_show: "What should I do?",
 	color: c_gray,
@@ -22,6 +23,10 @@ selection_0 = {
 	option_jump_index: [0,1]  // The line number to jump to for the option description at the same index
 }
 
-current_conversation = [ setup_data, line_0, selection_0 ];
+current_conversation = [ 
+setup_data, 
+line_0, 
+selection_1 
+];
 
-global.conversations[0] = current_conversation;
+// global.conversations[0] = current_conversation;

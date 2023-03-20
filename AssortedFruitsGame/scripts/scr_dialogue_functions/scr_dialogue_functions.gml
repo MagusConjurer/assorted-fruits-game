@@ -33,6 +33,7 @@ function dialogue_start()
 	dialogue_button.text = CONTINUE_DIA_TEXT;
 	
 	load_conversation(dialogue_level);
+	set_portrait_positions();
 	draw_textbox();
 }
 
@@ -58,7 +59,7 @@ function draw_textbox()
 	obj_game.textbox_inst = instance_create_layer(0,0,"Dialogue",obj_textbox_dia);
 	set_textbox_properties(obj_game.textbox_inst);
 	
-	obj_game.conversation_boxes[conversation_index-1] = textbox_inst;
+	obj_game.conversation_boxes[obj_game.conversation_index-1] = obj_game.textbox_inst;
 	obj_game.conversation_index++;
 }
 
@@ -74,6 +75,18 @@ function draw_multi_textbox()
 	}
 				
 	draw_textbox();
+}
+
+function remove_multi_boxes()
+{
+	for(i = 1; i < array_length(obj_game.conversation_boxes); i++)
+	{
+		if(instance_exists(obj_game.conversation_boxes[i]))
+		{
+			instance_destroy(obj_game.conversation_boxes[i]);
+		}
+	}
+	obj_game.conversation_boxes[0] = instance_create_layer(0,0,"Dialogue",obj_textbox_dia);
 }
 
 function load_conversation(level)
@@ -98,14 +111,41 @@ function load_conversation(level)
 	}
 }
 
+function set_portrait_positions()
+{
+	dialogue_left.x = PORTRAIT_MARGIN;
+	dialogue_left.y =  global.resolution_h - (PORTRAIT_HEIGHT/2);
+	
+	dialogue_right.x = global.resolution_w - PORTRAIT_MARGIN;
+	dialogue_right.y = global.resolution_h - (PORTRAIT_HEIGHT/2);
+}
+
+function check_if_in_person(line)
+{
+	if(line.type == "line")
+	{
+		if(obj_game.dialogue_in_person == false)
+		{
+			obj_game.dialogue_in_person = true;
+			remove_multi_boxes();
+		}
+	}
+	else if(line.type == "message")
+	{
+		obj_game.dialogue_in_person = false;
+	}
+}
+
 function continue_conversation()
 {
 	if(obj_game.conversation_index < array_length(obj_game.conversation))
 	{
-		if(!ENABLE_MULTI_TEXTBOX)
+		current_line = obj_game.conversation[obj_game.conversation_index];
+		check_if_in_person(current_line);
+		
+		if(obj_game.dialogue_in_person)
 		{
 			obj_game.box = obj_game.conversation_boxes[0];
-			current_line = obj_game.conversation[obj_game.conversation_index];
 			if(current_line.type == "line")
 			{
 				set_textbox_properties(obj_game.box);
@@ -126,7 +166,7 @@ function continue_conversation()
 		}
 		else
 		{
-			draw_multi_textbox()
+			draw_multi_textbox();
 		}	
 	}
 	
@@ -153,7 +193,7 @@ function show_options()
 	num_options = array_length(options);
 	for(i = 0; i < num_options; i++)
 	{
-		if(!ENABLE_MULTI_TEXTBOX)
+		if(!obj_game.dialogue_in_person)
 		{
 			box = obj_game.conversation_boxes[0];
 		}
