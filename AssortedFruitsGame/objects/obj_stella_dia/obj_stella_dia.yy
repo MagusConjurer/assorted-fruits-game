@@ -32,8 +32,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "stella_happy3",
-    "path": "sprites/stella_happy3/stella_happy3.yy",
+    "name": "spr_stella_combined",
+    "path": "sprites/spr_stella_combined/spr_stella_combined.yy",
   },
   "spriteMaskId": null,
   "visible": true,

@@ -51,6 +51,8 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy","order":8,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Conversations","folderPath":"folders/Scripts/Conversations.yy","order":0,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Characters","folderPath":"folders/Objects/Dialogue/Characters.yy","order":0,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"UI","folderPath":"folders/Sprites/UI.yy","order":0,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Dialogue","folderPath":"folders/Sprites/UI/Dialogue.yy","order":0,},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"BG_music.m4a","CopyToMask":-1,"filePath":"datafiles",},
@@ -207,6 +209,7 @@
     {"id":{"name":"obj_ability_button","path":"objects/obj_ability_button/obj_ability_button.yy",},"order":4,},
     {"id":{"name":"scr_dia_macros","path":"scripts/scr_dia_macros/scr_dia_macros.yy",},"order":1,},
     {"id":{"name":"scr_conversation_0","path":"scripts/scr_conversation_0/scr_conversation_0.yy",},"order":0,},
+    {"id":{"name":"spr_text_bubble","path":"sprites/spr_text_bubble/spr_text_bubble.yy",},"order":0,},
     {"id":{"name":"obj_busguy_dia","path":"objects/obj_busguy_dia/obj_busguy_dia.yy",},"order":0,},
     {"id":{"name":"ts_default","path":"tilesets/ts_default/ts_default.yy",},"order":0,},
     {"id":{"name":"obj_fence","path":"objects/obj_fence/obj_fence.yy",},"order":2,},

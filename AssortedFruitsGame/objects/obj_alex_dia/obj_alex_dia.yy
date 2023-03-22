@@ -32,8 +32,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "alex_shocked2",
-    "path": "sprites/alex_shocked2/alex_shocked2.yy",
+    "name": "spr_alex_combined",
+    "path": "sprites/spr_alex_combined/spr_alex_combined.yy",
   },
   "spriteMaskId": null,
   "visible": true,

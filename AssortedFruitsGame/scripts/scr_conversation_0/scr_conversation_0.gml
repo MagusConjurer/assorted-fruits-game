@@ -11,14 +11,14 @@ line_0 = {
 	type: "message",
 	on_the_left: true,          
 	emotion: 0,   
-	text: "heyyy! We still on for Cookies ‘n Cream Cafe at 3?",    
+	text: "heyyy! We still on for Cookies 'n Cream Cafe at 3?",    
 	jump_to: 0				 
 }
 
 line_1 = {
 	type: "message",
 	on_the_left: false,          
-	emotion: 0,   
+	emotion: ALEX_HAPPY,   
 	text: "oh damn i almost forgot but yea!!",    
 	jump_to: 0				 
 }
@@ -26,8 +26,8 @@ line_1 = {
 line_2 = {
 	type: "message",
 	on_the_left: true,          
-	emotion: 0,   
-	text: "I figured you’d need a reminder lol",    
+	emotion: STELLA_HAPPY,   
+	text: "I figured you'd need a reminder lol",    
 	jump_to: 0				 
 }
 
@@ -58,7 +58,7 @@ line_5 = {
 line_6 = {
 	type: "message",
 	on_the_left: false,          
-	emotion: 0,   
+	emotion: ALEX_ANXIOUS,   
 	text: "awful. worse than i expected.",    
 	jump_to: 0				 
 }
@@ -66,31 +66,31 @@ line_6 = {
 line_7 = {
 	type: "message",
 	on_the_left: true,          
-	emotion: 0,   
-	text: "oh, Alex…",    
+	emotion: STELLA_NERVOUS,   
+	text: "oh, Alex...",    
 	jump_to: 0				 
 }
 
 line_8 = {
 	type: "message",
 	on_the_left: false,          
-	emotion: 0,   
-	text: "i’ll tell u about it later",    
+	emotion: ALEX_ANXIOUS,   
+	text: "i'll tell u about it later",    
 	jump_to: 0				 
 }
 
 line_9 = {
 	type: "message",
 	on_the_left: true,          
-	emotion: 0,   
-	text: "ok. You better not be late tho, or coffee’s on you",    
+	emotion: STELLA_JOKING,   
+	text: "ok. You better not be late tho, or coffee's on you",    
 	jump_to: 0				 
 }
 
 line_10 = {
 	type: "message",
 	on_the_left: false,          
-	emotion: 0,   
+	emotion: ALEX_CONFUSED,   
 	text: "wha?? u literally work there and can get us drinks for free!!",    
 	jump_to: 0				 
 }
@@ -98,8 +98,8 @@ line_10 = {
 line_11 = {
 	type: "message",
 	on_the_left: true,          
-	emotion: 0,   
-	text: "late people don’t deserve free drinks ¯\_(ツ)_/¯",    
+	emotion: STELLA_HAPPY,   
+	text: @"late people don't deserve free drinks " + "\u00af" + @"\" + "_" + "(" + "\u0030c4" + ")" + "_" + "/" + "\u00af",    
 	jump_to: 0				 
 }
 
@@ -115,7 +115,7 @@ line_13 = {
 	type: "line",
 	on_the_left: false,          
 	emotion: 0,   
-	text: "(internal) Jeez, she’s so strict about being on time… Luckily the cafe’s just a short bus ride away.",    
+	text: "(internal) Jeez, she's so strict about being on time... Luckily the cafe's just a short bus ride away.",    
 	jump_to: 0				 
 }
 

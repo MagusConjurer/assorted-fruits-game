@@ -34,6 +34,7 @@ function dialogue_start()
 	
 	load_conversation(dialogue_level);
 	set_portrait_positions();
+	check_if_in_person(conversation[conversation_index]);
 	draw_textbox();
 }
 
@@ -41,16 +42,36 @@ function set_textbox_properties(textbox)
 {
 	current_line = obj_game.conversation[obj_game.conversation_index];
 	
+	if(obj_game.dialogue_in_person)
+	{
+		textbox.box_sprite = DIALOGUE_INPERSON_BOX_SPRITE;
+		textbox.current_alignment = align.centered;
+	} 
+	else 
+	{
+		textbox.box_sprite = DIALOGUE_TEXTMSG_BOX_SPRITE;
+		if(current_line.on_the_left)
+		{
+			textbox.current_alignment = align.left;
+		}
+		else
+		{
+			textbox.current_alignment = align.right;
+		}
+	}
+	
 	textbox.current_text = current_line.text;
 	if(current_line.on_the_left)
 	{
 		textbox.box_tint = obj_game.dialogue_left.textbox_color;
 		textbox.current_name = obj_game.dialogue_left.textbox_name;
+		obj_game.dialogue_left.image_index = current_line.emotion;
 	}
 	else
 	{
 		textbox.box_tint = obj_game.dialogue_right.textbox_color;
 		textbox.current_name = obj_game.dialogue_right.textbox_name;
+		obj_game.dialogue_right.image_index = current_line.emotion;
 	}
 }
 

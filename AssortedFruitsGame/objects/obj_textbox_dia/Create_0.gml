@@ -4,11 +4,13 @@
 // Inherit the parent event
 event_inherited();
 
-box_sprite = spr_dia_box_default;
+box_sprite = DIALOGUE_INPERSON_BOX_SPRITE;
 box_tint = c_white; // white is no tint
 
 box_width = sprite_get_width(box_sprite);
 box_height = sprite_get_height(box_sprite);
+
+current_alignment = align.centered;
 
 x = (global.resolution_w - box_width) * 0.5;
 y = global.resolution_h - box_height - TEXTBOX_MARGIN;

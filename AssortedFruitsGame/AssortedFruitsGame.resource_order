@@ -38,6 +38,8 @@
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
     {"name":"Conversations","order":12,"path":"folders/Scripts/Conversations.yy",},
     {"name":"Characters","order":8,"path":"folders/Objects/Dialogue/Characters.yy",},
+    {"name":"UI","order":7,"path":"folders/Sprites/UI.yy",},
+    {"name":"Dialogue","order":1,"path":"folders/Sprites/UI/Dialogue.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_cans","order":4,"path":"objects/obj_cans/obj_cans.yy",},
