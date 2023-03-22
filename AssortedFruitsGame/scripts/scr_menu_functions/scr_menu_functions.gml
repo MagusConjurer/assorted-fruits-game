@@ -4,7 +4,14 @@ function main_menu_play()
 	set_game_state(OVERWORLD);
 	play_background_music(BG_music);
 
-	room_goto(global.current_level);
+	if(global.debugging)
+	{
+		room_goto(rm_Debug);
+	}
+	else
+	{
+		room_goto(global.current_level);
+	}
 }
 
 function main_menu_settings()

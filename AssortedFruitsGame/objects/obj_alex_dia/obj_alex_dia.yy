@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_other_dia",
+  "name": "obj_alex_dia",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,},
@@ -9,8 +9,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Dialogue",
-    "path": "folders/Objects/Dialogue.yy",
+    "name": "Characters",
+    "path": "folders/Objects/Dialogue/Characters.yy",
   },
   "parentObjectId": {
     "name": "obj_dialogue_parent",
@@ -32,8 +32,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "alex_shocked2",
-    "path": "sprites/alex_shocked2/alex_shocked2.yy",
+    "name": "spr_alex_combined",
+    "path": "sprites/spr_alex_combined/spr_alex_combined.yy",
   },
   "spriteMaskId": null,
   "visible": true,

@@ -4,6 +4,8 @@
 // to allow for more unique experiences where randomness is being used.
 randomize();
 
+global.debugging = false;
+
 // Settings Variables
 global.resolution_w = 1920;
 global.resolution_h = 1080;
@@ -24,6 +26,7 @@ global.current_level = rm_level_one;
 global.game_state = MENU;
 global.prev_state = OVERWORLD;
 
+global.conversations = [];
 
 
 

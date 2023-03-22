@@ -1,19 +1,20 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_box_d",
+  "name": "obj_stella_dia",
   "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Interactables",
-    "path": "folders/Objects/Overworld/Interactables.yy",
+    "name": "Characters",
+    "path": "folders/Objects/Dialogue/Characters.yy",
   },
   "parentObjectId": {
-    "name": "obj_interactable_parent",
-    "path": "objects/obj_interactable_parent/obj_interactable_parent.yy",
+    "name": "obj_dialogue_parent",
+    "path": "objects/obj_dialogue_parent/obj_dialogue_parent.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,
@@ -31,8 +32,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_interactable_default2",
-    "path": "sprites/spr_interactable_default2/spr_interactable_default2.yy",
+    "name": "spr_stella_combined",
+    "path": "sprites/spr_stella_combined/spr_stella_combined.yy",
   },
   "spriteMaskId": null,
   "visible": true,
