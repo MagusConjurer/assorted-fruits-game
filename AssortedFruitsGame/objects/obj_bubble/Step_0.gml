@@ -11,10 +11,22 @@ if(global.game_state == BULLET_HELL)
 		bubble_health += _inst.damage;
 		instance_destroy(_inst);
 	}
+	
+	if(xDirection == 0)
+	{
+		bubble_time += delta_time / 1000000;
+	}
+
 
 	if(bubble_health <= 0)
 	{
-		bh_bubble_destroyed();
+		bh_bubble_destroyed(true);
+		instance_destroy();
+	}
+	
+	if(bubble_time >= BH_BUBBLE_TIME_BEFORE_POPPING)
+	{
+		bh_bubble_destroyed(false);
 		instance_destroy();
 	}
 

@@ -10,16 +10,19 @@ pause_menu_buttons = [];
 bh_active = false;
 bh_progress_bar = 0;
 bh_player_health = 0;
+
 bh_ability_index = 0;
 bh_ability_cooldown = 1;
+
 bh_bubbles_popped = 0;
 num_active_bubbles = 0;
 bh_prev_bubble_rand = 0;
 bubble_height = sprite_get_height(spr_wordbubble_combined);
 possible_bubble_spots = (room_height - bubble_height) / BH_NUM_STARTING_BUBBLES;
 bubble_popped_time = 0;
-bh_time_spent = 0;
 
+bh_time_spent = 0;
+bh_vignette_levels = sprite_get_number(spr_bh_vignette) - 1;
 
 // Dialogue
 dialogue_active = false;
@@ -36,4 +39,6 @@ dialogue_selection_options   = [];
 dialogue_selection_jumps     = [];
 dialogue_selection_buttons   = [];
 dialogue_selection_abilities = [];
+
+
 

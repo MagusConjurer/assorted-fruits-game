@@ -96,8 +96,6 @@ function bh_spawn_bubble(y_index)
 	x_pos = room_width * 0.9;
 	y_pos = (0.5 * bubble_height) + (possible_bubble_spots * y_index);
 	
-	show_debug_message(["Spawning new bubble at y = ", y_pos]);
-	
 	instance_create_layer(x_pos, y_pos, "Bullet_Hell", obj_bubble);
 
 	num_active_bubbles++;
@@ -127,7 +125,7 @@ function bh_spawn_initial_bubbles()
 }
 
 /// Called by the bubble objects
-function bh_bubble_destroyed(){
+function bh_bubble_destroyed(by_player){
 	for(i = 0; i < BH_NUM_BUBBLE_PROJECTILES; i++) {
 		instance_create_layer(x,y,"Bullet_Hell",obj_bubble_projectile);
 	}
@@ -137,13 +135,13 @@ function bh_bubble_destroyed(){
 		num_active_bubbles--;
 		bh_bubbles_popped++;
 		bubble_popped_time = bh_time_spent;
+		
+		if(by_player)
+		{
+			bh_update_progress_bar(BH_PLAYER_POP_PROGRESS);
+		}
 	}
 	
-}
-
-function bh_time_since_bubble_popped()
-{
-	return obj_game.bh_time_spent - obj_game.bubble_popped_time;
 }
 
 function bh_update_player_health(change)
@@ -156,19 +154,12 @@ function bh_update_progress_bar(increment)
 	obj_game.bh_progress_bar.current_value += increment;
 }
 
-function bh_status_1()
+function bh_status_index()
 {
-	return obj_game.bh_player_health < BH_PLAYER_HEALTH_DEFAULT * .75 || bh_time_since_bubble_popped() > 5;
-}
-
-function bh_status_2()
-{
-	return obj_game.bh_player_health < BH_PLAYER_HEALTH_DEFAULT * .5 || bh_time_since_bubble_popped() > 10;
-}
-
-function bh_status_3()
-{
-	return obj_game.bh_player_health < BH_PLAYER_HEALTH_DEFAULT * .25 || bh_time_since_bubble_popped() > 15;
+	with(obj_game)
+	{
+		return BH_PLAYER_HEALTH_DEFAULT - bh_player_health;
+	}
 }
 
 // Destroys all BH instances and updates the game state back to the Overworld
