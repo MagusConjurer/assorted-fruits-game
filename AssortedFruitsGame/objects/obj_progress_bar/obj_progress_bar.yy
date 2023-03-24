@@ -1,9 +1,11 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_ability_button",
+  "name": "obj_progress_bar",
   "eventList": [
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":64,"eventType":8,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
@@ -12,8 +14,8 @@
     "path": "folders/Objects/BulletHell.yy",
   },
   "parentObjectId": {
-    "name": "obj_bh_ability_parent",
-    "path": "objects/obj_bh_ability_parent/obj_bh_ability_parent.yy",
+    "name": "obj_bh_parent",
+    "path": "objects/obj_bh_parent/obj_bh_parent.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,
@@ -31,8 +33,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_ability_default",
-    "path": "sprites/spr_ability_default/spr_ability_default.yy",
+    "name": "spr_progress_bar",
+    "path": "sprites/spr_progress_bar/spr_progress_bar.yy",
   },
   "spriteMaskId": null,
   "visible": true,

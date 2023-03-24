@@ -3,5 +3,5 @@
 // Inherit the parent event
 event_inherited();
 
-ability = 0;
-usable = true;
+current_value = clamp(current_value, 0, max_value)
+

@@ -8,7 +8,7 @@ pause_menu_buttons = [];
 
 // Bullet Hell
 bh_active = false;
-
+bh_progress_bar = 0;
 bh_player_health = 0;
 bh_ability_index = 0;
 bh_ability_cooldown = 1;
@@ -24,7 +24,7 @@ bh_time_spent = 0;
 // Dialogue
 dialogue_active = false;
 dialogue_selection_visible = false;
-dialogue_level = 0;
+dialogue_level = 1;
 dialogue_in_person = true;
 conversation_index = 1; // starts at 1 since data is index 0
 conversation = [];

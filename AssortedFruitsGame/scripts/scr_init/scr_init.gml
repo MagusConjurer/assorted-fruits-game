@@ -26,6 +26,8 @@ global.current_level = rm_level_one;
 global.game_state = MENU;
 global.prev_state = OVERWORLD;
 
+global.bh_ability_one = 0;
+
 global.conversations = [];
 
 

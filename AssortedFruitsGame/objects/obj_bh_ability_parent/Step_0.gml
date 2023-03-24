@@ -4,7 +4,7 @@
 event_inherited();
 
 if (global.game_state == BULLET_HELL)
-{
+{	
 	if (usable) {
 		image_index = ability*2;
 		

@@ -13,7 +13,10 @@ function bh_update()
 	else if (global.game_state == BULLET_HELL && bh_active = true)
 	{
 		// Time in seconds
-		bh_time_spent += delta_time / 1000000;
+		dt = delta_time / 1000000;
+		bh_time_spent += dt;
+		
+		bh_update_progress_bar(dt * BH_TIME_PROGRESS_PERCENTAGE);
 
 		if(bh_player_health <= 0)
 		{
@@ -21,7 +24,7 @@ function bh_update()
 			// Let player reenter?
 			bh_cleanup();
 		} 
-		else if(bh_bubbles_popped >= BH_NUM_BUBBLES_TO_POP)
+		else if(bh_progress_bar.current_value >= 1)
 		{
 			// Put any win actions here
 			// Don't let player reenter?
@@ -37,10 +40,15 @@ function bh_update()
 
 function bh_start(){
 	// Player
-	instance_create_layer(RESOLUTION_W * 0.5, RESOLUTION_H * 0.5, "Bullet_Hell", obj_player_bh);
+	instance_create_layer(global.resolution_w * 0.2, global.resolution_h * 0.5, "Bullet_Hell", obj_player_bh);
 	
-	// Ability Buttons
-	instance_create_layer(50,RESOLUTION_H - 50, "Bullet_Hell", obj_ability_button);
+	// UI
+	if(global.bh_ability_one > 0)
+	{
+		instance_create_layer(BH_UI_MARGIN, BH_UI_MARGIN, "Bullet_Hell", obj_ability_one_button);
+	}
+	
+	bh_progress_bar = instance_create_layer(global.resolution_w * 0.5, BH_UI_MARGIN * 0.5, "Bullet_Hell", obj_progress_bar);
 	
 	// First wall of bubbles
 	bh_spawn_initial_bubbles();
@@ -49,21 +57,25 @@ function bh_start(){
 
 function bh_set_ability(ability)
 {
-	obj_game.bh_ability_index = ability;
-	switch(ability) {
-		case BH_ABILITY_DASH:
-			obj_game.bh_ability_cooldown = BH_DASH_COOLDOWN;
-		break;
-		case BH_ABILITY_SHIELD:
-			obj_game.bh_ability_cooldown = BH_SHIELD_COOLDOWN;
-		break;
-		case BH_ABILITY_HEAL:
-			obj_game.bh_ability_cooldown = BH_HEAL_COOLDOWN;
-		break;
-		default:
-			obj_game.bh_ability_index = 0;
-			obj_game.bh_ability_cooldown = 1;
+	with(obj_game)
+	{
+		bh_ability_index = ability;
+		switch(ability) {
+			case BH_ABILITY_DASH:
+				bh_ability_cooldown = BH_DASH_COOLDOWN;
+			break;
+			case BH_ABILITY_SHIELD:
+				bh_ability_cooldown = BH_SHIELD_COOLDOWN;
+			break;
+			case BH_ABILITY_HEAL:
+				bh_ability_cooldown = BH_HEAL_COOLDOWN;
+			break;
+			default:
+				bh_ability_index = 0;
+				bh_ability_cooldown = 1;
+		}
 	}
+
 }
 
 function bh_ability(ability)
@@ -114,9 +126,13 @@ function bh_bubble_destroyed(){
 		instance_create_layer(x,y,"Bullet_Hell",obj_bubble_projectile);
 	}
 	
-	obj_game.num_active_bubbles--;
-	obj_game.bh_bubbles_popped++;
-	obj_game.bubble_popped_time = obj_game.bh_time_spent;
+	with(obj_game)
+	{
+		num_active_bubbles--;
+		bh_bubbles_popped++;
+		bubble_popped_time = bh_time_spent;
+	}
+	
 }
 
 function bh_time_since_bubble_popped()
@@ -127,6 +143,11 @@ function bh_time_since_bubble_popped()
 function bh_update_player_health(change)
 {
 	obj_game.bh_player_health += change;
+}
+
+function bh_update_progress_bar(increment)
+{
+	obj_game.bh_progress_bar.current_value += increment;
 }
 
 function bh_status_1()

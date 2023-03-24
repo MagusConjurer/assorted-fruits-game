@@ -38,8 +38,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_alex_Bullethell_temp_R",
-    "path": "sprites/spr_alex_Bullethell_temp_R/spr_alex_Bullethell_temp_R.yy",
+    "name": "spr_necklace",
+    "path": "sprites/spr_necklace/spr_necklace.yy",
   },
   "spriteMaskId": null,
   "visible": true,
