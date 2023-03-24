@@ -44,7 +44,8 @@ selection_4 = {
 	text_to_show: "Ugh, what should I do…",
 	color: c_gray,
 	option_descriptions: ["[Ignore him]", "Please stop."],
-	option_jump_index: [5,9]
+	option_jump_index: [5,9],
+	option_ability_index: [BH_ABILITY_SHIELD, BH_ABILITY_DASH]
 }
 
 line_5 = {

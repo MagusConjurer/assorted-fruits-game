@@ -73,6 +73,12 @@ function bh_set_ability(ability)
 			default:
 				bh_ability_index = 0;
 				bh_ability_cooldown = 1;
+			break;
+		}
+		
+		if(global.bh_ability_one == 0)
+		{
+			global.bh_ability_one = ability;
 		}
 	}
 

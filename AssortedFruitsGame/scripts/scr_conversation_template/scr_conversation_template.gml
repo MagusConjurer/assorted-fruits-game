@@ -20,7 +20,8 @@ selection_1 = {
 	text_to_show: "What should I do?",
 	color: c_gray,
 	option_descriptions: ["one", "two"],
-	option_jump_index: [0,1]  // The line number to jump to for the option description at the same index
+	option_jump_index: [0,1],  // The line number to jump to for the option description at the same index
+	option_ability_index: [0,0] // 0 for none or use macro for ability
 }
 
 current_conversation = [ 
