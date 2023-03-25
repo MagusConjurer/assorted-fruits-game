@@ -9,6 +9,7 @@ pause_menu_buttons = [];
 // Bullet Hell
 bh_active = false;
 bh_progress_bar = 0;
+bh_player = 0;
 bh_player_health = 0;
 
 bh_ability_index = 0;

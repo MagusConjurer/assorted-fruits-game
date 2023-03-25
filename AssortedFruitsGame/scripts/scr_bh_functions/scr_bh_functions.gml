@@ -40,7 +40,7 @@ function bh_update()
 
 function bh_start(){
 	// Player
-	instance_create_layer(global.resolution_w * 0.2, global.resolution_h * 0.5, "Bullet_Hell", obj_player_bh);
+	bh_player = instance_create_layer(global.resolution_w * 0.2, global.resolution_h * 0.5, "Bullet_Hell", obj_player_bh);
 	
 	// UI
 	if(global.bh_ability_one > 0)

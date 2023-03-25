@@ -29,6 +29,20 @@ if(global.game_state == BULLET_HELL)
 		bh_bubble_destroyed(false);
 		instance_destroy();
 	}
+	
+	// Change the color based on the state of the bubble
+	health_percentage = bubble_health/BH_STARTING_BUBBLE_HEALTH;
+	time_percentage = 1 - bubble_time/BH_BUBBLE_TIME_BEFORE_POPPING;
+	if(health_percentage < time_percentage)
+	{
+		increment = 255 * health_percentage;
+	}
+	else
+	{
+		increment = 255 * time_percentage;
+	}
+	image_blend = make_color_rgb(255, increment, increment);
+	
 
 	// Movement
 	bubble_below = place_empty(x - xSpeed, y, obj_bubble);
