@@ -21,10 +21,16 @@ window_set_fullscreen(global.fullscreen_enabled);
 // Audio Variables
 global.current_bg_track = 0;
 
+
+// Hotkeys
+global.hotkey_ability_one = ord("1");
+
 // Initialize global variables.
 global.current_level = rm_level_one;
 global.game_state = MENU;
 global.prev_state = OVERWORLD;
+
+global.bh_ability_one = 0;
 
 global.conversations = [];
 

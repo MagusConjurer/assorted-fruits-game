@@ -13,7 +13,10 @@ function bh_update()
 	else if (global.game_state == BULLET_HELL && bh_active = true)
 	{
 		// Time in seconds
-		bh_time_spent += delta_time / 1000000;
+		dt = delta_time / 1000000;
+		bh_time_spent += dt;
+		
+		bh_update_progress_bar(dt * BH_TIME_PROGRESS_PERCENTAGE);
 
 		if(bh_player_health <= 0)
 		{
@@ -21,7 +24,7 @@ function bh_update()
 			// Let player reenter?
 			bh_cleanup();
 		} 
-		else if(bh_bubbles_popped >= BH_NUM_BUBBLES_TO_POP)
+		else if(bh_progress_bar.current_value >= 1)
 		{
 			// Put any win actions here
 			// Don't let player reenter?
@@ -37,10 +40,15 @@ function bh_update()
 
 function bh_start(){
 	// Player
-	instance_create_layer(RESOLUTION_W * 0.5, RESOLUTION_H * 0.5, "Bullet_Hell", obj_player_bh);
+	bh_player = instance_create_layer(global.resolution_w * 0.2, global.resolution_h * 0.5, "Bullet_Hell", obj_player_bh);
 	
-	// Ability Buttons
-	instance_create_layer(50,RESOLUTION_H - 50, "Bullet_Hell", obj_ability_button);
+	// UI
+	if(global.bh_ability_one > 0)
+	{
+		instance_create_layer(BH_UI_MARGIN, BH_UI_MARGIN, "Bullet_Hell", obj_ability_one_button);
+	}
+	
+	bh_progress_bar = instance_create_layer(global.resolution_w * 0.5, BH_UI_MARGIN * 0.5, "Bullet_Hell", obj_progress_bar);
 	
 	// First wall of bubbles
 	bh_spawn_initial_bubbles();
@@ -49,21 +57,31 @@ function bh_start(){
 
 function bh_set_ability(ability)
 {
-	obj_game.bh_ability_index = ability;
-	switch(ability) {
-		case BH_ABILITY_DASH:
-			obj_game.bh_ability_cooldown = BH_DASH_COOLDOWN;
-		break;
-		case BH_ABILITY_SHIELD:
-			obj_game.bh_ability_cooldown = BH_SHIELD_COOLDOWN;
-		break;
-		case BH_ABILITY_HEAL:
-			obj_game.bh_ability_cooldown = BH_HEAL_COOLDOWN;
-		break;
-		default:
-			obj_game.bh_ability_index = 0;
-			obj_game.bh_ability_cooldown = 1;
+	with(obj_game)
+	{
+		bh_ability_index = ability;
+		switch(ability) {
+			case BH_ABILITY_DASH:
+				bh_ability_cooldown = BH_DASH_COOLDOWN;
+			break;
+			case BH_ABILITY_SHIELD:
+				bh_ability_cooldown = BH_SHIELD_COOLDOWN;
+			break;
+			case BH_ABILITY_HEAL:
+				bh_ability_cooldown = BH_HEAL_COOLDOWN;
+			break;
+			default:
+				bh_ability_index = 0;
+				bh_ability_cooldown = 1;
+			break;
+		}
+		
+		if(global.bh_ability_one == 0)
+		{
+			global.bh_ability_one = ability;
+		}
 	}
+
 }
 
 function bh_ability(ability)
@@ -77,8 +95,6 @@ function bh_spawn_bubble(y_index)
 {
 	x_pos = room_width * 0.9;
 	y_pos = (0.5 * bubble_height) + (possible_bubble_spots * y_index);
-	
-	show_debug_message(["Spawning new bubble at y = ", y_pos]);
 	
 	instance_create_layer(x_pos, y_pos, "Bullet_Hell", obj_bubble);
 
@@ -109,19 +125,23 @@ function bh_spawn_initial_bubbles()
 }
 
 /// Called by the bubble objects
-function bh_bubble_destroyed(){
+function bh_bubble_destroyed(by_player){
 	for(i = 0; i < BH_NUM_BUBBLE_PROJECTILES; i++) {
 		instance_create_layer(x,y,"Bullet_Hell",obj_bubble_projectile);
 	}
 	
-	obj_game.num_active_bubbles--;
-	obj_game.bh_bubbles_popped++;
-	obj_game.bubble_popped_time = obj_game.bh_time_spent;
-}
-
-function bh_time_since_bubble_popped()
-{
-	return obj_game.bh_time_spent - obj_game.bubble_popped_time;
+	with(obj_game)
+	{
+		num_active_bubbles--;
+		bh_bubbles_popped++;
+		bubble_popped_time = bh_time_spent;
+		
+		if(by_player)
+		{
+			bh_update_progress_bar(BH_PLAYER_POP_PROGRESS);
+		}
+	}
+	
 }
 
 function bh_update_player_health(change)
@@ -129,19 +149,17 @@ function bh_update_player_health(change)
 	obj_game.bh_player_health += change;
 }
 
-function bh_status_1()
+function bh_update_progress_bar(increment)
 {
-	return obj_game.bh_player_health < BH_PLAYER_HEALTH_DEFAULT * .75 || bh_time_since_bubble_popped() > 5;
+	obj_game.bh_progress_bar.current_value += increment;
 }
 
-function bh_status_2()
+function bh_status_index()
 {
-	return obj_game.bh_player_health < BH_PLAYER_HEALTH_DEFAULT * .5 || bh_time_since_bubble_popped() > 10;
-}
-
-function bh_status_3()
-{
-	return obj_game.bh_player_health < BH_PLAYER_HEALTH_DEFAULT * .25 || bh_time_since_bubble_popped() > 15;
+	with(obj_game)
+	{
+		return BH_PLAYER_HEALTH_DEFAULT - bh_player_health;
+	}
 }
 
 // Destroys all BH instances and updates the game state back to the Overworld

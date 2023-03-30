@@ -114,22 +114,27 @@ function load_conversation(level)
 {
 	conversation_data = global.conversations[level];
 	
-	obj_game.dialogue_left  = instance_create_layer(0,0, "Dialogue", conversation_data[0].left_speaker);
-	obj_game.dialogue_right = instance_create_layer(0,0, "Dialogue", conversation_data[0].right_speaker);
-	
-	for(i = 1; i < array_length(conversation_data); i++)
+	with(obj_game)
 	{
-		obj_game.conversation[i] = conversation_data[i];
-		current_conversation = obj_game.conversation[i];
-		if(current_conversation.type == "selection")
+		dialogue_left  = instance_create_layer(0,0, "Dialogue", conversation_data[0].left_speaker);
+		dialogue_right = instance_create_layer(0,0, "Dialogue", conversation_data[0].right_speaker);
+	
+		for(i = 1; i < array_length(conversation_data); i++)
 		{
-			for(j = 0; j < array_length(conversation[i].option_descriptions); j++)
+			conversation[i] = conversation_data[i];
+			current_conversation = conversation[i];
+			if(current_conversation.type == "selection")
 			{
-				obj_game.dialogue_selection_options[j] = current_conversation.option_descriptions[j];
-				obj_game.dialogue_selection_jumps[j]   = current_conversation.option_jump_index[j];
+				for(j = 0; j < array_length(conversation[i].option_descriptions); j++)
+				{
+					dialogue_selection_options[j]   = current_conversation.option_descriptions[j];
+					dialogue_selection_jumps[j]     = current_conversation.option_jump_index[j];
+					dialogue_selection_abilities[j] = current_conversation.option_ability_index[j];
+				}
 			}
 		}
 	}
+
 }
 
 function set_portrait_positions()
@@ -159,43 +164,47 @@ function check_if_in_person(line)
 
 function continue_conversation()
 {
-	if(obj_game.conversation_index < array_length(obj_game.conversation))
+	with(obj_game)
 	{
-		current_line = obj_game.conversation[obj_game.conversation_index];
-		check_if_in_person(current_line);
-		
-		if(obj_game.dialogue_in_person)
+		if(conversation_index < array_length(conversation))
 		{
-			obj_game.box = obj_game.conversation_boxes[0];
-			if(current_line.type == "line")
+			current_line = conversation[conversation_index];
+			check_if_in_person(current_line);
+		
+			if(dialogue_in_person)
 			{
-				set_textbox_properties(obj_game.box);
-				if(current_line.jump_to > 0)
+				box = conversation_boxes[0];
+				if(current_line.type == "line")
 				{
-					obj_game.conversation_index = current_line.jump_to;
-				}
+					set_textbox_properties(box);
+					if(current_line.jump_to > 0)
+					{
+						conversation_index = current_line.jump_to;
+					}
 				
-				obj_game.conversation_index++;
+					conversation_index++;
+				}
+				else
+				{
+					if(dialogue_selection_visible == false)
+					{
+						show_options();
+					}
+				}
 			}
 			else
 			{
-				if(obj_game.dialogue_selection_visible == false)
-				{
-					show_options();
-				}
-			}
+				draw_multi_textbox();
+			}	
 		}
-		else
+	
+		// allows it to update directly after final line
+		if(conversation_index == array_length(conversation))
 		{
-			draw_multi_textbox();
-		}	
+			dialogue_button.text = COMPLETE_DIA_TEXT;
+		}
 	}
 	
-	// allows it to update directly after final line
-	if(obj_game.conversation_index == array_length(obj_game.conversation))
-	{
-		obj_game.dialogue_button.text = COMPLETE_DIA_TEXT;
-	}
 }
 
 function end_conversation()
@@ -209,47 +218,53 @@ function end_conversation()
 
 function show_options()
 {
-	options = obj_game.dialogue_selection_options;
-	jumps   = obj_game.dialogue_selection_jumps;
-	num_options = array_length(options);
-	for(i = 0; i < num_options; i++)
+	with(obj_game)
 	{
-		if(!obj_game.dialogue_in_person)
+		options = dialogue_selection_options;
+		jumps   = dialogue_selection_jumps;
+		abilities = dialogue_selection_abilities;
+		num_options = array_length(options);
+		for(i = 0; i < num_options; i++)
 		{
-			box = obj_game.conversation_boxes[0];
+			if(dialogue_in_person)
+			{
+				box = conversation_boxes[0];
+			}
+			else
+			{
+				box = conversation_boxes[conversation_index-1];
+			}
+		
+			current_selection = conversation[conversation_index];
+		
+			box.current_text = current_selection.text_to_show;
+			box.box_tint = current_selection.color;
+		
+			option_button = instance_create_layer(0, 0, "Dialogue", obj_selection_dia);
+			option_button.text = options[i];
+			option_button.jump_index = jumps[i];
+			option_button.ability_index  = abilities[i];
+		
+			spacing = 1;
+			if(num_options == 3)
+			{
+				spacing = 0.25;
+			}
+			else if(num_options == 2)
+			{
+				spacing = 0.3
+			}
+		
+			option_button.x = box.x + ((box.sprite_width*spacing) * (i+1));
+			option_button.y = box.y + (box.sprite_height*0.5);
+		
+			dialogue_selection_buttons[i] = option_button;
 		}
-		else
-		{
-			box = obj_game.conversation_boxes[obj_game.conversation_index-1];
-		}
-		
-		current_selection = obj_game.conversation[obj_game.conversation_index];
-		
-		box.current_text = current_selection.text_to_show;
-		box.box_tint = current_selection.color;
-		
-		option_button = instance_create_layer(0, 0, "Dialogue", obj_selection_dia);
-		option_button.text = options[i];
-		option_button.jump_index = jumps[i];
-		
-		spacing = 1;
-		if(num_options == 3)
-		{
-			spacing = 0.25;
-		}
-		else if(num_options == 2)
-		{
-			spacing = 0.3
-		}
-		
-		option_button.x = box.x + ((box.sprite_width*spacing) * (i+1));
-		option_button.y = box.y + (box.sprite_height*0.5);
-		
-		obj_game.dialogue_selection_buttons[i] = option_button;
+	
+		dialogue_button.enabled = false;
+		dialogue_selection_visible = true;
 	}
 	
-	obj_game.dialogue_button.enabled = false;
-	obj_game.dialogue_selection_visible = true;
 }
 
 function dialogue_jump_to(index)

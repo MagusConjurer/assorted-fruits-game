@@ -2,32 +2,28 @@
 
 if (bh_active)
 {
-
-	image_speed = 0.05;
-	
 	draw_set_color(c_green);
 	
-	if(bh_status_1())
+	index = bh_status_index();
+	
+	if(index <= bh_vignette_levels)
 	{
-		draw_set_color(c_yellow);
-		vignette_sprite = spr_bh_vignette_1;
-		
-		if (bh_status_2())
+		if(index > 0)
 		{
-			draw_set_color(c_orange);
-			vignette_sprite = spr_bh_vignette_2;
+			draw_sprite(spr_bh_vignette, index + BH_VIGNETTE_START_INDEX, bh_player.x, bh_player.y);
+		}
+		else
+		{
+			draw_sprite(spr_bh_vignette, 0, bh_player.x, bh_player.y);
 		}
 		
-		if (bh_status_3())
-		{
-			draw_set_color(c_red);
-			vignette_sprite = spr_bh_vignette_3;
-		}
-		
-		draw_sprite(vignette_sprite,image_index,0,0);
+	}
+	else
+	{
+		draw_sprite(spr_bh_vignette, bh_vignette_levels, bh_player.x, bh_player.y);
 	}
 	
 	
-	draw_text(200,200,bh_time_spent);
+	draw_text(150, BH_UI_MARGIN * 0.5,bh_time_spent);
 	draw_set_color(c_black);
 }
