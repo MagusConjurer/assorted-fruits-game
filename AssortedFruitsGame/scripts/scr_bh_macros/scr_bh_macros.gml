@@ -10,6 +10,7 @@
 #macro BH_PLAYER_PROJECTILE_DAMAGE -1
 #macro BH_PLAYER_PROJECTILE_DELAY 5
 #macro BH_PLAYER_HEALTH_DEFAULT 8
+#macro BH_PLAYER_NUM_IFRAMES 240 //Note: Game runs at 60 fps
 
 #macro BH_STARTING_BUBBLE_HEALTH 7
 #macro BH_NUM_STARTING_BUBBLES 18 // 18 is the max with current setup

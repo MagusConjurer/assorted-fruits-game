@@ -12,12 +12,40 @@ if (global.game_state == active_state)
 		}
 	}
 	
-	// Check for collision with bubble projectiles
-	var _inst = instance_place(x,y,obj_bubble_projectile);
-	if (_inst != noone)
+	// Only check collisions with bubbles if not in iframes
+	if(iframes <= 0) 
 	{
-		bh_update_player_health(_inst.damage);
-		instance_destroy(_inst);
+		var _inst = instance_place(x,y,obj_bubble_projectile);
+		if (_inst != noone)
+		{
+			bh_update_player_health(_inst.damage);
+			instance_destroy(_inst);
+			iframes = BH_PLAYER_NUM_IFRAMES;
+		}
+	} 
+	
+	if(iframes > 0)
+	{
+		iframes--;
+		if(iframes % 10 == 0) 
+		{
+			// switches the opacity back and forth every 10 frames
+			toggle = !toggle;
+			
+			if(toggle) 
+			{
+				image_alpha = 0.75;
+			}
+			else
+			{
+				image_alpha = 0.5;
+			}
+
+		}
+	}
+	else
+	{
+		image_alpha = 1.0;
 	}
 	
 	// May want to move all the movement checking to a script function for readability
