@@ -6,5 +6,8 @@ has_been_interacted = false;
 interact_repeatable = false;
 interact_starts = true;
 
+// Set in the child obj before inheriting the step event
+interact_condition = false;
+
 popup_id = instance_create_layer(x, y - 130, layer, obj_press_E);
 popup_id.visible = false;
