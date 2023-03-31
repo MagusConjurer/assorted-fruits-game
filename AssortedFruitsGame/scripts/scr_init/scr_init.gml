@@ -26,7 +26,8 @@ global.current_bg_track = 0;
 global.hotkey_ability_one = ord("1");
 
 // Initialize global variables.
-global.current_level = rm_level_one;
+global.current_level = BUS_STOP;
+global.current_room = rm_level_one;
 global.game_state = MENU;
 global.prev_state = OVERWORLD;
 

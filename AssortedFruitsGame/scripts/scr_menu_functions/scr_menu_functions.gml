@@ -10,7 +10,8 @@ function main_menu_play()
 	}
 	else
 	{
-		room_goto(global.current_level);
+		room_transition(global.current_level);
+		//room_goto(global.current_level);
 	}
 }
 

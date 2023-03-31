@@ -7,7 +7,6 @@
   "inheritCreationOrder": false,
   "inheritLayers": false,
   "instanceCreationOrder": [
-    {"name":"inst_5540C960","path":"rooms/rm_level_one/rm_level_one.yy",},
     {"name":"inst_5275564B","path":"rooms/rm_level_one/rm_level_one.yy",},
     {"name":"inst_3CC49CF6","path":"rooms/rm_level_one/rm_level_one.yy",},
     {"name":"inst_54618E8F","path":"rooms/rm_level_one/rm_level_one.yy",},
@@ -21,6 +20,7 @@
     {"name":"inst_134C45AF","path":"rooms/rm_level_one/rm_level_one.yy",},
     {"name":"inst_E247C2A","path":"rooms/rm_level_one/rm_level_one.yy",},
     {"name":"inst_2D6B886E","path":"rooms/rm_level_one/rm_level_one.yy",},
+    {"name":"inst_5540C960","path":"rooms/rm_level_one/rm_level_one.yy",},
   ],
   "isDnd": false,
   "layers": [
