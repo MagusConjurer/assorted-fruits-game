@@ -5,6 +5,7 @@
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":2,"eventType":3,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
@@ -35,6 +36,9 @@
     "name": "spr_Alex_overworld_combined",
     "path": "sprites/spr_Alex_overworld_combined/spr_Alex_overworld_combined.yy",
   },
-  "spriteMaskId": null,
+  "spriteMaskId": {
+    "name": "spr_Alex_overworld_combined",
+    "path": "sprites/spr_Alex_overworld_combined/spr_Alex_overworld_combined.yy",
+  },
   "visible": true,
 }

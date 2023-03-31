@@ -5,3 +5,9 @@
 #macro AUTO_INTERACT_DISTANCE 200
 #macro INTERACT_KEY "E"
 
+
+// Sprite Directions
+#macro UP 0
+#macro DOWN 1
+#macro LEFT 2
+#macro RIGHT 3
