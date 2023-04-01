@@ -19,4 +19,18 @@ if(!has_been_interacted || interact_repeatable)
 	{
 		popup_id.visible = false;
 	}
+	
+	if(interact_condition)
+	{
+		has_been_interacted = true;
+		
+		event_user(0);
+		
+		// Remove popup if it is no longer needed
+		if(!interact_repeatable)
+		{
+			instance_destroy(popup_id);
+			instance_destroy();
+		}
+	}
 }

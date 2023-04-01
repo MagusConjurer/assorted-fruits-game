@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "Bus_guy",
-    "path": "folders/Sprites/Characters/Bus_guy.yy",
+    "name": "overworld",
+    "path": "folders/Sprites/Characters/Bus_guy/overworld.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

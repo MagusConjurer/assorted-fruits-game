@@ -4,7 +4,7 @@
 // to allow for more unique experiences where randomness is being used.
 randomize();
 
-global.debugging = false;
+global.debugging = true;
 
 // Settings Variables
 global.resolution_w = 1920;
@@ -26,7 +26,8 @@ global.current_bg_track = 0;
 global.hotkey_ability_one = ord("1");
 
 // Initialize global variables.
-global.current_level = rm_level_one;
+global.current_level = BUS_STOP;
+global.current_room = rm_level_one;
 global.game_state = MENU;
 global.prev_state = OVERWORLD;
 

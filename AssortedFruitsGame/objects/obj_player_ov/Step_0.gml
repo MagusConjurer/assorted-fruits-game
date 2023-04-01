@@ -4,11 +4,13 @@ event_inherited();
 
 if(global.game_state == active_state) 
 {
-	// May want to move all the movement checking to a script function for readability
-
-	// Get x and y speed
-	xSpeed = (key_right - key_left) * moveSpeed;
-	ySpeed = (key_down - key_up) * moveSpeed;
+	// Get direction separately, so it can be used for animations
+	xDirection = (key_right - key_left);
+	yDirection = (key_down - key_up);
+	
+	// Set x and y speed
+	xSpeed = xDirection * moveSpeed;
+	ySpeed = yDirection * moveSpeed;
 	
 	// Check collision
 	if (place_meeting(x + xSpeed, y, obj_wall))
