@@ -39,20 +39,23 @@ function bh_update()
 
 
 function bh_start(){
-	// Player
-	bh_player = instance_create_layer(global.resolution_w * 0.2, global.resolution_h * 0.5, "Bullet_Hell", obj_player_bh);
+	// Player	
+	bh_player = instance_create_layer(camera_x + (camera_width * 0.2), camera_y + (camera_height * 0.5), "Bullet_Hell", obj_player_bh);
+	
+	// Temporary fix for scaling issue
+	bh_player.image_xscale = 0.2;
+	bh_player.image_yscale = 0.2;
 	
 	// UI
 	if(global.bh_ability_one > 0)
 	{
-		instance_create_layer(BH_UI_MARGIN, BH_UI_MARGIN, "Bullet_Hell", obj_ability_one_button);
+		instance_create_layer(camera_x + BH_UI_MARGIN, camera_y + BH_UI_MARGIN, "Bullet_Hell", obj_ability_one_button);
 	}
 	
-	bh_progress_bar = instance_create_layer(global.resolution_w * 0.5, BH_UI_MARGIN * 0.5, "Bullet_Hell", obj_progress_bar);
+	bh_progress_bar = instance_create_layer(0, BH_UI_MARGIN, "Bullet_Hell", obj_progress_bar);
 	
 	// First wall of bubbles
 	bh_spawn_initial_bubbles();
-
 }
 
 function bh_set_ability(ability)
@@ -93,10 +96,12 @@ function bh_ability(ability)
 
 function bh_spawn_bubble(y_index)
 {
-	x_pos = room_width * 0.9;
-	y_pos = (0.5 * bubble_height) + (possible_bubble_spots * y_index);
+	x_pos = camera_x + (camera_width * 0.9);
+	y_pos = camera_y + (0.5 * bubble_height) + (possible_bubble_spots * y_index);
 	
-	instance_create_layer(x_pos, y_pos, "Bullet_Hell", obj_bubble);
+	_inst = instance_create_layer(x_pos, y_pos, "Bullet_Hell", obj_bubble);
+	_inst.image_xscale = 0.2;
+	_inst.image_yscale = 0.2;
 
 	num_active_bubbles++;
 }
@@ -159,6 +164,36 @@ function bh_status_index()
 	with(obj_game)
 	{
 		return BH_PLAYER_HEALTH_DEFAULT - bh_player_health;
+	}
+}
+
+function bh_is_outside_bounds_x(new_x, spr_width)
+{
+	with(obj_game)
+	{
+		if(new_x + spr_width/2 > camera_x + camera_width || new_x - spr_width/2 < camera_x)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+}
+
+function bh_is_outside_bounds_y(new_y, spr_height)
+{
+	with(obj_game)
+	{
+		if(new_y + spr_height/2 > camera_y + camera_height || new_y - spr_height/2 < camera_y)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 }
 

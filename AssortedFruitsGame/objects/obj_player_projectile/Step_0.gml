@@ -3,7 +3,7 @@
 // Inherit the parent event
 event_inherited();
 
-if(x > room_width)
+if(bh_is_outside_bounds_x(x,sprite_width))
 {
 	instance_destroy();
 }

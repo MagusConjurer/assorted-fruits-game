@@ -22,6 +22,12 @@ function darken_background(depth_value)
 	draw_set_alpha(1.0);
 }
 
+function update_camera_position()
+{
+	camera_x = camera_get_view_x(view_camera[0]);
+	camera_y = camera_get_view_y(view_camera[0]);
+}
+
 function room_transition(level)
 {
 	switch(level)
