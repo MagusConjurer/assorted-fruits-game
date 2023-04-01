@@ -49,7 +49,7 @@ function bh_start(){
 	// UI
 	if(global.bh_ability_one > 0)
 	{
-		instance_create_layer(camera_x + BH_UI_MARGIN, camera_y + BH_UI_MARGIN, "Bullet_Hell", obj_ability_one_button);
+		instance_create_layer(BH_UI_MARGIN * 2, BH_UI_MARGIN * 2, "Bullet_Hell", obj_ability_one_button);
 	}
 	
 	bh_progress_bar = instance_create_layer(0, BH_UI_MARGIN, "Bullet_Hell", obj_progress_bar);
