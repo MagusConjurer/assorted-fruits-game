@@ -41,5 +41,22 @@ dialogue_selection_jumps     = [];
 dialogue_selection_buttons   = [];
 dialogue_selection_abilities = [];
 
+// Camera/Viewport -- based on https://gamemaker.io/en/tutorials/cameras-and-views
+camera_width = global.resolution_w * 0.5; // change 0.5 to a zoom percentage?
+camera_height = global.resolution_h * 0.5;
 
+view_enabled = true;
+view_visible[0] = true;
 
+view_xport[0] = 0;
+view_yport[0] = 0;
+view_wport[0] = camera_width; 
+view_hport[0] = camera_height; 
+
+view_camera[0] = camera_create_view(0,0,view_wport[0], view_hport[0], 0, obj_player_ov, -1,-1,view_wport[0],view_hport[0]);
+
+displayX = (global.resolution_w * 0.5) - camera_width;
+displayY = (global.resolution_h * 0.5) - camera_height;
+window_set_rectangle(displayX,displayY, camera_width, camera_height);
+
+// surface_resize(application_surface, camera_width, camera_height);
