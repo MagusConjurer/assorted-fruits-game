@@ -50,6 +50,10 @@ if(enabled)
 		image_index = BUTTON_DEFAULT;
 	}
 }
+else
+{
+	image_index = BUTTON_DISABLED;
+}
 
 
 

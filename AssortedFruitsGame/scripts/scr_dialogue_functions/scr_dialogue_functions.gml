@@ -29,13 +29,16 @@ function dialogue_update()
 
 function dialogue_start()
 {
-	dialogue_button = instance_create_layer(0, 0, "Dialogue", obj_continue_dia);
-	dialogue_button.text = CONTINUE_DIA_TEXT;
-	
 	load_conversation(dialogue_level);
 	set_portrait_positions();
 	check_if_in_person(conversation[conversation_index]);
 	draw_textbox();
+	
+	start_box = conversation_boxes[0];
+	cont_x = start_box.x + start_box.box_width * 1.9;
+	cont_y = start_box.y + start_box.box_height - TEXTBOX_MARGIN * 3;
+	dialogue_button = instance_create_layer(cont_x, cont_y, "Dialogue", obj_continue_dia);
+	dialogue_button.text = CONTINUE_DIA_TEXT;
 }
 
 function set_textbox_properties(textbox)
@@ -77,7 +80,13 @@ function set_textbox_properties(textbox)
 
 function draw_textbox()
 {
-	obj_game.textbox_inst = instance_create_layer(0,0,"Dialogue",obj_textbox_dia);
+	spr_width = sprite_get_width(spr_dia_box_default) * 0.5;
+	spr_height = sprite_get_height(spr_dia_box_default) * 0.5;
+	
+	tb_x = camera_x + (camera_width - spr_width) * 0.5;
+	tb_y = camera_y + (camera_height - spr_height - TEXTBOX_MARGIN);
+	
+	obj_game.textbox_inst = instance_create_layer(tb_x,tb_y,"Dialogue",obj_textbox_dia);
 	set_textbox_properties(obj_game.textbox_inst);
 	
 	obj_game.conversation_boxes[obj_game.conversation_index-1] = obj_game.textbox_inst;
@@ -139,11 +148,16 @@ function load_conversation(level)
 
 function set_portrait_positions()
 {
-	dialogue_left.x = PORTRAIT_MARGIN;
-	dialogue_left.y =  global.resolution_h - (PORTRAIT_HEIGHT/2);
+	dialogue_left.image_xscale = 0.2;
+	dialogue_left.image_yscale = 0.2;
+	dialogue_left.x = camera_x + PORTRAIT_MARGIN * 0.2;
+	dialogue_left.y = camera_y + camera_height - (PORTRAIT_HEIGHT * 0.2 /2);
+
 	
-	dialogue_right.x = global.resolution_w - PORTRAIT_MARGIN;
-	dialogue_right.y = global.resolution_h - (PORTRAIT_HEIGHT/2);
+	dialogue_right.image_xscale = 0.2;
+	dialogue_right.image_yscale = 0.2;
+	dialogue_right.x = camera_x + camera_width - PORTRAIT_MARGIN * 0.2;
+	dialogue_right.y = camera_y + camera_height - (PORTRAIT_HEIGHT * 0.2 /2);
 }
 
 function check_if_in_person(line)
@@ -248,15 +262,15 @@ function show_options()
 			spacing = 1;
 			if(num_options == 3)
 			{
-				spacing = 0.25;
+				spacing = 0.5;
 			}
 			else if(num_options == 2)
 			{
-				spacing = 0.3
+				spacing = 0.75
 			}
 		
-			option_button.x = box.x + ((box.sprite_width*spacing) * (i+1));
-			option_button.y = box.y + (box.sprite_height*0.5);
+			option_button.x = box.x + ((box.box_width*spacing) * (i+1));
+			option_button.y = box.y + (box.box_height*0.5);
 		
 			dialogue_selection_buttons[i] = option_button;
 		}

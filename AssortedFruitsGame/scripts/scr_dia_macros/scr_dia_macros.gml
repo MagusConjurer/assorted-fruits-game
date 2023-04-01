@@ -1,7 +1,7 @@
 // Macros for Diaglogue
 
 #macro TEXTBOX_PADDING 32
-#macro TEXTBOX_MARGIN 64
+#macro TEXTBOX_MARGIN 20
 #macro DIALOGUE_INPERSON_BOX_SPRITE spr_dia_box_default
 #macro DIALOGUE_TEXTMSG_BOX_SPRITE spr_text_bubble
 
