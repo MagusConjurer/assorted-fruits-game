@@ -200,6 +200,16 @@ function bh_is_outside_bounds_y(new_y, spr_height)
 	}
 }
 
+function bh_darken_object(x1, y1, x2, y2)
+{
+	// Draw dark transparent rectangle over it
+	draw_set_color(c_black);
+	draw_set_alpha(PERCENT_TO_DARKEN);
+	draw_rectangle(x1,y1, x2, y2, false);
+	// Reset the alpha value
+	draw_set_alpha(1.0);
+}
+
 // Destroys all BH instances and updates the game state back to the Overworld
 function bh_cleanup()
 {

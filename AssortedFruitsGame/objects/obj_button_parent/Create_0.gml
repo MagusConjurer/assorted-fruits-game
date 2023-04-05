@@ -3,6 +3,7 @@
 text = "Button";
 enabled = true;
 selected = false;
+is_gui_button = false;
 
 image_speed = 0;
 

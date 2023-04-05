@@ -47,7 +47,11 @@ function dialogue_update()
 		}
 		else
 		{
-			dialogue_button.selected = true;
+			// Only set for controller users
+			if(global.gamepad_id > -1)
+			{
+				dialogue_button.selected = true;
+			}
 		}
 	}
 }
