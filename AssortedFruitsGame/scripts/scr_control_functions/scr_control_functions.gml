@@ -11,6 +11,59 @@ function check_for_controller()
 		}
 	}
 }
+function get_movement_h()
+{
+	if(global.gamepad_id > -1)
+	{
+		dpad_l = gamepad_button_check(global.gamepad_id,gp_padl);
+		dpad_r = gamepad_button_check(global.gamepad_id,gp_padr);
+		
+		dpad_h = dpad_r - dpad_l;
+		
+		if(dpad_h != 0)
+		{
+			return dpad_h;
+		}
+		else
+		{
+			return gamepad_axis_value(global.gamepad_id, gp_axislh);
+		}
+	}
+	else
+	{
+		key_left = keyboard_check(ord("A")) || keyboard_check(vk_left);
+		key_right = keyboard_check(ord("D")) || keyboard_check(vk_right);
+		
+		return (key_right - key_left);
+	}
+}
+
+function get_movement_v()
+{
+	if(global.gamepad_id > -1)
+	{
+		dpad_u = gamepad_button_check(global.gamepad_id,gp_padu);
+		dpad_d = gamepad_button_check(global.gamepad_id,gp_padd);
+		
+		dpad_v = dpad_d - dpad_u;
+		
+		if(dpad_v != 0)
+		{
+			return dpad_v;
+		}
+		else
+		{
+			return gamepad_axis_value(global.gamepad_id, gp_axislv);
+		}
+	}
+	else
+	{
+		key_up = keyboard_check(ord("W")) || keyboard_check(vk_up);
+		key_down = keyboard_check(ord("S")) || keyboard_check(vk_down);
+		
+		return (key_down - key_up);
+	}
+}
 
 function attack_pressed()
 {
@@ -38,6 +91,19 @@ function interact_pressed()
 	}
 }
 
+function ability_one_pressed()
+{
+	if(global.gamepad_id > -1)
+	{
+		// Press X (Xbox) or Square (Playstation)
+		return gamepad_button_check_pressed(global.gamepad_id, gp_face3);
+	}
+	else
+	{
+		return keyboard_check_pressed(global.hotkey_ability_one);
+	}
+}
+
 function menu_toggle_pressed()
 {
 	if(global.gamepad_id > -1)
@@ -60,7 +126,7 @@ function menu_interact_pressed()
 	}
 	else
 	{
-		return mouse_check_button_pressed(mb_left);
+		return mouse_check_button_pressed(mb_left) || keyboard_check_pressed(global.hotkey_menu_interact);
 	}
 }
 

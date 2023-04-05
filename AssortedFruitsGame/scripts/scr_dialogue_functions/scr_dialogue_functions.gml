@@ -13,16 +13,41 @@ function dialogue_update()
 	}
 	else if (global.game_state == DIALOGUE && dialogue_active = true)
 	{
-		if(!dialogue_selection_visible && keyboard_check_released(vk_space))
+		if(dialogue_selection_visible)
 		{
-			if(conversation_index >= array_length(conversation))
+			if(global.gamepad_id > -1)
 			{
-				end_conversation()
+				if (menu_selection_left())
+				{
+					dialogue_selection_buttons[dialogue_selection].selected = false;
+					if(dialogue_selection > 0)
+					{
+						dialogue_selection--;
+					}
+					else
+					{
+						dialogue_selection = array_length(dialogue_selection_buttons) - 1;
+					}
+					dialogue_selection_buttons[dialogue_selection].selected = true;
+				}
+				else if (menu_selection_right())
+				{
+					dialogue_selection_buttons[dialogue_selection].selected = false;
+					if(dialogue_selection > 0)
+					{
+						dialogue_selection--;
+					}
+					else
+					{
+						dialogue_selection = array_length(dialogue_selection_buttons) - 1;
+					}
+					dialogue_selection_buttons[dialogue_selection].selected = true;
+				}
 			}
-			else
-			{
-				continue_conversation();
-			}
+		}
+		else
+		{
+			dialogue_button.selected = true;
 		}
 	}
 }
@@ -39,6 +64,25 @@ function dialogue_start()
 	cont_y = start_box.y + start_box.box_height - TEXTBOX_MARGIN * 3;
 	dialogue_button = instance_create_layer(cont_x, cont_y, "Dialogue", obj_continue_dia);
 	dialogue_button.text = CONTINUE_DIA_TEXT;
+}
+
+// used in the continue button
+function dialogue_next()
+{
+	with(obj_game)
+	{
+		if(!dialogue_selection_visible)
+		{
+			if(conversation_index >= array_length(conversation))
+			{
+				end_conversation()
+			}
+			else
+			{
+				continue_conversation();
+			}
+		}
+	}
 }
 
 function set_textbox_properties(textbox)

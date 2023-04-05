@@ -57,6 +57,7 @@ conversation_boxes = [];
 dialogue_button = 0;
 dialogue_left = 0;
 dialogue_right = 0;
+dialogue_selection = 0;
 dialogue_selection_options   = [];
 dialogue_selection_jumps     = [];
 dialogue_selection_buttons   = [];

@@ -8,7 +8,7 @@ if (global.game_state == BULLET_HELL)
 	if (usable) {
 		image_index = ability*2;
 		
-		if(keyboard_check_released(hotkey) || mouse_check_button_pressed(mb_left))
+		if(ability_one_pressed() || mouse_check_button_pressed(mb_left))
 		{
 			image_index = (ability*2)+1;
 			alarm[0] = obj_game.bh_ability_cooldown;
