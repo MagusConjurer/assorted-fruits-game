@@ -2,6 +2,7 @@
 
 text = "Button";
 enabled = true;
+selected = false;
 
 image_speed = 0;
 

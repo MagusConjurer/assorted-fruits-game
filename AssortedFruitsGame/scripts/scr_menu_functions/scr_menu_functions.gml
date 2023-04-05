@@ -63,16 +63,3 @@ function settings_update_resolution(value)
 			break;
 	}
 }
-
-// Pause Menu
-function pause_menu_main()
-{
-	set_game_state(MENU);
-
-	room_goto(rm_menu);
-}
-
-function pause_menu_continue()
-{
-	return_to_prev_state(PAUSED);
-}

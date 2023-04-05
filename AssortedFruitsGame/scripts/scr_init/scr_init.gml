@@ -26,6 +26,7 @@ global.current_bg_track = 0;
 global.hotkey_ability_one = ord("1");
 global.hotkey_attack = vk_space;
 global.hotkey_interact = ord("E");
+global.hotkey_menu = vk_escape;
 
 global.gamepad_id = -1;
 check_for_controller();
