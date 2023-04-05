@@ -22,8 +22,13 @@ window_set_fullscreen(global.fullscreen_enabled);
 global.current_bg_track = 0;
 
 
-// Hotkeys
+// Hotkeys/Controls
 global.hotkey_ability_one = ord("1");
+global.hotkey_attack = vk_space;
+global.hotkey_interact = ord("E");
+
+global.gamepad_id = -1;
+check_for_controller();
 
 // Initialize global variables.
 global.current_level = BUS_STOP;

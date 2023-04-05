@@ -3,7 +3,7 @@
 #macro WALKING_SPEED 3.65
 #macro PLAYER_INTERACT_DISTANCE 75
 #macro AUTO_INTERACT_DISTANCE 200
-#macro INTERACT_KEY "E"
+// #macro INTERACT_KEY "E" -- replaced by global.hotkey_interact
 
 
 // Sprite Directions

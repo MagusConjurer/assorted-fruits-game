@@ -4,7 +4,7 @@ event_inherited();
 
 if (global.game_state == active_state) 
 {
-	if(keyboard_check(vk_space))
+	if(attack_pressed())
 	{
 		if(alarm[0] < 0)
 		{
@@ -52,8 +52,8 @@ if (global.game_state == active_state)
 
 	if(alarm[1] < 0) {
 		// Get x and y speed if not dashing
-		xSpeed = (key_right - key_left) * moveSpeed;
-		ySpeed = (key_down - key_up) * moveSpeed;
+		xSpeed = h_direction * moveSpeed;
+		ySpeed = v_direction * moveSpeed;
 	}
 	
 	// Draws the player above the darkened area
