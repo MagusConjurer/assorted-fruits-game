@@ -6,28 +6,28 @@ event_inherited();
 if(global.game_state == active_state)
 {
 	// Keeps the initial direction when moving diagonal
-	if(yDirection == 0)
+	if(v_direction == 0)
 	{
-		if(xDirection > 0)
+		if(h_direction > 0)
 		{
 			facing_left = false;
 			sprite_index = sprite[RIGHT];
 		}
-		else if(xSpeed < 0)
+		else if(h_direction < 0)
 		{
 			facing_left = true;
 			sprite_index = sprite[LEFT];
 		}
 	}
 	
-	if(xDirection == 0)
+	if(h_direction == 0)
 	{
-		if(yDirection > 0)
+		if(v_direction > 0)
 		{
 			facing_forward = true;
 			sprite_index = sprite[DOWN];
 		}
-		else if(yDirection < 0)
+		else if(v_direction < 0)
 		{
 			facing_forward = false;
 			sprite_index = sprite[UP];
@@ -35,7 +35,7 @@ if(global.game_state == active_state)
 	}
 
 		
-	if(xDirection == 0 && yDirection == 0)
+	if(h_direction == 0 && v_direction == 0)
 	{
 		if(facing_forward)
 		{

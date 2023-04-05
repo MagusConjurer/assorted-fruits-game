@@ -46,6 +46,9 @@ function bh_start(){
 	bh_player.image_xscale = 0.2;
 	bh_player.image_yscale = 0.2;
 	
+	bubble_height = sprite_get_height(spr_wordbubble_combined) * 0.2;
+	possible_bubble_spots = (camera_height - bubble_height) / BH_NUM_STARTING_BUBBLES;
+	
 	// UI
 	if(global.bh_ability_one > 0)
 	{
