@@ -29,8 +29,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_press_E",
-    "path": "sprites/spr_press_E/spr_press_E.yy",
+    "name": "spr_popup_default",
+    "path": "sprites/spr_popup_default/spr_popup_default.yy",
   },
   "spriteMaskId": null,
   "visible": true,

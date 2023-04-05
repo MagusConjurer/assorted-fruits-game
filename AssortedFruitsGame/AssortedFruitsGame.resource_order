@@ -89,7 +89,7 @@
     {"name":"spr_decor_default","order":9,"path":"sprites/spr_decor_default/spr_decor_default.yy",},
     {"name":"spr_Alex_overworld_combined","order":5,"path":"sprites/spr_Alex_overworld_combined/spr_Alex_overworld_combined.yy",},
     {"name":"spr_bh_vignette","order":14,"path":"sprites/spr_bh_vignette/spr_bh_vignette.yy",},
-    {"name":"spr_press_E","order":10,"path":"sprites/spr_press_E/spr_press_E.yy",},
+    {"name":"spr_popup_default","order":10,"path":"sprites/spr_popup_default/spr_popup_default.yy",},
     {"name":"obj_progress_bar","order":6,"path":"objects/obj_progress_bar/obj_progress_bar.yy",},
     {"name":"obj_settings_ui","order":11,"path":"objects/obj_settings_ui/obj_settings_ui.yy",},
     {"name":"spr_cans_01","order":2,"path":"sprites/spr_cans_01/spr_cans_01.yy",},
