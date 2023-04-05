@@ -2,5 +2,12 @@
 
 if (global.game_state != OVERWORLD && global.game_state != MENU)
 {		
-	darken_background(DARKENING_DEPTH);
+	if(global.game_state == PAUSED)
+	{
+		darken_background(PAUSED_DEPTH);
+	}
+	else
+	{
+		darken_background(DARKENING_DEPTH);
+	}
 }
