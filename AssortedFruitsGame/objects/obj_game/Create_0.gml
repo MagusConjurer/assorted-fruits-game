@@ -39,8 +39,8 @@ bh_ability_cooldown = 1;
 bh_bubbles_popped = 0;
 num_active_bubbles = 0;
 bh_prev_bubble_rand = 0;
-bubble_height = sprite_get_height(spr_wordbubble_combined) * 0.2;
-possible_bubble_spots = (camera_height - bubble_height) / BH_NUM_STARTING_BUBBLES;
+bubble_height = 0;
+possible_bubble_spots = 0;
 bubble_popped_time = 0;
 
 bh_time_spent = 0;
