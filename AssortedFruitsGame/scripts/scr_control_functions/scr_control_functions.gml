@@ -56,7 +56,7 @@ function menu_interact_pressed()
 	if(global.gamepad_id > -1)
 	{
 		// Press A (Xbox) or X (Playstation
-		return gamepad_button_check(global.gamepad_id, gp_face1);
+		return gamepad_button_check_pressed(global.gamepad_id, gp_face1);
 	}
 	else
 	{

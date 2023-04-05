@@ -20,7 +20,6 @@
     {"name":"inst_134C45AF","path":"rooms/rm_level_one/rm_level_one.yy",},
     {"name":"inst_E247C2A","path":"rooms/rm_level_one/rm_level_one.yy",},
     {"name":"inst_2D6B886E","path":"rooms/rm_level_one/rm_level_one.yy",},
-    {"name":"inst_5540C960","path":"rooms/rm_level_one/rm_level_one.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -28,7 +27,6 @@
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Dialogue","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Bullet_Hell","depth":200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Overworld","depth":300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5540C960","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_game","path":"objects/obj_game/obj_game.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":0.0,"y":0.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_54618E8F","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_house","path":"objects/obj_house/obj_house.yy",},"properties":[],"rotation":0.0,"scaleX":0.5,"scaleY":0.5,"x":1390.0,"y":179.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_623B55A","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_fence","path":"objects/obj_fence/obj_fence.yy",},"properties":[],"rotation":0.0,"scaleX":0.5,"scaleY":0.5,"x":808.0,"y":376.5,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1485902C","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_front_fence","path":"objects/obj_front_fence/obj_front_fence.yy",},"properties":[],"rotation":0.0,"scaleX":0.5,"scaleY":0.5,"x":1341.0,"y":804.0,},

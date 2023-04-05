@@ -167,7 +167,6 @@
     {"id":{"name":"spr_luandry","path":"sprites/spr_luandry/spr_luandry.yy",},},
     {"id":{"name":"stella_inlove2","path":"sprites/stella_inlove2/stella_inlove2.yy",},},
     {"id":{"name":"spr_interactable_default2","path":"sprites/spr_interactable_default2/spr_interactable_default2.yy",},},
-    {"id":{"name":"scr_pause_functions","path":"scripts/scr_pause_functions/scr_pause_functions.yy",},},
     {"id":{"name":"spr_small_grass_01","path":"sprites/spr_small_grass_01/spr_small_grass_01.yy",},},
     {"id":{"name":"obj_stella_dia","path":"objects/obj_stella_dia/obj_stella_dia.yy",},},
     {"id":{"name":"spr_nightstand","path":"sprites/spr_nightstand/spr_nightstand.yy",},},

@@ -14,14 +14,18 @@ camera_height = 0;
 displayX = 0;
 displayY = 0;
 viewport_setup = false;
-setup_viewport();
 
 // surface_resize(application_surface, camera_width, camera_height);
 
-// Pause Menu
+// Menus
+main_menu_visible = false
 pause_menu_visible = false;
-pause_menu_buttons = [];
-pause_menu_selected = 0;
+settings_menu_visible = false;
+menu_buttons = [];
+menu_selected = 0;
+settings_buttons = [];
+settings_visuals = [];
+settings_selected = 0;
 
 // Bullet Hell
 bh_active = false;

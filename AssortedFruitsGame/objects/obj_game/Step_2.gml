@@ -12,7 +12,7 @@ dialogue_update();
 
 bh_update();
 
-pause_menu_update();
+menu_update();
 
 
 

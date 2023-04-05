@@ -12,15 +12,34 @@ if (mouse_check_button_pressed(mb_left))
 		selected = true;
 	}
 }
-
-if (!mouse_check_button(mb_left))
+else if (mouse_check_button_released(mb_left))
 {
 	selected = false;
 }
 
 if (selected)
 {
-	value = clamp((mouse_x - x)/sprite_width, 0, max_value);
+	button_index = 1;
+	if(global.gamepad_id > -1)
+	{
+		if(menu_selection_left())
+		{
+			value = clamp(value - 0.05, 0, max_value);
+		}
+		else if(menu_selection_right())
+		{
+			value = clamp(value + 0.05, 0, max_value);
+		}
+	}
+	else
+	{
+		value = clamp((mouse_x - x)/sprite_width, 0, max_value);
+	}
+	
 	
 	event_user(0);
+}
+else
+{
+	button_index = 0;
 }

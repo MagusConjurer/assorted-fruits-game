@@ -9,7 +9,7 @@ function mouse_on_button()
 	return point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), x1, y1, x2, y2);
 }
 
-if(enabled)
+if(enabled && visible)
 {
 	spr_width  = sprite_get_width(sprite);
 	spr_height = sprite_get_height(sprite);
