@@ -11,34 +11,44 @@ else
 
 if(!has_been_interacted || interact_repeatable)
 {
-	if(global.game_state == OVERWORLD && collision_circle(x, y, radius, obj_player_ov, false, false) )
+	if(global.game_state == OVERWORLD)
 	{
-		if(!interact_starts)
+		image_speed = 1;
+		if(collision_circle(x, y, radius, obj_player_ov, false, false))
 		{
-			has_been_interacted = true;
-			event_user(0);
-		}
-		else
-		{
-			popup_id.visible = true;
-			
-			if(interact_pressed() && interact_starts)
+			if(!interact_starts)
 			{
 				has_been_interacted = true;
-		
 				event_user(0);
-		
-				// Remove popup if it is no longer needed
-				if(!interact_repeatable)
+			
+				instance_destroy();
+			}
+			else
+			{
+				popup_id.visible = true;
+			
+				if(interact_pressed() && interact_starts)
 				{
-					instance_destroy(popup_id);
-					instance_destroy();
+					has_been_interacted = true;
+		
+					event_user(0);
+		
+					// Remove popup if it is no longer needed
+					if(!interact_repeatable)
+					{
+						instance_destroy(popup_id);
+						instance_destroy();
+					}
 				}
 			}
+		} 
+		else 
+		{
+			popup_id.visible = false;
 		}
-	} 
-	else 
+	}
+	else
 	{
-		popup_id.visible = false;
+		image_speed = 0;
 	}
 }
