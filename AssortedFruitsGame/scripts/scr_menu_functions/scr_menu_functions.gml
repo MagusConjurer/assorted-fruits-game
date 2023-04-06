@@ -162,6 +162,7 @@ function menu_quit()
 function pause_menu_show()
 {
 	pause_menu_visible = true;
+	pause_dialogue();
 	pause_background_music();
 	
 	pm_x = global.resolution_w * 0.5;
@@ -200,6 +201,10 @@ function pause_menu_main()
 	with(obj_game)
 	{
 		viewport_setup = false;
+		
+		// Makes sure that it is able to reinitialize if they exit during these
+		dialogue_active = false;
+		bh_active = false;
 	}
 	
 	room_goto(rm_menu);
@@ -210,6 +215,8 @@ function pause_menu_continue()
 {
 	pause_menu_destroy();
 	return_to_prev_state(PAUSED);
+	
+	resume_dialogue();
 }
 #endregion
 

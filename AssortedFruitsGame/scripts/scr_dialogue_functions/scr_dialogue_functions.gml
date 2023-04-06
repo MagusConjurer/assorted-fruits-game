@@ -2,13 +2,7 @@
 function dialogue_update()
 {
 	if (global.game_state == DIALOGUE && dialogue_active = false)
-	{
-		dialogue_active = true;
-		conversation_index = 1;
-		conversation = [];
-		conversation_boxes = [];
-		dialogue_selection_options = [];
-		dialogue_selection_buttons = [];
+	{		
 		dialogue_start();
 	}
 	else if (global.game_state == DIALOGUE && dialogue_active = true)
@@ -45,15 +39,23 @@ function dialogue_update()
 				}
 			}
 		}
-		else
-		{
-			dialogue_button.selected = true;
-		}
 	}
 }
 
 function dialogue_start()
 {
+	dialogue_active = true;
+	dialogue_selection_visible = false;
+	dialogue_selection = 0;
+	dialogue_in_person = true;
+	conversation_index = 1; // starts at 1 since data is index 0
+	conversation = [];
+	conversation_boxes = [];
+	dialogue_selection_options   = [];
+	dialogue_selection_jumps     = [];
+	dialogue_selection_buttons   = [];
+	dialogue_selection_abilities = [];
+	
 	load_conversation(dialogue_level);
 	set_portrait_positions();
 	check_if_in_person(conversation[conversation_index]);
@@ -80,6 +82,11 @@ function dialogue_next()
 			else
 			{
 				continue_conversation();
+			}
+			
+			if(global.gamepad_id > -1)
+			{
+				//dialogue_button.selected = true;
 			}
 		}
 	}
@@ -342,4 +349,44 @@ function complete_selection()
 		
 	obj_game.conversation_index++;
 	continue_conversation();
+}
+
+function pause_dialogue()
+{
+	if(global.prev_state == DIALOGUE)
+	{
+		with(obj_game)
+		{
+			dia_btn_enabled_state = dialogue_button.enabled;
+			
+			dialogue_button.enabled = false;
+			
+			if(dialogue_selection_visible)
+			{
+				for(i = 0; i < array_length(dialogue_selection_buttons); i++)
+				{
+					dialogue_selection_buttons[i].enabled = false;
+				}
+			}
+		}
+	}
+}
+
+function resume_dialogue()
+{
+	if(global.game_state == DIALOGUE)
+	{
+		with(obj_game)
+		{
+			dialogue_button.enabled = dia_btn_enabled_state;
+			
+			if(dialogue_selection_visible)
+			{
+				for(i = 0; i < array_length(dialogue_selection_buttons); i++)
+				{
+					dialogue_selection_buttons[i].enabled = true;
+				}
+			}
+		}
+	}
 }
