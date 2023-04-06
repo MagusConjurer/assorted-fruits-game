@@ -4,7 +4,6 @@
 event_inherited();
 
 text = CONTINUE_DIA_TEXT;
-is_gui_button = false;
 
 depth = DIA_DEPTH - 1;
 

@@ -55,6 +55,7 @@ conversation_index = 1; // starts at 1 since data is index 0
 conversation = [];
 conversation_boxes = [];
 dialogue_button = 0;
+dia_btn_enabled_state = true; // used when pausing
 dialogue_left = 0;
 dialogue_right = 0;
 dialogue_selection = 0;
