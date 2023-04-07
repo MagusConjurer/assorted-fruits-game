@@ -4,8 +4,6 @@
 // audio_stop_all();
 // audio_play_sound(BG_MUSIC, 10, true);
 
-check_for_controller();
-
 // Camera
 camera_x = 0;
 camera_y = 0;

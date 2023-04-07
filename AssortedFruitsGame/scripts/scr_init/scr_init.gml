@@ -30,7 +30,7 @@ global.hotkey_menu = vk_escape;
 global.hotkey_menu_interact = vk_space;
 
 global.gamepad_id = -1;
-check_for_controller();
+global.gamepad_type = 0;
 
 // Initialize global variables.
 global.current_level = BUS_STOP;

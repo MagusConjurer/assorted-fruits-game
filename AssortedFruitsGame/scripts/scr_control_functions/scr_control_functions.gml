@@ -1,16 +1,51 @@
-function check_for_controller()
+function set_controller_type()
 {
-	for(var i = 0; i < 12; i++)
-	{
-		if(gamepad_is_connected(i))
-		{
-			global.gamepad_id = i;
-			gamepad_set_axis_deadzone(global.gamepad_id, 0.2);
+	if(global.gamepad_id > -1)
+	{		
+		gamepad_set_axis_deadzone(global.gamepad_id, AXIS_DEADZONE);
+		gamepad_set_button_threshold(global.gamepad_id, TRIGGER_DEADZONE);
 		
-			break;
+		controller_type = gamepad_get_description(global.gamepad_id);
+		show_debug_message(controller_type);
+		if(string_count("STANDARD GAMEPAD",controller_type) > 0 || string_count("Xbox",controller_type) > 0)
+		{
+			global.gamepad_type = XBOX;
 		}
+		else if (string_count("PS4",controller_type) > 0 || string_count("PS5",controller_type) > 0)
+		{
+			global.gamepad_type = PLAYSTATION;
+		}
+		
+		gamepad_set_color(global.gamepad_id, C_ALEX);
 	}
 }
+
+function get_ctrl_hotkey_interact()
+{
+	switch(global.gamepad_type)
+	{
+		case XBOX:
+			return "A";
+		break;
+		case PLAYSTATION:
+			return "X";
+		break;
+	}
+}
+
+function get_ctrl_hotkey_ability_one()
+{
+	switch(global.gamepad_type)
+	{
+		case XBOX:
+			return "X";
+		break;
+		case PLAYSTATION:
+			return "[]";
+		break;
+	}
+}
+
 function get_movement_h()
 {
 	if(global.gamepad_id > -1)

@@ -11,6 +11,9 @@
 
 #macro PERCENT_TO_DARKEN 0.8
 
+// COLORS
+#macro C_ALEX $014462
+
 // GAME STATES
 #macro OVERWORLD 0
 #macro BULLET_HELL 1
@@ -23,6 +26,12 @@
 #macro BH_DEPTH DARKENING_DEPTH-1
 #macro DIA_DEPTH BH_DEPTH
 #macro PAUSED_DEPTH DIA_DEPTH - 1
+
+// Controller
+#macro PLAYSTATION 0
+#macro XBOX 1
+#macro AXIS_DEADZONE 0.2
+#macro TRIGGER_DEADZONE 0.1
 
 // SETTINGS
 #macro SETTINGS_BG_COLOR $5A9C6D // color in hex
