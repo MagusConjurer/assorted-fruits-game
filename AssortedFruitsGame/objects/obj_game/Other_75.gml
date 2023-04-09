@@ -15,6 +15,8 @@ if(window_has_focus())
 			var pad = async_load[? "pad_index"];
 			if(global.gamepad_id == -1)
 			{
+				window_set_cursor(cr_none);
+				
 				global.gamepad_id = pad;
 				set_controller_type();
 			}
@@ -23,6 +25,8 @@ if(window_has_focus())
 			var pad = async_load[? "pad_index"];
 			if(global.gamepad_id == pad)
 			{
+				window_set_cursor(cr_default);				
+				
 				global.gamepad_id = -1;
 			}
 		break;

@@ -7,9 +7,9 @@ function dialogue_update()
 	}
 	else if (global.game_state == DIALOGUE && dialogue_active = true)
 	{
-		if(dialogue_selection_visible)
+		if(global.gamepad_id > -1)
 		{
-			if(global.gamepad_id > -1)
+			if(dialogue_selection_visible)
 			{
 				if (menu_selection_left())
 				{
@@ -38,7 +38,13 @@ function dialogue_update()
 					dialogue_selection_buttons[dialogue_selection].selected = true;
 				}
 			}
+			else
+			{
+				dialogue_button.selected = true;
+			}
 		}
+
+
 	}
 }
 
