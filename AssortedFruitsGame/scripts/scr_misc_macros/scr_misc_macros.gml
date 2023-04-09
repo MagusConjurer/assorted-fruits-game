@@ -32,6 +32,7 @@
 #macro XBOX 1
 #macro AXIS_DEADZONE 0.2
 #macro TRIGGER_DEADZONE 0.1
+#macro MENU_INPUT_DELAY 0.25
 
 // SETTINGS
 #macro SETTINGS_BG_COLOR $5A9C6D // color in hex

@@ -1,3 +1,22 @@
+function menu_input_update()
+{
+	with(obj_game)
+	{
+		if(global.gamepad_id > -1)
+		{
+			time_since_menu_input += delta_time/1000000;
+			if(time_since_menu_input > MENU_INPUT_DELAY)
+			{
+				menu_input_active = true;
+			}
+			else
+			{
+				menu_input_active = false;
+			}
+		}
+	}
+}
+
 function set_controller_type()
 {
 	if(global.gamepad_id > -1)
@@ -180,36 +199,80 @@ function menu_interact_released()
 
 function menu_selection_up()
 {
-	if(global.gamepad_id > -1)
+	with(obj_game)
 	{
-		// Press DPad Up
-		return gamepad_button_check_pressed(global.gamepad_id, gp_padu);
+		if(global.gamepad_id > -1 && menu_input_active)
+		{
+			// Press DPad or  Up
+			if(get_movement_v() < 0)
+			{
+				time_since_menu_input = 0;
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
 	}
 }
 
 function menu_selection_down()
 {
-	if(global.gamepad_id > -1)
+	with(obj_game)
 	{
-		// Press DPad Down
-		return gamepad_button_check_pressed(global.gamepad_id, gp_padd);
+		if(global.gamepad_id > -1 && menu_input_active)
+		{
+			// Press DPad or  Up
+			if(get_movement_v() > 0)
+			{
+				time_since_menu_input = 0;
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
 	}
 }
 
 function menu_selection_left()
 {
-	if(global.gamepad_id > -1)
+	with(obj_game)
 	{
-		// Press DPad Left
-		return gamepad_button_check_pressed(global.gamepad_id, gp_padl);
+		if(global.gamepad_id > -1 && menu_input_active)
+		{
+			// Press DPad or  Up
+			if(get_movement_h() < 0)
+			{
+				time_since_menu_input = 0;
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
 	}
 }
 
 function menu_selection_right()
 {
-	if(global.gamepad_id > -1)
+	with(obj_game)
 	{
-		// Press DPad Right
-		return gamepad_button_check_pressed(global.gamepad_id, gp_padr);
+		if(global.gamepad_id > -1 && menu_input_active)
+		{
+			// Press DPad or  Up
+			if(get_movement_h() > 0)
+			{
+				time_since_menu_input = 0;
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
 	}
 }

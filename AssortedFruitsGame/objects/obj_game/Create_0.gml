@@ -4,6 +4,10 @@
 // audio_stop_all();
 // audio_play_sound(BG_MUSIC, 10, true);
 
+// Controller
+time_since_menu_input = 0;
+menu_input_active = false;
+
 // Camera
 camera_x = 0;
 camera_y = 0;
