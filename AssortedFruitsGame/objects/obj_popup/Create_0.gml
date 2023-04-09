@@ -14,8 +14,7 @@ popup_text = "";
 
 if(global.gamepad_id > -1)
 {
-	// Could change to check gamepad description to display Xbox vs Playstation buttons
-	popup_text = "X";
+	popup_text = get_ctrl_hotkey_interact();
 }
 else
 {

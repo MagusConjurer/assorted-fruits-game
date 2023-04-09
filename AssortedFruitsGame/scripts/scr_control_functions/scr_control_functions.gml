@@ -1,16 +1,70 @@
-function check_for_controller()
+function menu_input_update()
 {
-	for(var i = 0; i < 12; i++)
+	with(obj_game)
 	{
-		if(gamepad_is_connected(i))
+		if(global.gamepad_id > -1)
 		{
-			global.gamepad_id = i;
-			gamepad_set_axis_deadzone(global.gamepad_id, 0.2);
-		
-			break;
+			time_since_menu_input += delta_time/1000000;
+			if(time_since_menu_input > MENU_INPUT_DELAY)
+			{
+				menu_input_active = true;
+			}
+			else
+			{
+				menu_input_active = false;
+			}
 		}
 	}
 }
+
+function set_controller_type()
+{
+	if(global.gamepad_id > -1)
+	{		
+		gamepad_set_axis_deadzone(global.gamepad_id, AXIS_DEADZONE);
+		gamepad_set_button_threshold(global.gamepad_id, TRIGGER_DEADZONE);
+		
+		controller_type = gamepad_get_description(global.gamepad_id);
+		show_debug_message(controller_type);
+		if(string_count("STANDARD GAMEPAD",controller_type) > 0 || string_count("Xbox",controller_type) > 0)
+		{
+			global.gamepad_type = XBOX;
+		}
+		else if (string_count("PS4",controller_type) > 0 || string_count("PS5",controller_type) > 0)
+		{
+			global.gamepad_type = PLAYSTATION;
+		}
+		
+		gamepad_set_color(global.gamepad_id, C_ALEX);
+	}
+}
+
+function get_ctrl_hotkey_interact()
+{
+	switch(global.gamepad_type)
+	{
+		case XBOX:
+			return "A";
+		break;
+		case PLAYSTATION:
+			return "X";
+		break;
+	}
+}
+
+function get_ctrl_hotkey_ability_one()
+{
+	switch(global.gamepad_type)
+	{
+		case XBOX:
+			return "X";
+		break;
+		case PLAYSTATION:
+			return "[]";
+		break;
+	}
+}
+
 function get_movement_h()
 {
 	if(global.gamepad_id > -1)
@@ -145,36 +199,80 @@ function menu_interact_released()
 
 function menu_selection_up()
 {
-	if(global.gamepad_id > -1)
+	with(obj_game)
 	{
-		// Press DPad Up
-		return gamepad_button_check_pressed(global.gamepad_id, gp_padu);
+		if(global.gamepad_id > -1 && menu_input_active)
+		{
+			// Press DPad or  Up
+			if(get_movement_v() < 0)
+			{
+				time_since_menu_input = 0;
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
 	}
 }
 
 function menu_selection_down()
 {
-	if(global.gamepad_id > -1)
+	with(obj_game)
 	{
-		// Press DPad Down
-		return gamepad_button_check_pressed(global.gamepad_id, gp_padd);
+		if(global.gamepad_id > -1 && menu_input_active)
+		{
+			// Press DPad or  Up
+			if(get_movement_v() > 0)
+			{
+				time_since_menu_input = 0;
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
 	}
 }
 
 function menu_selection_left()
 {
-	if(global.gamepad_id > -1)
+	with(obj_game)
 	{
-		// Press DPad Left
-		return gamepad_button_check_pressed(global.gamepad_id, gp_padl);
+		if(global.gamepad_id > -1 && menu_input_active)
+		{
+			// Press DPad or  Up
+			if(get_movement_h() < 0)
+			{
+				time_since_menu_input = 0;
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
 	}
 }
 
 function menu_selection_right()
 {
-	if(global.gamepad_id > -1)
+	with(obj_game)
 	{
-		// Press DPad Right
-		return gamepad_button_check_pressed(global.gamepad_id, gp_padr);
+		if(global.gamepad_id > -1 && menu_input_active)
+		{
+			// Press DPad or  Up
+			if(get_movement_h() > 0)
+			{
+				time_since_menu_input = 0;
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
 	}
 }
