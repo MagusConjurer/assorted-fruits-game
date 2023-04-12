@@ -67,6 +67,13 @@ function dialogue_start()
 	check_if_in_person(conversation[conversation_index]);
 	draw_textbox();
 	
+	
+	if(!dialogue_in_person)
+	{
+		phone_x = camera_x + (camera_width * 0.5);
+		phone_y = camera_y + (camera_height * 0.5);
+		instance_create_layer(phone_x,phone_y,"Dialogue",obj_phone_dia);
+	}
 	start_box = conversation_boxes[0];
 	cont_x = start_box.x + start_box.box_width * 1.9;
 	cont_y = start_box.y + start_box.box_height - TEXTBOX_MARGIN * 3;
