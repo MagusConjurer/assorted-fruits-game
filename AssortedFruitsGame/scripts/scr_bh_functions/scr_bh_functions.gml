@@ -40,12 +40,15 @@ function bh_update()
 
 function bh_start(){
 	// Player	
+	bh_player_health = BH_PLAYER_HEALTH_DEFAULT;
 	bh_player = instance_create_layer(camera_x + (camera_width * 0.2), camera_y + (camera_height * 0.5), "Bullet_Hell", obj_player_bh);
 	
 	// Temporary fix for scaling issue
 	bh_player.image_xscale = 0.2;
 	bh_player.image_yscale = 0.2;
 	
+	bh_bubbles_popped = 0;
+	num_active_bubbles = 0;
 	bubble_height = sprite_get_height(spr_wordbubble_combined) * 0.2;
 	possible_bubble_spots = (camera_height - bubble_height) / BH_NUM_STARTING_BUBBLES;
 	
@@ -55,6 +58,7 @@ function bh_start(){
 		instance_create_layer(BH_UI_MARGIN * 2, BH_UI_MARGIN * 2, "Bullet_Hell", obj_ability_one_button);
 	}
 	
+	bh_time_spent = 0;
 	bh_progress_bar = instance_create_layer(0, BH_UI_MARGIN, "Bullet_Hell", obj_progress_bar);
 	
 	// First wall of bubbles
@@ -142,7 +146,6 @@ function bh_bubble_destroyed(by_player){
 	{
 		num_active_bubbles--;
 		bh_bubbles_popped++;
-		bubble_popped_time = bh_time_spent;
 		
 		if(by_player)
 		{
