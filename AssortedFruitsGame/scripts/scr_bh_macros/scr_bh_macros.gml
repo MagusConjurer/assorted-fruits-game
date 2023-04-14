@@ -7,6 +7,8 @@
 #macro BH_TIME_PROGRESS_PERCENTAGE 0.01
 #macro BH_BUBBLE_POP_PROGRESS 0.04
 #macro BH_BOOST_PROGRESS 0.08
+#macro BH_BUS_ICON spr_slider_button
+#macro BH_BED_ICON spr_slider_button
 
 #endregion
 

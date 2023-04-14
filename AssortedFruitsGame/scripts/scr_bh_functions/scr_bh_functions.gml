@@ -60,6 +60,7 @@ function bh_start(){
 	
 	bh_time_spent = 0;
 	bh_progress_bar = instance_create_layer(0, BH_UI_MARGIN, "Bullet_Hell", obj_progress_bar);
+	bh_set_progress_icon();
 	
 	bh_boost_available = false;
 	alarm[1] = BH_SECONDS_BEFORE_BOOST * 60; // seconds * FPS
@@ -73,6 +74,16 @@ function bh_update_player_health(change)
 	obj_game.bh_player_health += change;
 }
 
+function bh_status_index()
+{
+	with(obj_game)
+	{
+		return BH_PLAYER_HEALTH_DEFAULT - bh_player_health;
+	}
+}
+
+#region PROGRESS BAR
+
 function bh_update_progress_bar(increment)
 {
 	with(obj_game)
@@ -81,13 +92,15 @@ function bh_update_progress_bar(increment)
 	}
 }
 
-function bh_status_index()
+function bh_set_progress_icon()
 {
 	with(obj_game)
 	{
-		return BH_PLAYER_HEALTH_DEFAULT - bh_player_health;
+		bh_progress_bar.progress_icon = BH_BUS_ICON;
 	}
 }
+
+#endregion
 
 #region ABILIITIES
 

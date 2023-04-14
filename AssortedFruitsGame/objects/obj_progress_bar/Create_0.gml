@@ -10,6 +10,8 @@ max_value = 1;
 image_speed = 0;
 image_index = 0;
 
+progress_icon = spr_slider_button;
+
 xWidth = sprite_get_width(sprite_index);
 percentToScale = (obj_game.camera_width) / xWidth;
 image_xscale = percentToScale;
