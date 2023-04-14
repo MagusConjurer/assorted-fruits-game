@@ -5,26 +5,44 @@ event_inherited();
 
 if(sprite_index != box_sprite)
 {
+	if(current_alignment = align.centered)
+	{
+		image_xscale = 0.5;
+		image_yscale = 0.5;
+	} 
+	else 
+	{
+		image_xscale = 0.25;
+		image_yscale = 0.25;
+	}
+	
 	sprite_index = box_sprite;
-	box_width = sprite_get_width(box_sprite);
-	box_height = sprite_get_height(box_sprite);
+	box_width  = sprite_get_width(box_sprite) * image_xscale;
+	box_height = sprite_get_height(box_sprite)* image_yscale;
 
 	if(current_alignment = align.centered)
 	{
-		x = (global.resolution_w - box_width) * 0.5;
+		x = dialogue_get_midpoint() - (box_width * 0.5);
 	}
 	else if(current_alignment = align.left)
 	{
-		image_xscale = -1;
-		x = (global.resolution_w * 0.5) - (box_width * 0.25);
+		if(image_xscale > 0) 
+		{
+			image_xscale = image_xscale * -1;
+		}
+		
+		x = dialogue_get_midpoint() - (box_width * 0.25);
 	}
 	else
 	{
-		image_xscale = 1;
-		x = (global.resolution_w * 0.5) + (box_width * 0.25);
+		if(image_xscale < 0) 
+		{
+			image_xscale = image_xscale * 1;
+		}
+		x = dialogue_get_midpoint() + (box_width * 0.25);
 	}
 
-	y = global.resolution_h - box_height - TEXTBOX_MARGIN;
+	y = dialogue_get_bottom() - box_height - TEXTBOX_MARGIN;
 	text_max_width = box_width - (TEXTBOX_PADDING*2);
 }
 

@@ -22,9 +22,9 @@
 #macro MENU 4
 
 // Depths
-#macro DARKENING_DEPTH -995
-#macro BH_DEPTH DARKENING_DEPTH-1
-#macro DIA_DEPTH BH_DEPTH
+#macro DARKENING_DEPTH -990
+#macro BH_DEPTH DARKENING_DEPTH - 1
+#macro DIA_DEPTH BH_DEPTH - 1
 #macro PAUSED_DEPTH DIA_DEPTH - 1
 
 // Controller

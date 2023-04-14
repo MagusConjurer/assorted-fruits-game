@@ -54,6 +54,7 @@ function dialogue_start()
 	dialogue_selection_visible = false;
 	dialogue_selection = 0;
 	dialogue_in_person = true;
+	dialogue_phone = 0;
 	conversation_index = 1; // starts at 1 since data is index 0
 	conversation = [];
 	conversation_boxes = [];
@@ -66,7 +67,6 @@ function dialogue_start()
 	set_portrait_positions();
 	check_if_in_person(conversation[conversation_index]);
 	draw_textbox();
-	
 	
 	if(!dialogue_in_person)
 	{
@@ -105,6 +105,7 @@ function dialogue_next()
 	}
 }
 
+#region TEXTBOX
 function set_textbox_properties(textbox)
 {
 	current_line = obj_game.conversation[obj_game.conversation_index];
@@ -150,21 +151,28 @@ function draw_textbox()
 	tb_x = camera_x + (camera_width - spr_width) * 0.5;
 	tb_y = camera_y + (camera_height - spr_height - TEXTBOX_MARGIN);
 	
-	obj_game.textbox_inst = instance_create_layer(tb_x,tb_y,"Dialogue",obj_textbox_dia);
-	set_textbox_properties(obj_game.textbox_inst);
+	with(obj_game)
+	{
+		textbox_inst = instance_create_layer(tb_x,tb_y,"Dialogue",obj_textbox_dia);
+		set_textbox_properties(textbox_inst);
 	
-	obj_game.conversation_boxes[obj_game.conversation_index-1] = obj_game.textbox_inst;
-	obj_game.conversation_index++;
+		conversation_boxes[conversation_index-1] = textbox_inst;
+		conversation_index++;
+	}
 }
 
 function draw_multi_textbox()
 {
-	for(i = 0; i < array_length(obj_game.conversation_boxes); i++)
+	with(obj_game)
 	{
-		if(instance_exists(obj_game.conversation_boxes[i]))
+		for(i = 0; i < array_length(conversation_boxes); i++)
 		{
-			obj_game.box = obj_game.conversation_boxes[i];
-			obj_game.box.y -= obj_game.box.sprite_height + TEXTBOX_MARGIN;
+			if(instance_exists(conversation_boxes[i]))
+			{
+				box = conversation_boxes[i];
+				box.y -= box.sprite_height + TEXTBOX_MARGIN;
+			
+			}
 		}
 	}
 				
@@ -173,15 +181,41 @@ function draw_multi_textbox()
 
 function remove_multi_boxes()
 {
-	for(i = 1; i < array_length(obj_game.conversation_boxes); i++)
+	with(obj_game)
 	{
-		if(instance_exists(obj_game.conversation_boxes[i]))
+		for(i = 1; i < array_length(conversation_boxes); i++)
 		{
-			instance_destroy(obj_game.conversation_boxes[i]);
+			if(instance_exists(conversation_boxes[i]))
+			{
+				instance_destroy(conversation_boxes[i]);
+			}
+			
+			if(instance_exists(obj_phone_dia))
+			{
+				instance_destroy(obj_phone_dia);
+			}
 		}
+		conversation_boxes[0] = instance_create_layer(0,0,"Dialogue",obj_textbox_dia);
 	}
-	obj_game.conversation_boxes[0] = instance_create_layer(0,0,"Dialogue",obj_textbox_dia);
 }
+
+function dialogue_get_midpoint()
+{
+	with(obj_game)
+	{
+		return camera_x + (camera_width * 0.5);
+	}
+}
+
+function dialogue_get_bottom()
+{
+	with(obj_game)
+	{
+		return camera_y + camera_height;
+	}
+}
+
+#endregion
 
 function load_conversation(level)
 {
