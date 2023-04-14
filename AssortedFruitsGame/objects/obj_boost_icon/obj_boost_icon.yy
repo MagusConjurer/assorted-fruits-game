@@ -1,20 +1,20 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_bubble",
+  "name": "obj_boost_icon",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":64,"eventType":8,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Bubbles",
-    "path": "folders/Objects/BulletHell/Bubbles.yy",
+    "name": "Boost",
+    "path": "folders/Objects/BulletHell/Boost.yy",
   },
   "parentObjectId": {
-    "name": "obj_bubble_parent",
-    "path": "objects/obj_bubble_parent/obj_bubble_parent.yy",
+    "name": "obj_bh_parent",
+    "path": "objects/obj_bh_parent/obj_bh_parent.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,
@@ -32,8 +32,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_wordbubble_combined",
-    "path": "sprites/spr_wordbubble_combined/spr_wordbubble_combined.yy",
+    "name": "spr_bh_boost_icon_default",
+    "path": "sprites/spr_bh_boost_icon_default/spr_bh_boost_icon_default.yy",
   },
   "spriteMaskId": null,
   "visible": true,

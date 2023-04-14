@@ -221,6 +221,8 @@ function bh_add_boost_available()
 	with(obj_game)
 	{
 		bh_boost_available = true;
+		instance_create_layer(BH_BOOST_ICON_X, BH_UI_MARGIN * 2, "Bullet_Hell",obj_boost_icon);
+		play_sfx(AUDIO_BOOST_AVAILABLE);
 	}
 }
 
@@ -229,7 +231,7 @@ function bh_remove_boost_available()
 	with(obj_game)
 	{
 		bh_boost_available = false;
-		
+		instance_destroy(obj_boost_icon);
 		alarm[1] = BH_SECONDS_BEFORE_BOOST * 60;
 	}
 }
@@ -237,6 +239,11 @@ function bh_remove_boost_available()
 function bh_apply_progress_boost()
 {
 	bh_update_progress_bar(BH_BOOST_PROGRESS);
+	with(obj_game)
+	{
+		bh_progress_bar.progress_pulse_color = C_STELLA;
+		bh_progress_bar.progress_pulse_frames = BH_BOOST_PULSE_TIME * 60;
+	}
 }
 
 #endregion

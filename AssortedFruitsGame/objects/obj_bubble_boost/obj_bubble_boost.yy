@@ -9,8 +9,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "BulletHell",
-    "path": "folders/Objects/BulletHell.yy",
+    "name": "Boost",
+    "path": "folders/Objects/BulletHell/Boost.yy",
   },
   "parentObjectId": {
     "name": "obj_bh_parent",

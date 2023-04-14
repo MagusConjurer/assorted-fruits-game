@@ -13,6 +13,7 @@
 
 // COLORS
 #macro C_ALEX $014462
+#macro C_STELLA c_purple
 
 // GAME STATES
 #macro OVERWORLD 0
