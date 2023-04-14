@@ -13,8 +13,8 @@
     "path": "folders/Objects/BulletHell.yy",
   },
   "parentObjectId": {
-    "name": "obj_bh_parent",
-    "path": "objects/obj_bh_parent/obj_bh_parent.yy",
+    "name": "obj_bubble_parent",
+    "path": "objects/obj_bubble_parent/obj_bubble_parent.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,

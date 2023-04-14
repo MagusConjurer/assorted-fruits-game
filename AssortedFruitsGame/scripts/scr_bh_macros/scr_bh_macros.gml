@@ -23,7 +23,6 @@
 
 #endregion
 
-
 #region BUBBLES
 #macro BH_STARTING_BUBBLE_HEALTH 7
 #macro BH_NUM_STARTING_BUBBLES 18 

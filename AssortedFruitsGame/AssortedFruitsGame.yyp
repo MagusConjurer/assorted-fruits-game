@@ -201,6 +201,7 @@
     {"id":{"name":"rm_level_one","path":"rooms/rm_level_one/rm_level_one.yy",},},
     {"id":{"name":"alex_afraid1","path":"sprites/alex_afraid1/alex_afraid1.yy",},},
     {"id":{"name":"obj_continue_dia","path":"objects/obj_continue_dia/obj_continue_dia.yy",},},
+    {"id":{"name":"obj_bubble_parent","path":"objects/obj_bubble_parent/obj_bubble_parent.yy",},},
     {"id":{"name":"fnt_menu","path":"fonts/fnt_menu/fnt_menu.yy",},},
     {"id":{"name":"spr_player_bh_default","path":"sprites/spr_player_bh_default/spr_player_bh_default.yy",},},
     {"id":{"name":"obj_continue_button","path":"objects/obj_continue_button/obj_continue_button.yy",},},

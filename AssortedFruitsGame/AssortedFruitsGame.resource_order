@@ -151,6 +151,7 @@
     {"name":"spr_sign_01","order":8,"path":"sprites/spr_sign_01/spr_sign_01.yy",},
     {"name":"rm_level_one","order":1,"path":"rooms/rm_level_one/rm_level_one.yy",},
     {"name":"obj_continue_dia","order":5,"path":"objects/obj_continue_dia/obj_continue_dia.yy",},
+    {"name":"obj_bubble_parent","order":14,"path":"objects/obj_bubble_parent/obj_bubble_parent.yy",},
     {"name":"fnt_menu","order":1,"path":"fonts/fnt_menu/fnt_menu.yy",},
     {"name":"spr_player_bh_default","order":11,"path":"sprites/spr_player_bh_default/spr_player_bh_default.yy",},
     {"name":"obj_bh_parent","order":7,"path":"objects/obj_bh_parent/obj_bh_parent.yy",},

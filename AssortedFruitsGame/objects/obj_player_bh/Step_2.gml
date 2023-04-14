@@ -1,18 +1,17 @@
 /// @description Movement finalized
 
-
-// Checks collision with bubbles
-if(place_meeting(x + xSpeed, y, obj_bubble))
-{
-	xSpeed = 0;
-}
-if(place_meeting(x, y + ySpeed, obj_bubble))
-{
-	ySpeed = 0;
-}
-
 if(global.game_state == active_state)
 {
+	// Checks collision with bubbles with direction buffer
+	if(place_meeting(x + xSpeed + h_direction, y, obj_bubble_parent))
+	{
+		xSpeed = 0;
+	}
+	if(place_meeting(x, y + ySpeed + v_direction, obj_bubble_parent))
+	{
+		ySpeed = 0;
+	}
+	
 	if(bh_is_outside_bounds_x(x + xSpeed, sprite_width * image_xscale))
 	{
 		xSpeed = 0;
