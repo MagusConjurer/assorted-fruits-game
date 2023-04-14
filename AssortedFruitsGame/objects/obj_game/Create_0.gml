@@ -43,7 +43,8 @@ num_active_bubbles = 0;
 bh_prev_bubble_rand = 0;
 bubble_height = 0;
 possible_bubble_spots = 0;
-bubble_popped_time = 0;
+
+bh_boost_available = false;
 
 bh_time_spent = 0;
 bh_vignette_levels = sprite_get_number(spr_bh_vignette) - 1;

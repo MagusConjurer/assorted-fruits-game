@@ -61,9 +61,35 @@ function bh_start(){
 	bh_time_spent = 0;
 	bh_progress_bar = instance_create_layer(0, BH_UI_MARGIN, "Bullet_Hell", obj_progress_bar);
 	
+	bh_boost_available = false;
+	alarm[1] = BH_SECONDS_BEFORE_BOOST * 60; // seconds * FPS
+	
 	// First wall of bubbles
 	bh_spawn_initial_bubbles();
 }
+
+function bh_update_player_health(change)
+{
+	obj_game.bh_player_health += change;
+}
+
+function bh_update_progress_bar(increment)
+{
+	with(obj_game)
+	{
+		bh_progress_bar.current_value += increment;
+	}
+}
+
+function bh_status_index()
+{
+	with(obj_game)
+	{
+		return BH_PLAYER_HEALTH_DEFAULT - bh_player_health;
+	}
+}
+
+#region ABILIITIES
 
 function bh_set_ability(ability)
 {
@@ -100,7 +126,9 @@ function bh_ability(ability)
 		event_user(ability);
 	}
 }
+#endregion
 
+#region BUBBLES
 function bh_spawn_bubble(y_index)
 {
 	x_pos = camera_x + (camera_width * 0.9);
@@ -149,30 +177,58 @@ function bh_bubble_destroyed(by_player){
 		
 		if(by_player)
 		{
-			bh_update_progress_bar(BH_PLAYER_POP_PROGRESS);
+			bh_update_progress_bar(BH_BUBBLE_POP_PROGRESS);
 		}
 	}
 	
 }
 
-function bh_update_player_health(change)
-{
-	obj_game.bh_player_health += change;
-}
+#endregion
 
-function bh_update_progress_bar(increment)
-{
-	obj_game.bh_progress_bar.current_value += increment;
-}
+#region BOOST
 
-function bh_status_index()
+function bh_spawn_progress_boost()
 {
 	with(obj_game)
 	{
-		return BH_PLAYER_HEALTH_DEFAULT - bh_player_health;
+		if(!bh_boost_available)
+		{
+			x_pos = camera_x + BH_UI_MARGIN;
+			rand_y_pos = irandom_range(camera_y + BH_UI_MARGIN, camera_y + camera_height - BH_UI_MARGIN);
+			
+			instance_create_layer(x_pos,rand_y_pos,"Bullet_Hell",obj_bubble_boost);
+			
+			bh_add_boost_available();
+		}
 	}
 }
 
+function bh_add_boost_available()
+{
+	with(obj_game)
+	{
+		bh_boost_available = true;
+	}
+}
+
+function bh_remove_boost_available()
+{
+	with(obj_game)
+	{
+		bh_boost_available = false;
+		
+		alarm[1] = BH_SECONDS_BEFORE_BOOST * 60;
+	}
+}
+
+function bh_apply_progress_boost()
+{
+	bh_update_progress_bar(BH_BOOST_PROGRESS);
+}
+
+#endregion
+
+#region BOUNDS CHECKING
 function bh_is_outside_bounds_x(new_x, spr_width)
 {
 	with(obj_game)
@@ -202,6 +258,9 @@ function bh_is_outside_bounds_y(new_y, spr_height)
 		}
 	}
 }
+#endregion
+
+#region MANUAL DARKENING
 
 function bh_darken_object_rect(x1, y1, x2, y2)
 {
@@ -223,14 +282,21 @@ function bh_darken_object_circle(x1,y1,rad)
 	draw_set_alpha(1.0);
 }
 
+#endregion
+
 // Destroys all BH instances and updates the game state back to the Overworld
 function bh_cleanup()
 {
-	instance_destroy(obj_player_bh);
-	instance_destroy(obj_bh_parent);
+	with(obj_game)
+	{
+		instance_destroy(obj_player_bh);
+		instance_destroy(obj_bh_parent);
 	
-	bh_active = false;
-	set_game_state(OVERWORLD);
+		bh_active = false;
+		set_game_state(OVERWORLD);
 	
-	obj_game.alarm[0] = -1;
+		// Stop all alarms
+		alarm[0] = -1;
+		alarm[1] = -1;
+	}
 }
