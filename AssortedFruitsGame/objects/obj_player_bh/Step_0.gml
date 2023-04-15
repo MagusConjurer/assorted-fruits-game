@@ -52,8 +52,8 @@ if (global.game_state == active_state)
 
 	if(alarm[1] < 0) {
 		// Get x and y speed if not dashing
-		xSpeed = h_direction * moveSpeed;
-		ySpeed = v_direction * moveSpeed;
+		xSpeed = h_direction * moveSpeed * DELTA;
+		ySpeed = v_direction * moveSpeed * DELTA;
 	}
 	
 	// Draws the player above the darkened area

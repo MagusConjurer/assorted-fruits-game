@@ -12,9 +12,9 @@ if(global.game_state == BULLET_HELL)
 	}
 	
 	// Movement
-	x += xDirection * xSpeed;
+	x += xDirection * xSpeed * DELTA;
 	
-	angle += 1;
+	angle += 1 * DELTA;
 	image_angle = angle;
 	
 	if(bh_is_outside_bounds_x(x,sprite_width))
