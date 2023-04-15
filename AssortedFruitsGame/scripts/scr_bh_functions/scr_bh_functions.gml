@@ -103,8 +103,8 @@ function bh_spawn_bubble(y_index)
 	y_pos = camera_y + (0.5 * bubble_height) + (possible_bubble_spots * y_index);
 	
 	_inst = instance_create_layer(x_pos, y_pos, "Bullet_Hell", obj_bubble);
-	_inst.image_xscale = 0.2;
-	_inst.image_yscale = 0.2;
+	_inst.image_xscale = 0.4;
+	_inst.image_yscale = 0.4;
 
 	num_active_bubbles++;
 }
