@@ -1,16 +1,17 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_boost_icon",
+  "name": "obj_bh_text",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":64,"eventType":8,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Boost",
-    "path": "folders/Objects/BulletHell/Boost.yy",
+    "name": "BulletHell",
+    "path": "folders/Objects/BulletHell.yy",
   },
   "parentObjectId": {
     "name": "obj_bh_ui",
@@ -31,10 +32,7 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": {
-    "name": "spr_bh_boost_icon_default",
-    "path": "sprites/spr_bh_boost_icon_default/spr_bh_boost_icon_default.yy",
-  },
+  "spriteId": null,
   "spriteMaskId": null,
   "visible": true,
 }

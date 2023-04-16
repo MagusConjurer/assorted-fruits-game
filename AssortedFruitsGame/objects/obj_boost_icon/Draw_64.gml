@@ -12,7 +12,4 @@ draw_set_color(c_black);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 
-if(global.game_state == PAUSED)
-{
-	bh_darken_object_circle(x, y, sprite_width * 0.5);
-}
+event_inherited();

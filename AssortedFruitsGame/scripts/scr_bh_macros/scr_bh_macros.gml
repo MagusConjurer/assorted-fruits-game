@@ -1,8 +1,8 @@
 // Macros for Bullet Hell
 
 #macro BH_UI_MARGIN 20
-#macro BH_TIME_PROGRESS_PERCENTAGE 0.01
-#macro BH_PLAYER_POP_PROGRESS 0.008
+#macro BH_UI_CIRCLE 0
+#macro BH_UI_RECT   1
 #macro BH_VIGNETTE_START_INDEX 5
 
 #region PROGRESS BAR

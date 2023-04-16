@@ -2,7 +2,7 @@
 
 function bh_update()
 {
-	if (global.game_state == BULLET_HELL && bh_active = false)
+	if (global.game_state == BULLET_HELL && bh_active == false)
 	{
 		bh_active = true;
 	
@@ -10,11 +10,16 @@ function bh_update()
 	
 		bh_time_spent = 0;
 	}
-	else if (global.game_state == BULLET_HELL && bh_active = true)
+	else if (global.game_state == BULLET_HELL && bh_active == true)
 	{
 		// Time in seconds
 		dt = delta_time / 1000000;
 		bh_time_spent += dt;
+		
+		if(bh_dia_paused)
+		{
+			bh_resume_sequence();
+		}
 		
 		bh_update_progress_bar(dt * BH_TIME_PROGRESS_PERCENTAGE);
 
@@ -33,6 +38,13 @@ function bh_update()
 		else if(alarm_get(0) < 0) 
 		{
 			alarm_set(0,room_speed * 5);
+		}
+	}
+	else if (global.game_state != BULLET_HELL && bh_active == true)
+	{
+		if(!bh_dia_paused)
+		{
+			bh_pause_sequence();
 		}
 	}
 }
@@ -67,6 +79,8 @@ function bh_start(){
 	
 	// First wall of bubbles
 	bh_spawn_initial_bubbles();
+	
+	bh_show_dialogue("This is an example of the dialogue being shown during the bullet hell.");
 }
 
 function bh_update_player_health(change)
@@ -81,6 +95,61 @@ function bh_status_index()
 		return BH_PLAYER_HEALTH_DEFAULT - bh_player_health;
 	}
 }
+
+#region BH DIALOGUE
+
+function bh_show_dialogue(dialogue)
+{
+	with(obj_game)
+	{
+		bh_dia_seq = layer_sequence_create("Bullet_Hell",0,0,seq_bh_dialogue);
+		_seq_inst  = layer_sequence_get_instance(bh_dia_seq);
+	
+		replacement_object = instance_create_layer(global.resolution_w * 1.25, 0,"Bullet_Hell",obj_bh_text);
+		replacement_object.bh_dialogue = dialogue;
+	
+		sequence_instance_override_object(_seq_inst, obj_bh_text, replacement_object);
+	}
+}
+
+// Called by seq_bh_dialogue moment
+function bh_remove_dialogue()
+{
+	if(sequence_exists(seq_bh_dialogue))
+	{
+		with(obj_game)
+		{
+			layer_sequence_destroy(bh_dia_seq);
+			bh_dia_seq = 0;
+		}
+	}
+}
+
+function bh_pause_sequence() 
+{
+	with(obj_game)
+	{
+		if(bh_dia_seq != 0)
+		{
+			layer_sequence_pause(bh_dia_seq);
+			bh_dia_paused = true;
+		}
+	}
+}
+
+function bh_resume_sequence()
+{
+	with(obj_game)
+	{
+		if(bh_dia_seq != 0)
+		{
+			layer_sequence_play(bh_dia_seq);
+			bh_dia_paused = false;
+		}
+	}
+}
+
+#endregion
 
 #region PROGRESS BAR
 
@@ -182,6 +251,8 @@ function bh_bubble_destroyed(by_player){
 	for(i = 0; i < BH_NUM_BUBBLE_PROJECTILES; i++) {
 		instance_create_layer(x,y,"Bullet_Hell",obj_bubble_projectile);
 	}
+	
+	play_sfx(AUDIO_BUBBLE_POP);
 	
 	with(obj_game)
 	{

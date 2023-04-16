@@ -32,6 +32,8 @@ settings_selected = 0;
 // Bullet Hell
 bh_active = false;
 bh_progress_bar = 0;
+bh_dia_seq = 0;
+bh_dia_paused = false;
 bh_player = 0;
 bh_player_health = 0;
 

@@ -3,6 +3,7 @@
 // Inherit the parent event
 event_inherited();
 
+bh_ui_type = BH_UI_RECT;
 
 // Using similar setup as the slider_parent
 current_value = 0;
