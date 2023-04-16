@@ -70,6 +70,36 @@ function bh_start(){
 		instance_create_layer(BH_UI_MARGIN * 2, BH_UI_MARGIN * 2, "Bullet_Hell", obj_ability_one_button);
 	}
 	
+	if(bh_busstop_choice == BH_NO_RESPONSE)
+	{
+		//TODO: Set player damage to bubbles as none
+	}
+	else if(bh_busstop_choice == BH_PLEASE_STOP)
+	{
+		//TODO: Set player damage to bubbles as macro
+	}
+	
+	// Setup the dialogue for during the battle
+	if(global.current_level == LEVEL_2_BUS_BATTLE)
+	{
+		//TODO: Load bus guy battle dialogue
+	}
+	else if(global.current_level == LEVEL_5_DINNER_BATTLE)
+	{
+		if(bh_dinner_choice == BH_BATTLE_MOM)
+		{
+			//TODO: Load mom battle dialogue
+		}
+		else if(bh_dinner_choice == BH_BATTLE_DAD)
+		{
+			//TODO: Load dad battle dialogue
+		}
+		else if(bh_dinner_choice == BH_BATTLE_UNCLE)
+		{
+			//TODO: Load uncle battle dialogue
+		}
+	}
+	
 	bh_time_spent = 0;
 	bh_progress_bar = instance_create_layer(0, BH_UI_MARGIN, "Bullet_Hell", obj_progress_bar);
 	bh_set_progress_icon();

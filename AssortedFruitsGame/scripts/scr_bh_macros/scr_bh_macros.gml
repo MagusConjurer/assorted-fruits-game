@@ -1,13 +1,28 @@
 // Macros for Bullet Hell
 
+#region UI
+
 #macro BH_UI_MARGIN 20
 #macro BH_UI_CIRCLE 0
 #macro BH_UI_RECT   1
 #macro BH_VIGNETTE_START_INDEX 5
 
+#endregion
+
+#region BATTLE IMPACT CHOICES
+
+#macro BH_NO_RESPONSE   0
+#macro BH_PLEASE_STOP   1
+
+#macro BH_BATTLE_MOM	0
+#macro BH_BATTLE_DAD	1
+#macro BH_BATTLE_UNCLE  2
+
+#endregion
+
 #region PROGRESS BAR
 #macro BH_TIME_PROGRESS_PERCENTAGE 0.01
-#macro BH_BUBBLE_POP_PROGRESS 0.04
+#macro BH_BUBBLE_POP_PROGRESS 0.008
 #macro BH_BOOST_PROGRESS 0.08
 #macro BH_BOOST_PULSE_TIME 2
 #macro BH_BOOST_ICON_X global.resolution_w * 0.2
@@ -16,7 +31,7 @@
 
 #endregion
 
-#region Player
+#region PLAYER
 
 #macro BH_PLAYER_SPEED 4
 #macro BH_PLAYER_PROJECTILE_SPEED 6
@@ -48,6 +63,8 @@
 
 #endregion
 
+#region ABILITIES
+
 // DASH ability
 #macro BH_ABILITY_DASH 1
 #macro BH_DASH_DISTANCE 150
@@ -64,3 +81,5 @@
 #macro BH_ABILITY_HEAL 3
 #macro BH_HEAL_AMOUNT 1
 #macro BH_HEAL_COOLDOWN 1000
+
+#endregion

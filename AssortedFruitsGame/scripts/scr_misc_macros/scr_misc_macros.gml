@@ -3,6 +3,16 @@
 
 #macro DELTA global.delta_factor
 
+#region LEVELS
+#macro LEVEL_0_BEDROOM		 0 
+#macro LEVEL_1_BUS_STOP		 1 
+#macro LEVEL_2_BUS_BATTLE	 2 
+#macro LEVEL_3_CAFE			 3 
+#macro LEVEL_4_DINNER		 4
+#macro LEVEL_5_DINNER_BATTLE 5
+#macro LEVEL_6_BEDROOM		 6
+#endregion
+
 #macro BUTTON_DEFAULT 0
 #macro BUTTON_PRESSED 1
 #macro BUTTON_HOVER 2

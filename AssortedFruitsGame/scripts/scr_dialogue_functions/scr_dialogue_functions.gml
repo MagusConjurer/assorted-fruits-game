@@ -98,6 +98,14 @@ function dialogue_next()
 	}
 }
 
+function dialogue_set_dinner_choice(choice)
+{
+	with(obj_game)
+	{
+		bh_dinner_choice  = choice;
+	}
+}
+
 function set_textbox_properties(textbox)
 {
 	current_line = obj_game.conversation[obj_game.conversation_index];

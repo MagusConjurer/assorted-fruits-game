@@ -31,7 +31,6 @@ settings_selected = 0;
 
 // Bullet Hell
 bh_active = false;
-bh_progress_bar = 0;
 bh_dia_seq = 0;
 bh_dia_paused = false;
 bh_player = 0;
@@ -47,7 +46,10 @@ bubble_height = 0;
 possible_bubble_spots = 0;
 
 bh_boost_available = false;
+bh_busstop_choice = BH_NO_RESPONSE;
+bh_dinner_choice = BH_BATTLE_MOM;
 
+bh_progress_bar = 0;
 bh_time_spent = 0;
 bh_vignette_levels = sprite_get_number(spr_bh_vignette) - 1;
 
