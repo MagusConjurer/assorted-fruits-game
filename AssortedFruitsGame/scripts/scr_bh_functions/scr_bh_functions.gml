@@ -74,11 +74,11 @@ function bh_start(){
 	
 	if(bh_busstop_choice == BH_NO_RESPONSE)
 	{
-		//TODO: Set player damage to bubbles as none
+		bh_player.chose_to_fight_back = false;
 	}
 	else if(bh_busstop_choice == BH_PLEASE_STOP)
 	{
-		//TODO: Set player damage to bubbles as macro
+		bh_player.chose_to_fight_back = true;
 	}
 	
 	if(global.debugging)

@@ -4,7 +4,7 @@ event_inherited();
 
 if (global.game_state == active_state) 
 {
-	if(attack_pressed())
+	if(attack_pressed() && chose_to_fight_back)
 	{
 		if(alarm[0] < 0)
 		{

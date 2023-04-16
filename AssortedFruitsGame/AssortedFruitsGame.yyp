@@ -33,6 +33,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Paths","folderPath":"folders/Paths.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Rooms","folderPath":"folders/Rooms.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Scripts","folderPath":"folders/Scripts.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"BH_Dialogue","folderPath":"folders/Scripts/BH_Dialogue.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Conversations","folderPath":"folders/Scripts/Conversations.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Macros","folderPath":"folders/Scripts/Macros.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Sequences","folderPath":"folders/Sequences.yy",},
@@ -57,7 +58,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Dialogue","folderPath":"folders/Sprites/UI/Dialogue.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tile Sets","folderPath":"folders/Tile Sets.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"BH_Dialogue","folderPath":"folders/Scripts/BH_Dialogue.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"BG_music.m4a","CopyToMask":-1,"filePath":"datafiles",},

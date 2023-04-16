@@ -22,6 +22,7 @@
     {"name":"Paths","order":4,"path":"folders/Paths.yy",},
     {"name":"Rooms","order":10,"path":"folders/Rooms.yy",},
     {"name":"Scripts","order":5,"path":"folders/Scripts.yy",},
+    {"name":"BH_Dialogue","order":10,"path":"folders/Scripts/BH_Dialogue.yy",},
     {"name":"Conversations","order":7,"path":"folders/Scripts/Conversations.yy",},
     {"name":"Sequences","order":11,"path":"folders/Sequences.yy",},
     {"name":"Shaders","order":6,"path":"folders/Shaders.yy",},
@@ -43,7 +44,6 @@
     {"name":"Dialogue","order":1,"path":"folders/Sprites/UI/Dialogue.yy",},
     {"name":"Tile Sets","order":2,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
-    {"name":"BH_Dialogue","order":10,"path":"folders/Scripts/BH_Dialogue.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_cans","order":4,"path":"objects/obj_cans/obj_cans.yy",},

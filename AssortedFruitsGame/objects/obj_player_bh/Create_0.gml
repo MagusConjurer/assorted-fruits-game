@@ -6,3 +6,5 @@ active_state = BULLET_HELL;
 moveSpeed = BH_PLAYER_SPEED;
 iframes = 0;
 toggle = true;
+
+chose_to_fight_back = false;
