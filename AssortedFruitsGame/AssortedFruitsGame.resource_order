@@ -43,6 +43,7 @@
     {"name":"Dialogue","order":1,"path":"folders/Sprites/UI/Dialogue.yy",},
     {"name":"Tile Sets","order":2,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
+    {"name":"BH_Dialogue","order":10,"path":"folders/Scripts/BH_Dialogue.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"obj_cans","order":4,"path":"objects/obj_cans/obj_cans.yy",},

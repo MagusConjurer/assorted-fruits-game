@@ -22,6 +22,8 @@ function bh_update()
 		}
 		
 		bh_update_progress_bar(dt * BH_TIME_PROGRESS_PERCENTAGE);
+		
+		bh_check_checkpoint();
 
 		if(bh_player_health <= 0)
 		{
@@ -79,24 +81,30 @@ function bh_start(){
 		//TODO: Set player damage to bubbles as macro
 	}
 	
+	if(global.debugging)
+	{
+		global.current_level = LEVEL_2_BUS_BATTLE;
+	}
+	
 	// Setup the dialogue for during the battle
+	bh_dia_text = [];
 	if(global.current_level == LEVEL_2_BUS_BATTLE)
 	{
-		//TODO: Load bus guy battle dialogue
+		bh_dia_text = get_bus_battle_dialogue();
 	}
 	else if(global.current_level == LEVEL_5_DINNER_BATTLE)
 	{
 		if(bh_dinner_choice == BH_BATTLE_MOM)
 		{
-			//TODO: Load mom battle dialogue
+			bh_dia_text = get_mom_battle_dialogue();
 		}
 		else if(bh_dinner_choice == BH_BATTLE_DAD)
 		{
-			//TODO: Load dad battle dialogue
+			bh_dia_text = get_dad_battle_dialogue();
 		}
 		else if(bh_dinner_choice == BH_BATTLE_UNCLE)
 		{
-			//TODO: Load uncle battle dialogue
+			bh_dia_text = get_uncle_battle_dialogue();
 		}
 	}
 	
@@ -104,13 +112,14 @@ function bh_start(){
 	bh_progress_bar = instance_create_layer(0, BH_UI_MARGIN, "Bullet_Hell", obj_progress_bar);
 	bh_set_progress_icon();
 	
+	bh_dia_seq_created = false;
+	bh_setup_checkpoints();
+	
 	bh_boost_available = false;
 	alarm[1] = BH_SECONDS_BEFORE_BOOST * 60; // seconds * FPS
 	
 	// First wall of bubbles
 	bh_spawn_initial_bubbles();
-	
-	bh_show_dialogue("This is an example of the dialogue being shown during the bullet hell.");
 }
 
 function bh_update_player_health(change)
@@ -128,6 +137,45 @@ function bh_status_index()
 
 #region BH DIALOGUE
 
+function bh_setup_checkpoints()
+{
+	with(obj_game)
+	{
+		bh_checkpoint_status = [];
+		num_checkpoints = array_length(bh_dia_text);
+		for(i = 0; i < num_checkpoints; i++)
+		{
+			bh_checkpoint_status[i] = false;
+		}
+		
+		bh_checkpoint_size = 1.0 / num_checkpoints;
+		bh_next_checkpoint = 0;
+	}
+}
+
+function bh_check_checkpoint()
+{
+	with(obj_game)
+	{
+		current_progress = bh_progress_bar.current_value;
+		
+		if(bh_next_checkpoint < array_length(bh_dia_text) && current_progress > bh_next_checkpoint * bh_checkpoint_size)
+		{
+			if(bh_checkpoint_status[bh_next_checkpoint] == false)
+			{
+				if(!bh_dia_seq_created)
+				{
+					bh_checkpoint_status[bh_next_checkpoint] =  true;
+				
+					bh_show_dialogue(bh_dia_text[bh_next_checkpoint]);
+				
+					bh_next_checkpoint++;
+				}
+			}
+		}
+	}
+}
+
 function bh_show_dialogue(dialogue)
 {
 	with(obj_game)
@@ -139,6 +187,8 @@ function bh_show_dialogue(dialogue)
 		replacement_object.bh_dialogue = dialogue;
 	
 		sequence_instance_override_object(_seq_inst, obj_bh_text, replacement_object);
+		
+		bh_dia_seq_created = true;
 	}
 }
 
@@ -149,8 +199,9 @@ function bh_remove_dialogue()
 	{
 		with(obj_game)
 		{
+			instance_destroy(obj_bh_text);			
 			layer_sequence_destroy(bh_dia_seq);
-			bh_dia_seq = 0;
+			bh_dia_seq_created = false;
 		}
 	}
 }

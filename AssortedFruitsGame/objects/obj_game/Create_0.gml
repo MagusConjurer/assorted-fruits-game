@@ -33,6 +33,8 @@ settings_selected = 0;
 bh_active = false;
 bh_dia_seq = 0;
 bh_dia_paused = false;
+bh_dia_seq_created = false;
+bh_dia_text = [];
 bh_player = 0;
 bh_player_health = 0;
 
@@ -50,6 +52,9 @@ bh_busstop_choice = BH_NO_RESPONSE;
 bh_dinner_choice = BH_BATTLE_MOM;
 
 bh_progress_bar = 0;
+bh_next_checkpoint = 0;
+bh_checkpoint_size = 0;
+bh_checkpoint_status = [];
 bh_time_spent = 0;
 bh_vignette_levels = sprite_get_number(spr_bh_vignette) - 1;
 

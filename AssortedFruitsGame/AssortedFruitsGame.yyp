@@ -57,6 +57,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Dialogue","folderPath":"folders/Sprites/UI/Dialogue.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tile Sets","folderPath":"folders/Tile Sets.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"BH_Dialogue","folderPath":"folders/Scripts/BH_Dialogue.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"BG_music.m4a","CopyToMask":-1,"filePath":"datafiles",},
@@ -131,6 +132,7 @@
     {"id":{"name":"spr_Alex_overworld_combined","path":"sprites/spr_Alex_overworld_combined/spr_Alex_overworld_combined.yy",},},
     {"id":{"name":"scr_conversation_1","path":"scripts/scr_conversation_1/scr_conversation_1.yy",},},
     {"id":{"name":"spr_bh_vignette","path":"sprites/spr_bh_vignette/spr_bh_vignette.yy",},},
+    {"id":{"name":"scr_bh_battle_text","path":"scripts/scr_bh_battle_text/scr_bh_battle_text.yy",},},
     {"id":{"name":"scr_audio_macros","path":"scripts/scr_audio_macros/scr_audio_macros.yy",},},
     {"id":{"name":"spr_popup_default","path":"sprites/spr_popup_default/spr_popup_default.yy",},},
     {"id":{"name":"obj_bubble_mom","path":"objects/obj_bubble_mom/obj_bubble_mom.yy",},},
