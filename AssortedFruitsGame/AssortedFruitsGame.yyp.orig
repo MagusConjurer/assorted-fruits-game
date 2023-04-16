@@ -245,8 +245,11 @@
     {"id":{"name":"spr_front_fence_01","path":"sprites/spr_front_fence_01/spr_front_fence_01.yy",},},
     {"id":{"name":"spr_desk_area","path":"sprites/spr_desk_area/spr_desk_area.yy",},},
     {"id":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},},
-    {"id":{"name":"PLASMA_CANNON_Deep_Noisy_Tail_stereo","path":"sounds/PLASMA_CANNON_Deep_Noisy_Tail_stereo/PLASMA_CANNON_Deep_Noisy_Tail_stereo.yy",},},
+<<<<<<< HEAD
     {"id":{"name":"obj_bubble_boost","path":"objects/obj_bubble_boost/obj_bubble_boost.yy",},},
+=======
+    {"id":{"name":"PLASMA_CANNON_Deep_Noisy_Tail_stereo","path":"sounds/PLASMA_CANNON_Deep_Noisy_Tail_stereo/PLASMA_CANNON_Deep_Noisy_Tail_stereo.yy",},},
+>>>>>>> e8f4fe9102527b7b40d2107bf4f7e9c96354be04
     {"id":{"name":"alex_lookaway3","path":"sprites/alex_lookaway3/alex_lookaway3.yy",},},
     {"id":{"name":"rm_Bedroom","path":"rooms/rm_Bedroom/rm_Bedroom.yy",},},
     {"id":{"name":"obj_textbox_dia","path":"objects/obj_textbox_dia/obj_textbox_dia.yy",},},
