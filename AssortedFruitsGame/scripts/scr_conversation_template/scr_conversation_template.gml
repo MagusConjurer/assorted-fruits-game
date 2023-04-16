@@ -21,7 +21,7 @@ selection_1 = {
 	color: c_gray,
 	option_descriptions: ["one", "two"],
 	option_jump_index: [0,1],  // The line number to jump to for the option description at the same index
-	option_ability_index: [0,0] // 0 for none or use macro for ability
+	option_choice_index: [0,0] 
 }
 
 current_conversation = [ 
