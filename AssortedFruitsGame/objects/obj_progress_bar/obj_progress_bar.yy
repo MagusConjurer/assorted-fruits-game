@@ -14,8 +14,8 @@
     "path": "folders/Objects/BulletHell.yy",
   },
   "parentObjectId": {
-    "name": "obj_bh_parent",
-    "path": "objects/obj_bh_parent/obj_bh_parent.yy",
+    "name": "obj_bh_ui",
+    "path": "objects/obj_bh_ui/obj_bh_ui.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,

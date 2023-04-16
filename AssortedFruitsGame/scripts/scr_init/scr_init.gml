@@ -6,6 +6,8 @@ randomize();
 
 global.debugging = true;
 
+global.delta_factor = 1;
+
 // Settings Variables
 global.resolution_w = 1920;
 global.resolution_h = 1080;

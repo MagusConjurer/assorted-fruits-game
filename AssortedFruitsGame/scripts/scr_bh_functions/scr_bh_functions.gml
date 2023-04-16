@@ -2,7 +2,7 @@
 
 function bh_update()
 {
-	if (global.game_state == BULLET_HELL && bh_active = false)
+	if (global.game_state == BULLET_HELL && bh_active == false)
 	{
 		bh_active = true;
 	
@@ -10,13 +10,20 @@ function bh_update()
 	
 		bh_time_spent = 0;
 	}
-	else if (global.game_state == BULLET_HELL && bh_active = true)
+	else if (global.game_state == BULLET_HELL && bh_active == true)
 	{
 		// Time in seconds
 		dt = delta_time / 1000000;
 		bh_time_spent += dt;
 		
+		if(bh_dia_paused)
+		{
+			bh_resume_sequence();
+		}
+		
 		bh_update_progress_bar(dt * BH_TIME_PROGRESS_PERCENTAGE);
+		
+		bh_check_checkpoint();
 
 		if(bh_player_health <= 0)
 		{
@@ -35,17 +42,27 @@ function bh_update()
 			alarm_set(0,room_speed * 5);
 		}
 	}
+	else if (global.game_state != BULLET_HELL && bh_active == true)
+	{
+		if(!bh_dia_paused)
+		{
+			bh_pause_sequence();
+		}
+	}
 }
 
 
 function bh_start(){
 	// Player	
+	bh_player_health = BH_PLAYER_HEALTH_DEFAULT;
 	bh_player = instance_create_layer(camera_x + (camera_width * 0.2), camera_y + (camera_height * 0.5), "Bullet_Hell", obj_player_bh);
 	
 	// Temporary fix for scaling issue
 	bh_player.image_xscale = 0.2;
 	bh_player.image_yscale = 0.2;
 	
+	bh_bubbles_popped = 0;
+	num_active_bubbles = 0;
 	bubble_height = sprite_get_height(spr_wordbubble_combined) * 0.2;
 	possible_bubble_spots = (camera_height - bubble_height) / BH_NUM_STARTING_BUBBLES;
 	
@@ -55,11 +72,187 @@ function bh_start(){
 		instance_create_layer(BH_UI_MARGIN * 2, BH_UI_MARGIN * 2, "Bullet_Hell", obj_ability_one_button);
 	}
 	
+	if(bh_busstop_choice == BH_NO_RESPONSE)
+	{
+		bh_player.chose_to_fight_back = false;
+	}
+	else if(bh_busstop_choice == BH_PLEASE_STOP)
+	{
+		bh_player.chose_to_fight_back = true;
+	}
+	
+	if(global.debugging)
+	{
+		global.current_level = LEVEL_2_BUS_BATTLE;
+	}
+	
+	// Setup the dialogue for during the battle
+	bh_dia_text = [];
+	if(global.current_level == LEVEL_2_BUS_BATTLE)
+	{
+		bh_dia_text = get_bus_battle_dialogue();
+	}
+	else if(global.current_level == LEVEL_5_DINNER_BATTLE)
+	{
+		if(bh_dinner_choice == BH_BATTLE_MOM)
+		{
+			bh_dia_text = get_mom_battle_dialogue();
+		}
+		else if(bh_dinner_choice == BH_BATTLE_DAD)
+		{
+			bh_dia_text = get_dad_battle_dialogue();
+		}
+		else if(bh_dinner_choice == BH_BATTLE_UNCLE)
+		{
+			bh_dia_text = get_uncle_battle_dialogue();
+		}
+	}
+	
+	bh_time_spent = 0;
 	bh_progress_bar = instance_create_layer(0, BH_UI_MARGIN, "Bullet_Hell", obj_progress_bar);
+	bh_set_progress_icon();
+	
+	bh_dia_seq_created = false;
+	bh_setup_checkpoints();
+	
+	bh_boost_available = false;
+	alarm[1] = BH_SECONDS_BEFORE_BOOST * 60; // seconds * FPS
 	
 	// First wall of bubbles
 	bh_spawn_initial_bubbles();
 }
+
+function bh_update_player_health(change)
+{
+	obj_game.bh_player_health += change;
+}
+
+function bh_status_index()
+{
+	with(obj_game)
+	{
+		return BH_PLAYER_HEALTH_DEFAULT - bh_player_health;
+	}
+}
+
+#region BH DIALOGUE
+
+function bh_setup_checkpoints()
+{
+	with(obj_game)
+	{
+		bh_checkpoint_status = [];
+		num_checkpoints = array_length(bh_dia_text);
+		for(i = 0; i < num_checkpoints; i++)
+		{
+			bh_checkpoint_status[i] = false;
+		}
+		
+		bh_checkpoint_size = 1.0 / num_checkpoints;
+		bh_next_checkpoint = 0;
+	}
+}
+
+function bh_check_checkpoint()
+{
+	with(obj_game)
+	{
+		current_progress = bh_progress_bar.current_value;
+		
+		if(bh_next_checkpoint < array_length(bh_dia_text) && current_progress > bh_next_checkpoint * bh_checkpoint_size)
+		{
+			if(bh_checkpoint_status[bh_next_checkpoint] == false)
+			{
+				if(!bh_dia_seq_created)
+				{
+					bh_checkpoint_status[bh_next_checkpoint] =  true;
+				
+					bh_show_dialogue(bh_dia_text[bh_next_checkpoint]);
+				
+					bh_next_checkpoint++;
+				}
+			}
+		}
+	}
+}
+
+function bh_show_dialogue(dialogue)
+{
+	with(obj_game)
+	{
+		bh_dia_seq = layer_sequence_create("Bullet_Hell",0,0,seq_bh_dialogue);
+		_seq_inst  = layer_sequence_get_instance(bh_dia_seq);
+	
+		replacement_object = instance_create_layer(global.resolution_w * 1.25, 0,"Bullet_Hell",obj_bh_text);
+		replacement_object.bh_dialogue = dialogue;
+	
+		sequence_instance_override_object(_seq_inst, obj_bh_text, replacement_object);
+		
+		bh_dia_seq_created = true;
+	}
+}
+
+// Called by seq_bh_dialogue moment
+function bh_remove_dialogue()
+{
+	if(sequence_exists(seq_bh_dialogue))
+	{
+		with(obj_game)
+		{
+			instance_destroy(obj_bh_text);			
+			layer_sequence_destroy(bh_dia_seq);
+			bh_dia_seq_created = false;
+		}
+	}
+}
+
+function bh_pause_sequence() 
+{
+	with(obj_game)
+	{
+		if(bh_dia_seq != 0)
+		{
+			layer_sequence_pause(bh_dia_seq);
+			bh_dia_paused = true;
+		}
+	}
+}
+
+function bh_resume_sequence()
+{
+	with(obj_game)
+	{
+		if(bh_dia_seq != 0)
+		{
+			layer_sequence_play(bh_dia_seq);
+			bh_dia_paused = false;
+		}
+	}
+}
+
+#endregion
+
+#region PROGRESS BAR
+
+function bh_update_progress_bar(increment)
+{
+	with(obj_game)
+	{
+		bh_progress_bar.current_value += increment;
+	}
+}
+
+function bh_set_progress_icon()
+{
+	with(obj_game)
+	{
+		bh_progress_bar.progress_icon = BH_BUS_ICON;
+	}
+}
+
+#endregion
+
+#region ABILIITIES
 
 function bh_set_ability(ability)
 {
@@ -96,7 +289,9 @@ function bh_ability(ability)
 		event_user(ability);
 	}
 }
+#endregion
 
+#region BUBBLES
 function bh_spawn_bubble(y_index)
 {
 	x_pos = camera_x + (camera_width * 0.9);
@@ -138,38 +333,74 @@ function bh_bubble_destroyed(by_player){
 		instance_create_layer(x,y,"Bullet_Hell",obj_bubble_projectile);
 	}
 	
+	play_sfx(AUDIO_BUBBLE_POP);
+	
 	with(obj_game)
 	{
 		num_active_bubbles--;
 		bh_bubbles_popped++;
-		bubble_popped_time = bh_time_spent;
 		
 		if(by_player)
 		{
-			bh_update_progress_bar(BH_PLAYER_POP_PROGRESS);
+			bh_update_progress_bar(BH_BUBBLE_POP_PROGRESS);
 		}
 	}
 	
 }
 
-function bh_update_player_health(change)
-{
-	obj_game.bh_player_health += change;
-}
+#endregion
 
-function bh_update_progress_bar(increment)
-{
-	obj_game.bh_progress_bar.current_value += increment;
-}
+#region BOOST
 
-function bh_status_index()
+function bh_spawn_progress_boost()
 {
 	with(obj_game)
 	{
-		return BH_PLAYER_HEALTH_DEFAULT - bh_player_health;
+		if(!bh_boost_available)
+		{
+			x_pos = camera_x + BH_UI_MARGIN;
+			rand_y_pos = irandom_range(camera_y + BH_UI_MARGIN, camera_y + camera_height - BH_UI_MARGIN);
+			
+			instance_create_layer(x_pos,rand_y_pos,"Bullet_Hell",obj_bubble_boost);
+			
+			bh_add_boost_available();
+		}
 	}
 }
 
+function bh_add_boost_available()
+{
+	with(obj_game)
+	{
+		bh_boost_available = true;
+		instance_create_layer(BH_BOOST_ICON_X, BH_UI_MARGIN * 2, "Bullet_Hell",obj_boost_icon);
+		play_sfx(AUDIO_BOOST_AVAILABLE);
+	}
+}
+
+function bh_remove_boost_available()
+{
+	with(obj_game)
+	{
+		bh_boost_available = false;
+		instance_destroy(obj_boost_icon);
+		alarm[1] = BH_SECONDS_BEFORE_BOOST * 60;
+	}
+}
+
+function bh_apply_progress_boost()
+{
+	bh_update_progress_bar(BH_BOOST_PROGRESS);
+	with(obj_game)
+	{
+		bh_progress_bar.progress_pulse_color = C_STELLA;
+		bh_progress_bar.progress_pulse_frames = BH_BOOST_PULSE_TIME * 60;
+	}
+}
+
+#endregion
+
+#region BOUNDS CHECKING
 function bh_is_outside_bounds_x(new_x, spr_width)
 {
 	with(obj_game)
@@ -199,6 +430,9 @@ function bh_is_outside_bounds_y(new_y, spr_height)
 		}
 	}
 }
+#endregion
+
+#region MANUAL DARKENING
 
 function bh_darken_object_rect(x1, y1, x2, y2)
 {
@@ -220,14 +454,21 @@ function bh_darken_object_circle(x1,y1,rad)
 	draw_set_alpha(1.0);
 }
 
+#endregion
+
 // Destroys all BH instances and updates the game state back to the Overworld
 function bh_cleanup()
 {
-	instance_destroy(obj_player_bh);
-	instance_destroy(obj_bh_parent);
+	with(obj_game)
+	{
+		instance_destroy(obj_player_bh);
+		instance_destroy(obj_bh_parent);
 	
-	bh_active = false;
-	set_game_state(OVERWORLD);
+		bh_active = false;
+		set_game_state(OVERWORLD);
 	
-	obj_game.alarm[0] = -1;
+		// Stop all alarms
+		alarm[0] = -1;
+		alarm[1] = -1;
+	}
 }

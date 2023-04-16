@@ -98,6 +98,22 @@ function dialogue_next()
 	}
 }
 
+function dialogue_set_bus_stop_choice(choice)
+{
+	with(obj_game)
+	{
+		bh_busstop_choice = choice;
+	}
+}
+
+function dialogue_set_dinner_choice(choice)
+{
+	with(obj_game)
+	{
+		bh_dinner_choice  = choice;
+	}
+}
+
 function set_textbox_properties(textbox)
 {
 	current_line = obj_game.conversation[obj_game.conversation_index];
@@ -195,7 +211,7 @@ function load_conversation(level)
 				{
 					dialogue_selection_options[j]   = current_conversation.option_descriptions[j];
 					dialogue_selection_jumps[j]     = current_conversation.option_jump_index[j];
-					dialogue_selection_abilities[j] = current_conversation.option_ability_index[j];
+					dialogue_selection_choices[j]   = current_conversation.option_choice_index[j];
 				}
 			}
 		}
@@ -293,7 +309,7 @@ function show_options()
 	{
 		options = dialogue_selection_options;
 		jumps   = dialogue_selection_jumps;
-		abilities = dialogue_selection_abilities;
+		choices = dialogue_selection_choices;
 		num_options = array_length(options);
 		for(i = 0; i < num_options; i++)
 		{
@@ -314,7 +330,7 @@ function show_options()
 			option_button = instance_create_layer(0, 0, "Dialogue", obj_selection_dia);
 			option_button.text = options[i];
 			option_button.jump_index = jumps[i];
-			option_button.ability_index  = abilities[i];
+			option_button.choice_index  = choices[i];
 		
 			spacing = 1;
 			if(num_options == 3)
