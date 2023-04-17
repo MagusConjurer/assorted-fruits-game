@@ -3,8 +3,5 @@
 // Inherit the parent event
 event_inherited();
 
-text = "Continue";
-
-layer_to_check = "Main_Menu";
-
-
+can_interact = true;
+interact_starts = false;

@@ -7,7 +7,6 @@ function set_game_state(new_state)
 
 function return_to_prev_state(current_state)
 {
-	state_change_transition(new_state);
 	global.game_state = global.prev_state;
 	global.prev_state = current_state;
 }
@@ -25,6 +24,10 @@ function state_change_transition(state)
 	else if(state == OVERWORLD)
 	{
 		// TODO: OV Transition
+	}
+	else
+	{
+		// TODO: MENU Transition
 	}
 }
 
@@ -46,17 +49,13 @@ function update_camera_position()
 	camera_y = camera_get_view_y(view_camera[0]);
 }
 
+// CANNOT BE USED TO GO TO MENU 
 function room_transition(level)
 {
-	if(level != LEVEL_TO_MENU)
-	{
-		global.current_level = level;
-	}
+	global.current_level = level;
 	
 	switch(level)
 	{
-		case LEVEL_TO_MENU:
-			global.current_room = ROOM_MENU;
 		case LEVEL_0_BEDROOM:
 			global.current_room = ROOM_BEDROOM;
 		break;
@@ -76,6 +75,11 @@ function room_transition(level)
 	
 	// TODO: run room transition
 	room_goto(global.current_room);
+	
+	with(obj_game)
+	{
+		viewport_setup = false;
+	}
 }
 
 function setup_viewport()

@@ -3,7 +3,7 @@
 // Inherit the parent event
 event_inherited();
 
-text = "Continue";
+text = "New Game";
 
 layer_to_check = "Main_Menu";
 

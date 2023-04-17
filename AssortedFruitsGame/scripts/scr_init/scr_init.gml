@@ -34,15 +34,17 @@ global.hotkey_menu_interact = vk_space;
 global.gamepad_id = -1;
 global.gamepad_type = 0;
 
-// Initialize global variables.
-global.current_level = LEVEL_1_BUS_STOP;
+global.conversations = [];
+
+// Resettable global variables.
+global.current_level = LEVEL_0_BEDROOM;
 global.current_room = ROOM_MENU;
 global.game_state = MENU;
 global.prev_state = OVERWORLD;
 
 global.bh_ability_one = 0;
 
-global.conversations = [];
+
 
 
 
