@@ -111,6 +111,7 @@ function dialogue_environmental(dialogue_text)
 		dialogue_in_person = true;
 		draw_textbox(DIALOGUE_ENVIRONMENTAL);
 		conversation_boxes[0].current_text = dialogue_text;
+		conversation_boxes[0].current_name = "Alex";
 		
 		dialogue_button_init();
 	}
