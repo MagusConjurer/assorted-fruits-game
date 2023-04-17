@@ -82,21 +82,28 @@ function menu_update(){
 #region Main Menu
 function main_menu_show()
 {
-	main_menu_visible = true;
-	pause_background_music();
-	
-	mm_x = global.resolution_w * 0.5;
-	mm_y = global.resolution_h * 0.5;
-	
-	menu_buttons[0] = instance_create_layer(mm_x, mm_y - 50, "Main_Menu", obj_play_button);
-	menu_buttons[1] = instance_create_layer(mm_x, mm_y, "Main_Menu", obj_settings_button);
-	menu_buttons[2] = instance_create_layer(mm_x, mm_y + 50, "Main_Menu", obj_quit_button);
-	menu_buttons[2].layer_to_check = "Main_Menu"; // Needed due to using same button for two menus
-	
-	if(global.gamepad_id > -1)
+	with(obj_game)
 	{
-		menu_selected = 0;
-		menu_buttons[menu_selected].selected = true;
+		if(room == ROOM_MENU)
+		{
+			main_menu_visible = true;
+			pause_background_music();
+	
+			mm_x = global.resolution_w * 0.5;
+			mm_y = global.resolution_h * 0.5;
+	
+			menu_buttons[0] = instance_create_layer(mm_x, mm_y - 50, "Main_Menu", obj_new_button);
+			menu_buttons[1] = instance_create_layer(mm_x, mm_y, "Main_Menu", obj_play_button);
+			menu_buttons[2] = instance_create_layer(mm_x, mm_y + 50, "Main_Menu", obj_settings_button);
+			menu_buttons[3] = instance_create_layer(mm_x, mm_y + 100, "Main_Menu", obj_quit_button);
+			menu_buttons[3].layer_to_check = "Main_Menu"; // Needed due to using same button for two menus
+	
+			if(global.gamepad_id > -1)
+			{
+				menu_selected = 0;
+				menu_buttons[menu_selected].selected = true;
+			}
+		}
 	}
 }
 
@@ -111,6 +118,19 @@ function main_menu_destroy()
 			instance_destroy(menu_buttons[i]);
 		}
 	}
+}
+
+function main_menu_new()
+{
+	// Resets the global variables before entering the game
+	global.current_level = LEVEL_0_BEDROOM;
+	global.current_room = ROOM_MENU;
+	global.game_state = MENU;
+	global.prev_state = OVERWORLD;
+
+	global.bh_ability_one = 0;
+	
+	main_menu_play();
 }
 
 function main_menu_play()
@@ -207,7 +227,7 @@ function pause_menu_main()
 		bh_active = false;
 	}
 	
-	room_goto(rm_menu);
+	room_goto(ROOM_MENU);
 	set_game_state(MENU);
 }
 

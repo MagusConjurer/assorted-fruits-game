@@ -1,11 +1,7 @@
 /// Called by obj_game to check for necessary dialogue updates
 function dialogue_update()
 {
-	if (global.game_state == DIALOGUE && dialogue_active = false)
-	{		
-		dialogue_start();
-	}
-	else if (global.game_state == DIALOGUE && dialogue_active = true)
+	if (global.game_state == DIALOGUE && dialogue_active = true)
 	{
 		if(global.gamepad_id > -1)
 		{
@@ -43,12 +39,11 @@ function dialogue_update()
 				dialogue_button.selected = true;
 			}
 		}
-
-
 	}
 }
 
-function dialogue_start()
+// Resets all dialogue variables
+function dialogue_init()
 {
 	dialogue_active = true;
 	dialogue_selection_visible = false;
@@ -60,16 +55,72 @@ function dialogue_start()
 	dialogue_selection_options   = [];
 	dialogue_selection_jumps     = [];
 	dialogue_selection_buttons   = [];
-	dialogue_selection_abilities = [];
+	dialogue_selection_choices = [];
+}
+
+function dialogue_start(dialogue_level)
+{
+	set_game_state(DIALOGUE);
 	
-	load_conversation(dialogue_level);
-	set_portrait_positions();
-	check_if_in_person(conversation[conversation_index]);
-	draw_textbox();
+	with(obj_game)
+	{
+		dialogue_init();
 	
-	start_box = conversation_boxes[0];
-	cont_x = start_box.x + start_box.box_width * 1.9;
-	cont_y = start_box.y + start_box.box_height - TEXTBOX_MARGIN * 3;
+		switch(dialogue_level)
+		{
+			case LEVEL_0_BEDROOM:
+				load_conversation(PHONE_DIALOGUE);
+			break;
+			case LEVEL_1_BUS_STOP:
+				load_conversation(BUS_STOP_DIALOGUE);
+			break;
+			case LEVEL_3_CAFE:
+				//load_conversation();
+			break;
+			case LEVEL_4_DINNER:
+				//load_conversation();
+			break;
+			case LEVEL_6_BEDROOM:
+				//load_conversation();
+			break;
+		}
+	
+		
+		set_portrait_positions();
+		check_if_in_person(conversation[conversation_index]);
+		draw_textbox(DIALOGUE_STANDARD);
+	
+		if(!dialogue_in_person)
+		{
+			phone_x = camera_x + (camera_width * 0.5);
+			phone_y = camera_y + (camera_height * 0.5);
+			dialogue_phone = instance_create_layer(phone_x,phone_y,"Dialogue",obj_phone_dia);
+		}
+	
+		dialogue_button_init();
+	}
+}
+
+function dialogue_environmental(dialogue_text)
+{
+	set_game_state(DIALOGUE);
+	
+	with(obj_game)
+	{
+		dialogue_init();
+		dialogue_in_person = true;
+		draw_textbox(DIALOGUE_ENVIRONMENTAL);
+		conversation_boxes[0].current_text = dialogue_text;
+		conversation_boxes[0].current_name = "Alex";
+		
+		dialogue_button_init();
+	}
+}
+
+function dialogue_button_init()
+{
+	cont_x = global.resolution_w * 0.7;
+	cont_y = global.resolution_h * 0.95;
 	dialogue_button = instance_create_layer(cont_x, cont_y, "Dialogue", obj_continue_dia);
 	dialogue_button.text = CONTINUE_DIA_TEXT;
 }
@@ -114,83 +165,144 @@ function dialogue_set_dinner_choice(choice)
 	}
 }
 
-function set_textbox_properties(textbox)
+#region TEXTBOX
+function set_textbox_properties(textbox, type)
 {
-	current_line = obj_game.conversation[obj_game.conversation_index];
-	
-	if(obj_game.dialogue_in_person)
+	with(obj_game)
 	{
-		textbox.box_sprite = DIALOGUE_INPERSON_BOX_SPRITE;
-		textbox.current_alignment = align.centered;
-	} 
-	else 
-	{
-		textbox.box_sprite = DIALOGUE_TEXTMSG_BOX_SPRITE;
-		if(current_line.on_the_left)
+		if(type == DIALOGUE_STANDARD)
 		{
-			textbox.current_alignment = align.left;
-		}
-		else
-		{
-			textbox.current_alignment = align.right;
-		}
-	}
+			current_line = conversation[conversation_index];
 	
-	textbox.current_text = current_line.text;
-	if(current_line.on_the_left)
-	{
-		textbox.box_tint = obj_game.dialogue_left.textbox_color;
-		textbox.current_name = obj_game.dialogue_left.textbox_name;
-		obj_game.dialogue_left.image_index = current_line.emotion;
-	}
-	else
-	{
-		textbox.box_tint = obj_game.dialogue_right.textbox_color;
-		textbox.current_name = obj_game.dialogue_right.textbox_name;
-		obj_game.dialogue_right.image_index = current_line.emotion;
+			if(dialogue_in_person)
+			{
+				textbox.box_sprite = DIALOGUE_INPERSON_BOX_SPRITE;
+				textbox.current_alignment = align.centered;
+			} 
+			else 
+			{
+				textbox.box_sprite = DIALOGUE_TEXTMSG_BOX_SPRITE;
+				if(current_line.on_the_left)
+				{
+					textbox.current_alignment = align.left;
+				}
+				else
+				{
+					textbox.current_alignment = align.right;
+				}
+			}
+	
+			textbox.current_text = current_line.text;
+			if(current_line.on_the_left)
+			{
+				textbox.box_tint = dialogue_left.textbox_color;
+				textbox.current_name = dialogue_left.textbox_name;
+				dialogue_left.image_index = current_line.emotion;
+			}
+			else
+			{
+				textbox.box_tint = dialogue_right.textbox_color;
+				textbox.current_name = dialogue_right.textbox_name;
+				dialogue_right.image_index = current_line.emotion;
+			}
+		}
+		else if(type == DIALOGUE_ENVIRONMENTAL)
+		{
+			textbox.box_sprite			= DIALOGUE_INPERSON_BOX_SPRITE;
+			textbox.current_alignment	= align.centered;
+			textbox.box_tint			= C_ALEX;
+		}
 	}
 }
 
-function draw_textbox()
+function draw_textbox(type)
 {
-	spr_width = sprite_get_width(spr_dia_box_default) * 0.5;
-	spr_height = sprite_get_height(spr_dia_box_default) * 0.5;
+	with(obj_game)
+	{
+		spr_width = sprite_get_width(DIALOGUE_INPERSON_BOX_SPRITE) * 0.5;
+		spr_height = sprite_get_height(DIALOGUE_INPERSON_BOX_SPRITE) * 0.5;
+		
+		tb_x = camera_x + (camera_width - spr_width) * 0.5;
+		tb_y = camera_y + (camera_height - spr_height - TEXTBOX_MARGIN);
 	
-	tb_x = camera_x + (camera_width - spr_width) * 0.5;
-	tb_y = camera_y + (camera_height - spr_height - TEXTBOX_MARGIN);
-	
-	obj_game.textbox_inst = instance_create_layer(tb_x,tb_y,"Dialogue",obj_textbox_dia);
-	set_textbox_properties(obj_game.textbox_inst);
-	
-	obj_game.conversation_boxes[obj_game.conversation_index-1] = obj_game.textbox_inst;
-	obj_game.conversation_index++;
+		textbox_inst = instance_create_layer(tb_x,tb_y,"Dialogue",obj_textbox_dia);
+		set_textbox_properties(textbox_inst, type);
+		
+		conversation_boxes[conversation_index-1] = textbox_inst;
+		conversation_index++;
+	}
 }
 
 function draw_multi_textbox()
 {
-	for(i = 0; i < array_length(obj_game.conversation_boxes); i++)
+	with(obj_game)
 	{
-		if(instance_exists(obj_game.conversation_boxes[i]))
+		for(i = 0; i < array_length(conversation_boxes); i++)
 		{
-			obj_game.box = obj_game.conversation_boxes[i];
-			obj_game.box.y -= obj_game.box.sprite_height + TEXTBOX_MARGIN;
+			if(instance_exists(conversation_boxes[i]))
+			{
+				box = conversation_boxes[i];
+				box.y -= box.sprite_height + TEXTBOX_MARGIN;
+			
+			}
 		}
 	}
 				
-	draw_textbox();
+	draw_textbox(DIALOGUE_STANDARD);
+}
+
+function dialogue_multi_max_height(current_y)
+{
+	with(obj_game)
+	{
+		if(current_y < dialogue_phone.y - (dialogue_phone.sprite_height * 0.5))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 }
 
 function remove_multi_boxes()
 {
-	for(i = 1; i < array_length(obj_game.conversation_boxes); i++)
+	with(obj_game)
 	{
-		if(instance_exists(obj_game.conversation_boxes[i]))
+		for(i = 1; i < array_length(conversation_boxes); i++)
 		{
-			instance_destroy(obj_game.conversation_boxes[i]);
+			if(instance_exists(conversation_boxes[i]))
+			{
+				instance_destroy(conversation_boxes[i]);
+			}
+			
+			if(instance_exists(obj_phone_dia))
+			{
+				instance_destroy(obj_phone_dia);
+			}
 		}
+		draw_textbox(DIALOGUE_STANDARD);
 	}
-	obj_game.conversation_boxes[0] = instance_create_layer(0,0,"Dialogue",obj_textbox_dia);
 }
+
+function dialogue_get_midpoint()
+{
+	with(obj_game)
+	{
+		return camera_x + (camera_width * 0.5);
+	}
+}
+
+function dialogue_get_bottom()
+{
+	with(obj_game)
+	{
+		return camera_y + camera_height;
+	}
+}
+
+#endregion
 
 function load_conversation(level)
 {
@@ -263,7 +375,7 @@ function continue_conversation()
 				box = conversation_boxes[0];
 				if(current_line.type == "line")
 				{
-					set_textbox_properties(box);
+					set_textbox_properties(box, DIALOGUE_STANDARD);
 					if(current_line.jump_to > 0)
 					{
 						conversation_index = current_line.jump_to;
@@ -300,7 +412,21 @@ function end_conversation()
 	instance_destroy(obj_game.dialogue_button);
 	
 	obj_game.dialogue_active = false;
-	set_game_state(OVERWORLD);
+	
+	if(global.current_level == LEVEL_1_BUS_STOP)
+	{
+		global.current_level = LEVEL_2_BUS_BATTLE;
+		set_game_state(BULLET_HELL);
+	}
+	else if (global.current_level == LEVEL_4_DINNER)
+	{
+		global.current_level = LEVEL_5_DINNER_BATTLE;
+		set_game_state(BULLET_HELL);
+	}
+	else
+	{
+		set_game_state(OVERWORLD);
+	}
 }
 
 function show_options()

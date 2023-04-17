@@ -1,5 +1,6 @@
 function set_game_state(new_state)
-{
+{	
+	state_change_transition(new_state);
 	global.prev_state = global.game_state;
 	global.game_state = new_state;
 }
@@ -8,6 +9,26 @@ function return_to_prev_state(current_state)
 {
 	global.game_state = global.prev_state;
 	global.prev_state = current_state;
+}
+
+function state_change_transition(state)
+{
+	if(state == BULLET_HELL)
+	{
+		// TODO: BH Transition
+	}
+	else if(state == DIALOGUE)
+	{
+		// TODO: DIA Transition
+	}
+	else if(state == OVERWORLD)
+	{
+		// TODO: OV Transition
+	}
+	else
+	{
+		// TODO: MENU Transition
+	}
 }
 
 function darken_background(depth_value)
@@ -28,30 +49,37 @@ function update_camera_position()
 	camera_y = camera_get_view_y(view_camera[0]);
 }
 
+// CANNOT BE USED TO GO TO MENU 
 function room_transition(level)
 {
+	global.current_level = level;
+	
 	switch(level)
 	{
-		case BEDROOM:
-			global.current_level = BEDROOM;
-			//global.current_level = ;
+		case LEVEL_0_BEDROOM:
+			global.current_room = ROOM_BEDROOM;
 		break;
-		case BUS_STOP:
-			global.current_level = BUS_STOP;
-			global.current_room = rm_level_one;
+		case LEVEL_1_BUS_STOP:
+			global.current_room = ROOM_OUTSIDE;
 		break;
-		case CAFE:
-			global.current_level = CAFE;
+		case LEVEL_3_CAFE:
+			global.current_room = ROOM_CAFE;
+		break;
+		case LEVEL_4_DINNER:
 			//global.current_room = ;
 		break;
-		case DINNER:
-			global.current_level = DINNER;
-			//global.current_level = ;
+		case LEVEL_6_BEDROOM:
+			global.current_room = ROOM_BEDROOM;
 		break;
 	}
 	
-	// run transition
+	// TODO: run room transition
 	room_goto(global.current_room);
+	
+	with(obj_game)
+	{
+		viewport_setup = false;
+	}
 }
 
 function setup_viewport()

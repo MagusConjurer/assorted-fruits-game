@@ -1,13 +1,15 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_Laundry",
-  "eventList": [],
+  "name": "obj_laundry",
+  "eventList": [
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
+  ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Decor",
-    "path": "folders/Objects/Overworld/Decor.yy",
+    "name": "Bedroom",
+    "path": "folders/Objects/Overworld/Decor/Interactables/Bedroom.yy",
   },
   "parentObjectId": {
     "name": "obj_decor_parent",
@@ -29,8 +31,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_luandry",
-    "path": "sprites/spr_luandry/spr_luandry.yy",
+    "name": "spr_laundry",
+    "path": "sprites/spr_laundry/spr_laundry.yy",
   },
   "spriteMaskId": null,
   "visible": true,

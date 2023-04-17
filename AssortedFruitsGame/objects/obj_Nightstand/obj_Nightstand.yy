@@ -1,13 +1,15 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_Nightstand",
-  "eventList": [],
+  "name": "obj_nightstand",
+  "eventList": [
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
+  ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Decor",
-    "path": "folders/Objects/Overworld/Decor.yy",
+    "name": "Bedroom",
+    "path": "folders/Objects/Overworld/Decor/Interactables/Bedroom.yy",
   },
   "parentObjectId": {
     "name": "obj_decor_parent",

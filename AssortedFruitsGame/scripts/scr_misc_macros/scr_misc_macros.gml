@@ -3,7 +3,13 @@
 
 #macro DELTA global.delta_factor
 
-#region LEVELS
+#region LEVELS & ROOMS
+#macro ROOM_MENU	rm_menu
+#macro ROOM_BEDROOM rm_bedroom
+#macro ROOM_OUTSIDE rm_bus_stop
+#macro ROOM_CAFE	rm_cafe
+// #macro ROOM_DINNER dinner
+
 #macro LEVEL_0_BEDROOM		 0 
 #macro LEVEL_1_BUS_STOP		 1 
 #macro LEVEL_2_BUS_BATTLE	 2 
@@ -24,7 +30,7 @@
 #macro PERCENT_TO_DARKEN 0.8
 
 // COLORS
-#macro C_ALEX $014462
+#macro C_ALEX	c_yellow
 #macro C_STELLA c_purple
 
 // GAME STATES
@@ -35,9 +41,9 @@
 #macro MENU 4
 
 // Depths
-#macro DARKENING_DEPTH -995
-#macro BH_DEPTH DARKENING_DEPTH-1
-#macro DIA_DEPTH BH_DEPTH
+#macro DARKENING_DEPTH -990
+#macro BH_DEPTH DARKENING_DEPTH - 1
+#macro DIA_DEPTH BH_DEPTH - 1
 #macro PAUSED_DEPTH DIA_DEPTH - 1
 
 // Controller

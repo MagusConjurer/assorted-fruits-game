@@ -1,8 +1,8 @@
 /// @description 
 
-radius = 0; // set in step
+radius = PLAYER_INTERACT_DISTANCE;
 
-has_been_interacted = false;
+can_interact = false;
 interact_repeatable = false;
 interact_starts = true;
 

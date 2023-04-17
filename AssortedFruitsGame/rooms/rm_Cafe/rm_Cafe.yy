@@ -1,13 +1,13 @@
 {
   "resourceType": "GMRoom",
   "resourceVersion": "1.0",
-  "name": "rm_Cafe",
+  "name": "rm_cafe",
   "creationCodeFile": "",
   "inheritCode": false,
   "inheritCreationOrder": false,
   "inheritLayers": false,
   "instanceCreationOrder": [
-    {"name":"inst_3CC49CF6_4","path":"rooms/rm_Cafe/rm_Cafe.yy",},
+    {"name":"inst_3CC49CF6_4","path":"rooms/rm_cafe/rm_cafe.yy",},
   ],
   "isDnd": false,
   "layers": [

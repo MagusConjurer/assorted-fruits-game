@@ -17,6 +17,8 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Notes","folderPath":"folders/Notes.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Objects","folderPath":"folders/Objects.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"BulletHell","folderPath":"folders/Objects/BulletHell.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Boost","folderPath":"folders/Objects/BulletHell/Boost.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Bubbles","folderPath":"folders/Objects/BulletHell/Bubbles.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Dialogue","folderPath":"folders/Objects/Dialogue.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Characters","folderPath":"folders/Objects/Dialogue/Characters.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Menus","folderPath":"folders/Objects/Menus.yy",},
@@ -31,6 +33,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Paths","folderPath":"folders/Paths.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Rooms","folderPath":"folders/Rooms.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Scripts","folderPath":"folders/Scripts.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"BH_Dialogue","folderPath":"folders/Scripts/BH_Dialogue.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Conversations","folderPath":"folders/Scripts/Conversations.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Macros","folderPath":"folders/Scripts/Macros.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Sequences","folderPath":"folders/Sequences.yy",},
@@ -55,8 +58,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Dialogue","folderPath":"folders/Sprites/UI/Dialogue.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tile Sets","folderPath":"folders/Tile Sets.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Bubbles","folderPath":"folders/Objects/BulletHell/Bubbles.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Boost","folderPath":"folders/Objects/BulletHell/Boost.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"BG_music.m4a","CopyToMask":-1,"filePath":"datafiles",},
@@ -107,6 +108,11 @@
     {"id":{"name":"BusGuy_duh2","path":"sprites/BusGuy_duh2/BusGuy_duh2.yy",},},
     {"id":{"name":"obj_quit_button","path":"objects/obj_quit_button/obj_quit_button.yy",},},
     {"id":{"name":"Alex_walk_L","path":"sprites/Alex_walk_L/Alex_walk_L.yy",},},
+<<<<<<< HEAD
+    {"id":{"name":"spr_phone_default","path":"sprites/spr_phone_default/spr_phone_default.yy",},},
+=======
+    {"id":{"name":"obj_bh_text","path":"objects/obj_bh_text/obj_bh_text.yy",},},
+>>>>>>> 8dc646a22ab9197b53a95c66eb2bdd6e692a4c4b
     {"id":{"name":"Alex_sit_WTF","path":"sprites/Alex_sit_WTF/Alex_sit_WTF.yy",},},
     {"id":{"name":"obj_bubble_projectile","path":"objects/obj_bubble_projectile/obj_bubble_projectile.yy",},},
     {"id":{"name":"stella_happy3","path":"sprites/stella_happy3/stella_happy3.yy",},},
@@ -130,8 +136,10 @@
     {"id":{"name":"spr_Alex_overworld_combined","path":"sprites/spr_Alex_overworld_combined/spr_Alex_overworld_combined.yy",},},
     {"id":{"name":"scr_conversation_1","path":"scripts/scr_conversation_1/scr_conversation_1.yy",},},
     {"id":{"name":"spr_bh_vignette","path":"sprites/spr_bh_vignette/spr_bh_vignette.yy",},},
+    {"id":{"name":"scr_bh_battle_text","path":"scripts/scr_bh_battle_text/scr_bh_battle_text.yy",},},
     {"id":{"name":"scr_audio_macros","path":"scripts/scr_audio_macros/scr_audio_macros.yy",},},
     {"id":{"name":"spr_popup_default","path":"sprites/spr_popup_default/spr_popup_default.yy",},},
+    {"id":{"name":"obj_bubble_mom","path":"objects/obj_bubble_mom/obj_bubble_mom.yy",},},
     {"id":{"name":"obj_progress_bar","path":"objects/obj_progress_bar/obj_progress_bar.yy",},},
     {"id":{"name":"obj_settings_ui","path":"objects/obj_settings_ui/obj_settings_ui.yy",},},
     {"id":{"name":"fnt_dialogue","path":"fonts/fnt_dialogue/fnt_dialogue.yy",},},
@@ -149,6 +157,7 @@
     {"id":{"name":"obj_tree_final","path":"objects/obj_tree_final/obj_tree_final.yy",},},
     {"id":{"name":"spr_player_projectile_def","path":"sprites/spr_player_projectile_def/spr_player_projectile_def.yy",},},
     {"id":{"name":"stella_disgust1","path":"sprites/stella_disgust1/stella_disgust1.yy",},},
+    {"id":{"name":"obj_bubble_uncle","path":"objects/obj_bubble_uncle/obj_bubble_uncle.yy",},},
     {"id":{"name":"obj_cb_music","path":"objects/obj_cb_music/obj_cb_music.yy",},},
     {"id":{"name":"stella_unimpressed6","path":"sprites/stella_unimpressed6/stella_unimpressed6.yy",},},
     {"id":{"name":"Alex_sit_normal","path":"sprites/Alex_sit_normal/Alex_sit_normal.yy",},},
@@ -169,7 +178,11 @@
     {"id":{"name":"alex_sigh9","path":"sprites/alex_sigh9/alex_sigh9.yy",},},
     {"id":{"name":"obj_boost_icon","path":"objects/obj_boost_icon/obj_boost_icon.yy",},},
     {"id":{"name":"obj_sign","path":"objects/obj_sign/obj_sign.yy",},},
+<<<<<<< HEAD
+    {"id":{"name":"obj_phone_dia","path":"objects/obj_phone_dia/obj_phone_dia.yy",},},
+=======
     {"id":{"name":"WEAPON_Energy_Beam_05_loop_mono","path":"sounds/WEAPON_Energy_Beam_05_loop_mono/WEAPON_Energy_Beam_05_loop_mono.yy",},},
+>>>>>>> 8dc646a22ab9197b53a95c66eb2bdd6e692a4c4b
     {"id":{"name":"spr_slider_button","path":"sprites/spr_slider_button/spr_slider_button.yy",},},
     {"id":{"name":"spr_bushes_01","path":"sprites/spr_bushes_01/spr_bushes_01.yy",},},
     {"id":{"name":"ParticleSystem1","path":"particles/ParticleSystem1/ParticleSystem1.yy",},},
@@ -183,6 +196,7 @@
     {"id":{"name":"obj_stella_dia","path":"objects/obj_stella_dia/obj_stella_dia.yy",},},
     {"id":{"name":"spr_nightstand","path":"sprites/spr_nightstand/spr_nightstand.yy",},},
     {"id":{"name":"spr_necklace","path":"sprites/spr_necklace/spr_necklace.yy",},},
+    {"id":{"name":"obj_bubble_dad","path":"objects/obj_bubble_dad/obj_bubble_dad.yy",},},
     {"id":{"name":"obj_box","path":"objects/obj_box/obj_box.yy",},},
     {"id":{"name":"obj_alex_dia","path":"objects/obj_alex_dia/obj_alex_dia.yy",},},
     {"id":{"name":"spr_bubble_default","path":"sprites/spr_bubble_default/spr_bubble_default.yy",},},
@@ -207,6 +221,7 @@
     {"id":{"name":"Alex_walk_R","path":"sprites/Alex_walk_R/Alex_walk_R.yy",},},
     {"id":{"name":"BG_music","path":"sounds/BG_music/BG_music.yy",},},
     {"id":{"name":"ts_test","path":"tilesets/ts_test/ts_test.yy",},},
+    {"id":{"name":"obj_bh_ui","path":"objects/obj_bh_ui/obj_bh_ui.yy",},},
     {"id":{"name":"stella_shocked7","path":"sprites/stella_shocked7/stella_shocked7.yy",},},
     {"id":{"name":"scr_conversation_template","path":"scripts/scr_conversation_template/scr_conversation_template.yy",},},
     {"id":{"name":"spr_house_01","path":"sprites/spr_house_01/spr_house_01.yy",},},
@@ -234,6 +249,7 @@
     {"id":{"name":"spr_text_bubble","path":"sprites/spr_text_bubble/spr_text_bubble.yy",},},
     {"id":{"name":"obj_busguy_dia","path":"objects/obj_busguy_dia/obj_busguy_dia.yy",},},
     {"id":{"name":"ts_default","path":"tilesets/ts_default/ts_default.yy",},},
+    {"id":{"name":"seq_bh_dialogue","path":"sequences/seq_bh_dialogue/seq_bh_dialogue.yy",},},
     {"id":{"name":"obj_fence","path":"objects/obj_fence/obj_fence.yy",},},
     {"id":{"name":"spr_house_ground_01","path":"sprites/spr_house_ground_01/spr_house_ground_01.yy",},},
     {"id":{"name":"obj_bustop","path":"objects/obj_bustop/obj_bustop.yy",},},
@@ -245,11 +261,8 @@
     {"id":{"name":"spr_front_fence_01","path":"sprites/spr_front_fence_01/spr_front_fence_01.yy",},},
     {"id":{"name":"spr_desk_area","path":"sprites/spr_desk_area/spr_desk_area.yy",},},
     {"id":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},},
-<<<<<<< HEAD
-    {"id":{"name":"obj_bubble_boost","path":"objects/obj_bubble_boost/obj_bubble_boost.yy",},},
-=======
     {"id":{"name":"PLASMA_CANNON_Deep_Noisy_Tail_stereo","path":"sounds/PLASMA_CANNON_Deep_Noisy_Tail_stereo/PLASMA_CANNON_Deep_Noisy_Tail_stereo.yy",},},
->>>>>>> e8f4fe9102527b7b40d2107bf4f7e9c96354be04
+    {"id":{"name":"obj_bubble_boost","path":"objects/obj_bubble_boost/obj_bubble_boost.yy",},},
     {"id":{"name":"alex_lookaway3","path":"sprites/alex_lookaway3/alex_lookaway3.yy",},},
     {"id":{"name":"rm_Bedroom","path":"rooms/rm_Bedroom/rm_Bedroom.yy",},},
     {"id":{"name":"obj_textbox_dia","path":"objects/obj_textbox_dia/obj_textbox_dia.yy",},},
