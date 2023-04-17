@@ -39,8 +39,6 @@ function dialogue_update()
 				dialogue_button.selected = true;
 			}
 		}
-
-
 	}
 }
 
@@ -71,7 +69,7 @@ function dialogue_start(dialogue_level)
 		switch(dialogue_level)
 		{
 			case LEVEL_0_BEDROOM:
-				load_conversation(BUS_STOP_DIALOGUE);
+				load_conversation(PHONE_DIALOGUE);
 			break;
 			case LEVEL_1_BUS_STOP:
 				load_conversation(BUS_STOP_DIALOGUE);
@@ -90,7 +88,7 @@ function dialogue_start(dialogue_level)
 		
 		set_portrait_positions();
 		check_if_in_person(conversation[conversation_index]);
-		draw_textbox();
+		draw_textbox(DIALOGUE_STANDARD);
 	
 		if(!dialogue_in_person)
 		{
@@ -99,11 +97,7 @@ function dialogue_start(dialogue_level)
 			dialogue_phone = instance_create_layer(phone_x,phone_y,"Dialogue",obj_phone_dia);
 		}
 	
-		start_box = conversation_boxes[0];
-		cont_x = start_box.x + start_box.box_width * 1.9;
-		cont_y = start_box.y + start_box.box_height - TEXTBOX_MARGIN * 3;
-		dialogue_button = instance_create_layer(cont_x, cont_y, "Dialogue", obj_continue_dia);
-		dialogue_button.text = CONTINUE_DIA_TEXT;
+		dialogue_button_init();
 	}
 }
 
@@ -114,15 +108,20 @@ function dialogue_environmental(dialogue_text)
 	with(obj_game)
 	{
 		dialogue_init();
+		dialogue_in_person = true;
+		draw_textbox(DIALOGUE_ENVIRONMENTAL);
+		conversation_boxes[0].current_text = dialogue_text;
 		
-		draw_textbox();
-		
-		start_box = conversation_boxes[0];
-		cont_x = start_box.x + start_box.box_width * 1.9;
-		cont_y = start_box.y + start_box.box_height - TEXTBOX_MARGIN * 3;
-		dialogue_button = instance_create_layer(cont_x, cont_y, "Dialogue", obj_continue_dia);
-		dialogue_button.text = CONTINUE_DIA_TEXT;
+		dialogue_button_init();
 	}
+}
+
+function dialogue_button_init()
+{
+	cont_x = global.resolution_w * 0.7;
+	cont_y = global.resolution_h * 0.95;
+	dialogue_button = instance_create_layer(cont_x, cont_y, "Dialogue", obj_continue_dia);
+	dialogue_button.text = CONTINUE_DIA_TEXT;
 }
 
 // used in the continue button
@@ -166,44 +165,56 @@ function dialogue_set_dinner_choice(choice)
 }
 
 #region TEXTBOX
-function set_textbox_properties(textbox)
+function set_textbox_properties(textbox, type)
 {
-	current_line = obj_game.conversation[obj_game.conversation_index];
-	
-	if(obj_game.dialogue_in_person)
+	with(obj_game)
 	{
-		textbox.box_sprite = DIALOGUE_INPERSON_BOX_SPRITE;
-		textbox.current_alignment = align.centered;
-	} 
-	else 
-	{
-		textbox.box_sprite = DIALOGUE_TEXTMSG_BOX_SPRITE;
-		if(current_line.on_the_left)
+		if(type == DIALOGUE_STANDARD)
 		{
-			textbox.current_alignment = align.left;
-		}
-		else
-		{
-			textbox.current_alignment = align.right;
-		}
-	}
+			current_line = conversation[conversation_index];
 	
-	textbox.current_text = current_line.text;
-	if(current_line.on_the_left)
-	{
-		textbox.box_tint = obj_game.dialogue_left.textbox_color;
-		textbox.current_name = obj_game.dialogue_left.textbox_name;
-		obj_game.dialogue_left.image_index = current_line.emotion;
-	}
-	else
-	{
-		textbox.box_tint = obj_game.dialogue_right.textbox_color;
-		textbox.current_name = obj_game.dialogue_right.textbox_name;
-		obj_game.dialogue_right.image_index = current_line.emotion;
+			if(dialogue_in_person)
+			{
+				textbox.box_sprite = DIALOGUE_INPERSON_BOX_SPRITE;
+				textbox.current_alignment = align.centered;
+			} 
+			else 
+			{
+				textbox.box_sprite = DIALOGUE_TEXTMSG_BOX_SPRITE;
+				if(current_line.on_the_left)
+				{
+					textbox.current_alignment = align.left;
+				}
+				else
+				{
+					textbox.current_alignment = align.right;
+				}
+			}
+	
+			textbox.current_text = current_line.text;
+			if(current_line.on_the_left)
+			{
+				textbox.box_tint = dialogue_left.textbox_color;
+				textbox.current_name = dialogue_left.textbox_name;
+				dialogue_left.image_index = current_line.emotion;
+			}
+			else
+			{
+				textbox.box_tint = dialogue_right.textbox_color;
+				textbox.current_name = dialogue_right.textbox_name;
+				dialogue_right.image_index = current_line.emotion;
+			}
+		}
+		else if(type == DIALOGUE_ENVIRONMENTAL)
+		{
+			textbox.box_sprite			= DIALOGUE_INPERSON_BOX_SPRITE;
+			textbox.current_alignment	= align.centered;
+			textbox.box_tint			= C_ALEX;
+		}
 	}
 }
 
-function draw_textbox()
+function draw_textbox(type)
 {
 	with(obj_game)
 	{
@@ -214,7 +225,7 @@ function draw_textbox()
 		tb_y = camera_y + (camera_height - spr_height - TEXTBOX_MARGIN);
 	
 		textbox_inst = instance_create_layer(tb_x,tb_y,"Dialogue",obj_textbox_dia);
-		set_textbox_properties(textbox_inst);
+		set_textbox_properties(textbox_inst, type);
 		
 		conversation_boxes[conversation_index-1] = textbox_inst;
 		conversation_index++;
@@ -236,7 +247,7 @@ function draw_multi_textbox()
 		}
 	}
 				
-	draw_textbox();
+	draw_textbox(DIALOGUE_STANDARD);
 }
 
 function dialogue_multi_max_height(current_y)
@@ -270,7 +281,7 @@ function remove_multi_boxes()
 				instance_destroy(obj_phone_dia);
 			}
 		}
-		draw_textbox();
+		draw_textbox(DIALOGUE_STANDARD);
 	}
 }
 
@@ -363,7 +374,7 @@ function continue_conversation()
 				box = conversation_boxes[0];
 				if(current_line.type == "line")
 				{
-					set_textbox_properties(box);
+					set_textbox_properties(box, DIALOGUE_STANDARD);
 					if(current_line.jump_to > 0)
 					{
 						conversation_index = current_line.jump_to;
@@ -400,7 +411,21 @@ function end_conversation()
 	instance_destroy(obj_game.dialogue_button);
 	
 	obj_game.dialogue_active = false;
-	set_game_state(OVERWORLD);
+	
+	if(global.current_level == LEVEL_1_BUS_STOP)
+	{
+		global.current_level = LEVEL_2_BUS_BATTLE;
+		set_game_state(BULLET_HELL);
+	}
+	else if (global.current_level == LEVEL_4_DINNER)
+	{
+		global.current_level = LEVEL_5_DINNER_BATTLE;
+		set_game_state(BULLET_HELL);
+	}
+	else
+	{
+		set_game_state(OVERWORLD);
+	}
 }
 
 function show_options()

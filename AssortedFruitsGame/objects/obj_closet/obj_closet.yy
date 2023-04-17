@@ -8,8 +8,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Decor",
-    "path": "folders/Objects/Overworld/Decor.yy",
+    "name": "Bedroom",
+    "path": "folders/Objects/Overworld/Decor/Interactables/Bedroom.yy",
   },
   "parentObjectId": {
     "name": "obj_decor_parent",

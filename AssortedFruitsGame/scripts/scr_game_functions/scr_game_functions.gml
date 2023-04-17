@@ -1,13 +1,31 @@
 function set_game_state(new_state)
-{
+{	
+	state_change_transition(new_state);
 	global.prev_state = global.game_state;
 	global.game_state = new_state;
 }
 
 function return_to_prev_state(current_state)
 {
+	state_change_transition(new_state);
 	global.game_state = global.prev_state;
 	global.prev_state = current_state;
+}
+
+function state_change_transition(state)
+{
+	if(state == BULLET_HELL)
+	{
+		// TODO: BH Transition
+	}
+	else if(state == DIALOGUE)
+	{
+		// TODO: DIA Transition
+	}
+	else if(state == OVERWORLD)
+	{
+		// TODO: OV Transition
+	}
 }
 
 function darken_background(depth_value)
@@ -56,7 +74,7 @@ function room_transition(level)
 		break;
 	}
 	
-	// TODO: run transition
+	// TODO: run room transition
 	room_goto(global.current_room);
 }
 

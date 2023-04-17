@@ -4,10 +4,10 @@
 #macro DELTA global.delta_factor
 
 #region LEVELS & ROOMS
-#macro ROOM_MENU rm_menu
-#macro ROOM_BEDROOM rm_Bedroom
-#macro ROOM_OUTSIDE rm_level_one
-#macro ROOM_CAFE rm_Cafe
+#macro ROOM_MENU	rm_menu
+#macro ROOM_BEDROOM rm_bedroom
+#macro ROOM_OUTSIDE rm_bus_stop
+#macro ROOM_CAFE	rm_cafe
 // #macro ROOM_DINNER dinner
 
 #macro LEVEL_TO_MENU		-1
@@ -31,7 +31,7 @@
 #macro PERCENT_TO_DARKEN 0.8
 
 // COLORS
-#macro C_ALEX $014462
+#macro C_ALEX	c_yellow
 #macro C_STELLA c_purple
 
 // GAME STATES

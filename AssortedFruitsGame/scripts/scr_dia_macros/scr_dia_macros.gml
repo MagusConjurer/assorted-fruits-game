@@ -5,6 +5,8 @@
 #macro TEXTBOX_OFFSET_PERCENT 0.5
 #macro DIALOGUE_INPERSON_BOX_SPRITE spr_dia_box_default
 #macro DIALOGUE_TEXTMSG_BOX_SPRITE spr_text_bubble
+#macro DIALOGUE_STANDARD		0
+#macro DIALOGUE_ENVIRONMENTAL	1
 
 // Used for text box alignment (mostly during text messaging)
 enum align{

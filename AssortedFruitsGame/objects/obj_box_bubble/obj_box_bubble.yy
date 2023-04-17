@@ -9,8 +9,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Interactables",
-    "path": "folders/Objects/Overworld/Interactables.yy",
+    "name": "Auto Interactables",
+    "path": "folders/Objects/Overworld/Auto Interactables.yy",
   },
   "parentObjectId": {
     "name": "obj_interactable_parent",
