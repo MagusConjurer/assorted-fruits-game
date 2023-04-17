@@ -23,26 +23,32 @@ if(sprite_index != box_sprite)
 	if(current_alignment = align.centered)
 	{
 		x = dialogue_get_midpoint() - (box_width * 0.5);
-	}
-	else if(current_alignment = align.left)
-	{
-		if(image_xscale > 0) 
-		{
-			image_xscale = image_xscale * -1;
-		}
-		
-		x = dialogue_get_midpoint() - (box_width * 0.25);
+		y = dialogue_get_bottom() - box_height - TEXTBOX_MARGIN;
 	}
 	else
 	{
-		if(image_xscale < 0) 
+		if(current_alignment = align.left)
 		{
-			image_xscale = image_xscale * 1;
+			if(image_xscale > 0) 
+			{
+				image_xscale = image_xscale * -1;
+			}
+		
+			x = dialogue_get_midpoint() - (box_width * 0.25);
 		}
-		x = dialogue_get_midpoint() + (box_width * 0.25);
+		else
+		{
+			if(image_xscale < 0) 
+			{
+				image_xscale = image_xscale * 1;
+			}
+			x = dialogue_get_midpoint() + (box_width * 0.25);
+		}
+		
+		y = dialogue_get_bottom() - box_height * 2 - TEXTBOX_MARGIN;
 	}
 
-	y = dialogue_get_bottom() - box_height - TEXTBOX_MARGIN;
+	
 	text_max_width = box_width - (TEXTBOX_PADDING*2);
 }
 
@@ -54,19 +60,26 @@ if(current_alignment == align.centered)
 }
 else
 {
-	image_yscale = 0.7;
-	full_text_height = string_height_ext(current_text, -1, text_max_width) + string_height(current_name);
-
-	adjusted_text_offset = box_height * ((full_text_height * 0.5) / sprite_get_height(box_sprite));
-	text_y = y - (adjusted_text_offset);
-	
-	if(current_alignment == align.right)
+	if(dialogue_multi_max_height(y))
 	{
-		text_x = x + (box_width  * TEXTBOX_OFFSET_PERCENT) - (TEXTBOX_PADDING*2);
+		visible = false;
 	}
 	else
 	{
-		text_x = x - (box_width  * TEXTBOX_OFFSET_PERCENT) + (TEXTBOX_PADDING*2);
+		image_yscale = 0.7;
+		full_text_height = string_height_ext(current_text, -1, text_max_width) + string_height(current_name);
+
+		adjusted_text_offset = box_height * ((full_text_height * 0.5) / sprite_get_height(box_sprite));
+		text_y = y - (adjusted_text_offset);
+	
+		if(current_alignment == align.right)
+		{
+			text_x = x + (box_width  * TEXTBOX_OFFSET_PERCENT) - (TEXTBOX_PADDING*2);
+		}
+		else
+		{
+			text_x = x - (box_width  * TEXTBOX_OFFSET_PERCENT) + (TEXTBOX_PADDING*2);
+		}
 	}
 }
 

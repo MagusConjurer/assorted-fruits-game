@@ -71,7 +71,7 @@ function dialogue_start()
 	{
 		phone_x = camera_x + (camera_width * 0.5);
 		phone_y = camera_y + (camera_height * 0.5);
-		instance_create_layer(phone_x,phone_y,"Dialogue",obj_phone_dia);
+		dialogue_phone = instance_create_layer(phone_x,phone_y,"Dialogue",obj_phone_dia);
 	}
 	
 	start_box = conversation_boxes[0];
@@ -161,17 +161,17 @@ function set_textbox_properties(textbox)
 
 function draw_textbox()
 {
-	spr_width = sprite_get_width(spr_dia_box_default) * 0.5;
-	spr_height = sprite_get_height(spr_dia_box_default) * 0.5;
-	
-	tb_x = camera_x + (camera_width - spr_width) * 0.5;
-	tb_y = camera_y + (camera_height - spr_height - TEXTBOX_MARGIN);
-	
 	with(obj_game)
 	{
+		spr_width = sprite_get_width(DIALOGUE_INPERSON_BOX_SPRITE) * 0.5;
+		spr_height = sprite_get_height(DIALOGUE_INPERSON_BOX_SPRITE) * 0.5;
+		
+		tb_x = camera_x + (camera_width - spr_width) * 0.5;
+		tb_y = camera_y + (camera_height - spr_height - TEXTBOX_MARGIN);
+	
 		textbox_inst = instance_create_layer(tb_x,tb_y,"Dialogue",obj_textbox_dia);
 		set_textbox_properties(textbox_inst);
-	
+		
 		conversation_boxes[conversation_index-1] = textbox_inst;
 		conversation_index++;
 	}
@@ -193,6 +193,21 @@ function draw_multi_textbox()
 	}
 				
 	draw_textbox();
+}
+
+function dialogue_multi_max_height(current_y)
+{
+	with(obj_game)
+	{
+		if(current_y < dialogue_phone.y - (dialogue_phone.sprite_height * 0.5))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 }
 
 function remove_multi_boxes()
