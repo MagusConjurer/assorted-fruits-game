@@ -52,15 +52,22 @@ if(current_alignment == align.centered)
 	text_x = x + TEXTBOX_PADDING;
 	text_y = y + (TEXTBOX_PADDING*2);
 }
-else if(current_alignment == align.right)
-{
-	text_x = x + (box_width * 0.4) - (TEXTBOX_PADDING*2);
-	text_y = y - (box_height * 0.4) + (TEXTBOX_PADDING*2);
-}
 else
 {
-	text_x = x - (box_width * 0.4) + (TEXTBOX_PADDING*2);
-	text_y = y - (box_height * 0.4) + (TEXTBOX_PADDING*2);
+	image_yscale = 0.7;
+	full_text_height = string_height_ext(current_text, -1, text_max_width) + string_height(current_name);
+
+	adjusted_text_offset = box_height * ((full_text_height * 0.5) / sprite_get_height(box_sprite));
+	text_y = y - (adjusted_text_offset);
+	
+	if(current_alignment == align.right)
+	{
+		text_x = x + (box_width  * TEXTBOX_OFFSET_PERCENT) - (TEXTBOX_PADDING*2);
+	}
+	else
+	{
+		text_x = x - (box_width  * TEXTBOX_OFFSET_PERCENT) + (TEXTBOX_PADDING*2);
+	}
 }
 
 name_x = text_x;
