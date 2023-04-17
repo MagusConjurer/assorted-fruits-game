@@ -1,11 +1,7 @@
 /// Called by obj_game to check for necessary dialogue updates
 function dialogue_update()
 {
-	if (global.game_state == DIALOGUE && dialogue_active = false)
-	{		
-		dialogue_start();
-	}
-	else if (global.game_state == DIALOGUE && dialogue_active = true)
+	if (global.game_state == DIALOGUE && dialogue_active = true)
 	{
 		if(global.gamepad_id > -1)
 		{
@@ -48,7 +44,8 @@ function dialogue_update()
 	}
 }
 
-function dialogue_start()
+// Resets all dialogue variables
+function dialogue_init()
 {
 	dialogue_active = true;
 	dialogue_selection_visible = false;
@@ -61,24 +58,71 @@ function dialogue_start()
 	dialogue_selection_jumps     = [];
 	dialogue_selection_buttons   = [];
 	dialogue_selection_choices = [];
+}
+
+function dialogue_start(dialogue_level)
+{
+	set_game_state(DIALOGUE);
 	
-	load_conversation(dialogue_level);
-	set_portrait_positions();
-	check_if_in_person(conversation[conversation_index]);
-	draw_textbox();
-	
-	if(!dialogue_in_person)
+	with(obj_game)
 	{
-		phone_x = camera_x + (camera_width * 0.5);
-		phone_y = camera_y + (camera_height * 0.5);
-		dialogue_phone = instance_create_layer(phone_x,phone_y,"Dialogue",obj_phone_dia);
-	}
+		dialogue_init();
 	
-	start_box = conversation_boxes[0];
-	cont_x = start_box.x + start_box.box_width * 1.9;
-	cont_y = start_box.y + start_box.box_height - TEXTBOX_MARGIN * 3;
-	dialogue_button = instance_create_layer(cont_x, cont_y, "Dialogue", obj_continue_dia);
-	dialogue_button.text = CONTINUE_DIA_TEXT;
+		switch(dialogue_level)
+		{
+			case LEVEL_0_BEDROOM:
+				load_conversation(BUS_STOP_DIALOGUE);
+			break;
+			case LEVEL_1_BUS_STOP:
+				load_conversation(BUS_STOP_DIALOGUE);
+			break;
+			case LEVEL_3_CAFE:
+				//load_conversation();
+			break;
+			case LEVEL_4_DINNER:
+				//load_conversation();
+			break;
+			case LEVEL_6_BEDROOM:
+				//load_conversation();
+			break;
+		}
+	
+		
+		set_portrait_positions();
+		check_if_in_person(conversation[conversation_index]);
+		draw_textbox();
+	
+		if(!dialogue_in_person)
+		{
+			phone_x = camera_x + (camera_width * 0.5);
+			phone_y = camera_y + (camera_height * 0.5);
+			dialogue_phone = instance_create_layer(phone_x,phone_y,"Dialogue",obj_phone_dia);
+		}
+	
+		start_box = conversation_boxes[0];
+		cont_x = start_box.x + start_box.box_width * 1.9;
+		cont_y = start_box.y + start_box.box_height - TEXTBOX_MARGIN * 3;
+		dialogue_button = instance_create_layer(cont_x, cont_y, "Dialogue", obj_continue_dia);
+		dialogue_button.text = CONTINUE_DIA_TEXT;
+	}
+}
+
+function dialogue_environmental(dialogue_text)
+{
+	set_game_state(DIALOGUE);
+	
+	with(obj_game)
+	{
+		dialogue_init();
+		
+		draw_textbox();
+		
+		start_box = conversation_boxes[0];
+		cont_x = start_box.x + start_box.box_width * 1.9;
+		cont_y = start_box.y + start_box.box_height - TEXTBOX_MARGIN * 3;
+		dialogue_button = instance_create_layer(cont_x, cont_y, "Dialogue", obj_continue_dia);
+		dialogue_button.text = CONTINUE_DIA_TEXT;
+	}
 }
 
 // used in the continue button

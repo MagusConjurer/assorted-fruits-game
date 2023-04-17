@@ -35,8 +35,8 @@ global.gamepad_id = -1;
 global.gamepad_type = 0;
 
 // Initialize global variables.
-global.current_level = BUS_STOP;
-global.current_room = rm_level_one;
+global.current_level = LEVEL_0_BEDROOM;
+global.current_room = ROOM_MENU;
 global.game_state = MENU;
 global.prev_state = OVERWORLD;
 

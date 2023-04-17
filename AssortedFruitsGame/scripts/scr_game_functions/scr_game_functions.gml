@@ -30,27 +30,33 @@ function update_camera_position()
 
 function room_transition(level)
 {
+	if(level != LEVEL_TO_MENU)
+	{
+		global.current_level = level;
+	}
+	
 	switch(level)
 	{
-		case BEDROOM:
-			global.current_level = BEDROOM;
-			//global.current_level = ;
+		case LEVEL_TO_MENU:
+			global.current_room = ROOM_MENU;
+		case LEVEL_0_BEDROOM:
+			global.current_room = ROOM_BEDROOM;
 		break;
-		case BUS_STOP:
-			global.current_level = BUS_STOP;
-			global.current_room = rm_level_one;
+		case LEVEL_1_BUS_STOP:
+			global.current_room = ROOM_OUTSIDE;
 		break;
-		case CAFE:
-			global.current_level = CAFE;
+		case LEVEL_3_CAFE:
+			global.current_room = ROOM_CAFE;
+		break;
+		case LEVEL_4_DINNER:
 			//global.current_room = ;
 		break;
-		case DINNER:
-			global.current_level = DINNER;
-			//global.current_level = ;
+		case LEVEL_6_BEDROOM:
+			global.current_room = ROOM_BEDROOM;
 		break;
 	}
 	
-	// run transition
+	// TODO: run transition
 	room_goto(global.current_room);
 }
 

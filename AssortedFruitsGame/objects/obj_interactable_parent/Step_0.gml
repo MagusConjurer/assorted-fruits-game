@@ -1,15 +1,7 @@
 /// @description 
+event_inherited();
 
-if(interact_starts)
-{
-	radius = PLAYER_INTERACT_DISTANCE;
-}
-else
-{
-	radius = AUTO_INTERACT_DISTANCE;
-}
-
-if(!has_been_interacted || interact_repeatable)
+if(can_interact || interact_repeatable)
 {
 	if(global.game_state == OVERWORLD)
 	{
@@ -18,7 +10,7 @@ if(!has_been_interacted || interact_repeatable)
 		{
 			if(!interact_starts)
 			{
-				has_been_interacted = true;
+				can_interact = false;
 				event_user(0);
 			
 				instance_destroy();
@@ -29,7 +21,7 @@ if(!has_been_interacted || interact_repeatable)
 			
 				if(interact_pressed() && interact_starts)
 				{
-					has_been_interacted = true;
+					can_interact = false;
 		
 					event_user(0);
 		

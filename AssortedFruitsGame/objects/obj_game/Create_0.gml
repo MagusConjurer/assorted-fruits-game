@@ -61,7 +61,6 @@ bh_vignette_levels = sprite_get_number(spr_bh_vignette) - 1;
 // Dialogue
 dialogue_active = false;
 dialogue_selection_visible = false;
-dialogue_level = 0;
 dialogue_in_person = true;
 dialogue_phone = 0;
 conversation_index = 1; // starts at 1 since data is index 0

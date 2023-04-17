@@ -2,7 +2,10 @@
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
   "name": "obj_decor_parent",
-  "eventList": [],
+  "eventList": [
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":10,"eventType":7,"isDnD":false,},
+  ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
@@ -10,8 +13,8 @@
     "path": "folders/Objects/Parents.yy",
   },
   "parentObjectId": {
-    "name": "obj_wall",
-    "path": "objects/obj_wall/obj_wall.yy",
+    "name": "obj_interactable_parent",
+    "path": "objects/obj_interactable_parent/obj_interactable_parent.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,

@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_Desk",
+  "name": "obj_desk",
   "eventList": [],
   "managed": true,
   "overriddenProperties": [],
@@ -34,8 +34,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_desk_area",
-    "path": "sprites/spr_desk_area/spr_desk_area.yy",
+    "name": "spr_desk",
+    "path": "sprites/spr_desk/spr_desk.yy",
   },
   "spriteMaskId": null,
   "visible": true,

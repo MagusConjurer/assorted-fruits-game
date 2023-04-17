@@ -207,7 +207,7 @@ function pause_menu_main()
 		bh_active = false;
 	}
 	
-	room_goto(rm_menu);
+	room_transition(LEVEL_TO_MENU);
 	set_game_state(MENU);
 }
 

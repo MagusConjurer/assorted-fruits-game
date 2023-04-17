@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_Dresser",
+  "name": "obj_dresser",
   "eventList": [],
   "managed": true,
   "overriddenProperties": [],
@@ -29,8 +29,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_dress",
-    "path": "sprites/spr_dress/spr_dress.yy",
+    "name": "spr_dresser",
+    "path": "sprites/spr_dresser/spr_dresser.yy",
   },
   "spriteMaskId": null,
   "visible": true,

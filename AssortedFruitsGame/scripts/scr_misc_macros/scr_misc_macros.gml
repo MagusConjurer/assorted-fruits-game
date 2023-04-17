@@ -3,7 +3,14 @@
 
 #macro DELTA global.delta_factor
 
-#region LEVELS
+#region LEVELS & ROOMS
+#macro ROOM_MENU rm_menu
+#macro ROOM_BEDROOM rm_Bedroom
+#macro ROOM_OUTSIDE rm_level_one
+#macro ROOM_CAFE rm_Cafe
+// #macro ROOM_DINNER dinner
+
+#macro LEVEL_TO_MENU		-1
 #macro LEVEL_0_BEDROOM		 0 
 #macro LEVEL_1_BUS_STOP		 1 
 #macro LEVEL_2_BUS_BATTLE	 2 
