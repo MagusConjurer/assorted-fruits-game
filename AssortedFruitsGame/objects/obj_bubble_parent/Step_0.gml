@@ -21,6 +21,7 @@ if(global.game_state == active_state)
 	if(bubble_time >= BH_BUBBLE_TIME_BEFORE_POPPING)
 	{
 		bh_bubble_destroyed(false);
+		
 		instance_destroy();
 	}
 	
