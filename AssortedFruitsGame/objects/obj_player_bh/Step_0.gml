@@ -19,8 +19,10 @@ if (global.game_state == active_state)
 		if (_inst != noone)
 		{
 			bh_update_player_health(_inst.damage);
+			
 			instance_destroy(_inst);
 			iframes = BH_PLAYER_NUM_IFRAMES;
+			
 		}
 	} 
 	
