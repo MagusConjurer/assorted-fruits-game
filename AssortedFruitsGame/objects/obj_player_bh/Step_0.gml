@@ -22,7 +22,6 @@ if (global.game_state == active_state)
 			
 			instance_destroy(_inst);
 			iframes = BH_PLAYER_NUM_IFRAMES;
-			
 		}
 	} 
 	

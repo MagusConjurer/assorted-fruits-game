@@ -23,7 +23,6 @@ if(global.game_state == active_state)
 	if(bubble_time >= bubble_pop_time)
 	{
 		bh_bubble_destroyed(false);
-		
 		instance_destroy();
 	}
 	

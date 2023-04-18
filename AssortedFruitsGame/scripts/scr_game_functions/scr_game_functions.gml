@@ -85,7 +85,7 @@ function setup_viewport()
 		camera_width = global.resolution_w * 0.5; // change 0.5 to a zoom percentage?
 		camera_height = global.resolution_h * 0.5;
 		
-		if(camera_target != 0)
+		if(camera_target != 0 && room != ROOM_MENU)
 		{
 			camera_x = camera_target.x - (camera_width / 2);
 			camera_y = camera_target.y - (camera_height / 2);
@@ -120,7 +120,7 @@ function update_camera_position()
 		camera_x = camera_get_view_x(camera);
 		camera_y = camera_get_view_y(camera);
 		
-		if(global.game_state == OVERWORLD && camera_target != 0)
+		if(global.game_state == OVERWORLD && camera_target != 0 && room != ROOM_MENU)
 		{
 			target_x = camera_target.x - (camera_width / 2);
 			target_y = camera_target.y - (camera_height / 2);

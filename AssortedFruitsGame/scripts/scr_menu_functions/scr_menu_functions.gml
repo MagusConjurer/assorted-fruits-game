@@ -88,6 +88,13 @@ function main_menu_show()
 		{
 			main_menu_visible = true;
 			pause_background_music();
+			
+			_layer = layer_get_id("Background");
+			_bg_id = layer_background_get_id(_layer);
+			if(layer_background_get_sprite(_bg_id) != MAIN_MENU_BACKGROUND)
+			{
+				layer_background_sprite(_bg_id, MAIN_MENU_BACKGROUND);
+			}
 	
 			mm_x = global.resolution_w * 0.5;
 			mm_y = global.resolution_h * 0.5;
@@ -95,7 +102,7 @@ function main_menu_show()
 			menu_buttons[0] = instance_create_layer(mm_x, mm_y - 50, "Main_Menu", obj_new_button);
 			menu_buttons[1] = instance_create_layer(mm_x, mm_y, "Main_Menu", obj_play_button);
 			menu_buttons[2] = instance_create_layer(mm_x, mm_y + 50, "Main_Menu", obj_settings_button);
-			menu_buttons[3] = instance_create_layer(mm_x, mm_y + 100, "Main_Menu", obj_quit_button);
+			menu_buttons[3] = instance_create_layer(mm_x, mm_y + 100, "Main_Menu", obj_main_quit_button);
 			menu_buttons[3].layer_to_check = "Main_Menu"; // Needed due to using same button for two menus
 	
 			if(global.gamepad_id > -1)
@@ -181,22 +188,26 @@ function menu_quit()
 #region Pause Menu
 function pause_menu_show()
 {
-	pause_menu_visible = true;
-	pause_dialogue();
-	pause_background_music();
-	
-	pm_x = global.resolution_w * 0.5;
-	pm_y = global.resolution_h * 0.5;
-	
-	menu_buttons[0] = instance_create_layer(pm_x, pm_y - 50, "Pause_Menu", obj_menu_button);
-	menu_buttons[1] = instance_create_layer(pm_x, pm_y, "Pause_Menu", obj_continue_button);
-	menu_buttons[2] = instance_create_layer(pm_x, pm_y + 50, "Pause_Menu", obj_quit_button);
-	menu_buttons[2].layer_to_check = "Pause_Menu"; // Needed due to using same button for two menus
-	
-	if(global.gamepad_id > -1)
+	with(obj_game)
 	{
-		menu_selected = 0;
-		menu_buttons[menu_selected].selected = true;
+		pause_menu_visible = true;
+		pause_dialogue();
+		pause_background_music();
+	
+		pm_x = global.resolution_w * 0.5;
+		pm_y = global.resolution_h * 0.5;
+	
+		instance_create_layer(camera_x + (pm_x / 2), camera_y + (pm_y / 2), "Pause_Menu", obj_pause_background);
+		menu_buttons[0] = instance_create_layer(pm_x, pm_y - 175, "Pause_Menu", obj_continue_button);
+		menu_buttons[1] = instance_create_layer(pm_x, pm_y + 25, "Pause_Menu", obj_menu_button);
+		menu_buttons[2] = instance_create_layer(pm_x, pm_y + 225, "Pause_Menu", obj_pause_quit_button);
+		menu_buttons[2].layer_to_check = "Pause_Menu"; // Needed due to using same button for two menus
+	
+		if(global.gamepad_id > -1)
+		{
+			menu_selected = 0;
+			menu_buttons[menu_selected].selected = true;
+		}
 	}
 }
 
@@ -211,6 +222,8 @@ function pause_menu_destroy()
 		{
 			instance_destroy(menu_buttons[i]);
 		}
+		
+		instance_destroy(obj_pause_background);
 	}
 }
 

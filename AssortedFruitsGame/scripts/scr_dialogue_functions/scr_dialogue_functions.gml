@@ -531,15 +531,18 @@ function pause_dialogue()
 	{
 		with(obj_game)
 		{
-			dia_btn_enabled_state = dialogue_button.enabled;
-			
-			dialogue_button.enabled = false;
-			
-			if(dialogue_selection_visible)
+			if(dialogue_active)
 			{
-				for(i = 0; i < array_length(dialogue_selection_buttons); i++)
+				dia_btn_enabled_state = dialogue_button.enabled;
+			
+				dialogue_button.enabled = false;
+			
+				if(dialogue_selection_visible)
 				{
-					dialogue_selection_buttons[i].enabled = false;
+					for(i = 0; i < array_length(dialogue_selection_buttons); i++)
+					{
+						dialogue_selection_buttons[i].enabled = false;
+					}
 				}
 			}
 		}
