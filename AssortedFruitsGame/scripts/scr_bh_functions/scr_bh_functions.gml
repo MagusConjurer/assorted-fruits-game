@@ -567,6 +567,12 @@ function bh_win_action(level)
 	if(level == LEVEL_2_BUS_BATTLE)
 	{
 		level_2_complete = true;
+		
+		play_sfx(AUDIO_BUS_TRANSITION);
+		
+		bus_stop_win_text = "Ah, the bus! This is my chance to get the hell out of here.";
+	
+		dialogue_pre_transition(bus_stop_win_text);
 	}
 	else if(level == LEVEL_5_DINNER_BATTLE)
 	{
@@ -584,7 +590,7 @@ function bh_cleanup()
 		instance_destroy(obj_bh_parent);
 	
 		bh_active = false;
-		set_game_state(OVERWORLD);
+		set_game_state(DIALOGUE);
 	
 		// Stop all alarms
 		alarm[0] = -1;

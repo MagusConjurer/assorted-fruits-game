@@ -277,6 +277,7 @@
     {"id":{"name":"scr_game_functions","path":"scripts/scr_game_functions/scr_game_functions.yy",},},
     {"id":{"name":"spr_slider_bar","path":"sprites/spr_slider_bar/spr_slider_bar.yy",},},
     {"id":{"name":"stella_nervous9","path":"sprites/stella_nervous9/stella_nervous9.yy",},},
+    {"id":{"name":"obj_transition_dia","path":"objects/obj_transition_dia/obj_transition_dia.yy",},},
     {"id":{"name":"spr_dresser","path":"sprites/spr_dresser/spr_dresser.yy",},},
     {"id":{"name":"temp_music","path":"sounds/temp_music/temp_music.yy",},},
     {"id":{"name":"PLASMA_CANNON_Deep_Dropping_Tail_stereo","path":"sounds/PLASMA_CANNON_Deep_Dropping_Tail_stereo/PLASMA_CANNON_Deep_Dropping_Tail_stereo.yy",},},

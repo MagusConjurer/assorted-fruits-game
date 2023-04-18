@@ -7,6 +7,7 @@
 #macro DIALOGUE_TEXTMSG_BOX_SPRITE spr_text_bubble
 #macro DIALOGUE_STANDARD		0
 #macro DIALOGUE_ENVIRONMENTAL	1
+#macro DIALOGUE_TRANSITION		2
 
 // Used for text box alignment (mostly during text messaging)
 enum align{
