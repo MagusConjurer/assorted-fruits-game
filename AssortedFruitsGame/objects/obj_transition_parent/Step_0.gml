@@ -1,2 +1,6 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// @description
+
+if(room == target_room && image_index < 1)
+{
+	instance_destroy();
+}

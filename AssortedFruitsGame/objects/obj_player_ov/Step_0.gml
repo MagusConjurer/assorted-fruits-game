@@ -18,7 +18,8 @@ if(global.game_state == active_state)
 		ySpeed = 0;
 	}
 	
-	if(global.current_level == LEVEL_2_BUS_BATTLE && !bh_check_level_completed(LEVEL_2_BUS_BATTLE))
+	if (global.current_level == LEVEL_2_BUS_BATTLE && !bh_check_level_completed(LEVEL_2_BUS_BATTLE) ||
+		instance_exists(obj_transition_parent))
 	{
 		xSpeed = 0;
 		ySpeed = 0;

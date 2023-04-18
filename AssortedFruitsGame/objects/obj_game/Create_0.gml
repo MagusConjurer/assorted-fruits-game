@@ -15,7 +15,7 @@ menu_input_active = false;
 
 // Camera
 camera = 0;
-camera_target = obj_player_ov;
+camera_target = 0;
 camera_x = 0;
 camera_y = 0;
 camera_width = 0; 

@@ -1,2 +1,4 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// @description 
+
+target_room = global.current_room;
+reversible = true;

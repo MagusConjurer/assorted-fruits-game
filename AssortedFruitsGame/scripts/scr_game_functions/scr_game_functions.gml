@@ -67,12 +67,9 @@ function room_transition(level)
 		break;
 	}
 	
-	// TODO: run room transition
-	room_goto(global.current_room);
-	
-	with(obj_game)
+	if(!instance_exists(obj_transition_parent))
 	{
-		viewport_setup = false;
+		instance_create_layer(0,0,"Background",obj_basic_transition);
 	}
 }
 
@@ -88,7 +85,7 @@ function setup_viewport()
 		camera_width = global.resolution_w * 0.5; // change 0.5 to a zoom percentage?
 		camera_height = global.resolution_h * 0.5;
 		
-		if(global.game_state != MENU)
+		if(camera_target != 0)
 		{
 			camera_x = camera_target.x - (camera_width / 2);
 			camera_y = camera_target.y - (camera_height / 2);
@@ -123,7 +120,7 @@ function update_camera_position()
 		camera_x = camera_get_view_x(camera);
 		camera_y = camera_get_view_y(camera);
 		
-		if(global.game_state == OVERWORLD)
+		if(global.game_state == OVERWORLD && camera_target != 0)
 		{
 			target_x = camera_target.x - (camera_width / 2);
 			target_y = camera_target.y - (camera_height / 2);
