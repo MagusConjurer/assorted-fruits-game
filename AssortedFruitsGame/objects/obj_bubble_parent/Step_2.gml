@@ -24,6 +24,6 @@ if(global.game_state == active_state)
 		bubble_time += delta_time / 1000000;
 	}
 
-	x += x_speed;
-	y += y_speed;
+	x = lerp(x, x + x_speed, 0.1);
+	y = lerp(y, y + y_speed, 0.1);
 }

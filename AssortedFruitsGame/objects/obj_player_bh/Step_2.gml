@@ -22,6 +22,6 @@ if(global.game_state == active_state)
 		ySpeed = 0;
 	}
 
-	y += ySpeed;
-	x += xSpeed;
+	x = lerp(x, x + xSpeed, 0.1);
+	y = lerp(y, y + ySpeed, 0.1);
 }
