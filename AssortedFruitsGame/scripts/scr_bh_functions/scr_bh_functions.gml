@@ -64,7 +64,10 @@ function bh_start(){
 	bh_bubbles_popped = 0;
 	num_active_bubbles = 0;
 	bubble_height = sprite_get_height(spr_wordbubble_combined) * 0.2;
-	possible_bubble_spots = (camera_height - bubble_height) / BH_NUM_STARTING_BUBBLES;
+	
+	bh_start_value_init();
+	
+	possible_bubble_spots	= (camera_height - bubble_height) / bh_bubble_start;
 	
 	// UI
 	if(global.bh_ability_one > 0)
@@ -120,6 +123,32 @@ function bh_start(){
 	
 	// First wall of bubbles
 	bh_spawn_initial_bubbles();
+}
+
+function bh_start_value_init()
+{
+	if(bh_busstop_choice == BH_NO_RESPONSE)
+	{
+		bh_bubble_max				= BH_NS_MAX_BUBBLES;
+		bh_bubble_start				= BH_NS_NUM_STARTING_BUBBLES;
+		bh_bubble_start_health		= BH_NS_STARTING_BUBBLE_HEALTH;
+		bh_bubbles_per_spawn		= BH_NS_NUM_BUBBLES_PER_SPAWN;
+		bh_bubble_projectiles		= BH_NS_NUM_BUBBLE_PROJECTILES;
+		bh_bubble_projectiles_scale = BH_NS_BUBBLE_PROJECTILE_SCALE;
+		bh_bubble_pop_time			= BH_NS_BUBBLE_TIME_BEFORE_POPPING;
+		bh_bubble_move_speed		= BH_NS_BUBBLE_MOVE_SPEED;
+	}
+	else
+	{
+		bh_bubble_max				= BH_S_MAX_BUBBLES;
+		bh_bubble_start				= BH_S_NUM_STARTING_BUBBLES;
+		bh_bubble_start_health		= BH_S_STARTING_BUBBLE_HEALTH;
+		bh_bubbles_per_spawn		= BH_S_NUM_BUBBLES_PER_SPAWN;
+		bh_bubble_projectiles		= BH_S_NUM_BUBBLE_PROJECTILES;
+		bh_bubble_projectiles_scale = BH_S_BUBBLE_PROJECTILE_SCALE;
+		bh_bubble_pop_time			= BH_S_BUBBLE_TIME_BEFORE_POPPING;
+		bh_bubble_move_speed		= BH_S_BUBBLE_MOVE_SPEED;
+	}
 }
 
 function bh_update_player_health(change)
@@ -294,47 +323,57 @@ function bh_ability(ability)
 #region BUBBLES
 function bh_spawn_bubble(y_index)
 {
-	x_pos = camera_x + (camera_width * 0.9);
-	y_pos = camera_y + (0.5 * bubble_height) + (possible_bubble_spots * y_index);
+	with(obj_game)
+	{
+		x_pos = camera_x + (camera_width * 0.9);
+		y_pos = camera_y + (0.5 * bubble_height) + (possible_bubble_spots * y_index);
 	
-	_inst = instance_create_layer(x_pos, y_pos, "Bullet_Hell", obj_bubble);
-	_inst.image_xscale = 0.4;
-	_inst.image_yscale = 0.4;
+		_inst = instance_create_layer(x_pos, y_pos, "Bullet_Hell", obj_bubble);
+		_inst.image_xscale = 0.4;
+		_inst.image_yscale = 0.4;
 
-	num_active_bubbles++;
+		num_active_bubbles++;
+	}
 }
 
 
 function bh_spawn_random_bubble(){	
-	if(num_active_bubbles <= BH_MAX_BUBBLES && bh_active == true)
+	with(obj_game)
 	{
-		bubble_rand = irandom_range(0,BH_NUM_STARTING_BUBBLES);
-		while(bubble_rand == bh_prev_bubble_rand)
+		if(num_active_bubbles <= bh_bubble_max && bh_active == true)
 		{
-			bubble_rand = irandom_range(0,BH_NUM_STARTING_BUBBLES);
-		}
-		bh_prev_bubble_rand = bubble_rand;
+			bubble_rand = irandom_range(0,bh_bubble_start);
+			while(bubble_rand == bh_prev_bubble_rand)
+			{
+				bubble_rand = irandom_range(0,bh_bubble_start);
+			}
+			bh_prev_bubble_rand = bubble_rand;
 
-		bh_spawn_bubble(bubble_rand);
+			bh_spawn_bubble(bubble_rand);
+		}
 	}
 }
 
 function bh_spawn_initial_bubbles()
 {
-	for(i=0; i< BH_NUM_STARTING_BUBBLES; i++)
+	with(obj_game)
 	{
-		bh_spawn_bubble(i);
+		for(i=0; i< bh_bubble_start; i++)
+		{
+			bh_spawn_random_bubble();
+		}
 	}
 }
 
 /// Called by the bubble objects
 function bh_bubble_destroyed(by_player){
-	for(i = 0; i < BH_NUM_BUBBLE_PROJECTILES; i++) {
-		instance_create_layer(x,y,"Bullet_Hell",obj_bubble_projectile);
-	}
-	
 	play_sfx(AUDIO_BUBBLE_POP);
 	
+	loop_amount = bh_get_num_projectiles();
+	for(i = 0; i < loop_amount; i++) {
+		instance_create_layer(x,y,"Bullet_Hell",obj_bubble_projectile);
+	}
+
 	with(obj_game)
 	{
 		num_active_bubbles--;
@@ -346,6 +385,48 @@ function bh_bubble_destroyed(by_player){
 		}
 	}
 	
+}
+
+function bh_get_bubble_pop_time()
+{
+	with(obj_game)
+	{
+		return bh_bubble_pop_time;
+	}
+}
+
+function bh_get_bubble_move_speed()
+{
+	with(obj_game)
+	{
+		// Can add switch on which battle we are in
+		return bh_bubble_move_speed;
+	}
+}
+
+function bh_get_bubble_start_health()
+{
+	with(obj_game)
+	{
+		// Can add switch on which battle we are in
+		return bh_bubble_start_health;
+	}
+}
+
+function bh_get_bubble_projectile_scale()
+{
+	with(obj_game)
+	{
+		return bh_bubble_projectiles_scale;
+	}
+}
+
+function bh_get_num_projectiles()
+{
+	with(obj_game)
+	{
+		return bh_bubble_projectiles;
+	}
 }
 
 #endregion

@@ -2,8 +2,8 @@
 
 event_inherited();
 
-image_xscale = BH_STARTING_BUBBLE_PROJECTILE_SCALE;
-image_yscale = BH_STARTING_BUBBLE_PROJECTILE_SCALE;
+image_xscale = bh_get_bubble_projectile_scale();
+image_yscale = bh_get_bubble_projectile_scale();
 
 // Have it shoot out in a random direction
 xDirection = random_range(-1, 1);
