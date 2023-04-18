@@ -28,8 +28,8 @@
 #macro BH_BOOST_PROGRESS 0.08
 #macro BH_BOOST_PULSE_TIME 2
 #macro BH_BOOST_ICON_X global.resolution_w * 0.2
-#macro BH_BUS_ICON spr_slider_button
-#macro BH_BED_ICON spr_slider_button
+#macro BH_BUS_ICON spr_bus_icon
+#macro BH_BED_ICON spr_bed_icon
 
 #endregion
 
