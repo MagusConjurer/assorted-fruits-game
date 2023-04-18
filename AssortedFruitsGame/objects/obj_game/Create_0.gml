@@ -14,12 +14,12 @@ time_since_menu_input = 0;
 menu_input_active = false;
 
 // Camera
+camera = 0;
+camera_target = obj_player_ov;
 camera_x = 0;
 camera_y = 0;
 camera_width = 0; 
 camera_height = 0;
-displayX = 0;
-displayY = 0;
 viewport_setup = false;
 
 // surface_resize(application_surface, camera_width, camera_height);
