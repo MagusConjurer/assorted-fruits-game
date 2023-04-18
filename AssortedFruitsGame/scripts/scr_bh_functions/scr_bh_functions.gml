@@ -27,14 +27,19 @@ function bh_update()
 
 		if(bh_player_health <= 0)
 		{
-			// Put any lose actions here
-			// Let player reenter?
 			bh_cleanup();
+			
+			// BH LOSE TRANSITION
+			
+			if(alarm_get(2) < 0)
+			{
+				alarm_set(2, BH_AUTO_RESTART_SECONDS * 60);
+			}
 		} 
 		else if(bh_progress_bar.current_value >= 1)
 		{
-			// Put any win actions here
-			// Don't let player reenter?
+			 bh_win_action(global.current_level);
+			
 			bh_cleanup();
 		}
 		else if(alarm_get(0) < 0) 
@@ -51,8 +56,13 @@ function bh_update()
 	}
 }
 
-
 function bh_start(){
+	if(global.current_level == LEVEL_2_BUS_BATTLE)
+	{
+		level_2_complete = false;
+		level_5_complete = false;
+	} 
+	
 	// Player	
 	bh_player_health = BH_PLAYER_HEALTH_DEFAULT;
 	bh_player = instance_create_layer(camera_x + (camera_width * 0.2), camera_y + (camera_height * 0.5), "Bullet_Hell", obj_player_bh);
@@ -148,6 +158,21 @@ function bh_start_value_init()
 		bh_bubble_projectiles_scale = BH_S_BUBBLE_PROJECTILE_SCALE;
 		bh_bubble_pop_time			= BH_S_BUBBLE_TIME_BEFORE_POPPING;
 		bh_bubble_move_speed		= BH_S_BUBBLE_MOVE_SPEED;
+	}
+}
+
+function bh_check_level_completed(level)
+{
+	with(obj_game)
+	{
+		if(level == LEVEL_2_BUS_BATTLE)
+		{
+			return level_2_complete;
+		}
+		else if(level == LEVEL_5_DINNER_BATTLE)
+		{
+			return level_5_complete;
+		}
 	}
 }
 
@@ -537,12 +562,25 @@ function bh_darken_object_circle(x1,y1,rad)
 
 #endregion
 
+function bh_win_action(level)
+{
+	if(level == LEVEL_2_BUS_BATTLE)
+	{
+		level_2_complete = true;
+	}
+	else if(level == LEVEL_5_DINNER_BATTLE)
+	{
+		level_5_complete = true;	
+	}
+}
+
 // Destroys all BH instances and updates the game state back to the Overworld
 function bh_cleanup()
 {
 	with(obj_game)
 	{
 		instance_destroy(obj_player_bh);
+		instance_destroy(obj_progress_bar);
 		instance_destroy(obj_bh_parent);
 	
 		bh_active = false;

@@ -4,6 +4,11 @@
 // audio_stop_all();
 // audio_play_sound(BG_MUSIC, 10, true);
 
+
+// Battles Completed
+level_2_complete = false;
+level_5_complete = false;
+
 // Controller
 time_since_menu_input = 0;
 menu_input_active = false;

@@ -21,4 +21,4 @@ pulse_toggle = false;
 xWidth = sprite_get_width(sprite_index);
 percentToScale = (obj_game.camera_width) / xWidth;
 image_xscale = percentToScale;
-x = obj_game.camera_x + (xWidth * percentToScale * 0.5)
+x = obj_game.camera_x + (xWidth * percentToScale * 0.5);

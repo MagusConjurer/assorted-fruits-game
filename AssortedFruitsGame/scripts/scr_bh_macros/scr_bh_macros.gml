@@ -1,5 +1,7 @@
 // Macros for Bullet Hell
 
+#macro BH_AUTO_RESTART_SECONDS 5
+
 #region UI
 
 #macro BH_UI_MARGIN 20
@@ -86,8 +88,9 @@
 
 // SHIELD ability
 #macro BH_ABILITY_SHIELD 2
-#macro BH_SHIELD_RADIUS 1.2
-#macro BH_SHIELD_DURATION 130
+#macro BH_SHIELD_MAX_SCALE 1.2
+#macro BH_SHIELD_MIN_SCALE 0.7
+#macro BH_SHIELD_NUM_HITS 5
 #macro BH_SHIELD_COOLDOWN 600
 
 // HEAL ability
