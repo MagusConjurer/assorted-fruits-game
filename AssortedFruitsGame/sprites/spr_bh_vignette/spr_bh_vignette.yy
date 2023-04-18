@@ -42,8 +42,8 @@
   "nineSlice": null,
   "origin": 4,
   "parent": {
-    "name": "Defaults",
-    "path": "folders/Sprites/Defaults.yy",
+    "name": "Bullethell",
+    "path": "folders/Sprites/Bullethell.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

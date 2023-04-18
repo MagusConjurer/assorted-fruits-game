@@ -27,18 +27,13 @@ function bh_update()
 
 		if(bh_player_health <= 0)
 		{
+			bh_lose_action();
+			
 			bh_cleanup();
-			
-			// BH LOSE TRANSITION
-			
-			if(alarm_get(2) < 0)
-			{
-				alarm_set(2, BH_AUTO_RESTART_SECONDS * 60);
-			}
 		} 
 		else if(bh_progress_bar.current_value >= 1)
 		{
-			 bh_win_action(global.current_level);
+			bh_win_action(global.current_level);
 			
 			bh_cleanup();
 		}
@@ -176,6 +171,8 @@ function bh_check_level_completed(level)
 	}
 }
 
+#region BH PLAYER
+
 function bh_update_player_health(change)
 {
 	obj_game.bh_player_health += change;
@@ -188,6 +185,8 @@ function bh_status_index()
 		return BH_PLAYER_HEALTH_DEFAULT - bh_player_health;
 	}
 }
+
+#endregion
 
 #region BH DIALOGUE
 
@@ -300,7 +299,14 @@ function bh_set_progress_icon()
 {
 	with(obj_game)
 	{
-		bh_progress_bar.progress_icon = BH_BUS_ICON;
+		if(global.current_level == LEVEL_2_BUS_BATTLE)
+		{
+			bh_progress_bar.progress_icon = BH_BUS_ICON;
+		}
+		else if (global.current_level == LEVEL_5_DINNER_BATTLE)
+		{
+			bh_progress_bar.progress_icon = BH_BED_ICON;
+		}
 	}
 }
 
@@ -561,6 +567,19 @@ function bh_darken_object_circle(x1,y1,rad)
 }
 
 #endregion
+
+function bh_lose_action()
+{
+	if(!instance_exists(obj_transition_parent))
+	{
+		instance_create_layer(0,0,"Background",obj_bh_lose_transition);
+	}
+	
+	if(alarm_get(2) < 0)
+	{
+		alarm_set(2, BH_AUTO_RESTART_SECONDS * 60);
+	}
+}
 
 function bh_win_action(level)
 {

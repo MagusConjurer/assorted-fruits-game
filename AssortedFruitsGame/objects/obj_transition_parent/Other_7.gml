@@ -1,10 +1,5 @@
 /// @description 
-room_goto(target_room);
-	
-with(obj_game)
-{
-	viewport_setup = false;
-}
+event_user(0);
 
 if(reversible)
 {

@@ -1,4 +1,6 @@
 /// @description 
 
-target_room = global.current_room;
 reversible = true;
+
+x = 0;
+y = 0;
