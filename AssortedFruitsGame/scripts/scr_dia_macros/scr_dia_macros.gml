@@ -29,6 +29,7 @@ enum align{
 /// Conversations
 #macro PHONE_DIALOGUE 0
 #macro BUS_STOP_DIALOGUE 1
+#macro CAFE_DIALOGUE 2
 
 /// Emotions
 #macro ALEX_NEUTRAL 0

@@ -99,7 +99,7 @@ line_11 = {
 	type: "message",
 	on_the_left: true,          
 	emotion: STELLA_HAPPY,   
-	text: @"late people don't deserve free drinks " + "\u00af" + @"\" + "_" + "(" + "\u0030c4" + ")" + "_" + "/" + "\u00af",    
+	text: "late people don't deserve free drinks",    
 	jump_to: 0				 
 }
 

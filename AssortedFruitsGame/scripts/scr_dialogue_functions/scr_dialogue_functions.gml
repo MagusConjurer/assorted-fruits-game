@@ -75,7 +75,7 @@ function dialogue_start(dialogue_level)
 				load_conversation(BUS_STOP_DIALOGUE);
 			break;
 			case LEVEL_3_CAFE:
-				//load_conversation();
+				load_conversation(CAFE_DIALOGUE);
 			break;
 			case LEVEL_4_DINNER:
 				//load_conversation();
@@ -136,7 +136,7 @@ function dialogue_pre_transition(dialogue_text)
 function dialogue_button_init(type)
 {
 	cont_x = global.resolution_w * 0.7;
-	cont_y = global.resolution_h * 0.95;
+	cont_y = global.resolution_h * 0.9;
 	if(type != DIALOGUE_TRANSITION)
 	{
 		dialogue_button = instance_create_layer(cont_x, cont_y, "Dialogue", obj_continue_dia);
@@ -500,15 +500,15 @@ function show_options()
 			spacing = 1;
 			if(num_options == 3)
 			{
-				spacing = 0.5;
+				spacing = 0.4;
 			}
 			else if(num_options == 2)
 			{
-				spacing = 0.75
+				spacing = 0.7
 			}
 		
 			option_button.x = box.x + ((box.box_width*spacing) * (i+1));
-			option_button.y = box.y + (box.box_height*0.5);
+			option_button.y = global.resolution_h * 0.9;
 		
 			dialogue_selection_buttons[i] = option_button;
 		}
