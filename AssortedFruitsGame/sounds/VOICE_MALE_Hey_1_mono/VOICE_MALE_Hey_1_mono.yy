@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSound",
   "resourceVersion": "1.0",
-  "name": "WEAPON_Energy_Beam_05_loop_mono",
+  "name": "VOICE_MALE_Hey_1_mono",
   "audioGroupId": {
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
@@ -10,14 +10,14 @@
   "bitRate": 128,
   "compression": 0,
   "conversionMode": 0,
-  "duration": 3.251882,
+  "duration": 0.336735,
   "parent": {
     "name": "SFX",
     "path": "folders/Sounds/SFX.yy",
   },
   "preload": false,
   "sampleRate": 44100,
-  "soundFile": "WEAPON_Energy_Beam_05_loop_mono.wav",
+  "soundFile": "VOICE_MALE_Hey_1_mono.wav",
   "type": 0,
   "volume": 1.0,
 }
