@@ -2,7 +2,7 @@
 
 #macro TEXTBOX_PADDING 16
 #macro TEXTBOX_MARGIN 10
-#macro TEXTBOX_OFFSET_PERCENT 0.5
+#macro TEXTBOX_OFFSET_PERCENT 0.45
 #macro DIALOGUE_INPERSON_BOX_SPRITE spr_dialogue
 #macro DIALOGUE_TEXTMSG_BOX_SPRITE spr_text_bubble
 #macro DIALOGUE_TM_LEFT_LARGE  0
@@ -25,7 +25,6 @@ enum align{
 
 #macro CONTINUE_DIA_TEXT "Continue"
 #macro COMPLETE_DIA_TEXT "Leave"
-#macro SELECTION "SELECT"
 
 /// Conversations
 #macro PHONE_DIALOGUE 0

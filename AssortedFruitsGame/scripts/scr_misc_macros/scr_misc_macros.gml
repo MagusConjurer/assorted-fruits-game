@@ -42,7 +42,7 @@
 
 // COLORS
 #macro C_ALEX	c_yellow
-#macro C_STELLA c_purple
+#macro C_STELLA make_color_rgb(241, 178, 255)
 
 // GAME STATES
 #macro OVERWORLD 0

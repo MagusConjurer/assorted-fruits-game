@@ -6,5 +6,5 @@ event_inherited();
 
 image_index = 0;
 
-textbox_color = c_purple; // The can be a c_"color" or the $FFCC11 hex based color
+textbox_color = C_STELLA; // The can be a c_"color" or the $FFCC11 hex based color
 textbox_name = "Stella";

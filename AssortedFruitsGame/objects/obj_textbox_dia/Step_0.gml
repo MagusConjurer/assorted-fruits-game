@@ -7,8 +7,8 @@ if(sprite_index != box_sprite)
 {
 	if(current_alignment = align.centered)
 	{
-		image_xscale = 0.5;
-		image_yscale = 0.5;
+		image_xscale = 0.4;
+		image_yscale = 0.4;
 		
 		sprite_index = box_sprite;
 		box_width  = sprite_get_width(box_sprite) * image_xscale;
@@ -18,10 +18,7 @@ if(sprite_index != box_sprite)
 		y = dialogue_get_bottom() - box_height - TEXTBOX_MARGIN;
 	} 
 	else 
-	{
-		image_xscale = 0.25;
-		image_yscale = 0.25;
-		
+	{	
 		sprite_index = box_sprite;
 		box_width  = sprite_get_width(box_sprite) * image_xscale;
 		box_height = sprite_get_height(box_sprite) * image_yscale;
@@ -30,26 +27,32 @@ if(sprite_index != box_sprite)
 		{
 			image_index = DIALOGUE_TM_LEFT_LARGE;
 		
-			x = dialogue_get_midpoint() - (box_width * 0.25);
+			x = dialogue_get_midpoint() - (box_width * 0.1);
 		}
 		else
 		{
 			image_index = DIALOGUE_TM_RIGHT_LARGE;
 			
-			x = dialogue_get_midpoint() + (box_width * 0.25);
+			x = dialogue_get_midpoint() + (box_width * 0.1);
 		}
 		
-		y = dialogue_get_bottom() - box_height * 2 - TEXTBOX_MARGIN;
+		y = dialogue_get_bottom() - (box_height * 1.5) - TEXTBOX_MARGIN;
 	}
-	
-	text_max_width = box_width - (TEXTBOX_PADDING*2);
+
 }
 
 // Allows the text to move up with the box when it is moved for multi-textbox
 if(current_alignment == align.centered)
 {
+	image_xscale = 0.4;
+	image_yscale = 0.4;
+	
+	box_width  = sprite_get_width(box_sprite) * image_xscale;
+		
 	text_x = x + TEXTBOX_PADDING;
 	text_y = y + (TEXTBOX_PADDING*2);
+	
+	text_max_width = (box_width * 0.95) - (TEXTBOX_PADDING*2);
 }
 else
 {
@@ -59,10 +62,25 @@ else
 	}
 	else
 	{
-		image_yscale = 0.7;
-		full_text_height = string_height_ext(current_text, -1, text_max_width) + string_height(current_name);
+		text_max_width = (box_width * 0.9) - (TEXTBOX_PADDING*2);
+		full_text_height = string_height_ext(current_text, -1, text_max_width);
 
-		adjusted_text_offset = box_height * ((full_text_height * 0.5) / sprite_get_height(box_sprite));
+		if(full_text_height < box_height / 2)
+		{
+			if(image_index == 0)
+			{
+				image_index = 2;
+			}
+			else if(image_index == 1)
+			{
+				image_index = 3;
+			}
+		}
+		
+		adjusted_text_offset = box_height * ((full_text_height / 2 / box_height));
+		
+		show_debug_message([current_text, adjusted_text_offset]);
+		
 		text_y = y - (adjusted_text_offset);
 	
 		if(current_alignment == align.right)
