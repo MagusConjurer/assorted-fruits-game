@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSound",
   "resourceVersion": "1.0",
-  "name": "PLASMA_CANNON_Deep_Dropping_Tail_stereo",
+  "name": "UI_SCI_FI_Tone_Bright_Wet_18_stereo",
   "audioGroupId": {
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
@@ -10,14 +10,14 @@
   "bitRate": 128,
   "compression": 0,
   "conversionMode": 0,
-  "duration": 2.727438,
+  "duration": 1.230136,
   "parent": {
     "name": "SFX",
     "path": "folders/Sounds/SFX.yy",
   },
   "preload": false,
   "sampleRate": 44100,
-  "soundFile": "PLASMA_CANNON_Deep_Dropping_Tail_stereo.wav",
+  "soundFile": "UI_SCI_FI_Tone_Bright_Wet_18_stereo.wav",
   "type": 0,
   "volume": 1.0,
 }
