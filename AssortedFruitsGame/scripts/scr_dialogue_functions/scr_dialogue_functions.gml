@@ -342,6 +342,11 @@ function dialogue_get_bottom()
 
 function load_conversation(level)
 {
+	if(level == 2)
+	{
+		get_convo_two();
+	}
+	
 	conversation_data = global.conversations[level];
 	
 	with(obj_game)
