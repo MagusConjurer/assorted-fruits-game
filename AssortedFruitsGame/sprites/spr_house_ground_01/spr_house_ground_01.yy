@@ -2,9 +2,9 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "spr_house_ground_01",
-  "bbox_bottom": 1079,
+  "bbox_bottom": 2159,
   "bbox_left": 0,
-  "bbox_right": 1919,
+  "bbox_right": 3839,
   "bbox_top": 0,
   "bboxMode": 0,
   "collisionKind": 1,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"a0975325-becf-48de-ba96-15d16d55227b",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"8d8c8f43-42bc-4ef5-b42c-70d40749fad5",},
   ],
   "gridX": 0,
   "gridY": 0,
-  "height": 1080,
+  "height": 2160,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"d95cee1a-4a87-44b8-b2de-2dd41c97fc9f","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"3b35edaf-c63f-4b82-80de-9ac46da52f1b","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": {
     "resourceType": "GMNineSliceData",
@@ -77,13 +77,13 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"a0975325-becf-48de-ba96-15d16d55227b","path":"sprites/spr_house_ground_01/spr_house_ground_01.yy",},},},"Disabled":false,"id":"7915a543-76be-4333-a065-d98134bbd2e4","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"8d8c8f43-42bc-4ef5-b42c-70d40749fad5","path":"sprites/spr_house_ground_01/spr_house_ground_01.yy",},},},"Disabled":false,"id":"e6541423-c714-40ad-ac88-4b4a4021a3ae","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
     "volume": 1.0,
-    "xorigin": 960,
-    "yorigin": 540,
+    "xorigin": 1920,
+    "yorigin": 1080,
   },
   "swatchColours": null,
   "swfPrecision": 2.525,
@@ -93,5 +93,5 @@
   },
   "type": 0,
   "VTile": false,
-  "width": 1920,
+  "width": 3840,
 }
