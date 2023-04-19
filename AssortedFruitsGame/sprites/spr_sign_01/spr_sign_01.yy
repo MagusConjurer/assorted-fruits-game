@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"f993631f-0b28-47ac-bd28-134bd1ec8657",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"b0e6bc77-2a36-4fee-b91f-59ce1007e54f",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 564,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"2058c3d5-716c-481e-b6f2-71d2f5be8529","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"0c986f90-6674-4932-b08c-b6ee8156a042","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 4,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"f993631f-0b28-47ac-bd28-134bd1ec8657","path":"sprites/spr_sign_01/spr_sign_01.yy",},},},"Disabled":false,"id":"7894984a-a144-4152-aa8e-db5d04a32d62","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"b0e6bc77-2a36-4fee-b91f-59ce1007e54f","path":"sprites/spr_sign_01/spr_sign_01.yy",},},},"Disabled":false,"id":"1864c5f9-099c-49b2-bea0-8eb67ef361eb","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

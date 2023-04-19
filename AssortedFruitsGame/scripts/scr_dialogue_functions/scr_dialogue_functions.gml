@@ -342,6 +342,11 @@ function dialogue_get_bottom()
 
 function load_conversation(level)
 {
+	if(level == 2)
+	{
+		get_convo_two();
+	}
+	
 	conversation_data = global.conversations[level];
 	
 	with(obj_game)
@@ -354,7 +359,7 @@ function load_conversation(level)
 			conversation[i] = conversation_data[i];
 			current_conversation = conversation[i];
 			if(current_conversation.type == "selection")
-			{
+			{				
 				for(j = 0; j < array_length(conversation[i].option_descriptions); j++)
 				{
 					dialogue_selection_options[j]   = current_conversation.option_descriptions[j];
@@ -475,7 +480,8 @@ function show_options()
 		options = dialogue_selection_options;
 		jumps   = dialogue_selection_jumps;
 		choices = dialogue_selection_choices;
-		num_options = array_length(options);
+		num_options = array_length(options);		
+		
 		for(i = 0; i < num_options; i++)
 		{
 			if(dialogue_in_person)
@@ -493,6 +499,7 @@ function show_options()
 			box.box_tint = current_selection.color;
 		
 			option_button = instance_create_layer(0, 0, "Dialogue", obj_selection_dia);
+			
 			option_button.text = options[i];
 			option_button.jump_index = jumps[i];
 			option_button.choice_index  = choices[i];
@@ -507,7 +514,7 @@ function show_options()
 				spacing = 0.7
 			}
 		
-			option_button.x = box.x + ((box.box_width*spacing) * (i+1));
+			option_button.x = box.x - 200 + ((box.box_width*spacing) * (i));
 			option_button.y = global.resolution_h * 0.9;
 		
 			dialogue_selection_buttons[i] = option_button;

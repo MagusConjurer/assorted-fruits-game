@@ -23,7 +23,7 @@
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"aab70402-aab1-418a-a7e7-6f0edcacfe8d","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
-  "origin": 4,
+  "origin": 9,
   "parent": {
     "name": "Bullethell",
     "path": "folders/Sprites/Bullethell.yy",
@@ -60,7 +60,7 @@
     "visibleRange": null,
     "volume": 1.0,
     "xorigin": 634,
-    "yorigin": 635,
+    "yorigin": 6,
   },
   "swatchColours": null,
   "swfPrecision": 2.525,

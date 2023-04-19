@@ -79,6 +79,7 @@ dialogue_in_person = true;
 dialogue_phone = 0;
 conversation_index = 1; // starts at 1 since data is index 0
 conversation = [];
+current_conversation = 0;
 conversation_boxes = [];
 dialogue_button = 0;
 dia_btn_enabled_state = true; // used when pausing
