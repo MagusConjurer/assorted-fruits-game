@@ -4,11 +4,11 @@ function get_environmental_dialogue(item)
 	{
 		// Uses overworld macros
 		case CLOSET:
-			return "Ugh some clothes are missing again. I think Mom’s been secretly trying to get rid of my more masculine clothes.";		
+			return "Ugh some clothes are missing again. I think Mom's been secretly trying to get rid of my more masculine clothes.";		
 		break;
 		
 		case LAUNDRY:
-			return "Oof that really piled up. I should do my laundry when no one is home so Mom doesn’t try to sift through it. ";
+			return "Oof that really piled up. I should do my laundry when no one is home so Mom doesn't try to sift through it.";
 		break;
 		
 		case TRASH:
@@ -20,7 +20,7 @@ function get_environmental_dialogue(item)
 		break;
 		
 		case NIGHTSTAND:
-			return "Is that a bible? “You should read it” God damn it Dad.";
+			return "Is that a bible? \"You should read it.\" God damn it Dad.";
 		break;
 	}
 }

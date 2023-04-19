@@ -163,11 +163,6 @@ function dialogue_next()
 			{
 				continue_conversation();
 			}
-			
-			if(global.gamepad_id > -1)
-			{
-				//dialogue_button.selected = true;
-			}
 		}
 	}
 }
@@ -242,8 +237,16 @@ function draw_textbox(type)
 {
 	with(obj_game)
 	{
-		spr_width = sprite_get_width(DIALOGUE_INPERSON_BOX_SPRITE) * 0.5;
-		spr_height = sprite_get_height(DIALOGUE_INPERSON_BOX_SPRITE) * 0.5;
+		if(dialogue_in_person)
+		{
+			spr_width  = (sprite_get_width(DIALOGUE_INPERSON_BOX_SPRITE) - sprite_get_xoffset(DIALOGUE_INPERSON_BOX_SPRITE)) * 0.5;
+			spr_height = (sprite_get_height(DIALOGUE_INPERSON_BOX_SPRITE) - sprite_get_yoffset(DIALOGUE_INPERSON_BOX_SPRITE)) * 0.45;
+		}
+		else
+		{
+			spr_width  = sprite_get_width(DIALOGUE_TEXTMSG_BOX_SPRITE) * 0.5;
+			spr_height = sprite_get_height(DIALOGUE_TEXTMSG_BOX_SPRITE) * 0.5;
+		}
 		
 		tb_x = camera_x + (camera_width - spr_width) * 0.5;
 		tb_y = camera_y + (camera_height - spr_height - TEXTBOX_MARGIN);

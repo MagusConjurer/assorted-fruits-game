@@ -9,45 +9,38 @@ if(sprite_index != box_sprite)
 	{
 		image_xscale = 0.5;
 		image_yscale = 0.5;
+		
+		sprite_index = box_sprite;
+		box_width  = sprite_get_width(box_sprite) * image_xscale;
+		box_height = (sprite_get_height(box_sprite) - sprite_get_yoffset(sprite_index)) * image_yscale;
+		
+		x = dialogue_get_midpoint() - (box_width * 0.5);
+		y = dialogue_get_bottom() - box_height - TEXTBOX_MARGIN;
 	} 
 	else 
 	{
 		image_xscale = 0.25;
 		image_yscale = 0.25;
-	}
-	
-	sprite_index = box_sprite;
-	box_width  = sprite_get_width(box_sprite) * image_xscale;
-	box_height = sprite_get_height(box_sprite)* image_yscale;
-
-	if(current_alignment = align.centered)
-	{
-		x = dialogue_get_midpoint() - (box_width * 0.5);
-		y = dialogue_get_bottom() - box_height - TEXTBOX_MARGIN;
-	}
-	else
-	{
+		
+		sprite_index = box_sprite;
+		box_width  = sprite_get_width(box_sprite) * image_xscale;
+		box_height = sprite_get_height(box_sprite) * image_yscale;
+		
 		if(current_alignment = align.left)
 		{
-			if(image_xscale > 0) 
-			{
-				image_xscale = image_xscale * -1;
-			}
+			image_index = DIALOGUE_TM_LEFT_LARGE;
 		
 			x = dialogue_get_midpoint() - (box_width * 0.25);
 		}
 		else
 		{
-			if(image_xscale < 0) 
-			{
-				image_xscale = image_xscale * 1;
-			}
+			image_index = DIALOGUE_TM_RIGHT_LARGE;
+			
 			x = dialogue_get_midpoint() + (box_width * 0.25);
 		}
 		
 		y = dialogue_get_bottom() - box_height * 2 - TEXTBOX_MARGIN;
 	}
-
 	
 	text_max_width = box_width - (TEXTBOX_PADDING*2);
 }
