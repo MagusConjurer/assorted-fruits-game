@@ -360,14 +360,29 @@ function bh_ability(ability)
 #endregion
 
 #region BUBBLES
-function bh_spawn_bubble(y_index)
+function bh_spawn_bubble(y_index, is_first)
 {
 	with(obj_game)
 	{
 		x_pos = camera_x + (camera_width * 0.9);
 		y_pos = camera_y + (0.5 * bubble_height) + (possible_bubble_spots * y_index);
 		
-		if(position_empty(x_pos, y_pos))
+		if(is_first)
+		{
+			if(position_empty(x_pos, y_pos))
+			{
+				_inst = instance_create_layer(x_pos, y_pos, "Bullet_Hell", obj_bubble);
+				_inst.image_xscale = 0.4;
+				_inst.image_yscale = 0.4;
+
+				num_active_bubbles++;
+			}
+			else
+			{
+				bh_spawn_random_bubble(is_first);
+			}
+		}
+		else
 		{
 			_inst = instance_create_layer(x_pos, y_pos, "Bullet_Hell", obj_bubble);
 			_inst.image_xscale = 0.4;
@@ -375,17 +390,11 @@ function bh_spawn_bubble(y_index)
 
 			num_active_bubbles++;
 		}
-		else
-		{
-			bh_spawn_random_bubble();
-		}
-	
-
 	}
 }
 
 
-function bh_spawn_random_bubble(){	
+function bh_spawn_random_bubble(is_first){	
 	with(obj_game)
 	{
 		if(num_active_bubbles <= bh_bubble_max && bh_active == true)
@@ -397,7 +406,7 @@ function bh_spawn_random_bubble(){
 			}
 			bh_prev_bubble_rand = bubble_rand;
 
-			bh_spawn_bubble(bubble_rand);
+			bh_spawn_bubble(bubble_rand, is_first);
 		}
 	}
 }
@@ -408,7 +417,7 @@ function bh_spawn_initial_bubbles()
 	{
 		for(i=0; i< bh_bubble_start; i++)
 		{
-			bh_spawn_random_bubble();
+			bh_spawn_random_bubble(true);
 		}
 	}
 }

@@ -508,13 +508,15 @@ function show_options()
 			if(num_options == 3)
 			{
 				spacing = 0.4;
+				option_button.x = box.x - 200 - ((box.box_width*spacing) * (i));
 			}
 			else if(num_options == 2)
 			{
 				spacing = 0.7
+				option_button.x = box.x + ((box.box_width*spacing) * (i+1));
 			}
 		
-			option_button.x = box.x - 200 + ((box.box_width*spacing) * (i));
+			
 			option_button.y = global.resolution_h * 0.9;
 		
 			dialogue_selection_buttons[i] = option_button;
