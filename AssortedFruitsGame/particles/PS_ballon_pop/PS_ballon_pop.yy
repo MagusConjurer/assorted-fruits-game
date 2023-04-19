@@ -1,0 +1,25 @@
+{
+  "resourceType": "GMParticleSystem",
+  "resourceVersion": "1.0",
+  "name": "PS_ballon_pop",
+  "backdropHeight": 768,
+  "backdropImageOpacity": 0.5,
+  "backdropImagePath": "",
+  "backdropWidth": 1366,
+  "backdropXOffset": 0.0,
+  "backdropYOffset": 0.0,
+  "drawOrder": 0,
+  "emitters": [
+    {"resourceType":"GMPSEmitter","resourceVersion":"1.0","name":"Emitter_1_1","additiveBlend":true,"directionIncrease":0.0,"directionMax":359.0,"directionMin":0.0,"directionWiggle":10.0,"distribution":0,"editorColour":1090519039,"editorDrawShape":true,"emitCount":80,"enabled":true,"endColour":4278192460,"GMPresetName":null,"gravityDirection":270.0,"gravityForce":0.0,"headPosition":0.0,"lifetimeMax":40.0,"lifetimeMin":20.0,"linkedEmitter":null,"locked":true,"midColour":4284835327,"mode":1,"orientationIncrease":7.0,"orientationMax":0.0,"orientationMin":189.0,"orientationRelative":true,"orientationWiggle":-9.0,"regionH":120.0,"regionW":65.0,"regionX":-1.0,"regionY":0.0,"scaleX":1.0,"scaleY":1.0,"shape":1,"sizeIncrease":-2.0,"sizeMax":3.0,"sizeMin":0.0,"sizeWiggle":1.0,"spawnOnDeathCount":1,"spawnOnDeathGMPreset":null,"spawnOnDeathId":null,"spawnOnUpdateCount":1,"spawnOnUpdateGMPreset":null,"spawnOnUpdateId":null,"speedIncrease":0.0,"speedMax":0.0,"speedMin":0.0,"speedWiggle":8.0,"spriteId":null,"startColour":4294244095,"texture":9,},
+    {"resourceType":"GMPSEmitter","resourceVersion":"1.0","name":"Emitter_1","additiveBlend":true,"directionIncrease":2.0,"directionMax":359.0,"directionMin":0.0,"directionWiggle":3.0,"distribution":0,"editorColour":1090519039,"editorDrawShape":true,"emitCount":80,"enabled":true,"endColour":4278194508,"GMPresetName":null,"gravityDirection":270.0,"gravityForce":0.0,"headPosition":0.0,"lifetimeMax":40.0,"lifetimeMin":20.0,"linkedEmitter":null,"locked":true,"midColour":4286545919,"mode":1,"orientationIncrease":4.0,"orientationMax":0.0,"orientationMin":189.0,"orientationRelative":true,"orientationWiggle":1.0,"regionH":120.0,"regionW":65.0,"regionX":-1.0,"regionY":0.0,"scaleX":1.0,"scaleY":1.0,"shape":1,"sizeIncrease":-2.0,"sizeMax":3.0,"sizeMin":0.0,"sizeWiggle":1.0,"spawnOnDeathCount":1,"spawnOnDeathGMPreset":null,"spawnOnDeathId":null,"spawnOnUpdateCount":1,"spawnOnUpdateGMPreset":null,"spawnOnUpdateId":null,"speedIncrease":1.0,"speedMax":0.0,"speedMin":0.0,"speedWiggle":8.0,"spriteId":null,"startColour":4292403199,"texture":3,},
+    {"resourceType":"GMPSEmitter","resourceVersion":"1.0","name":"Emitter","additiveBlend":true,"directionIncrease":2.0,"directionMax":359.0,"directionMin":0.0,"directionWiggle":3.0,"distribution":0,"editorColour":1090519039,"editorDrawShape":true,"emitCount":80,"enabled":true,"endColour":4278192947,"GMPresetName":null,"gravityDirection":270.0,"gravityForce":0.0,"headPosition":0.0,"lifetimeMax":40.0,"lifetimeMin":20.0,"linkedEmitter":null,"locked":true,"midColour":4288256511,"mode":1,"orientationIncrease":-4.0,"orientationMax":0.0,"orientationMin":189.0,"orientationRelative":true,"orientationWiggle":1.0,"regionH":120.0,"regionW":65.0,"regionX":-1.0,"regionY":0.0,"scaleX":1.0,"scaleY":1.0,"shape":1,"sizeIncrease":-2.0,"sizeMax":3.0,"sizeMin":0.0,"sizeWiggle":1.0,"spawnOnDeathCount":1,"spawnOnDeathGMPreset":null,"spawnOnDeathId":null,"spawnOnUpdateCount":1,"spawnOnUpdateGMPreset":null,"spawnOnUpdateId":null,"speedIncrease":1.0,"speedMax":0.0,"speedMin":0.0,"speedWiggle":8.0,"spriteId":null,"startColour":4294967295,"texture":9,},
+  ],
+  "parent": {
+    "name": "AssortedFruitsGame",
+    "path": "AssortedFruitsGame.yyp",
+  },
+  "showBackdrop": true,
+  "showBackdropImage": false,
+  "xorigin": 0,
+  "yorigin": 0,
+}
