@@ -4,6 +4,7 @@
   "name": "obj_phone_dia",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
@@ -31,8 +32,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_phone_default",
-    "path": "sprites/spr_phone_default/spr_phone_default.yy",
+    "name": "stella_texting_base",
+    "path": "sprites/stella_texting_base/stella_texting_base.yy",
   },
   "spriteMaskId": null,
   "visible": true,

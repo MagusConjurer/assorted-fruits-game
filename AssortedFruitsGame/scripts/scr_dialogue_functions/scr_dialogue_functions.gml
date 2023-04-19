@@ -97,7 +97,7 @@ function dialogue_start(dialogue_level)
 			dialogue_phone = instance_create_layer(phone_x,phone_y,"Dialogue",obj_phone_dia);
 		}
 	
-		dialogue_button_init();
+		dialogue_button_init(DIALOGUE_STANDARD);
 	}
 }
 
@@ -113,15 +113,38 @@ function dialogue_environmental(dialogue_text)
 		conversation_boxes[0].current_text = dialogue_text;
 		conversation_boxes[0].current_name = "Alex";
 		
-		dialogue_button_init();
+		dialogue_button_init(DIALOGUE_ENVIRONMENTAL);
 	}
 }
 
-function dialogue_button_init()
+function dialogue_pre_transition(dialogue_text)
+{
+	set_game_state(DIALOGUE);
+	
+	with(obj_game)
+	{
+		dialogue_init();
+		dialogue_in_person = true;
+		draw_textbox(DIALOGUE_TRANSITION);
+		conversation_boxes[0].current_text = dialogue_text;
+		conversation_boxes[0].current_name = "Alex";
+		
+		dialogue_button_init(DIALOGUE_TRANSITION);
+	}
+}
+
+function dialogue_button_init(type)
 {
 	cont_x = global.resolution_w * 0.7;
 	cont_y = global.resolution_h * 0.95;
-	dialogue_button = instance_create_layer(cont_x, cont_y, "Dialogue", obj_continue_dia);
+	if(type != DIALOGUE_TRANSITION)
+	{
+		dialogue_button = instance_create_layer(cont_x, cont_y, "Dialogue", obj_continue_dia);
+	}
+	else
+	{
+		dialogue_button = instance_create_layer(cont_x, cont_y, "Dialogue", obj_transition_dia);
+	}
 	dialogue_button.text = CONTINUE_DIA_TEXT;
 }
 
@@ -139,11 +162,6 @@ function dialogue_next()
 			else
 			{
 				continue_conversation();
-			}
-			
-			if(global.gamepad_id > -1)
-			{
-				//dialogue_button.selected = true;
 			}
 		}
 	}
@@ -206,7 +224,7 @@ function set_textbox_properties(textbox, type)
 				dialogue_right.image_index = current_line.emotion;
 			}
 		}
-		else if(type == DIALOGUE_ENVIRONMENTAL)
+		else if(type == DIALOGUE_ENVIRONMENTAL || type == DIALOGUE_TRANSITION)
 		{
 			textbox.box_sprite			= DIALOGUE_INPERSON_BOX_SPRITE;
 			textbox.current_alignment	= align.centered;
@@ -219,8 +237,16 @@ function draw_textbox(type)
 {
 	with(obj_game)
 	{
-		spr_width = sprite_get_width(DIALOGUE_INPERSON_BOX_SPRITE) * 0.5;
-		spr_height = sprite_get_height(DIALOGUE_INPERSON_BOX_SPRITE) * 0.5;
+		if(dialogue_in_person)
+		{
+			spr_width  = (sprite_get_width(DIALOGUE_INPERSON_BOX_SPRITE) - sprite_get_xoffset(DIALOGUE_INPERSON_BOX_SPRITE)) * 0.5;
+			spr_height = (sprite_get_height(DIALOGUE_INPERSON_BOX_SPRITE) - sprite_get_yoffset(DIALOGUE_INPERSON_BOX_SPRITE)) * 0.45;
+		}
+		else
+		{
+			spr_width  = sprite_get_width(DIALOGUE_TEXTMSG_BOX_SPRITE) * 0.5;
+			spr_height = sprite_get_height(DIALOGUE_TEXTMSG_BOX_SPRITE) * 0.5;
+		}
 		
 		tb_x = camera_x + (camera_width - spr_width) * 0.5;
 		tb_y = camera_y + (camera_height - spr_height - TEXTBOX_MARGIN);
@@ -408,24 +434,27 @@ function continue_conversation()
 
 function end_conversation()
 {
-	instance_destroy(obj_dialogue_parent);
-	instance_destroy(obj_game.dialogue_button);
+	with(obj_game)
+	{
+		instance_destroy(obj_dialogue_parent);
+		instance_destroy(dialogue_button);
 	
-	obj_game.dialogue_active = false;
+		dialogue_active = false;
 	
-	if(global.current_level == LEVEL_1_BUS_STOP)
-	{
-		global.current_level = LEVEL_2_BUS_BATTLE;
-		set_game_state(BULLET_HELL);
-	}
-	else if (global.current_level == LEVEL_4_DINNER)
-	{
-		global.current_level = LEVEL_5_DINNER_BATTLE;
-		set_game_state(BULLET_HELL);
-	}
-	else
-	{
-		set_game_state(OVERWORLD);
+		if(global.current_level == LEVEL_1_BUS_STOP)
+		{
+			global.current_level = LEVEL_2_BUS_BATTLE;
+			set_game_state(BULLET_HELL);
+		}
+		else if (global.current_level == LEVEL_4_DINNER)
+		{
+			global.current_level = LEVEL_5_DINNER_BATTLE;
+			set_game_state(BULLET_HELL);
+		}
+		else
+		{
+			set_game_state(OVERWORLD);
+		}
 	}
 }
 
@@ -505,15 +534,18 @@ function pause_dialogue()
 	{
 		with(obj_game)
 		{
-			dia_btn_enabled_state = dialogue_button.enabled;
-			
-			dialogue_button.enabled = false;
-			
-			if(dialogue_selection_visible)
+			if(dialogue_active)
 			{
-				for(i = 0; i < array_length(dialogue_selection_buttons); i++)
+				dia_btn_enabled_state = dialogue_button.enabled;
+			
+				dialogue_button.enabled = false;
+			
+				if(dialogue_selection_visible)
 				{
-					dialogue_selection_buttons[i].enabled = false;
+					for(i = 0; i < array_length(dialogue_selection_buttons); i++)
+					{
+						dialogue_selection_buttons[i].enabled = false;
+					}
 				}
 			}
 		}

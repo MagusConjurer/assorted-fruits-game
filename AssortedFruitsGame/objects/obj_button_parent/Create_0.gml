@@ -1,6 +1,6 @@
 /// @description
 
-text = "Button";
+text = "";
 enabled = true;
 selected = false;
 

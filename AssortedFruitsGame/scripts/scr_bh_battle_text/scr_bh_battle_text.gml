@@ -4,11 +4,11 @@ function get_bus_battle_dialogue()
 {
 	battle_text = [];
 	
-	battle_text[0] = "People like you are ruining this town. Seriously, the hell’s this world coming to?";
+	battle_text[0] = "People like you are ruining this town. Seriously, the hell's this world coming to?";
 	battle_text[1] = "Lemme guess, you had some sorta screwed up childhood to end up like this.";
-	battle_text[2] = "Why else would someone dye their hair blue and get all these ugly piercings? You’re mutilating your body.";
-	battle_text[3] = "Bet you got special bullshit pronouns too. He or she just wasn’t good enough for you, huh?";
-	battle_text[4] = "You know that good folk don’t want your kind here, right?";
+	battle_text[2] = "Why else would someone dye their hair blue and get all these ugly piercings? You're mutilating your body.";
+	battle_text[3] = "Bet you got special bullshit pronouns too. He or she just wasn't good enough for you, huh/";
+	battle_text[4] = "You know that good folk don't want your kind here, right?";
 	battle_text[5] = "Mentally ill freak.";
 	
 	return battle_text;

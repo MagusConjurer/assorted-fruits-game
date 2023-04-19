@@ -3,6 +3,6 @@
 // Inherit the parent event
 event_inherited();
 
-text = "Main Menu";
+sprite = spr_main_menu_button;
 
 layer_to_check = "Pause_Menu";

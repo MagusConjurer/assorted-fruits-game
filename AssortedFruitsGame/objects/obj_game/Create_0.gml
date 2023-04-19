@@ -4,17 +4,22 @@
 // audio_stop_all();
 // audio_play_sound(BG_MUSIC, 10, true);
 
+
+// Battles Completed
+level_2_complete = false;
+level_5_complete = false;
+
 // Controller
 time_since_menu_input = 0;
 menu_input_active = false;
 
 // Camera
+camera = 0;
+camera_target = 0;
 camera_x = 0;
 camera_y = 0;
 camera_width = 0; 
 camera_height = 0;
-displayX = 0;
-displayY = 0;
 viewport_setup = false;
 
 // surface_resize(application_surface, camera_width, camera_height);
@@ -40,6 +45,15 @@ bh_player_health = 0;
 
 bh_ability_index = 0;
 bh_ability_cooldown = 1;
+
+bh_bubble_max = 0;
+bh_bubble_start = 0;
+bh_bubble_start_health = 0;
+bh_bubbles_per_spawn = 0;
+bh_bubble_projectiles = 0;
+bh_bubble_projectiles_scale = 0;
+bh_bubble_pop_time = 0;
+bh_bubble_move_speed = 0;
 
 bh_bubbles_popped = 0;
 num_active_bubbles = 0;

@@ -22,7 +22,6 @@ if (global.game_state == active_state)
 			
 			instance_destroy(_inst);
 			iframes = BH_PLAYER_NUM_IFRAMES;
-			
 		}
 	} 
 	
@@ -31,23 +30,23 @@ if (global.game_state == active_state)
 		iframes--;
 		if(iframes % 10 == 0) 
 		{
-			// switches the opacity back and forth every 10 frames
+			// switches sprite back and forth every 10 frames
 			toggle = !toggle;
 			
 			if(toggle) 
 			{
-				image_alpha = 0.75;
+				image_index = 0;
 			}
 			else
 			{
-				image_alpha = 0.5;
+				image_index = image_index + 1;
 			}
 
 		}
 	}
 	else
 	{
-		image_alpha = 1.0;
+		image_index = 0;
 	}
 	
 	// May want to move all the movement checking to a script function for readability

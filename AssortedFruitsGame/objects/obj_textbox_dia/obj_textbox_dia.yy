@@ -33,8 +33,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_dia_box_default",
-    "path": "sprites/spr_dia_box_default/spr_dia_box_default.yy",
+    "name": "spr_dialogue",
+    "path": "sprites/spr_dialogue/spr_dialogue.yy",
   },
   "spriteMaskId": null,
   "visible": true,

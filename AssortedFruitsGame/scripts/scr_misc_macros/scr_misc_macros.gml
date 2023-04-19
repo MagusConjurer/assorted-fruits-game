@@ -1,7 +1,18 @@
 
-// #macro BG_MUSIC snd_bg_music_default
-
 #macro DELTA global.delta_factor
+
+#region CAMERA
+
+#macro CAMERA_SPEED 0.1
+
+#endregion
+
+#region MENUS
+
+#macro MAIN_MENU_BACKGROUND spr_title_screen_DRAFT 
+
+#endregion
+
 
 #region LEVELS & ROOMS
 #macro ROOM_MENU	rm_menu
@@ -52,7 +63,3 @@
 #macro AXIS_DEADZONE 0.2
 #macro TRIGGER_DEADZONE 0.1
 #macro MENU_INPUT_DELAY 0.25
-
-// SETTINGS
-#macro SETTINGS_BG_COLOR $5A9C6D // color in hex
-#macro SETTINGS_FONT_COLOR c_black

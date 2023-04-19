@@ -12,5 +12,6 @@ y_speed = 0;
 bubble_starting_health = 0;
 bubble_current_health = 0;
 bubble_time = 0;
+bubble_pop_time = 0;
 
 bubble_color = c_red;

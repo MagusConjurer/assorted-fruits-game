@@ -18,16 +18,17 @@ if(global.game_state == active_state)
 		instance_destroy();
 	}
 	
-	if(bubble_time >= BH_BUBBLE_TIME_BEFORE_POPPING)
+	bubble_pop_time = bh_get_bubble_pop_time();
+	
+	if(bubble_time >= bubble_pop_time)
 	{
 		bh_bubble_destroyed(false);
-		
 		instance_destroy();
 	}
 	
 	// Change the color based on the state of the bubble
 	health_percentage = 1.0 - bubble_current_health/bubble_starting_health;
-	time_percentage = bubble_time/BH_BUBBLE_TIME_BEFORE_POPPING;
+	time_percentage = bubble_time/bubble_pop_time;
 	
 	if(health_percentage > time_percentage)
 	{
