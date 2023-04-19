@@ -19,62 +19,65 @@ function menu_update(){
 		obj_game.alarm[0]++; 
 	}
 	
-	if(pause_menu_visible || main_menu_visible)
+	with(obj_game)
 	{
-		if(menu_selection_up())
+		if(pause_menu_visible || main_menu_visible)
 		{
-			menu_buttons[menu_selected].selected = false;
-			if(menu_selected > 0)
+			if(menu_selection_up())
 			{
-				menu_selected--;
+				menu_buttons[menu_selected].selected = false;
+				if(menu_selected > 0)
+				{
+					menu_selected--;
+				}
+				else
+				{
+					menu_selected = array_length(menu_buttons) - 1;
+				}
+				menu_buttons[menu_selected].selected = true;
 			}
-			else
+			else if(menu_selection_down())
 			{
-				menu_selected = array_length(menu_buttons) - 1;
+				menu_buttons[menu_selected].selected = false;
+				if(menu_selected < array_length(menu_buttons) - 1)
+				{
+					menu_selected++;
+				}
+				else
+				{
+					menu_selected = 0;
+				}
+				menu_buttons[menu_selected].selected = true;
 			}
-			menu_buttons[menu_selected].selected = true;
 		}
-		else if(menu_selection_down())
+		else if(settings_menu_visible)
 		{
-			menu_buttons[menu_selected].selected = false;
-			if(menu_selected < array_length(menu_buttons) - 1)
+			if(menu_selection_up())
 			{
-				menu_selected++;
+				settings_buttons[settings_selected].selected = false;
+				if(settings_selected > 0)
+				{
+					settings_selected--;
+				}
+				else
+				{
+					settings_selected = array_length(settings_buttons) - 1;
+				}
+				settings_buttons[settings_selected].selected = true;
 			}
-			else
+			else if(menu_selection_down())
 			{
-				menu_selected = 0;
+				settings_buttons[settings_selected].selected = false;
+				if(settings_selected < array_length(settings_buttons) - 1)
+				{
+					settings_selected++;
+				}
+				else
+				{
+					settings_selected = 0;
+				}
+				settings_buttons[settings_selected].selected = true;
 			}
-			menu_buttons[menu_selected].selected = true;
-		}
-	}
-	else if(settings_menu_visible)
-	{
-		if(menu_selection_up())
-		{
-			settings_buttons[settings_selected].selected = false;
-			if(settings_selected > 0)
-			{
-				settings_selected--;
-			}
-			else
-			{
-				settings_selected = array_length(settings_buttons) - 1;
-			}
-			settings_buttons[settings_selected].selected = true;
-		}
-		else if(menu_selection_down())
-		{
-			settings_buttons[settings_selected].selected = false;
-			if(settings_selected < array_length(settings_buttons) - 1)
-			{
-				settings_selected++;
-			}
-			else
-			{
-				settings_selected = 0;
-			}
-			settings_buttons[settings_selected].selected = true;
 		}
 	}
 }
