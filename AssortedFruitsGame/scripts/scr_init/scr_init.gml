@@ -16,7 +16,7 @@ global.fullscreen_enabled = true;
 global.music_enabled = true;
 global.music_volume = 0.5;
 global.sfx_enabled = true;
-global.sfx_volume = 0.3;
+global.sfx_volume = 0.5;
 
 window_set_fullscreen(global.fullscreen_enabled);
 
