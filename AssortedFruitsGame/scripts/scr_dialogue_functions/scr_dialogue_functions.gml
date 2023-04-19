@@ -75,7 +75,7 @@ function dialogue_start(dialogue_level)
 				load_conversation(BUS_STOP_DIALOGUE);
 			break;
 			case LEVEL_3_CAFE:
-				//load_conversation();
+				load_conversation(CAFE_DIALOGUE);
 			break;
 			case LEVEL_4_DINNER:
 				//load_conversation();
@@ -136,7 +136,7 @@ function dialogue_pre_transition(dialogue_text)
 function dialogue_button_init(type)
 {
 	cont_x = global.resolution_w * 0.7;
-	cont_y = global.resolution_h * 0.95;
+	cont_y = global.resolution_h * 0.9;
 	if(type != DIALOGUE_TRANSITION)
 	{
 		dialogue_button = instance_create_layer(cont_x, cont_y, "Dialogue", obj_continue_dia);
@@ -196,6 +196,17 @@ function set_textbox_properties(textbox, type)
 			{
 				textbox.box_sprite = DIALOGUE_INPERSON_BOX_SPRITE;
 				textbox.current_alignment = align.centered;
+				
+				if(current_line.on_the_left)
+				{
+					textbox.current_name = dialogue_left.textbox_name;
+					dialogue_left.image_index = current_line.emotion;
+				}
+				else
+				{
+					textbox.current_name = dialogue_right.textbox_name;
+					dialogue_right.image_index = current_line.emotion;
+				}
 			} 
 			else 
 			{
@@ -208,20 +219,19 @@ function set_textbox_properties(textbox, type)
 				{
 					textbox.current_alignment = align.right;
 				}
+				
+				dialogue_left.visible = false;
+				dialogue_right.visible = false;
 			}
 	
 			textbox.current_text = current_line.text;
 			if(current_line.on_the_left)
 			{
 				textbox.box_tint = dialogue_left.textbox_color;
-				textbox.current_name = dialogue_left.textbox_name;
-				dialogue_left.image_index = current_line.emotion;
 			}
 			else
 			{
 				textbox.box_tint = dialogue_right.textbox_color;
-				textbox.current_name = dialogue_right.textbox_name;
-				dialogue_right.image_index = current_line.emotion;
 			}
 		}
 		else if(type == DIALOGUE_ENVIRONMENTAL || type == DIALOGUE_TRANSITION)
@@ -239,8 +249,8 @@ function draw_textbox(type)
 	{
 		if(dialogue_in_person)
 		{
-			spr_width  = (sprite_get_width(DIALOGUE_INPERSON_BOX_SPRITE) - sprite_get_xoffset(DIALOGUE_INPERSON_BOX_SPRITE)) * 0.5;
-			spr_height = (sprite_get_height(DIALOGUE_INPERSON_BOX_SPRITE) - sprite_get_yoffset(DIALOGUE_INPERSON_BOX_SPRITE)) * 0.45;
+			spr_width  = (sprite_get_width(DIALOGUE_INPERSON_BOX_SPRITE) - sprite_get_xoffset(DIALOGUE_INPERSON_BOX_SPRITE)) * 0.4;
+			spr_height = (sprite_get_height(DIALOGUE_INPERSON_BOX_SPRITE) - sprite_get_yoffset(DIALOGUE_INPERSON_BOX_SPRITE)) * 0.4;
 		}
 		else
 		{
@@ -281,7 +291,7 @@ function dialogue_multi_max_height(current_y)
 {
 	with(obj_game)
 	{
-		if(current_y < dialogue_phone.y - (dialogue_phone.sprite_height * 0.5))
+		if(current_y < dialogue_phone.y - (dialogue_phone.sprite_height * 0.3))
 		{
 			return true;
 		}
@@ -490,15 +500,15 @@ function show_options()
 			spacing = 1;
 			if(num_options == 3)
 			{
-				spacing = 0.5;
+				spacing = 0.4;
 			}
 			else if(num_options == 2)
 			{
-				spacing = 0.75
+				spacing = 0.7
 			}
 		
 			option_button.x = box.x + ((box.box_width*spacing) * (i+1));
-			option_button.y = box.y + (box.box_height*0.5);
+			option_button.y = global.resolution_h * 0.9;
 		
 			dialogue_selection_buttons[i] = option_button;
 		}
