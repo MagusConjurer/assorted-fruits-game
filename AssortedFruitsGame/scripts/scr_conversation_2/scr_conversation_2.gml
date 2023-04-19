@@ -1,5 +1,30 @@
 /// @description Duplicate to use as a template for additional conversations
 
+function get_level_3_first_option_description()
+{
+	return selection_5.option_descriptions;
+}
+
+function get_level_3_first_jumps()
+{
+	return selection_5.option_jump_index;
+}
+
+function get_level_3_second_option_description()
+{
+	return selection_41.option_descriptions;
+}
+
+function get_level_3_second_jumps()
+{
+	return selection_41.option_jump_index;
+}
+
+function get_level_3_second_choices()
+{
+	return selection_41.option_choice_index;
+}
+
 function get_convo_two()
 {
 	setup_data = {
@@ -699,7 +724,7 @@ function get_convo_two()
 	line_2,
 	line_3,
 	line_4,
-	selection_5,
+	//selection_5,
 	line_6,
 	line_7,
 	line_8,

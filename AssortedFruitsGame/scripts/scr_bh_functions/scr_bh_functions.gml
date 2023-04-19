@@ -178,6 +178,14 @@ function bh_update_player_health(change)
 	obj_game.bh_player_health += change;
 }
 
+function bh_get_player_health()
+{
+	with(obj_game)
+	{
+		return bh_player_health;
+	}
+}
+
 function bh_status_index()
 {
 	with(obj_game)
@@ -358,12 +366,21 @@ function bh_spawn_bubble(y_index)
 	{
 		x_pos = camera_x + (camera_width * 0.9);
 		y_pos = camera_y + (0.5 * bubble_height) + (possible_bubble_spots * y_index);
-	
-		_inst = instance_create_layer(x_pos, y_pos, "Bullet_Hell", obj_bubble);
-		_inst.image_xscale = 0.4;
-		_inst.image_yscale = 0.4;
+		
+		if(position_empty(x_pos, y_pos))
+		{
+			_inst = instance_create_layer(x_pos, y_pos, "Bullet_Hell", obj_bubble);
+			_inst.image_xscale = 0.4;
+			_inst.image_yscale = 0.4;
 
-		num_active_bubbles++;
+			num_active_bubbles++;
+		}
+		else
+		{
+			bh_spawn_random_bubble();
+		}
+	
+
 	}
 }
 

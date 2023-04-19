@@ -20,6 +20,25 @@ if (global.game_state == active_state)
 		{
 			bh_update_player_health(_inst.damage);
 			
+			ph = bh_get_player_health();
+			if(ph > 6)
+			{
+				current_frame = 0;
+			} 
+			else if(ph > 4)
+			{
+				current_frame = 2;
+			}
+			else if(ph > 2)
+			{
+				current_frame = 4;
+			}
+			else
+			{
+				current_frame = 6;
+			}
+			
+			show_debug_message(current_frame);
 			instance_destroy(_inst);
 			iframes = BH_PLAYER_NUM_IFRAMES;
 		}
@@ -35,18 +54,18 @@ if (global.game_state == active_state)
 			
 			if(toggle) 
 			{
-				image_index = 0;
+				image_index = current_frame;
 			}
 			else
 			{
-				image_index = image_index + 1;
+				image_index = current_frame + 1;
 			}
 
 		}
 	}
 	else
 	{
-		image_index = 0;
+		image_index = current_frame;
 	}
 	
 	// May want to move all the movement checking to a script function for readability
