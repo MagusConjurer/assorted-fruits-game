@@ -96,6 +96,7 @@
     {"name":"obj_interactable_parent","order":1,"path":"objects/obj_interactable_parent/obj_interactable_parent.yy",},
     {"name":"BUTTON_Light_Switch_01_stereo","order":10,"path":"sounds/BUTTON_Light_Switch_01_stereo/BUTTON_Light_Switch_01_stereo.yy",},
     {"name":"obj_selection_dia","order":6,"path":"objects/obj_selection_dia/obj_selection_dia.yy",},
+    {"name":"thick_R_recolorable","order":4,"path":"sprites/thick_R_recolorable/thick_R_recolorable.yy",},
     {"name":"spr_bedroombackground","order":2,"path":"sprites/spr_bedroombackground/spr_bedroombackground.yy",},
     {"name":"obj_tree_final","order":5,"path":"objects/obj_tree_final/obj_tree_final.yy",},
     {"name":"spr_player_projectile_def","order":12,"path":"sprites/spr_player_projectile_def/spr_player_projectile_def.yy",},
