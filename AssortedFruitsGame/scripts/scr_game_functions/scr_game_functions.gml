@@ -138,4 +138,26 @@ function update_camera_position()
 	}
 }
 
+function get_guix(room_x)
+{
+	with(obj_game)
+	{
+		normalized_x = (room_x - camera_x) / camera_width;
+		guix = normalized_x * global.resolution_w;
+		
+		return guix;
+	}
+}
+
+function get_guiy(room_y)
+{
+	with(obj_game)
+	{
+		normalized_y = (room_y - camera_y) / camera_height;
+		guiy = normalized_y * global.resolution_h;
+		
+		return guiy;
+	}
+}
+
 #endregion

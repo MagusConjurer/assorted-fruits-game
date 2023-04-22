@@ -12,6 +12,11 @@ if(text != "")
 	draw_text(x, y, text);
 }
 
+if(description != "")
+{
+	draw_text(x, y + DIALOGUE_SELECT_DESCRIPTION_OFFEST, description);
+}
+
 // Reset the text alignment
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);

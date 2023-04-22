@@ -1,7 +1,7 @@
 {
   "FolderOrderSettings": [
-    {"name":"Overworld","order":10,"path":"folders/Sprites/Characters/Stella/Overworld.yy",},
     {"name":"Characters","order":35,"path":"folders/Objects/Overworld/Decor/Characters.yy",},
+    {"name":"Overworld","order":10,"path":"folders/Sprites/Characters/Stella/Overworld.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"spr_teleport","order":27,"path":"sprites/spr_teleport/spr_teleport.yy",},

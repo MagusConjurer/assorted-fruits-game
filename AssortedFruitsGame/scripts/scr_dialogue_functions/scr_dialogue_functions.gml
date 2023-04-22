@@ -504,20 +504,21 @@ function show_options()
 			option_button.jump_index = jumps[i];
 			option_button.choice_index  = choices[i];
 		
-			spacing = 1;
+			
+			box_left_guix = get_guix(box.x);
+			box_top_guiy  = get_guiy(box.y);
+			
 			if(num_options == 3)
 			{
 				spacing = 0.4;
-				option_button.x = box.x - 200 - ((box.box_width*spacing) * (i));
 			}
 			else if(num_options == 2)
 			{
-				spacing = 0.7
-				option_button.x = box.x + ((box.box_width*spacing) * (i+1));
+				spacing = 0.8
 			}
-		
 			
-			option_button.y = global.resolution_h * 0.9;
+			option_button.x = box_left_guix + ((box.box_width*spacing) * (i+1));
+			option_button.y = box_top_guiy  + (box.box_height * DIALOGUE_SELECT_BTN_Y_OFFSET_PERCENT);
 		
 			dialogue_selection_buttons[i] = option_button;
 		}

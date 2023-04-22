@@ -4,7 +4,7 @@
 // to allow for more unique experiences where randomness is being used.
 randomize();
 
-global.debugging = false;
+global.debugging = true;
 
 global.delta_factor = 1;
 
@@ -44,7 +44,11 @@ global.prev_state = OVERWORLD;
 
 global.bh_ability_one = 0;
 
-
+if(global.debugging == true) 
+{
+	global.music_enabled = false;
+	global.current_level = LEVEL_3_CAFE;
+}
 
 
 

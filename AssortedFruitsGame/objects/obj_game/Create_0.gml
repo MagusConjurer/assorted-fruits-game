@@ -90,5 +90,3 @@ dialogue_selection_options   = [];
 dialogue_selection_jumps     = [];
 dialogue_selection_buttons   = [];
 dialogue_selection_choices   = [];
-
-

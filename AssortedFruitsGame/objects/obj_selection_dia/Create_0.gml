@@ -3,12 +3,12 @@
 // Inherit the parent event
 event_inherited();
 
-text = "Option";
+text        = "Option";
 
 depth = DIA_DEPTH - 1;
 
-choice_index = 0;
-jump_index = 0;
+choice_index   = 0;
+jump_index     = 0;
 layer_to_check = "Dialogue";
 
 choice = false;
