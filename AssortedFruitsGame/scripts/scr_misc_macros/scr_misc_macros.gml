@@ -41,6 +41,7 @@
 #macro PERCENT_TO_DARKEN 0.8
 
 // COLORS
+#macro C_BUTTON_TEXT c_black
 #macro C_ALEX	c_yellow
 #macro C_STELLA make_color_rgb(241, 178, 255)
 

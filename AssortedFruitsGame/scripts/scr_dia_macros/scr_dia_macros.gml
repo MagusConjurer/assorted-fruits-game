@@ -13,17 +13,7 @@
 #macro TEXTBOX_MARGIN 10
 #macro TEXTBOX_OFFSET_PERCENT 0.45
 #macro DIALOGUE_SELECT_BTN_Y_OFFSET_PERCENT 0.8
-#macro DIALOGUE_SELECT_DESCRIPTION_OFFEST   30
-
-
-
-#endregion
-
-
-
-#macro DIALOGUE_STANDARD		0
-#macro DIALOGUE_ENVIRONMENTAL	1
-#macro DIALOGUE_TRANSITION		2
+#macro DIALOGUE_SELECT_DESCRIPTION_OFFEST   -30
 
 // Used for text box alignment (mostly during text messaging)
 enum align{
@@ -32,8 +22,18 @@ enum align{
 	right
 }
 
+#endregion
+
+#region PORTRAITS
+#macro PORTRAIT_SCALE 0.2
 #macro PORTRAIT_MARGIN 256
 #macro PORTRAIT_HEIGHT 1000
+#endregion
+
+// Controls type of dialogue box and other details
+#macro DIALOGUE_STANDARD		0
+#macro DIALOGUE_ENVIRONMENTAL	1
+#macro DIALOGUE_TRANSITION		2
 
 #macro CONTINUE_DIA_TEXT "Continue"
 #macro COMPLETE_DIA_TEXT "Leave"
