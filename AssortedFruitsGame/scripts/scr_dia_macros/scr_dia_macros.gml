@@ -1,17 +1,19 @@
 // Macros for Diaglogue
 
-#macro TEXTBOX_PADDING 16
-#macro TEXTBOX_MARGIN 10
-#macro TEXTBOX_OFFSET_PERCENT 0.45
+#region TEXXTBOX
 #macro DIALOGUE_INPERSON_BOX_SPRITE spr_dialogue
 #macro DIALOGUE_TEXTMSG_BOX_SPRITE spr_text_bubble
+
 #macro DIALOGUE_TM_LEFT_LARGE  0
 #macro DIALOGUE_TM_RIGHT_LARGE 1
 #macro DIALOGUE_TM_LEFT_SMALL  2
 #macro DIALOGUE_TM_RIGHT_SMALL 3
-#macro DIALOGUE_STANDARD		0
-#macro DIALOGUE_ENVIRONMENTAL	1
-#macro DIALOGUE_TRANSITION		2
+
+#macro TEXTBOX_PADDING 16
+#macro TEXTBOX_MARGIN 10
+#macro TEXTBOX_OFFSET_PERCENT 0.45
+#macro DIALOGUE_SELECT_BTN_Y_OFFSET_PERCENT 0.8
+#macro DIALOGUE_SELECT_DESCRIPTION_OFFEST   -30
 
 // Used for text box alignment (mostly during text messaging)
 enum align{
@@ -20,8 +22,18 @@ enum align{
 	right
 }
 
+#endregion
+
+#region PORTRAITS
+#macro PORTRAIT_SCALE 0.2
 #macro PORTRAIT_MARGIN 256
 #macro PORTRAIT_HEIGHT 1000
+#endregion
+
+// Controls type of dialogue box and other details
+#macro DIALOGUE_STANDARD		0
+#macro DIALOGUE_ENVIRONMENTAL	1
+#macro DIALOGUE_TRANSITION		2
 
 #macro CONTINUE_DIA_TEXT "Continue"
 #macro COMPLETE_DIA_TEXT "Leave"
@@ -30,6 +42,12 @@ enum align{
 #macro PHONE_DIALOGUE 0
 #macro BUS_STOP_DIALOGUE 1
 #macro CAFE_DIALOGUE 2
+#macro DINNER_DIALOGUE 3
+#macro FINAL_DIALOGUE 4
+
+#macro DIA_MOM 0
+#macro DIA_DAD 1
+#macro DIA_UNCLE 2
 
 /// Emotions
 #macro ALEX_NEUTRAL 0

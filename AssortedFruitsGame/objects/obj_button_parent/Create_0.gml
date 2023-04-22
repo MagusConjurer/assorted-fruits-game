@@ -1,12 +1,13 @@
 /// @description
 
-text = "";
-enabled = true;
-selected = false;
+text		= "";
+description = "";
+enabled		= true;
+selected	= false;
 
 image_speed = 0;
 
-is_pressed = false;
+is_pressed	= false;
 
 sprite = spr_button_default;
 

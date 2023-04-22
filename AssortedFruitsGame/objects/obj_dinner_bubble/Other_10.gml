@@ -1,0 +1,1 @@
+dialogue_start(LEVEL_4_DINNER);

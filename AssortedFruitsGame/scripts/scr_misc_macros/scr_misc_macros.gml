@@ -41,8 +41,12 @@
 #macro PERCENT_TO_DARKEN 0.8
 
 // COLORS
+#macro C_BUTTON_TEXT c_black
 #macro C_ALEX	c_yellow
 #macro C_STELLA make_color_rgb(241, 178, 255)
+#macro C_MOM c_fuchsia
+#macro C_DAD c_blue
+#macro C_UNCLE c_green
 
 // GAME STATES
 #macro OVERWORLD 0

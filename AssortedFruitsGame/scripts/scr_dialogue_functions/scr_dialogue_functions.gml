@@ -49,13 +49,21 @@ function dialogue_init()
 	dialogue_selection_visible = false;
 	dialogue_selection = 0;
 	dialogue_in_person = true;
+	dialogue_multi_opt = false;
+	dialogue_current_left  = 0;
+	dialogue_current_right = 0;
+	dialogue_prev_left_index  = 0;
+	dialogue_prev_right_index = 0;
+	dialogue_left  = [];
+	dialogue_right = [];
 	conversation_index = 1; // starts at 1 since data is index 0
-	conversation = [];
-	conversation_boxes = [];
-	dialogue_selection_options   = [];
-	dialogue_selection_jumps     = [];
-	dialogue_selection_buttons   = [];
-	dialogue_selection_choices = [];
+	conversation					= [];
+	conversation_boxes				= [];
+	dialogue_selection_options		= [];
+	dialogue_selection_descriptions	= [];
+	dialogue_selection_jumps		= [];
+	dialogue_selection_buttons		= [];
+	dialogue_selection_choices		= [];
 }
 
 function dialogue_start(dialogue_level)
@@ -78,15 +86,14 @@ function dialogue_start(dialogue_level)
 				load_conversation(CAFE_DIALOGUE);
 			break;
 			case LEVEL_4_DINNER:
-				//load_conversation();
+				load_conversation(DINNER_DIALOGUE);
 			break;
 			case LEVEL_6_BEDROOM:
-				//load_conversation();
+				load_conversation(FINAL_DIALOGUE);
 			break;
 		}
 	
-		
-		set_portrait_positions();
+		dialogue_set_portraits();
 		check_if_in_person(conversation[conversation_index]);
 		draw_textbox(DIALOGUE_STANDARD);
 	
@@ -199,13 +206,13 @@ function set_textbox_properties(textbox, type)
 				
 				if(current_line.on_the_left)
 				{
-					textbox.current_name = dialogue_left.textbox_name;
-					dialogue_left.image_index = current_line.emotion;
+					textbox.current_name = dialogue_current_left.textbox_name;
+					dialogue_current_left.image_index = current_line.emotion;
 				}
 				else
 				{
-					textbox.current_name = dialogue_right.textbox_name;
-					dialogue_right.image_index = current_line.emotion;
+					textbox.current_name = dialogue_current_right.textbox_name;
+					dialogue_current_right.image_index = current_line.emotion;
 				}
 			} 
 			else 
@@ -220,18 +227,18 @@ function set_textbox_properties(textbox, type)
 					textbox.current_alignment = align.right;
 				}
 				
-				dialogue_left.visible = false;
-				dialogue_right.visible = false;
+				dialogue_current_left.visible = false;
+				dialogue_current_right.visible = false;
 			}
 	
 			textbox.current_text = current_line.text;
 			if(current_line.on_the_left)
 			{
-				textbox.box_tint = dialogue_left.textbox_color;
+				textbox.box_tint = dialogue_current_left.textbox_color;
 			}
 			else
 			{
-				textbox.box_tint = dialogue_right.textbox_color;
+				textbox.box_tint = dialogue_current_right.textbox_color;
 			}
 		}
 		else if(type == DIALOGUE_ENVIRONMENTAL || type == DIALOGUE_TRANSITION)
@@ -351,8 +358,29 @@ function load_conversation(level)
 	
 	with(obj_game)
 	{
-		dialogue_left  = instance_create_layer(0,0, "Dialogue", conversation_data[0].left_speaker);
-		dialogue_right = instance_create_layer(0,0, "Dialogue", conversation_data[0].right_speaker);
+		// Get and create all possible speakers
+		l_speaker_data = conversation_data[0].left_speaker;
+		r_speaker_data = conversation_data[0].right_speaker;
+		for(l = 0; l < array_length(l_speaker_data); l++)
+		{
+			dialogue_left[l] = instance_create_layer(0,0, "Dialogue", l_speaker_data[l]);
+			dialogue_left[l].visible = false;
+		}
+		
+		for(r = 0; r < array_length(r_speaker_data); r++)
+		{
+			dialogue_right[r] = instance_create_layer(0,0, "Dialogue", r_speaker_data[r]);
+			dialogue_right[r].visible = false;
+		}
+
+		// Only display the first speakers
+		dialogue_current_left = dialogue_left[0];
+		dialogue_current_left.visible = true;
+		dialogue_current_right = dialogue_right[0];
+		dialogue_current_right.visible = true;
+		
+		// Setup conversation and options
+		dialogue_multi_opt = conversation_data[0].multiple_options;
 	
 		for(i = 1; i < array_length(conversation_data); i++)
 		{
@@ -360,11 +388,25 @@ function load_conversation(level)
 			current_conversation = conversation[i];
 			if(current_conversation.type == "selection")
 			{				
-				for(j = 0; j < array_length(conversation[i].option_descriptions); j++)
+				if(dialogue_multi_opt)
 				{
-					dialogue_selection_options[j]   = current_conversation.option_descriptions[j];
-					dialogue_selection_jumps[j]     = current_conversation.option_jump_index[j];
-					dialogue_selection_choices[j]   = current_conversation.option_choice_index[j];
+					for(j = 0; j < array_length(conversation[i].option_descriptions); j++)
+					{
+						dialogue_selection_options[i][j]		= current_conversation.options[j];
+						dialogue_selection_descriptions[i][j]	= current_conversation.option_descriptions[j];
+						dialogue_selection_jumps[i][j]			= current_conversation.option_jump_index[j];
+						dialogue_selection_choices[i][j]		= current_conversation.option_choice_index[j];
+					}
+				}
+				else
+				{
+					for(j = 0; j < array_length(conversation[i].option_descriptions); j++)
+					{
+						dialogue_selection_options[j]		= current_conversation.options[j];
+						dialogue_selection_descriptions[j]  = current_conversation.option_descriptions[j];
+						dialogue_selection_jumps[j]			= current_conversation.option_jump_index[j];
+						dialogue_selection_choices[j]		= current_conversation.option_choice_index[j];
+					}
 				}
 			}
 		}
@@ -372,18 +414,53 @@ function load_conversation(level)
 
 }
 
-function set_portrait_positions()
+function dialogue_set_portraits()
 {
-	dialogue_left.image_xscale = 0.2;
-	dialogue_left.image_yscale = 0.2;
-	dialogue_left.x = camera_x + PORTRAIT_MARGIN * 0.2;
-	dialogue_left.y = camera_y + camera_height - (PORTRAIT_HEIGHT * 0.2 /2);
+	with(obj_game)
+	{		
+		dialogue_current_left.image_xscale = PORTRAIT_SCALE;
+		dialogue_current_left.image_yscale = PORTRAIT_SCALE;
+		dialogue_current_left.x = camera_x + PORTRAIT_MARGIN * 0.2;
+		dialogue_current_left.y = camera_y + camera_height - (PORTRAIT_HEIGHT * 0.2 /2);
 
-	
-	dialogue_right.image_xscale = 0.2;
-	dialogue_right.image_yscale = 0.2;
-	dialogue_right.x = camera_x + camera_width - PORTRAIT_MARGIN * 0.2;
-	dialogue_right.y = camera_y + camera_height - (PORTRAIT_HEIGHT * 0.2 /2);
+		dialogue_current_right.image_xscale = PORTRAIT_SCALE;
+		dialogue_current_right.image_yscale = PORTRAIT_SCALE;
+		dialogue_current_right.x = camera_x + camera_width - PORTRAIT_MARGIN * 0.2;
+		dialogue_current_right.y = camera_y + camera_height - (PORTRAIT_HEIGHT * 0.2 /2);
+	}
+}
+
+function dialogue_update_portraits()
+{
+	with(obj_game)
+	{
+		speaker_index = conversation[conversation_index].speaker;
+		
+		if(conversation[conversation_index].on_the_left)
+		{
+			if(dialogue_prev_left_index != speaker_index)
+			{
+				dialogue_current_left.visible = false;
+				dialogue_current_left = dialogue_left[speaker_index];
+				dialogue_current_left.visible = true;
+				
+				dialogue_prev_left_index = speaker_index;
+			}
+		}
+		else
+		{
+			if(dialogue_prev_right_index != speaker_index)
+			{
+				dialogue_current_right.visible = false;
+				dialogue_current_right = dialogue_right[speaker_index];
+				dialogue_current_right.visible = true;
+				
+				dialogue_prev_right_index = speaker_index;
+			}
+		}
+		
+		dialogue_set_portraits();
+	}
 }
 
 function check_if_in_person(line)
@@ -416,6 +493,7 @@ function continue_conversation()
 				box = conversation_boxes[0];
 				if(current_line.type == "line")
 				{
+					dialogue_update_portraits();
 					set_textbox_properties(box, DIALOGUE_STANDARD);
 					if(current_line.jump_to > 0)
 					{
@@ -476,11 +554,23 @@ function end_conversation()
 function show_options()
 {
 	with(obj_game)
-	{
-		options = dialogue_selection_options;
-		jumps   = dialogue_selection_jumps;
-		choices = dialogue_selection_choices;
-		num_options = array_length(options);		
+	{	
+		if(dialogue_multi_opt)
+		{
+			options		= dialogue_selection_options[conversation_index];
+			descriptions= dialogue_selection_descriptions[conversation_index];	
+			jumps		= dialogue_selection_jumps[conversation_index];
+			choices		= dialogue_selection_choices[conversation_index];
+		}
+		else
+		{
+			options		= dialogue_selection_options;
+			descriptions= dialogue_selection_descriptions;
+			jumps		= dialogue_selection_jumps;
+			choices		= dialogue_selection_choices;
+		}
+		
+		num_options = array_length(options);
 		
 		for(i = 0; i < num_options; i++)
 		{
@@ -496,28 +586,31 @@ function show_options()
 			current_selection = conversation[conversation_index];
 		
 			box.current_text = current_selection.text_to_show;
-			box.box_tint = current_selection.color;
+			box.box_tint	 = current_selection.color;
+			box.current_name = "";
 		
 			option_button = instance_create_layer(0, 0, "Dialogue", obj_selection_dia);
 			
-			option_button.text = options[i];
-			option_button.jump_index = jumps[i];
-			option_button.choice_index  = choices[i];
+			option_button.text				= options[i];
+			option_button.description		= descriptions[i];
+			option_button.jump_index		= jumps[i];
+			option_button.choice_index		= choices[i];
 		
-			spacing = 1;
+			
+			box_left_guix = get_guix(box.x);
+			box_top_guiy  = get_guiy(box.y);
+			
 			if(num_options == 3)
 			{
 				spacing = 0.4;
-				option_button.x = box.x - 200 - ((box.box_width*spacing) * (i));
 			}
 			else if(num_options == 2)
 			{
-				spacing = 0.7
-				option_button.x = box.x + ((box.box_width*spacing) * (i+1));
+				spacing = 0.6
 			}
-		
 			
-			option_button.y = global.resolution_h * 0.9;
+			option_button.x = box_left_guix + ((box.box_width*spacing) * (i+1));
+			option_button.y = box_top_guiy  + (box.box_height * DIALOGUE_SELECT_BTN_Y_OFFSET_PERCENT);
 		
 			dialogue_selection_buttons[i] = option_button;
 		}
