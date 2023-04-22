@@ -31,7 +31,7 @@ line_2 = {
 	on_the_left: true,
 	speaker: 0,
 	emotion: 0,
-	text: "(internal) It’s been 15 minutes and barely anyone’s spoken. It’s so awkward I could die.",
+	text: "(internal) It's been 15 minutes and barely anyone's spoken. It's so awkward I could die.",
 	jump_to: 0
 }
 
@@ -76,7 +76,7 @@ line_7 = {
 	on_the_left: false,
 	speaker: DIA_DAD,
 	emotion: 0,
-	text: "Don’t apologize to me, apologize to your mother. No manners...",
+	text: "Don't apologize to me, apologize to your mother. No manners...",
 	jump_to: 0
 }
 
@@ -112,7 +112,7 @@ line_11 = {
 	on_the_left: false,
 	speaker: DIA_UNCLE,
 	emotion: 0,
-	text: "Alright, I guess I’ll say it since no one else will. We all know what this is about..",
+	text: "Alright, I guess I'll say it since no one else will. We all know what this is about..",
 	jump_to: 0
 }
 
@@ -121,7 +121,7 @@ line_12 = {
 	on_the_left: false,
 	speaker: DIA_MOM,
 	emotion: 0,
-	text: "Danny, maybe this isn’t the time-",
+	text: "Danny, maybe this isn't the time-",
 	jump_to: 0
 }
 line_13 = {
@@ -129,7 +129,7 @@ line_13 = {
 	on_the_left: false,
 	speaker: DIA_UNCLE,
 	emotion: 0,
-	text: "I think it’s the perfect time. Ain’t nobody else talkin’.",
+	text: "I think it's the perfect time. Ain't nobody else talkin'.",
 	jump_to: 0
 }
 
@@ -138,7 +138,7 @@ line_14 = {
 	on_the_left: false,
 	speaker: DIA_UNCLE,
 	emotion: 0,
-	text: "‘sides, ain’t that why you invited me over?",
+	text: "‘sides, ain't that why you invited me over?",
 	jump_to: 0
 }
 
@@ -156,7 +156,7 @@ line_16 = {
 	on_the_left: false,
 	speaker: DIA_DAD,
 	emotion: 0,
-	text: "Don’t be smart with your Uncle.",
+	text: "Don't be smart with your Uncle.",
 	jump_to: 0
 }
 line_17 = {
@@ -164,7 +164,7 @@ line_17 = {
 	on_the_left: false,
 	speaker: DIA_UNCLE,
 	emotion: 0,
-	text: "Heh, least you still got that bite, kiddo. That hasn’t changed.",
+	text: "Heh, least you still got that bite, kiddo. That hasn't changed.",
 	jump_to: 0
 }
 
@@ -173,7 +173,7 @@ selection_18 = {
 	text_to_show: "",
 	color: c_gray,
 	options: ["", ""],
-	option_descriptions: ["I haven’t changed.", "I’ve always been like this"],
+	option_descriptions: ["I haven't changed.", "I've always been like this"],
 	option_jump_index: [19,26],  
 	option_choice_index: [0,0] 
 }
@@ -183,7 +183,7 @@ line_19 = {
 	on_the_left: true,
 	speaker: 0,
 	emotion: 0,
-	text: "I haven’t changed. I’m still me.",
+	text: "I haven't changed. I'm still me.",
 	jump_to: 0
 }
 
@@ -192,7 +192,7 @@ line_20 = {
 	on_the_left: false,
 	speaker: DIA_DAD,
 	emotion: 0,
-	text: "No, you’ve changed. You spend so much time on your phone and with that girl that you’ve gotten all confused.",
+	text: "No, you've changed. You spend so much time on your phone and with that girl that you've gotten all confused.",
 	jump_to: 0
 }
 
@@ -210,7 +210,7 @@ line_22 = {
 	on_the_left: false,
 	speaker: DIA_MOM,
 	emotion: 0,
-	text: "We like Stella, we’re just worried she’s a bad influence on you.",
+	text: "We like Stella, we're just worried she's a bad influence on you.",
 	jump_to: 0
 }
 
@@ -237,7 +237,7 @@ line_25 = {
 	on_the_left: false,
 	speaker: DIA_UNCLE,
 	emotion: 0,
-	text: "Sounds like she’s corrupting you. I mean, I remember you were a tomboy even when you were a kid, but you weren’t... this.",
+	text: "Sounds like she's corrupting you. I mean, I remember you were a tomboy even when you were a kid, but you weren't... this.",
 	jump_to: 34
 }
 
@@ -246,7 +246,7 @@ line_26 = {
 	on_the_left: true,
 	speaker: 0,
 	emotion: 0,
-	text: "I’ve always been like this. You’re just mad I put a label on it.",
+	text: "I've always been like this. You're just mad I put a label on it.",
 	jump_to: 0
 }
 
@@ -273,7 +273,7 @@ line_29 = {
 	on_the_left: false,
 	speaker: DIA_UNCLE,
 	emotion: 0,
-	text: "Right? You can’t expect us to respect that.",
+	text: "Right? You can't expect us to respect that.",
 	jump_to: 0
 }
 
@@ -282,7 +282,7 @@ line_30 = {
 	on_the_left: false,
 	speaker: DIA_MOM,
 	emotion: 0,
-	text: "You’re being too harsh. Alex is sick.",
+	text: "You're being too harsh. Alex is sick.",
 	jump_to: 0
 }
 
@@ -291,7 +291,7 @@ line_31 = {
 	on_the_left: false,
 	speaker: DIA_MOM,
 	emotion: 0,
-	text: "She’s got this disorder- ah, what was it called? ‘Gender identity disorder’. They taught it in med school.",
+	text: "She's got this disorder- ah, what was it called? ‘Gender identity disorder'. They taught it in med school.",
 	jump_to: 0
 }
 
@@ -300,7 +300,7 @@ line_32 = {
 	on_the_left: false,
 	speaker: 0,
 	emotion: 0,
-	text: "They don’t even use that term anymore! You should know that as a doctor.",
+	text: "They don't even use that term anymore! You should know that as a doctor.",
 	jump_to: 0
 }
 
@@ -309,7 +309,7 @@ line_33 = {
 	on_the_left: false,
 	speaker: DIA_MOM,
 	emotion: 0,
-	text: "I’m busy with my patients mija, I can’t keep up with all this new terminology.",
+	text: "I'm busy with my patients mija, I can't keep up with all this new terminology.",
 	jump_to: 0
 }
 
@@ -336,7 +336,7 @@ line_36 = {
 	on_the_left: false,
 	speaker: DIA_MOM,
 	emotion: 0,
-	text: "No need to snap at us. We just want what’s best for you. We’re your family.",
+	text: "No need to snap at us. We just want what's best for you. We're your family.",
 	jump_to: 0
 }
 
@@ -354,7 +354,7 @@ line_38 = {
 	on_the_left: false,
 	speaker: DIA_MOM,
 	emotion: 0,
-	text: "We don’t hate you, sweetheart.",
+	text: "We don't hate you, sweetheart.",
 	jump_to: 0
 }
 
@@ -390,7 +390,7 @@ line_42 = {
 	on_the_left: true,
 	speaker: 0,
 	emotion: 0,
-	text: "You’ve gotta be shitting me!",
+	text: "You've gotta be shitting me!",
 	jump_to: 0
 }
 
@@ -399,7 +399,7 @@ line_43 = {
 	on_the_left: false,
 	speaker: DIA_MOM,
 	emotion: 0,
-	text: "He’s just trying to help, Alex.",
+	text: "He's just trying to help, Alex.",
 	jump_to: 0
 }
 
@@ -408,7 +408,7 @@ line_44 = {
 	on_the_left: false,
 	speaker: DIA_DAD,
 	emotion: 0,
-	text: "Yeah, it’s preferable to being kicked out, right? You’re 18, you don’t gotta stay here.",
+	text: "Yeah, it's preferable to being kicked out, right? You're 18, you don't gotta stay here.",
 	jump_to: 0
 }
 
@@ -417,7 +417,7 @@ line_45 = {
 	on_the_left: false,
 	speaker: DIA_MOM,
 	emotion: 0,
-	text: "No no, Alex should stay here. She’s too young to leave!",
+	text: "No no, Alex should stay here. She's too young to leave!",
 	jump_to: 0
 }
 
@@ -426,8 +426,8 @@ selection_46 = {
 	text_to_show: "Who should I respond to?",
 	color: c_gray,
 	options: ["Mom", "Dad", "Uncle Danny"],
-	option_descriptions: ["You’re just making it worse.", "Stop being an asshole.", "You’re not my dad."],
-	option_jump_index: [47,0,0],  
+	option_descriptions: ["You're just making it worse.", "Stop being an asshole.", "You're not my dad."],
+	option_jump_index: [47,49,51],  
 	option_choice_index: [0,0,0] 
 }
 
@@ -463,7 +463,7 @@ line_50 = {
 	on_the_left: false,
 	speaker: DIA_DAD,
 	emotion: 0,
-	text: "Did you just call me an asshole? Oh, you’re gonna regret that.",
+	text: "Did you just call me an asshole? Oh, you're gonna regret that.",
 	jump_to: 53
 }
 
@@ -472,7 +472,7 @@ line_51 = {
 	on_the_left: true,
 	speaker: 0,
 	emotion: 0,
-	text: "Danny, you’re not my dad. You can’t tell me what to do.",
+	text: "Danny, you're not my dad. You can't tell me what to do.",
 	jump_to: 0
 }
 
@@ -481,7 +481,7 @@ line_52 = {
 	on_the_left: false,
 	speaker: DIA_UNCLE,
 	emotion: 0,
-	text: "I ain’t your dad, but I’m still your family.",
+	text: "I ain't your dad, but I'm still your family.",
 	jump_to: 53
 }
 
@@ -533,13 +533,13 @@ line_42,
 line_43, 
 line_44, 
 line_45, 
-selection_46
+selection_46,
 line_47, 
 line_48, 
 line_49, 
 line_50, 
 line_51, 
-line_52, 
+line_52
 ];
 
 global.conversations[3] = current_conversation;

@@ -622,6 +622,10 @@ function bh_win_action(level)
 	else if(level == LEVEL_5_DINNER_BATTLE)
 	{
 		level_5_complete = true;	
+		
+		dinner_win_text = "Screw you guys. I'm going to my room.";
+		
+		dialogue_pre_transition(dinner_win_text);
 	}
 }
 
