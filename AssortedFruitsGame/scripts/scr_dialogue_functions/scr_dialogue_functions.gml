@@ -49,13 +49,14 @@ function dialogue_init()
 	dialogue_selection_visible = false;
 	dialogue_selection = 0;
 	dialogue_in_person = true;
+	dialogue_multi_opt = false;
 	conversation_index = 1; // starts at 1 since data is index 0
-	conversation = [];
-	conversation_boxes = [];
-	dialogue_selection_options   = [];
-	dialogue_selection_jumps     = [];
-	dialogue_selection_buttons   = [];
-	dialogue_selection_choices = [];
+	conversation				= [];
+	conversation_boxes			= [];
+	dialogue_selection_options  = [];
+	dialogue_selection_jumps    = [];
+	dialogue_selection_buttons  = [];
+	dialogue_selection_choices	= [];
 }
 
 function dialogue_start(dialogue_level)
@@ -353,6 +354,7 @@ function load_conversation(level)
 	{
 		dialogue_left  = instance_create_layer(0,0, "Dialogue", conversation_data[0].left_speaker);
 		dialogue_right = instance_create_layer(0,0, "Dialogue", conversation_data[0].right_speaker);
+		dialogue_multi_opt = conversation_data[0].multiple_options;
 	
 		for(i = 1; i < array_length(conversation_data); i++)
 		{
@@ -360,11 +362,23 @@ function load_conversation(level)
 			current_conversation = conversation[i];
 			if(current_conversation.type == "selection")
 			{				
-				for(j = 0; j < array_length(conversation[i].option_descriptions); j++)
+				if(dialogue_multi_opt)
 				{
-					dialogue_selection_options[j]   = current_conversation.option_descriptions[j];
-					dialogue_selection_jumps[j]     = current_conversation.option_jump_index[j];
-					dialogue_selection_choices[j]   = current_conversation.option_choice_index[j];
+					for(j = 0; j < array_length(conversation[i].option_descriptions); j++)
+					{
+						dialogue_selection_options[i][j]   = current_conversation.option_descriptions[j];
+						dialogue_selection_jumps[i][j]     = current_conversation.option_jump_index[j];
+						dialogue_selection_choices[i][j]   = current_conversation.option_choice_index[j];
+					}
+				}
+				else
+				{
+					for(j = 0; j < array_length(conversation[i].option_descriptions); j++)
+					{
+						dialogue_selection_options[j]   = current_conversation.option_descriptions[j];
+						dialogue_selection_jumps[j]     = current_conversation.option_jump_index[j];
+						dialogue_selection_choices[j]   = current_conversation.option_choice_index[j];
+					}
 				}
 			}
 		}
@@ -480,7 +494,15 @@ function show_options()
 		options = dialogue_selection_options;
 		jumps   = dialogue_selection_jumps;
 		choices = dialogue_selection_choices;
-		num_options = array_length(options);		
+		
+		if(dialogue_multi_opt)
+		{
+			num_options = array_length(options[conversation_index]);	
+		}
+		else
+		{
+			num_options = array_length(options);		
+		}
 		
 		for(i = 0; i < num_options; i++)
 		{
@@ -496,13 +518,23 @@ function show_options()
 			current_selection = conversation[conversation_index];
 		
 			box.current_text = current_selection.text_to_show;
-			box.box_tint = current_selection.color;
+			box.box_tint	 = current_selection.color;
+			box.current_name = "";
 		
 			option_button = instance_create_layer(0, 0, "Dialogue", obj_selection_dia);
 			
-			option_button.text = options[i];
-			option_button.jump_index = jumps[i];
-			option_button.choice_index  = choices[i];
+			if(dialogue_multi_opt)
+			{
+				option_button.text			= options[conversation_index][i];
+				option_button.jump_index	= jumps[conversation_index][i];
+				option_button.choice_index  = choices[conversation_index][i];
+			}
+			else
+			{
+				option_button.text			= options[i];
+				option_button.jump_index	= jumps[i];
+				option_button.choice_index  = choices[i];
+			}
 		
 			
 			box_left_guix = get_guix(box.x);
@@ -514,7 +546,7 @@ function show_options()
 			}
 			else if(num_options == 2)
 			{
-				spacing = 0.8
+				spacing = 0.6
 			}
 			
 			option_button.x = box_left_guix + ((box.box_width*spacing) * (i+1));

@@ -3,10 +3,11 @@
 function get_convo_two()
 {
 	setup_data = {
-	type: "data",
-	left_speaker: obj_alex_dia,
-	right_speaker: obj_stella_dia,
-	in_person: true
+		type: "data",
+		left_speaker: obj_alex_dia,
+		right_speaker: obj_stella_dia,
+		in_person: true,
+		multiple_options: true
 	}
 
 	line_0 = {
@@ -416,7 +417,7 @@ function get_convo_two()
 		on_the_left: true,         
 		emotion: 0,  
 		text: "[Ability gained: Affirmations! You can now heal yourself in battle.]",    
-		jump_to: 0				 
+		jump_to: 77				 
 	}
 
 	line_51 = {
@@ -512,7 +513,7 @@ function get_convo_two()
 		on_the_left: true,         
 		emotion: 0,  
 		text: "[Ability gained: Dash! Dash through your battles with ease.]",    
-		jump_to: 0				 
+		jump_to: 77				 
 	}
 
 	line_63 = {
@@ -624,7 +625,7 @@ function get_convo_two()
 		on_the_left: true,         
 		emotion: 0,  
 		text: "[Ability gained: Shield! You can now protect yourself in battle.]",    
-		jump_to: 0				 
+		jump_to: 77				 
 	}
 
 	line_77 = {

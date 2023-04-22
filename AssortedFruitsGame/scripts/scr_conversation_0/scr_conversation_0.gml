@@ -4,7 +4,8 @@ setup_data = {
 	type: "data",
 	left_speaker: obj_stella_dia,
 	right_speaker: obj_alex_dia,
-	in_person: false
+	in_person: false,
+	multiple_options: false
 }
 
 line_0 = {
