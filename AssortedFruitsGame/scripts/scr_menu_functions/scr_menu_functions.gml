@@ -10,73 +10,58 @@ function menu_update(){
 	
 	if (global.game_state == MENU && main_menu_visible == false && settings_menu_visible == false)
 	{
+		with(obj_game)
+		{
+			// Reset all timers to 0
+			alarm[0] = -1; 
+			alarm[1] = -1; 
+			alarm[2] = -1;
+		}
+		
 		main_menu_show();
 	}
 	
-	if (global.game_state == PAUSED || global.game_state == MENU) 
-	{
-		// This will pause the timer so no obj_game alarms activate while paused
-		obj_game.alarm[0]++; 
-	}
+
 	
 	with(obj_game)
 	{
-		if(pause_menu_visible || main_menu_visible)
+		if (global.game_state == PAUSED) 
 		{
-			if(menu_selection_up())
+			// This will basically pause the timer at it's current state so no obj_game alarms activate while paused
+			alarm[0]++; 
+			alarm[1]++; 
+			alarm[2]++; 
+		} 
+		
+		// Check for moving up or down on the menu
+		if(menu_selection_up())
+		{
+			if(main_menu_visible)
 			{
-				menu_buttons[menu_selected].selected = false;
-				if(menu_selected > 0)
-				{
-					menu_selected--;
-				}
-				else
-				{
-					menu_selected = array_length(menu_buttons) - 1;
-				}
-				menu_buttons[menu_selected].selected = true;
+				main_menu_up();
 			}
-			else if(menu_selection_down())
+			else if(pause_menu_visible)
 			{
-				menu_buttons[menu_selected].selected = false;
-				if(menu_selected < array_length(menu_buttons) - 1)
-				{
-					menu_selected++;
-				}
-				else
-				{
-					menu_selected = 0;
-				}
-				menu_buttons[menu_selected].selected = true;
+				pause_menu_up();
+			}
+			else if(settings_menu_visible)
+			{
+				settings_menu_up();
 			}
 		}
-		else if(settings_menu_visible)
+		else if(menu_selection_down())
 		{
-			if(menu_selection_up())
+			if(main_menu_visible)
 			{
-				settings_buttons[settings_selected].selected = false;
-				if(settings_selected > 0)
-				{
-					settings_selected--;
-				}
-				else
-				{
-					settings_selected = array_length(settings_buttons) - 1;
-				}
-				settings_buttons[settings_selected].selected = true;
+				main_menu_down();
 			}
-			else if(menu_selection_down())
+			else if(pause_menu_visible)
 			{
-				settings_buttons[settings_selected].selected = false;
-				if(settings_selected < array_length(settings_buttons) - 1)
-				{
-					settings_selected++;
-				}
-				else
-				{
-					settings_selected = 0;
-				}
-				settings_buttons[settings_selected].selected = true;
+				pause_menu_down();
+			}
+			else if(settings_menu_visible)
+			{
+				settings_menu_down();
 			}
 		}
 	}
@@ -102,16 +87,16 @@ function main_menu_show()
 			mm_x = global.resolution_w * 0.5;
 			mm_y = global.resolution_h * 0.5;
 	
-			menu_buttons[0] = instance_create_layer(mm_x, mm_y - 50, "Main_Menu", obj_new_button);
-			menu_buttons[1] = instance_create_layer(mm_x, mm_y, "Main_Menu", obj_play_button);
-			menu_buttons[2] = instance_create_layer(mm_x, mm_y + 50, "Main_Menu", obj_settings_button);
-			menu_buttons[3] = instance_create_layer(mm_x, mm_y + 100, "Main_Menu", obj_main_quit_button);
-			menu_buttons[3].layer_to_check = "Main_Menu"; // Needed due to using same button for two menus
+			main_menu_buttons[0] = instance_create_layer(mm_x, mm_y - 50, "Main_Menu", obj_new_button);
+			main_menu_buttons[1] = instance_create_layer(mm_x, mm_y, "Main_Menu", obj_play_button);
+			main_menu_buttons[2] = instance_create_layer(mm_x, mm_y + 50, "Main_Menu", obj_settings_button);
+			main_menu_buttons[3] = instance_create_layer(mm_x, mm_y + 100, "Main_Menu", obj_main_quit_button);
+			main_menu_buttons[3].layer_to_check = "Main_Menu"; // Needed due to using same button for two menus
 	
 			if(global.gamepad_id > -1)
 			{
-				menu_selected = 0;
-				menu_buttons[menu_selected].selected = true;
+				main_menu_selected = 0;
+				main_menu_buttons[main_menu_selected].selected = true;
 			}
 		}
 	}
@@ -123,9 +108,9 @@ function main_menu_destroy()
 	{
 		main_menu_visible = false;
 		
-		for(i = 0; i < array_length(menu_buttons); i++)
+		for(i = 0; i < array_length(main_menu_buttons); i++)
 		{
-			instance_destroy(menu_buttons[i]);
+			instance_destroy(main_menu_buttons[i]);
 		}
 	}
 }
@@ -158,9 +143,9 @@ function main_menu_settings()
 	{
 		main_menu_visible = false;
 		
-		for(i = 0; i < array_length(menu_buttons); i++)
+		for(i = 0; i < array_length(main_menu_buttons); i++)
 		{
-			menu_buttons[i].visible = false;
+			main_menu_buttons[i].visible = false;
 		}
 		
 		settings_menu_show();
@@ -173,9 +158,9 @@ function main_menu_return()
 	{
 		main_menu_visible = true;
 		
-		for(i = 0; i < array_length(menu_buttons); i++)
+		for(i = 0; i < array_length(main_menu_buttons); i++)
 		{
-			menu_buttons[i].visible = true;
+			main_menu_buttons[i].visible = true;
 		}
 		
 		settings_menu_destroy();
@@ -185,6 +170,34 @@ function main_menu_return()
 function menu_quit()
 {
 	game_end();
+}
+
+function main_menu_up()
+{
+	main_menu_buttons[main_menu_selected].selected = false;
+	if(main_menu_selected > 0)
+	{
+		main_menu_selected--;
+	}
+	else
+	{
+		main_menu_selected = array_length(main_menu_buttons) - 1;
+	}
+	main_menu_buttons[main_menu_selected].selected = true;
+}
+
+function main_menu_down()
+{
+	main_menu_buttons[main_menu_selected].selected = false;
+	if(main_menu_selected < array_length(main_menu_buttons) - 1)
+	{
+		main_menu_selected++;
+	}
+	else
+	{
+		main_menu_selected = 0;
+	}
+	main_menu_buttons[main_menu_selected].selected = true;
 }
 #endregion
 
@@ -201,15 +214,15 @@ function pause_menu_show()
 		pm_y = global.resolution_h * 0.5;
 	
 		instance_create_layer(camera_x + (pm_x / 2), camera_y + (pm_y / 2), "Pause_Menu", obj_pause_background);
-		menu_buttons[0] = instance_create_layer(pm_x, pm_y - 175, "Pause_Menu", obj_continue_button);
-		menu_buttons[1] = instance_create_layer(pm_x, pm_y + 25, "Pause_Menu", obj_menu_button);
-		menu_buttons[2] = instance_create_layer(pm_x, pm_y + 225, "Pause_Menu", obj_pause_quit_button);
-		menu_buttons[2].layer_to_check = "Pause_Menu"; // Needed due to using same button for two menus
+		pause_menu_buttons[0] = instance_create_layer(pm_x, pm_y - 175, "Pause_Menu", obj_continue_button);
+		pause_menu_buttons[1] = instance_create_layer(pm_x, pm_y + 25, "Pause_Menu", obj_menu_button);
+		pause_menu_buttons[2] = instance_create_layer(pm_x, pm_y + 225, "Pause_Menu", obj_pause_quit_button);
+		pause_menu_buttons[2].layer_to_check = "Pause_Menu"; // Needed due to using same button for two menus
 	
 		if(global.gamepad_id > -1)
 		{
-			menu_selected = 0;
-			menu_buttons[menu_selected].selected = true;
+			pause_menu_selected = 0;
+			pause_menu_buttons[pause_menu_selected].selected = true;
 		}
 	}
 }
@@ -221,9 +234,9 @@ function pause_menu_destroy()
 		pause_menu_visible = false;
 		resume_background_music();
 	
-		for(i = 0; i < array_length(menu_buttons); i++)
+		for(i = 0; i < array_length(pause_menu_buttons); i++)
 		{
-			instance_destroy(menu_buttons[i]);
+			instance_destroy(pause_menu_buttons[i]);
 		}
 		
 		instance_destroy(obj_pause_background);
@@ -254,6 +267,35 @@ function pause_menu_continue()
 	
 	resume_dialogue();
 }
+
+function pause_menu_up()
+{
+	pause_menu_buttons[pause_menu_selected].selected = false;
+	if(pause_menu_selected > 0)
+	{
+		pause_menu_selected--;
+	}
+	else
+	{
+		pause_menu_selected = array_length(pause_menu_buttons) - 1;
+	}
+	pause_menu_buttons[pause_menu_selected].selected = true;
+}
+
+function pause_menu_down()
+{
+	pause_menu_buttons[pause_menu_selected].selected = false;
+	if(pause_menu_selected < array_length(pause_menu_buttons) - 1)
+	{
+		pause_menu_selected++;
+	}
+	else
+	{
+		pause_menu_selected = 0;
+	}
+	pause_menu_buttons[pause_menu_selected].selected = true;
+}
+
 #endregion
 
 #region Settings
@@ -346,5 +388,33 @@ function settings_update_resolution(value)
 			global.resolution_h = 1024;
 			break;
 	}
+}
+
+function settings_menu_up()
+{
+	settings_buttons[settings_selected].selected = false;
+	if(settings_selected > 0)
+	{
+		settings_selected--;
+	}
+	else
+	{
+		settings_selected = array_length(settings_buttons) - 1;
+	}
+	settings_buttons[settings_selected].selected = true;
+}
+
+function settings_menu_down()
+{
+	settings_buttons[settings_selected].selected = false;
+	if(settings_selected < array_length(settings_buttons) - 1)
+	{
+		settings_selected++;
+	}
+	else
+	{
+		settings_selected = 0;
+	}
+	settings_buttons[settings_selected].selected = true;
 }
 #endregion

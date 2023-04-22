@@ -25,11 +25,13 @@ viewport_setup = false;
 // surface_resize(application_surface, camera_width, camera_height);
 
 // Menus
-main_menu_visible = false
+main_menu_visible = false;
+main_menu_buttons = [];
+main_menu_selected = 0;
 pause_menu_visible = false;
+pause_menu_buttons = [];
+pause_menu_selected = 0;
 settings_menu_visible = false;
-menu_buttons = [];
-menu_selected = 0;
 settings_buttons = [];
 settings_visuals = [];
 settings_selected = 0;
