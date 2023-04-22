@@ -42,6 +42,12 @@ enum align{
 #macro PHONE_DIALOGUE 0
 #macro BUS_STOP_DIALOGUE 1
 #macro CAFE_DIALOGUE 2
+#macro DINNER_DIALOGUE 3
+#macro FINAL_DIALOGUE 4
+
+#macro DIA_MOM 0
+#macro DIA_DAD 1
+#macro DIA_UNCLE 2
 
 /// Emotions
 #macro ALEX_NEUTRAL 0

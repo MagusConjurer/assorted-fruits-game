@@ -86,10 +86,10 @@ function dialogue_start(dialogue_level)
 				load_conversation(CAFE_DIALOGUE);
 			break;
 			case LEVEL_4_DINNER:
-				//load_conversation();
+				load_conversation(DINNER_DIALOGUE);
 			break;
 			case LEVEL_6_BEDROOM:
-				//load_conversation();
+				load_conversation(FINAL_DIALOGUE);
 			break;
 		}
 	
