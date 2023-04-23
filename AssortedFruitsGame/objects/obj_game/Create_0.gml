@@ -60,6 +60,7 @@ bh_player_health = 0;
 bh_ability_index = 0;
 bh_ability_cooldown = 1;
 
+bh_bubble_type = 0;
 bh_bubble_max = 0;
 bh_bubble_start = 0;
 bh_bubble_start_health = 0;

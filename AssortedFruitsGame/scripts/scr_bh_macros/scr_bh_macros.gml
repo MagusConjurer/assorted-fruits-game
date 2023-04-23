@@ -70,6 +70,12 @@
 #macro BH_S_BUBBLE_PROJECTILE_SCALE		0.015
 #macro BH_S_BUBBLE_MOVE_SPEED			9
 
+// TYPES
+#macro BH_BUBBLE_BUSGUY obj_bubble
+#macro BH_BUBBLE_MOM obj_bubble_mom
+#macro BH_BUBBLE_DAD obj_bubble_dad
+#macro BH_BUBBLE_UNCLE obj_bubble_uncle
+
 #endregion
 
 #region BOOST

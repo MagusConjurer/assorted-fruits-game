@@ -87,20 +87,24 @@ function bh_start(level){
 	bh_dia_text = [];
 	if(level == LEVEL_2_BUS_BATTLE)
 	{
+		bh_bubble_type = BH_BUBBLE_BUSGUY;
 		bh_dia_text = get_bus_battle_dialogue();
 	}
 	else if(level == LEVEL_5_DINNER_BATTLE)
 	{
 		if(bh_dinner_choice == BH_BATTLE_MOM)
 		{
+			bh_bubble_type = BH_BUBBLE_MOM;
 			bh_dia_text = get_mom_battle_dialogue();
 		}
 		else if(bh_dinner_choice == BH_BATTLE_DAD)
 		{
+			bh_bubble_type = BH_BUBBLE_DAD;
 			bh_dia_text = get_dad_battle_dialogue();
 		}
 		else if(bh_dinner_choice == BH_BATTLE_UNCLE)
 		{
+			bh_bubble_type = BH_BUBBLE_UNCLE;
 			bh_dia_text = get_uncle_battle_dialogue();
 		}
 	}
@@ -356,7 +360,7 @@ function bh_spawn_bubble(y_index, is_first)
 			// Returns a negative number when no instance is there
 			if(instance_position(x_pos, y_pos, obj_bubble_parent) < 0)
 			{
-				_inst = instance_create_layer(x_pos, y_pos, "Bullet_Hell", obj_bubble);
+				_inst = instance_create_layer(x_pos, y_pos, "Bullet_Hell", bh_bubble_type);
 				_inst.image_xscale = 0.4;
 				_inst.image_yscale = 0.4;
 
@@ -369,7 +373,7 @@ function bh_spawn_bubble(y_index, is_first)
 		}
 		else
 		{
-			_inst = instance_create_layer(x_pos, y_pos, "Bullet_Hell", obj_bubble);
+			_inst = instance_create_layer(x_pos, y_pos, "Bullet_Hell", bh_bubble_type);
 			_inst.image_xscale = 0.4;
 			_inst.image_yscale = 0.4;
 
