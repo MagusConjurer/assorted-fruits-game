@@ -279,3 +279,36 @@ function menu_selection_right()
 		}
 	}
 }
+
+#region CONTROL DESCRIPTIONS
+function get_attack_hotkey()
+{
+	if(global.gamepad_id > -1)
+	{
+		return "RT/LT";
+	}
+	else
+	{
+		return "SPACE";
+	}
+}
+
+function get_ability_one_hotkey()
+{
+	if(global.gamepad_id > -1)
+	{
+		if(global.gamepad_type == XBOX)
+		{
+			return "X";
+		}
+		else if(global.gamepad_type == PLAYSTATION)
+		{
+			return "\u025A1";
+		}
+	}
+	else
+	{
+		return "L SHIFT";
+	}
+}
+#endregion

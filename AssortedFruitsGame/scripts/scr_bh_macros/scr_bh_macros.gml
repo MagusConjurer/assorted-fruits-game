@@ -8,7 +8,17 @@
 #macro BH_UI_CIRCLE 0
 #macro BH_UI_RECT   1
 #macro BH_VIGNETTE_START_INDEX 5
-#macro BH_VIGNETTE_FRAME_DELAY 30
+#macro BH_VIGNETTE_DELAY_TIME 1
+
+#macro BH_TIME_COLOR c_green
+#macro BH_HOTKEY_COLOR c_white
+// Text to show before the actual hotkey, which I will add before actually drawing it
+#macro BH_HOTKEY_ATTACK_TEXT "Attack - "
+#macro BH_HOTKEY_ABILITY_TEXT "Ability - "
+#macro BH_HOTKEY_X 150
+#macro BH_HOTKEY_ATTACK_Y 150
+#macro BH_HOTKEY_ABILITY_Y 160
+#macro BH_HOTKEY_VISIBLE_TIME 5
 
 #endregion
 

@@ -72,6 +72,9 @@ function bh_start(level){
 	if(global.bh_ability_one > 0)
 	{
 		instance_create_layer(BH_UI_MARGIN * 2, BH_UI_MARGIN * 2, "Bullet_Hell", obj_ability_one_button);
+		
+		bh_ability_hotkey_text = BH_HOTKEY_ABILITY_TEXT + get_ability_one_hotkey();
+		bh_show_ability_hotkey = true;
 	}
 	
 	if(bh_busstop_choice == BH_NO_RESPONSE)
@@ -81,6 +84,17 @@ function bh_start(level){
 	else if(bh_busstop_choice == BH_PLEASE_STOP)
 	{
 		bh_player.chose_to_fight_back = true;
+		
+		bh_attack_hotkey_text = BH_HOTKEY_ATTACK_TEXT + get_attack_hotkey();
+		bh_show_attack_hotkey = true;
+	}
+	
+	if(bh_show_attack_hotkey || bh_show_ability_hotkey)
+	{
+		if(alarm_get(4) < 0)
+		{
+			alarm_set(4, BH_HOTKEY_VISIBLE_TIME * 60);
+		}
 	}
 	
 	// Setup the dialogue for during the battle
@@ -175,7 +189,7 @@ function bh_update_vignette()
 			{
 				if(alarm_get(3) < 0)
 				{
-					alarm_set(3, BH_VIGNETTE_FRAME_DELAY);
+					alarm_set(3, BH_VIGNETTE_DELAY_TIME * 60);
 				}
 			}
 		}
