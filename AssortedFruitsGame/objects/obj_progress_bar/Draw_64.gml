@@ -7,10 +7,8 @@ draw_sprite_part_ext(spr_progress_bar, 1,
 					x, y-sprite_get_yoffset(sprite_index),
 					percentToScale,1,
 					progress_blend_color,1);
-				
-// draw_sprite(progress_icon, 0, x + sprite_width * current_value, y);
 
 draw_sprite_ext(progress_icon, 0, x + sprite_width * current_value, y, 
-			    0.2, 0.2, 0, c_white, 1);
+			    0.2, 0.2, 0, icon_blend_color, 1);
 				
 event_inherited();

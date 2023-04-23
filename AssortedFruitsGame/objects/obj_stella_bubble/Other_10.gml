@@ -1,1 +1,1 @@
-dialogue_start(LEVEL_3_CAFE);
+set_game_state_and_start(DIALOGUE);

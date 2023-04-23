@@ -47,7 +47,7 @@ global.bh_ability_one = 0;
 if(global.debugging == true) 
 {
 	global.music_enabled = false;
-	global.current_level = LEVEL_3_CAFE;
+	global.fullscreen_enabled = false;
 }
 
 

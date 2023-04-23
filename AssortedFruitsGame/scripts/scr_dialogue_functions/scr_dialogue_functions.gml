@@ -1,7 +1,7 @@
 /// Called by obj_game to check for necessary dialogue updates
 function dialogue_update()
 {
-	if (global.game_state == DIALOGUE && dialogue_active = true)
+	if ((global.game_state == DIALOGUE || global.game_state == ENVIRONMENTAL) && dialogue_active = true)
 	{
 		if(global.gamepad_id > -1)
 		{
@@ -67,9 +67,7 @@ function dialogue_init()
 }
 
 function dialogue_start(dialogue_level)
-{
-	set_game_state(DIALOGUE);
-	
+{	
 	with(obj_game)
 	{
 		dialogue_init();
@@ -108,32 +106,36 @@ function dialogue_start(dialogue_level)
 	}
 }
 
-function dialogue_environmental(dialogue_text)
+function dialogue_set_nonstandard_text(dialogue_text)
 {
-	set_game_state(DIALOGUE);
-	
+	with(obj_game)
+	{
+		environmental_text = dialogue_text;
+	}
+}
+
+function dialogue_environmental()
+{	
 	with(obj_game)
 	{
 		dialogue_init();
 		dialogue_in_person = true;
 		draw_textbox(DIALOGUE_ENVIRONMENTAL);
-		conversation_boxes[0].current_text = dialogue_text;
+		conversation_boxes[0].current_text = environmental_text;
 		conversation_boxes[0].current_name = "Alex";
 		
 		dialogue_button_init(DIALOGUE_ENVIRONMENTAL);
 	}
 }
 
-function dialogue_pre_transition(dialogue_text)
+function dialogue_pre_transition()
 {
-	set_game_state(DIALOGUE);
-	
 	with(obj_game)
 	{
 		dialogue_init();
 		dialogue_in_person = true;
 		draw_textbox(DIALOGUE_TRANSITION);
-		conversation_boxes[0].current_text = dialogue_text;
+		conversation_boxes[0].current_text = environmental_text;
 		conversation_boxes[0].current_name = "Alex";
 		
 		dialogue_button_init(DIALOGUE_TRANSITION);
@@ -529,25 +531,41 @@ function end_conversation()
 {
 	with(obj_game)
 	{
-		instance_destroy(obj_dialogue_parent);
-		instance_destroy(dialogue_button);
-	
-		dialogue_active = false;
-	
-		if(global.current_level == LEVEL_1_BUS_STOP)
+		dialogue_destroy();
+		
+		if(global.game_state == DIALOGUE)
 		{
-			global.current_level = LEVEL_2_BUS_BATTLE;
-			set_game_state(BULLET_HELL);
-		}
-		else if (global.current_level == LEVEL_4_DINNER)
-		{
-			global.current_level = LEVEL_5_DINNER_BATTLE;
-			set_game_state(BULLET_HELL);
+			level_completed[global.current_level] = true;
+			
+			if (global.current_level == LEVEL_0_BEDROOM ||
+				global.current_level == LEVEL_3_CAFE	|| 
+				global.current_level == LEVEL_6_BEDROOM)
+			{
+				global.current_level += 1;
+				set_game_state(OVERWORLD);
+			}			
+			else 
+			{
+				global.current_level += 1;
+				set_game_state_and_start(BULLET_HELL);
+			}
 		}
 		else
 		{
 			set_game_state(OVERWORLD);
 		}
+	}
+}
+
+function dialogue_destroy()
+{
+	instance_destroy(obj_dialogue_parent);
+	
+	with(obj_game)
+	{
+		instance_destroy(dialogue_button);
+	
+		dialogue_active = false;
 	}
 }
 
@@ -642,7 +660,7 @@ function complete_selection()
 
 function pause_dialogue()
 {
-	if(global.prev_state == DIALOGUE)
+	if(global.prev_state == DIALOGUE || global.prev_state == ENVIRONMENTAL)
 	{
 		with(obj_game)
 		{
@@ -666,7 +684,7 @@ function pause_dialogue()
 
 function resume_dialogue()
 {
-	if(global.game_state == DIALOGUE)
+	if(global.game_state == DIALOGUE || global.game_state == ENVIRONMENTAL)
 	{
 		with(obj_game)
 		{

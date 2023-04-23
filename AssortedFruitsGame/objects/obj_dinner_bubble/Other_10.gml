@@ -1,1 +1,1 @@
-dialogue_start(LEVEL_4_DINNER);
+set_game_state_and_start(DIALOGUE);

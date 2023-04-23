@@ -160,14 +160,17 @@ function ability_one_pressed()
 
 function menu_toggle_pressed()
 {
-	if(global.gamepad_id > -1)
+	if(!instance_exists(obj_transition_parent))
 	{
-		// Press Start (Xbox)/Options (Playstation
-		return gamepad_button_check_pressed(global.gamepad_id, gp_start);
-	}
-	else
-	{
-		return keyboard_check_pressed(global.hotkey_menu);
+		if(global.gamepad_id > -1)
+		{
+			// Press Start (Xbox)/Options (Playstation
+			return gamepad_button_check_pressed(global.gamepad_id, gp_start);
+		}
+		else
+		{
+			return keyboard_check_pressed(global.hotkey_menu);
+		}
 	}
 }
 

@@ -7,6 +7,7 @@ if(global.game_state == active_state)
 } 
 else
 {
+	depth = DARKENING_DEPTH + 1;
 	image_speed = 0;
 }
 

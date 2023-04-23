@@ -2,15 +2,7 @@
 
 function bh_update()
 {
-	if (global.game_state == BULLET_HELL && bh_active == false)
-	{
-		bh_active = true;
-	
-		bh_start();
-	
-		bh_time_spent = 0;
-	}
-	else if (global.game_state == BULLET_HELL && bh_active == true)
+	if (global.game_state == BULLET_HELL && bh_active == true)
 	{
 		// Time in seconds
 		dt = delta_time / 1000000;
@@ -51,12 +43,9 @@ function bh_update()
 	}
 }
 
-function bh_start(){
-	if(global.current_level == LEVEL_2_BUS_BATTLE)
-	{
-		level_2_complete = false;
-		level_5_complete = false;
-	} 
+function bh_start(level){
+	bh_active = true;
+	bh_time_spent = 0;
 	
 	// Player	
 	bh_player_health = BH_PLAYER_HEALTH_DEFAULT;
@@ -89,18 +78,13 @@ function bh_start(){
 		bh_player.chose_to_fight_back = true;
 	}
 	
-	if(global.debugging)
-	{
-		global.current_level = LEVEL_2_BUS_BATTLE;
-	}
-	
 	// Setup the dialogue for during the battle
 	bh_dia_text = [];
-	if(global.current_level == LEVEL_2_BUS_BATTLE)
+	if(level == LEVEL_2_BUS_BATTLE)
 	{
 		bh_dia_text = get_bus_battle_dialogue();
 	}
-	else if(global.current_level == LEVEL_5_DINNER_BATTLE)
+	else if(level == LEVEL_5_DINNER_BATTLE)
 	{
 		if(bh_dinner_choice == BH_BATTLE_MOM)
 		{
@@ -153,21 +137,6 @@ function bh_start_value_init()
 		bh_bubble_projectiles_scale = BH_S_BUBBLE_PROJECTILE_SCALE;
 		bh_bubble_pop_time			= BH_S_BUBBLE_TIME_BEFORE_POPPING;
 		bh_bubble_move_speed		= BH_S_BUBBLE_MOVE_SPEED;
-	}
-}
-
-function bh_check_level_completed(level)
-{
-	with(obj_game)
-	{
-		if(level == LEVEL_2_BUS_BATTLE)
-		{
-			return level_2_complete;
-		}
-		else if(level == LEVEL_5_DINNER_BATTLE)
-		{
-			return level_5_complete;
-		}
 	}
 }
 
@@ -369,7 +338,8 @@ function bh_spawn_bubble(y_index, is_first)
 		
 		if(is_first)
 		{
-			if(position_empty(x_pos, y_pos))
+			// Returns a negative number when no instance is there
+			if(instance_position(x_pos, y_pos, obj_bubble_parent) < 0)
 			{
 				_inst = instance_create_layer(x_pos, y_pos, "Bullet_Hell", obj_bubble);
 				_inst.image_xscale = 0.4;
@@ -496,7 +466,7 @@ function bh_spawn_progress_boost()
 	{
 		if(!bh_boost_available)
 		{
-			x_pos = camera_x + BH_UI_MARGIN;
+			x_pos = camera_x + (BH_UI_MARGIN * 3);
 			rand_y_pos = irandom_range(camera_y + BH_UI_MARGIN, camera_y + camera_height - BH_UI_MARGIN);
 			
 			instance_create_layer(x_pos,rand_y_pos,"Bullet_Hell",obj_bubble_boost);
@@ -611,25 +581,29 @@ function bh_win_action(level)
 {
 	if(level == LEVEL_2_BUS_BATTLE)
 	{
-		level_2_complete = true;
+		level_completed[level] = true;
+		global.current_level = LEVEL_3_CAFE;
 		
 		play_sfx(AUDIO_BUS_TRANSITION);
 		
 		bus_stop_win_text = "Ah, the bus! This is my chance to get the hell out of here.";
 	
-		dialogue_pre_transition(bus_stop_win_text);
+		dialogue_set_nonstandard_text(bus_stop_win_text);
+		set_game_state_and_start(PRE_TRANSITION);
 	}
 	else if(level == LEVEL_5_DINNER_BATTLE)
 	{
-		level_5_complete = true;	
+		level_completed[level] = true;
+		global.current_level = LEVEL_6_BEDROOM;
 		
 		dinner_win_text = "Screw you guys. I'm going to my room.";
 		
-		dialogue_pre_transition(dinner_win_text);
+		dialogue_set_nonstandard_text(dinner_win_text);
+		set_game_state_and_start(PRE_TRANSITION);
 	}
 }
 
-// Destroys all BH instances and updates the game state back to the Overworld
+// Destroys all BH instances
 function bh_cleanup()
 {
 	with(obj_game)
@@ -639,9 +613,8 @@ function bh_cleanup()
 		instance_destroy(obj_bh_parent);
 	
 		bh_active = false;
-		set_game_state(DIALOGUE);
 	
-		// Stop all alarms
+		// Stop all alarms that spawn bh stuff
 		alarm[0] = -1;
 		alarm[1] = -1;
 	}

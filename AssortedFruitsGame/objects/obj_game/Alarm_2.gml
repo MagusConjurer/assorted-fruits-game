@@ -1,3 +1,3 @@
 /// @description BH Loss Restart
 
-set_game_state(BULLET_HELL);
+set_game_state_and_start(BULLET_HELL);

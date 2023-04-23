@@ -6,8 +6,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Decor",
-    "path": "folders/Objects/Overworld/Decor.yy",
+    "name": "Cafe",
+    "path": "folders/Objects/Overworld/Decor/Cafe.yy",
   },
   "parentObjectId": {
     "name": "obj_decor_parent",
