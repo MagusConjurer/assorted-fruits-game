@@ -12,6 +12,8 @@ if(global.game_state == active_state)
 	right_x = x + (xWidth * percentToScale);
 	top_y = y-sprite_get_yoffset(sprite_index);
 	bot_y = y+sprite_get_yoffset(sprite_index);
+	
+	icon_blend_color = c_white;
 
 	if(progress_pulse_frames > 0)
 	{
@@ -39,4 +41,8 @@ if(global.game_state == active_state)
 	{
 		progress_blend_color = c_green;
 	}
+}
+else
+{
+	icon_blend_color = c_gray;
 }

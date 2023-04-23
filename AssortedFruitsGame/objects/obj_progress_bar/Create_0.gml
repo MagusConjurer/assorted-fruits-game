@@ -4,6 +4,7 @@
 event_inherited();
 
 bh_ui_type = BH_UI_RECT;
+icon_blend_color = c_white;
 
 // Using similar setup as the slider_parent
 current_value = 0;

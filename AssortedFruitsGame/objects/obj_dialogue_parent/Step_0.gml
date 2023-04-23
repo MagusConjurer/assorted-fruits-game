@@ -8,3 +8,7 @@ if(active_state)
 {	
 	depth = DIA_DEPTH;
 }
+else
+{
+	depth = DARKENING_DEPTH + 1;
+}
