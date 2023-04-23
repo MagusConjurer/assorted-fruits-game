@@ -46,6 +46,13 @@ function bh_update()
 function bh_start(level){
 	bh_active = true;
 	bh_time_spent = 0;
+	bh_vignette_index = 0
+	
+	bh_bubbles_popped = 0;
+	num_active_bubbles = 0;
+	
+	bh_dia_seq_created = false;
+	bh_boost_available = false;
 	
 	// Player	
 	bh_player_health = BH_PLAYER_HEALTH_DEFAULT;
@@ -54,9 +61,7 @@ function bh_start(level){
 	// Temporary fix for scaling issue
 	bh_player.image_xscale = 0.2;
 	bh_player.image_yscale = 0.2;
-	
-	bh_bubbles_popped = 0;
-	num_active_bubbles = 0;
+
 	bubble_height = sprite_get_height(spr_wordbubble_combined) * 0.2;
 	
 	bh_start_value_init();
@@ -100,14 +105,12 @@ function bh_start(level){
 		}
 	}
 	
-	bh_time_spent = 0;
 	bh_progress_bar = instance_create_layer(0, BH_UI_MARGIN, "Bullet_Hell", obj_progress_bar);
 	bh_set_progress_icon();
 	
-	bh_dia_seq_created = false;
+
 	bh_setup_checkpoints();
 	
-	bh_boost_available = false;
 	alarm[1] = BH_SECONDS_BEFORE_BOOST * 60; // seconds * FPS
 	
 	// First wall of bubbles
@@ -155,11 +158,23 @@ function bh_get_player_health()
 	}
 }
 
-function bh_status_index()
+function bh_update_vignette()
 {
 	with(obj_game)
 	{
-		return BH_PLAYER_HEALTH_DEFAULT - bh_player_health;
+		status = BH_PLAYER_HEALTH_DEFAULT - bh_player_health;
+		
+		if(status > 0)
+		{
+			// Check if it is less that the starting index plus the amount of change that should have taken place
+			if(bh_vignette_index < BH_VIGNETTE_START_INDEX + (status * bh_vignette_changes_per))
+			{
+				if(alarm_get(3) < 0)
+				{
+					alarm_set(3, BH_VIGNETTE_FRAME_DELAY);
+				}
+			}
+		}
 	}
 }
 

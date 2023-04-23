@@ -84,7 +84,10 @@ bh_next_checkpoint = 0;
 bh_checkpoint_size = 0;
 bh_checkpoint_status = [];
 bh_time_spent = 0;
-bh_vignette_levels = sprite_get_number(spr_bh_vignette) - 1;
+bh_vignette_index = 0;
+bh_vignette_levels_total = sprite_get_number(spr_bh_vignette) - 1;
+bh_vignette_levels_after_start = bh_vignette_levels_total - BH_VIGNETTE_START_INDEX;
+bh_vignette_changes_per = bh_vignette_levels_after_start / BH_PLAYER_HEALTH_DEFAULT;
 #endregion
 
 #region Dialogue

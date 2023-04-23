@@ -8,6 +8,7 @@
 #macro BH_UI_CIRCLE 0
 #macro BH_UI_RECT   1
 #macro BH_VIGNETTE_START_INDEX 5
+#macro BH_VIGNETTE_FRAME_DELAY 30
 
 #endregion
 

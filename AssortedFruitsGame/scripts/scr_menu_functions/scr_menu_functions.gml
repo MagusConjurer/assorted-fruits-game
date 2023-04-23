@@ -16,6 +16,7 @@ function menu_update(){
 			alarm[0] = -1; 
 			alarm[1] = -1; 
 			alarm[2] = -1;
+			alarm[3] = -1;
 		}
 		
 		main_menu_show();
@@ -31,6 +32,7 @@ function menu_update(){
 			alarm[0]++; 
 			alarm[1]++; 
 			alarm[2]++; 
+			alarm[3]++;
 		} 
 		
 		// Check for moving up or down on the menu
@@ -221,7 +223,7 @@ function pause_menu_show()
 		pm_x = global.resolution_w * 0.5;
 		pm_y = global.resolution_h * 0.5;
 	
-		instance_create_layer(camera_x + (pm_x / 2), camera_y + (pm_y / 2), "Pause_Menu", obj_pause_background);
+		instance_create_layer(pm_x, pm_y, "Pause_Menu", obj_pause_background);
 		pause_menu_buttons[0] = instance_create_layer(pm_x, pm_y - 175, "Pause_Menu", obj_continue_button);
 		pause_menu_buttons[1] = instance_create_layer(pm_x, pm_y + 25, "Pause_Menu", obj_menu_button);
 		pause_menu_buttons[2] = instance_create_layer(pm_x, pm_y + 225, "Pause_Menu", obj_pause_quit_button);
