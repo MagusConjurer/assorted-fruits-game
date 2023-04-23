@@ -21,6 +21,7 @@
 #macro ROOM_CAFE	rm_cafe
 // #macro ROOM_DINNER dinner
 
+#macro LEVEL_X_MENU          "X"
 #macro LEVEL_0_BEDROOM		 0 
 #macro LEVEL_1_BUS_STOP		 1 
 #macro LEVEL_2_BUS_BATTLE	 2 
@@ -52,8 +53,10 @@
 #macro OVERWORLD 0
 #macro BULLET_HELL 1
 #macro DIALOGUE 2
-#macro PAUSED 3
-#macro MENU 4
+#macro ENVIRONMENTAL 3
+#macro PRE_TRANSITION 4
+#macro PAUSED 4
+#macro MENU 5
 
 // Depths
 #macro DARKENING_DEPTH -990

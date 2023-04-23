@@ -1,7 +1,7 @@
 /// Called by obj_game to check for necessary dialogue updates
 function dialogue_update()
 {
-	if (global.game_state == DIALOGUE && dialogue_active = true)
+	if ((global.game_state == DIALOGUE || global.game_state == ENVIRONMENTAL) && dialogue_active = true)
 	{
 		if(global.gamepad_id > -1)
 		{
@@ -67,9 +67,7 @@ function dialogue_init()
 }
 
 function dialogue_start(dialogue_level)
-{
-	set_game_state(DIALOGUE);
-	
+{	
 	with(obj_game)
 	{
 		dialogue_init();
@@ -77,18 +75,23 @@ function dialogue_start(dialogue_level)
 		switch(dialogue_level)
 		{
 			case LEVEL_0_BEDROOM:
+				level_completed[LEVEL_0_BEDROOM] = false;
 				load_conversation(PHONE_DIALOGUE);
 			break;
 			case LEVEL_1_BUS_STOP:
+				level_completed[LEVEL_1_BUS_STOP] = false;
 				load_conversation(BUS_STOP_DIALOGUE);
 			break;
 			case LEVEL_3_CAFE:
+				level_completed[LEVEL_3_CAFE] = false;
 				load_conversation(CAFE_DIALOGUE);
 			break;
 			case LEVEL_4_DINNER:
+				level_completed[LEVEL_4_DINNER] = false;
 				load_conversation(DINNER_DIALOGUE);
 			break;
 			case LEVEL_6_BEDROOM:
+				level_completed[LEVEL_6_BEDROOM] = false;
 				load_conversation(FINAL_DIALOGUE);
 			break;
 		}
@@ -108,32 +111,36 @@ function dialogue_start(dialogue_level)
 	}
 }
 
-function dialogue_environmental(dialogue_text)
+function dialogue_set_nonstandard_text(dialogue_text)
 {
-	set_game_state(DIALOGUE);
-	
+	with(obj_game)
+	{
+		environmental_text = dialogue_text;
+	}
+}
+
+function dialogue_environmental()
+{	
 	with(obj_game)
 	{
 		dialogue_init();
 		dialogue_in_person = true;
 		draw_textbox(DIALOGUE_ENVIRONMENTAL);
-		conversation_boxes[0].current_text = dialogue_text;
+		conversation_boxes[0].current_text = environmental_text;
 		conversation_boxes[0].current_name = "Alex";
 		
 		dialogue_button_init(DIALOGUE_ENVIRONMENTAL);
 	}
 }
 
-function dialogue_pre_transition(dialogue_text)
+function dialogue_pre_transition()
 {
-	set_game_state(DIALOGUE);
-	
 	with(obj_game)
 	{
 		dialogue_init();
 		dialogue_in_person = true;
 		draw_textbox(DIALOGUE_TRANSITION);
-		conversation_boxes[0].current_text = dialogue_text;
+		conversation_boxes[0].current_text = environmental_text;
 		conversation_boxes[0].current_name = "Alex";
 		
 		dialogue_button_init(DIALOGUE_TRANSITION);
@@ -529,10 +536,9 @@ function end_conversation()
 {
 	with(obj_game)
 	{
-		instance_destroy(obj_dialogue_parent);
-		instance_destroy(dialogue_button);
-	
-		dialogue_active = false;
+		dialogue_destroy();
+		
+		level_completed[global.current_level] = true;
 	
 		if(global.current_level == LEVEL_1_BUS_STOP)
 		{
@@ -548,6 +554,18 @@ function end_conversation()
 		{
 			set_game_state(OVERWORLD);
 		}
+	}
+}
+
+function dialogue_destroy()
+{
+	instance_destroy(obj_dialogue_parent);
+	
+	with(obj_game)
+	{
+		instance_destroy(dialogue_button);
+	
+		dialogue_active = false;
 	}
 }
 
@@ -642,7 +660,7 @@ function complete_selection()
 
 function pause_dialogue()
 {
-	if(global.prev_state == DIALOGUE)
+	if(global.prev_state == DIALOGUE || global.prev_state == ENVIRONMENTAL)
 	{
 		with(obj_game)
 		{
@@ -666,7 +684,7 @@ function pause_dialogue()
 
 function resume_dialogue()
 {
-	if(global.game_state == DIALOGUE)
+	if(global.game_state == DIALOGUE || global.game_state == ENVIRONMENTAL)
 	{
 		with(obj_game)
 		{

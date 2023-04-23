@@ -2,15 +2,7 @@
 
 function bh_update()
 {
-	if (global.game_state == BULLET_HELL && bh_active == false)
-	{
-		bh_active = true;
-	
-		bh_start();
-	
-		bh_time_spent = 0;
-	}
-	else if (global.game_state == BULLET_HELL && bh_active == true)
+	if (global.game_state == BULLET_HELL && bh_active == true)
 	{
 		// Time in seconds
 		dt = delta_time / 1000000;
@@ -51,12 +43,11 @@ function bh_update()
 	}
 }
 
-function bh_start(){
-	if(global.current_level == LEVEL_2_BUS_BATTLE)
-	{
-		level_2_complete = false;
-		level_5_complete = false;
-	} 
+function bh_start(level){
+	bh_active = true;
+	bh_time_spent = 0;
+	
+	level_completed[level] = false;
 	
 	// Player	
 	bh_player_health = BH_PLAYER_HEALTH_DEFAULT;
@@ -87,11 +78,6 @@ function bh_start(){
 	else if(bh_busstop_choice == BH_PLEASE_STOP)
 	{
 		bh_player.chose_to_fight_back = true;
-	}
-	
-	if(global.debugging)
-	{
-		global.current_level = LEVEL_2_BUS_BATTLE;
 	}
 	
 	// Setup the dialogue for during the battle
@@ -162,11 +148,11 @@ function bh_check_level_completed(level)
 	{
 		if(level == LEVEL_2_BUS_BATTLE)
 		{
-			return level_2_complete;
+			return level_completed[level];
 		}
 		else if(level == LEVEL_5_DINNER_BATTLE)
 		{
-			return level_5_complete;
+			return level_completed[level];
 		}
 	}
 }
@@ -611,25 +597,27 @@ function bh_win_action(level)
 {
 	if(level == LEVEL_2_BUS_BATTLE)
 	{
-		level_2_complete = true;
+		level_completed[level] = true;
 		
 		play_sfx(AUDIO_BUS_TRANSITION);
 		
 		bus_stop_win_text = "Ah, the bus! This is my chance to get the hell out of here.";
 	
-		dialogue_pre_transition(bus_stop_win_text);
+		dialogue_set_nonstandard_text(bus_stop_win_text);
+		set_game_state_and_start(PRE_TRANSITION);
 	}
 	else if(level == LEVEL_5_DINNER_BATTLE)
 	{
-		level_5_complete = true;	
+		level_completed[level] = true;	
 		
 		dinner_win_text = "Screw you guys. I'm going to my room.";
 		
-		dialogue_pre_transition(dinner_win_text);
+		dialogue_set_nonstandard_text(dinner_win_text);
+		set_game_state_and_start(PRE_TRANSITION);
 	}
 }
 
-// Destroys all BH instances and updates the game state back to the Overworld
+// Destroys all BH instances
 function bh_cleanup()
 {
 	with(obj_game)
@@ -639,7 +627,6 @@ function bh_cleanup()
 		instance_destroy(obj_bh_parent);
 	
 		bh_active = false;
-		set_game_state(DIALOGUE);
 	
 		// Stop all alarms
 		alarm[0] = -1;

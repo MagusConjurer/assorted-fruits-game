@@ -1,1 +1,1 @@
-dialogue_start(LEVEL_1_BUS_STOP);
+set_game_state_and_start(DIALOGUE);

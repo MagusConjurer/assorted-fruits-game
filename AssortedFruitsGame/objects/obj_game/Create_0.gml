@@ -4,16 +4,26 @@
 // audio_stop_all();
 // audio_play_sound(BG_MUSIC, 10, true);
 
-
-// Battles Completed
-level_2_complete = false;
-level_5_complete = false;
-
-// Controller
+#region Controller
 time_since_menu_input = 0;
 menu_input_active = false;
+#endregion
 
-// Camera
+#region Player Progress
+
+level_completed = [false, false, false, false, false, false, false];
+
+main_continue_pressed = false;
+transition_event_hit  = false;
+state_before_main     = 0;
+
+// OV Player Position
+ov_player_x = 0;
+ov_player_y = 0;
+
+#endregion
+
+#region Camera
 camera = 0;
 camera_target = 0;
 camera_x = 0;
@@ -21,8 +31,7 @@ camera_y = 0;
 camera_width = 0; 
 camera_height = 0;
 viewport_setup = false;
-
-// surface_resize(application_surface, camera_width, camera_height);
+#endregion
 
 // Menus
 main_menu_visible = false;
@@ -36,7 +45,7 @@ settings_buttons = [];
 settings_visuals = [];
 settings_selected = 0;
 
-// Bullet Hell
+#region Bullet Hell
 bh_active = false;
 bh_dia_seq = 0;
 bh_dia_paused = false;
@@ -73,8 +82,9 @@ bh_checkpoint_size = 0;
 bh_checkpoint_status = [];
 bh_time_spent = 0;
 bh_vignette_levels = sprite_get_number(spr_bh_vignette) - 1;
+#endregion
 
-// Dialogue
+#region Dialogue
 dialogue_active = false;
 dialogue_selection_visible = false;
 dialogue_in_person = true;
@@ -98,3 +108,6 @@ dialogue_selection_descriptions	= [];
 dialogue_selection_jumps		= [];
 dialogue_selection_buttons		= [];
 dialogue_selection_choices		= [];
+
+environmental_text = "";
+#endregion

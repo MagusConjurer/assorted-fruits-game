@@ -106,7 +106,8 @@ function main_menu_destroy()
 {
 	with(obj_game)
 	{
-		main_menu_visible = false;
+		main_menu_visible = false ;
+		settings_menu_visible = false;
 		
 		for(i = 0; i < array_length(main_menu_buttons); i++)
 		{
@@ -116,24 +117,28 @@ function main_menu_destroy()
 }
 
 function main_menu_new()
-{
-	// Resets the global variables before entering the game
-	global.current_level = LEVEL_0_BEDROOM;
-	global.current_room = ROOM_MENU;
-	global.game_state = MENU;
-	global.prev_state = OVERWORLD;
+{	
+	reset_player_progress();
+	
+	main_menu_play();
+}
 
-	global.bh_ability_one = 0;
+function main_menu_continue()
+{
+	with(obj_game)
+	{
+		main_continue_pressed = true;
+	}
 	
 	main_menu_play();
 }
 
 function main_menu_play()
 {
-	main_menu_destroy();
 	set_game_state(OVERWORLD);
+	main_menu_destroy();
 	play_background_music(BG_music);
-
+	
 	room_transition(global.current_level);
 }
 
@@ -248,16 +253,24 @@ function pause_menu_main()
 	pause_menu_destroy();
 
 	with(obj_game)
-	{
-		viewport_setup = false;
+	{	
+		state_before_main = global.prev_state;
+		ov_player_x = obj_player_ov.x;
+		ov_player_y = obj_player_ov.y;
 		
-		// Makes sure that it is able to reinitialize if they exit during these
-		dialogue_active = false;
-		bh_active = false;
+		// Makes sure that it is able to reinitialize if they exit during these	
+		if(state_before_main == DIALOGUE)
+		{
+			dialogue_destroy();
+		}
+		else if(state_before_main == BULLET_HELL)
+		{
+			bh_cleanup();
+		}
 	}
 	
-	room_goto(ROOM_MENU);
-	set_game_state(MENU);
+	set_game_state(MENU);	
+	room_transition(LEVEL_X_MENU);
 }
 
 function pause_menu_continue()

@@ -1,14 +1,49 @@
 function set_game_state(new_state)
+{
+	if(global.game_state != PAUSED)
+	{
+		global.prev_state = global.game_state;
+	}
+	
+	global.game_state = new_state;
+}
+
+function set_game_state_and_start(new_state)
 {	
 	state_change_transition(new_state);
-	global.prev_state = global.game_state;
-	global.game_state = new_state;
+	
+	if(global.game_state != PAUSED)
+	{
+		global.prev_state = global.game_state;
+		global.game_state = new_state;
+		
+		if(new_state == DIALOGUE)
+		{
+			dialogue_start(global.current_level);
+		}
+		else if(new_state == BULLET_HELL)
+		{
+			bh_start(global.current_level);
+		}
+		else if(new_state == ENVIRONMENTAL)
+		{
+			dialogue_environmental();
+		}
+		else if (new_state == PRE_TRANSITION)
+		{
+			dialogue_pre_transition();
+		}
+	}
 }
 
 function return_to_prev_state(current_state)
 {
 	global.game_state = global.prev_state;
-	global.prev_state = current_state;
+
+	if(current_state != PAUSED)
+	{
+		global.prev_state = current_state;
+	}
 }
 
 function state_change_transition(state)
@@ -46,10 +81,16 @@ function darken_background(depth_value)
 // CANNOT BE USED TO GO TO MENU 
 function room_transition(level)
 {
-	global.current_level = level;
+	if(level != LEVEL_X_MENU)
+	{
+		global.current_level = level;
+	}
 	
 	switch(level)
 	{
+		case LEVEL_X_MENU:
+			global.current_room = ROOM_MENU;
+		break;
 		case LEVEL_0_BEDROOM:
 			global.current_room = ROOM_BEDROOM;
 		break;
@@ -60,7 +101,7 @@ function room_transition(level)
 			global.current_room = ROOM_CAFE;
 		break;
 		case LEVEL_4_DINNER:
-			//global.current_room = ;
+			//global.current_room = ROOM_DINNER;
 		break;
 		case LEVEL_6_BEDROOM:
 			global.current_room = ROOM_BEDROOM;
@@ -70,6 +111,25 @@ function room_transition(level)
 	if(!instance_exists(obj_transition_parent))
 	{
 		instance_create_layer(0,0,"Background",obj_basic_transition);
+		
+	}
+}
+
+function reset_player_progress()
+{
+	global.current_level = LEVEL_0_BEDROOM;
+	global.current_room = ROOM_MENU;
+	global.game_state = MENU;
+	global.prev_state = OVERWORLD;
+
+	global.bh_ability_one = 0;
+	
+	with(obj_game)
+	{
+		level_completed = [false, false, false, false, false, false, false];
+		
+		ov_player_x = 0;
+		ov_player_y = 0;
 	}
 }
 

@@ -79,8 +79,6 @@ else
 		
 		adjusted_text_offset = box_height * ((full_text_height / 2 / box_height));
 		
-		show_debug_message([current_text, adjusted_text_offset]);
-		
 		text_y = y - (adjusted_text_offset);
 	
 		if(current_alignment == align.right)

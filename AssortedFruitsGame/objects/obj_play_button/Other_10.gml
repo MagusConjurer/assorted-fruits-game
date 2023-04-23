@@ -1,1 +1,1 @@
-main_menu_play();
+main_menu_continue();
