@@ -5,10 +5,6 @@ DELTA = delta_time/(1000000) * 60;
 
 if(main_continue_pressed && transition_event_hit && room != ROOM_MENU)
 {
-	main_continue_pressed = false;
-	transition_event_hit  = false;
-
-	set_game_state_and_start(state_before_main);
 	obj_player_ov.x = ov_player_x;
 	obj_player_ov.y = ov_player_y;
 }
@@ -21,6 +17,14 @@ if(viewport_setup == false && room != ROOM_MENU)
 }
 
 update_camera_position();
+
+if(main_continue_pressed && transition_event_hit && room != ROOM_MENU)
+{
+	main_continue_pressed = false;
+	transition_event_hit  = false;
+
+	set_game_state_and_start(state_before_main);
+}
 
 dialogue_update();
 

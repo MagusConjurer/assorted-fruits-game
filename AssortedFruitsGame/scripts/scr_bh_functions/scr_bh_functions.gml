@@ -47,8 +47,6 @@ function bh_start(level){
 	bh_active = true;
 	bh_time_spent = 0;
 	
-	level_completed[level] = false;
-	
 	// Player	
 	bh_player_health = BH_PLAYER_HEALTH_DEFAULT;
 	bh_player = instance_create_layer(camera_x + (camera_width * 0.2), camera_y + (camera_height * 0.5), "Bullet_Hell", obj_player_bh);
@@ -82,11 +80,11 @@ function bh_start(level){
 	
 	// Setup the dialogue for during the battle
 	bh_dia_text = [];
-	if(global.current_level == LEVEL_2_BUS_BATTLE)
+	if(level == LEVEL_2_BUS_BATTLE)
 	{
 		bh_dia_text = get_bus_battle_dialogue();
 	}
-	else if(global.current_level == LEVEL_5_DINNER_BATTLE)
+	else if(level == LEVEL_5_DINNER_BATTLE)
 	{
 		if(bh_dinner_choice == BH_BATTLE_MOM)
 		{
@@ -139,21 +137,6 @@ function bh_start_value_init()
 		bh_bubble_projectiles_scale = BH_S_BUBBLE_PROJECTILE_SCALE;
 		bh_bubble_pop_time			= BH_S_BUBBLE_TIME_BEFORE_POPPING;
 		bh_bubble_move_speed		= BH_S_BUBBLE_MOVE_SPEED;
-	}
-}
-
-function bh_check_level_completed(level)
-{
-	with(obj_game)
-	{
-		if(level == LEVEL_2_BUS_BATTLE)
-		{
-			return level_completed[level];
-		}
-		else if(level == LEVEL_5_DINNER_BATTLE)
-		{
-			return level_completed[level];
-		}
 	}
 }
 
@@ -355,7 +338,8 @@ function bh_spawn_bubble(y_index, is_first)
 		
 		if(is_first)
 		{
-			if(position_empty(x_pos, y_pos))
+			// Returns a negative number when no instance is there
+			if(instance_position(x_pos, y_pos, obj_bubble_parent) < 0)
 			{
 				_inst = instance_create_layer(x_pos, y_pos, "Bullet_Hell", obj_bubble);
 				_inst.image_xscale = 0.4;
@@ -598,6 +582,7 @@ function bh_win_action(level)
 	if(level == LEVEL_2_BUS_BATTLE)
 	{
 		level_completed[level] = true;
+		global.current_level = LEVEL_3_CAFE;
 		
 		play_sfx(AUDIO_BUS_TRANSITION);
 		
@@ -608,7 +593,8 @@ function bh_win_action(level)
 	}
 	else if(level == LEVEL_5_DINNER_BATTLE)
 	{
-		level_completed[level] = true;	
+		level_completed[level] = true;
+		global.current_level = LEVEL_6_BEDROOM;
 		
 		dinner_win_text = "Screw you guys. I'm going to my room.";
 		
@@ -628,7 +614,7 @@ function bh_cleanup()
 	
 		bh_active = false;
 	
-		// Stop all alarms
+		// Stop all alarms that spawn bh stuff
 		alarm[0] = -1;
 		alarm[1] = -1;
 	}

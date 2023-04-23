@@ -12,7 +12,7 @@ menu_input_active = false;
 #region Player Progress
 
 level_completed = [false, false, false, false, false, false, false];
-
+new_game_started = false;
 main_continue_pressed = false;
 transition_event_hit  = false;
 state_before_main     = 0;
@@ -33,17 +33,20 @@ camera_height = 0;
 viewport_setup = false;
 #endregion
 
-// Menus
+#region Menus
 main_menu_visible = false;
 main_menu_buttons = [];
 main_menu_selected = 0;
+
 pause_menu_visible = false;
 pause_menu_buttons = [];
 pause_menu_selected = 0;
+
 settings_menu_visible = false;
 settings_buttons = [];
 settings_visuals = [];
 settings_selected = 0;
+#endregion
 
 #region Bullet Hell
 bh_active = false;

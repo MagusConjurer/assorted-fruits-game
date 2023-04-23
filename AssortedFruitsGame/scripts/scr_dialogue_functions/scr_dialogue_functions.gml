@@ -75,23 +75,18 @@ function dialogue_start(dialogue_level)
 		switch(dialogue_level)
 		{
 			case LEVEL_0_BEDROOM:
-				level_completed[LEVEL_0_BEDROOM] = false;
 				load_conversation(PHONE_DIALOGUE);
 			break;
 			case LEVEL_1_BUS_STOP:
-				level_completed[LEVEL_1_BUS_STOP] = false;
 				load_conversation(BUS_STOP_DIALOGUE);
 			break;
 			case LEVEL_3_CAFE:
-				level_completed[LEVEL_3_CAFE] = false;
 				load_conversation(CAFE_DIALOGUE);
 			break;
 			case LEVEL_4_DINNER:
-				level_completed[LEVEL_4_DINNER] = false;
 				load_conversation(DINNER_DIALOGUE);
 			break;
 			case LEVEL_6_BEDROOM:
-				level_completed[LEVEL_6_BEDROOM] = false;
 				load_conversation(FINAL_DIALOGUE);
 			break;
 		}
@@ -538,17 +533,22 @@ function end_conversation()
 	{
 		dialogue_destroy();
 		
-		level_completed[global.current_level] = true;
-	
-		if(global.current_level == LEVEL_1_BUS_STOP)
+		if(global.game_state == DIALOGUE)
 		{
-			global.current_level = LEVEL_2_BUS_BATTLE;
-			set_game_state(BULLET_HELL);
-		}
-		else if (global.current_level == LEVEL_4_DINNER)
-		{
-			global.current_level = LEVEL_5_DINNER_BATTLE;
-			set_game_state(BULLET_HELL);
+			level_completed[global.current_level] = true;
+			
+			if (global.current_level == LEVEL_0_BEDROOM ||
+				global.current_level == LEVEL_3_CAFE	|| 
+				global.current_level == LEVEL_6_BEDROOM)
+			{
+				global.current_level += 1;
+				set_game_state(OVERWORLD);
+			}			
+			else 
+			{
+				global.current_level += 1;
+				set_game_state_and_start(BULLET_HELL);
+			}
 		}
 		else
 		{
