@@ -308,6 +308,7 @@
     {"id":{"name":"obj_booth","path":"objects/obj_booth/obj_booth.yy",},},
     {"id":{"name":"alex_afraid1","path":"sprites/alex_afraid1/alex_afraid1.yy",},},
     {"id":{"name":"obj_continue_dia","path":"objects/obj_continue_dia/obj_continue_dia.yy",},},
+    {"id":{"name":"spr_boost_bubble","path":"sprites/spr_boost_bubble/spr_boost_bubble.yy",},},
     {"id":{"name":"obj_bubble_parent","path":"objects/obj_bubble_parent/obj_bubble_parent.yy",},},
     {"id":{"name":"obj_front_fence_long","path":"objects/obj_front_fence_long/obj_front_fence_long.yy",},},
     {"id":{"name":"fnt_menu","path":"fonts/fnt_menu/fnt_menu.yy",},},

@@ -205,6 +205,7 @@
     {"name":"rm_bus_stop","order":1,"path":"rooms/rm_bus_stop/rm_bus_stop.yy",},
     {"name":"obj_booth","order":21,"path":"objects/obj_booth/obj_booth.yy",},
     {"name":"obj_continue_dia","order":5,"path":"objects/obj_continue_dia/obj_continue_dia.yy",},
+    {"name":"spr_boost_bubble","order":9,"path":"sprites/spr_boost_bubble/spr_boost_bubble.yy",},
     {"name":"obj_bubble_parent","order":14,"path":"objects/obj_bubble_parent/obj_bubble_parent.yy",},
     {"name":"obj_front_fence_long","order":36,"path":"objects/obj_front_fence_long/obj_front_fence_long.yy",},
     {"name":"fnt_menu","order":1,"path":"fonts/fnt_menu/fnt_menu.yy",},

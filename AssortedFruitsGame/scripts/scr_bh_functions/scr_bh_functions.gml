@@ -466,7 +466,7 @@ function bh_spawn_progress_boost()
 	{
 		if(!bh_boost_available)
 		{
-			x_pos = camera_x + BH_UI_MARGIN;
+			x_pos = camera_x + (BH_UI_MARGIN * 3);
 			rand_y_pos = irandom_range(camera_y + BH_UI_MARGIN, camera_y + camera_height - BH_UI_MARGIN);
 			
 			instance_create_layer(x_pos,rand_y_pos,"Bullet_Hell",obj_bubble_boost);
