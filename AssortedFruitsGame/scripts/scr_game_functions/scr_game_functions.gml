@@ -84,8 +84,7 @@ function darken_background(depth_value)
 	// Reset the alpha value
 	draw_set_alpha(1.0);
 }
-
-// CANNOT BE USED TO GO TO MENU 
+ 
 function room_transition(level)
 {
 	if(level != LEVEL_X_MENU)

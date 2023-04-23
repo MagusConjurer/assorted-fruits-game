@@ -55,8 +55,8 @@
 #macro DIALOGUE 2
 #macro ENVIRONMENTAL 3
 #macro PRE_TRANSITION 4
-#macro PAUSED 4
-#macro MENU 5
+#macro PAUSED 5
+#macro MENU 6
 
 // Depths
 #macro DARKENING_DEPTH -990
