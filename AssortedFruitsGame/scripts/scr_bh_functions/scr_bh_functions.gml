@@ -8,13 +8,9 @@ function bh_update()
 		dt = delta_time / 1000000;
 		bh_time_spent += dt;
 		
-		if(bh_dia_paused)
+		if(bh_seq_paused)
 		{
-			bh_resume_sequence(bh_dia_seq);
-		}
-		else if(bh_start_paused)
-		{
-			bh_resume_sequence(bh_start_seq);
+			bh_resume_sequences();
 		}
 		
 		bh_update_progress_bar(dt * BH_TIME_PROGRESS_PERCENTAGE);
@@ -25,6 +21,12 @@ function bh_update()
 		{
 			layer_sequence_destroy(bh_start_seq);
 			bh_start_seq = 0;
+		}
+		
+		if(bh_boost_seq != 0 && layer_sequence_is_finished(bh_boost_seq))
+		{
+			layer_sequence_destroy(bh_boost_seq);
+			bh_boost_seq = 0;
 		}
 
 		if(bh_player_health <= 0)
@@ -46,13 +48,9 @@ function bh_update()
 	}
 	else if (global.game_state != BULLET_HELL && bh_active == true)
 	{
-		if(!bh_dia_paused)
+		if(!bh_seq_paused)
 		{
-			bh_pause_sequence(bh_dia_seq);
-		}
-		else if(!bh_start_paused)
-		{
-			bh_pause_sequence(bh_start_seq);
+			bh_pause_sequences();
 		}
 	}
 }
@@ -154,10 +152,13 @@ function bh_start_value_init()
 	num_active_bubbles = 0;
 	
 	bh_dia_seq_created = false;
-	bh_dia_paused = false;
-	bh_start_paused = false;
+	bh_seq_paused = false;
+	bh_dia_seq = 0;
+	bh_start_seq = 0;
+	bh_boost_seq = 0;
 	
 	bh_boost_available = false;
+	bh_first_boost_used = false;
 	
 	// Player	
 	bh_player_health = BH_PLAYER_HEALTH_DEFAULT;
@@ -317,43 +318,57 @@ function bh_run_start_seq()
 	}
 }
 
-function bh_pause_sequence(bh_seq) 
+function bh_run_boost_seq()
 {
 	with(obj_game)
 	{
-		if(bh_seq != 0)
-		{
-			layer_sequence_pause(bh_seq);
-			
-			if(bh_seq == bh_dia_seq)
-			{
-				bh_dia_paused = true;
-			} 
-			else if(bh_seq = bh_start_seq)
-			{
-				bh_start_paused = true;
-			}
-		}
+		bh_boost_seq = layer_sequence_create("Bullet_Hell",0,0,seq_bh_boost_hint);
 	}
 }
 
-function bh_resume_sequence(bh_seq)
+function bh_pause_sequences() 
+{
+	with(obj_game)
+	{		
+		if(bh_dia_seq != 0)
+		{
+			layer_sequence_pause(bh_dia_seq);
+		}
+		
+		if(bh_start_seq != 0)
+		{
+			layer_sequence_pause(bh_start_seq);
+		}
+		
+		if(bh_boost_seq != 0)
+		{
+			layer_sequence_pause(bh_boost_seq);
+		}
+		
+		bh_seq_paused = true;
+	}
+}
+
+function bh_resume_sequences()
 {
 	with(obj_game)
 	{
-		if(bh_seq != 0)
+		if(bh_dia_seq != 0)
 		{
-			layer_sequence_play(bh_seq);
-			
-			if(bh_seq == bh_dia_seq)
-			{
-				bh_dia_paused = false;
-			}
-			else if(bh_seq = bh_start_seq)
-			{
-				bh_start_paused = false;
-			}
+			layer_sequence_play(bh_dia_seq);
 		}
+		
+		if(bh_start_seq != 0)
+		{
+			layer_sequence_play(bh_start_seq);
+		}
+		
+		if(bh_boost_seq != 0)
+		{
+			layer_sequence_play(bh_boost_seq);
+		}
+		
+		bh_seq_paused = false;
 	}
 }
 
@@ -576,28 +591,14 @@ function bh_spawn_progress_boost()
 			
 			instance_create_layer(x_pos,rand_y_pos,"Bullet_Hell",obj_bubble_boost);
 			
-			bh_add_boost_available();
+			bh_boost_available = true;
+			play_sfx(AUDIO_BOOST_AVAILABLE);
+		
+			if(!bh_first_boost_used)
+			{
+				bh_run_boost_seq();
+			}
 		}
-	}
-}
-
-function bh_add_boost_available()
-{
-	with(obj_game)
-	{
-		bh_boost_available = true;
-		instance_create_layer(BH_BOOST_ICON_X, BH_UI_MARGIN * 2, "Bullet_Hell",obj_boost_icon);
-		play_sfx(AUDIO_BOOST_AVAILABLE);
-	}
-}
-
-function bh_remove_boost_available()
-{
-	with(obj_game)
-	{
-		bh_boost_available = false;
-		instance_destroy(obj_boost_icon);
-		alarm[1] = BH_SECONDS_BEFORE_BOOST * 60;
 	}
 }
 
@@ -608,6 +609,10 @@ function bh_apply_progress_boost()
 	{
 		bh_progress_bar.progress_pulse_color = C_STELLA;
 		bh_progress_bar.progress_pulse_frames = BH_BOOST_PULSE_TIME * 60;
+		bh_first_boost_used = true;
+		
+		bh_boost_available = false;
+		alarm[1] = BH_SECONDS_BEFORE_BOOST * 60;
 	}
 }
 

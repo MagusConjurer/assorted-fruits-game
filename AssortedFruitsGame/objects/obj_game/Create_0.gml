@@ -52,8 +52,8 @@ settings_selected = 0;
 bh_active = false;
 bh_dia_seq = 0;
 bh_start_seq = 0;
-bh_dia_paused = false;
-bh_start_paused = false;
+bh_boost_seq = 0;
+bh_seq_paused = false;
 bh_dia_seq_created = false;
 bh_dia_text = [];
 bh_player = 0;
@@ -79,6 +79,7 @@ bubble_height = 0;
 possible_bubble_spots = 0;
 
 bh_boost_available = false;
+bh_first_boost_used = false;
 bh_busstop_choice = BH_NO_RESPONSE;
 bh_dinner_choice = BH_BATTLE_MOM;
 

@@ -40,7 +40,6 @@
 #macro BH_BUBBLE_POP_PROGRESS 0.008
 #macro BH_BOOST_PROGRESS 0.08
 #macro BH_BOOST_PULSE_TIME 2
-#macro BH_BOOST_ICON_X global.resolution_w * 0.2
 #macro BH_BUS_ICON spr_bus_icon
 #macro BH_BED_ICON spr_bed_icon
 
@@ -92,6 +91,9 @@
 #endregion
 
 #region BOOST
+#macro BH_BOOST_SEQ_ACTIVE_COLOR c_white
+#macro BH_BOOST_SEQ_PAUSED_COLOR c_gray
+#macro BH_BOOST_AVAILABLE_TEXT "Find the purple bubble for a progress boost!"
 #macro BH_BOOST_MOVE_SPEED 0.9
 #macro BH_BOOST_SCALING_FACTOR 0.05
 #macro BH_SECONDS_BEFORE_BOOST 10

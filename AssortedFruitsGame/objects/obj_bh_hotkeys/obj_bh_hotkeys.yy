@@ -10,8 +10,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "BulletHell",
-    "path": "folders/Objects/BulletHell.yy",
+    "name": "Sequence Objects",
+    "path": "folders/Objects/BulletHell/Sequence Objects.yy",
   },
   "parentObjectId": {
     "name": "obj_bh_parent",
