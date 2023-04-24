@@ -50,10 +50,14 @@ settings_selected = 0;
 
 #region Bullet Hell
 bh_active = false;
+bh_seq_paused = false;
+bh_start_seq = 0;
+bh_boost_seq = 0;
 bh_dia_seq = 0;
-bh_dia_paused = false;
 bh_dia_seq_created = false;
 bh_dia_text = [];
+bh_dia_active_text = 0;
+
 bh_player = 0;
 bh_player_health = 0;
 
@@ -77,6 +81,7 @@ bubble_height = 0;
 possible_bubble_spots = 0;
 
 bh_boost_available = false;
+bh_first_boost_used = false;
 bh_busstop_choice = BH_NO_RESPONSE;
 bh_dinner_choice = BH_BATTLE_MOM;
 

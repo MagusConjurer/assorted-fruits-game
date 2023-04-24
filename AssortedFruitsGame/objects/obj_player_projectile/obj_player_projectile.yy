@@ -32,8 +32,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "bullet2",
-    "path": "sprites/bullet2/bullet2.yy",
+    "name": "spr_player_projectile",
+    "path": "sprites/spr_player_projectile/spr_player_projectile.yy",
   },
   "spriteMaskId": null,
   "visible": true,

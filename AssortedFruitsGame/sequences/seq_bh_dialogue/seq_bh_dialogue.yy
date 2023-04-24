@@ -24,7 +24,7 @@
     "Keyframes": [
       {"resourceType":"Keyframe<MomentsEventKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"MomentsEventKeyframe","resourceVersion":"1.0","Events":[
               "bh_remove_dialogue",
-            ],},},"Disabled":false,"id":"66244c58-fd39-4ff3-bb17-48fbbdcc1065","IsCreationKey":false,"Key":600.0,"Length":1.0,"Stretch":false,},
+            ],},},"Disabled":false,"id":"5e01d6d4-f30a-4187-8089-93dde7b4fbd1","IsCreationKey":false,"Key":599.9999,"Length":1.0,"Stretch":false,},
     ],
   },
   "parent": {

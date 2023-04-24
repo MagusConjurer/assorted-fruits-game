@@ -4,6 +4,10 @@
 event_inherited();
 
 ability = obj_game.bh_ability_index;
+image_index = ability;
+
+image_xscale = BH_ABILITY_BUTTON_SCALE;
+image_yscale = BH_ABILITY_BUTTON_SCALE;
 
 if(global.gamepad_id > -1)
 {
