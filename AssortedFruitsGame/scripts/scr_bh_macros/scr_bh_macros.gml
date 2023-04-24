@@ -8,6 +8,17 @@
 #macro BH_UI_CIRCLE 0
 #macro BH_UI_RECT   1
 #macro BH_VIGNETTE_START_INDEX 5
+#macro BH_VIGNETTE_DELAY_TIME 1
+
+#macro BH_TIME_COLOR c_green
+#macro BH_HOTKEY_COLOR c_white
+// Text to show before the actual hotkey, which I will add before actually drawing it
+#macro BH_HOTKEY_ATTACK_TEXT "Attack - "
+#macro BH_HOTKEY_ABILITY_TEXT "Ability - "
+#macro BH_HOTKEY_X 150
+#macro BH_HOTKEY_ATTACK_Y 150
+#macro BH_HOTKEY_ABILITY_Y 160
+#macro BH_HOTKEY_VISIBLE_TIME 5
 
 #endregion
 
@@ -68,6 +79,12 @@
 #macro BH_S_NUM_BUBBLE_PROJECTILES		35
 #macro BH_S_BUBBLE_PROJECTILE_SCALE		0.015
 #macro BH_S_BUBBLE_MOVE_SPEED			9
+
+// TYPES
+#macro BH_BUBBLE_BUSGUY obj_bubble
+#macro BH_BUBBLE_MOM obj_bubble_mom
+#macro BH_BUBBLE_DAD obj_bubble_dad
+#macro BH_BUBBLE_UNCLE obj_bubble_uncle
 
 #endregion
 

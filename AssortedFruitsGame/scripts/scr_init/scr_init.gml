@@ -18,6 +18,12 @@ global.music_volume = 0.5;
 global.sfx_enabled = true;
 global.sfx_volume = 0.5;
 
+if(global.debugging == true) 
+{
+	global.music_enabled = false;
+	global.fullscreen_enabled = false;
+}
+
 window_set_fullscreen(global.fullscreen_enabled);
 
 // Audio Variables
@@ -43,12 +49,6 @@ global.game_state = MENU;
 global.prev_state = OVERWORLD;
 
 global.bh_ability_one = 0;
-
-if(global.debugging == true) 
-{
-	global.music_enabled = false;
-	global.fullscreen_enabled = false;
-}
 
 
 

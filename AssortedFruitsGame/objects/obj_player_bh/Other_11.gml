@@ -2,12 +2,22 @@
 
 // Only activate if movement is happening
 if(h_direction != 0 || v_direction != 0) {
-	moveSpeed = BH_DASH_DISTANCE/BH_DASH_DURATION;
-	xSpeed = h_direction * moveSpeed;
-	ySpeed = v_direction * moveSpeed;
-	alarm[1] = BH_DASH_DURATION;
+	if(!dash_active)
+	{
+		dash_active = true;
+		moveSpeed = BH_DASH_DISTANCE/BH_DASH_DURATION;
+		bh_set_ability_one_duration(BH_DASH_DURATION);
+	
+		if(iframes < BH_DASH_DURATION * 60)
+		{
+			iframes = BH_DASH_DURATION * 60;
+		}
+	}
 }
 else {
-	// Reset ability button immediately if activated without movement.
-	obj_ability_one_button.alarm[0] = 1;
+	if(!dash_active)
+	{
+		// Reset ability button immediately if activated without movement.
+		bh_set_ability_one_duration(1);
+	}
 }

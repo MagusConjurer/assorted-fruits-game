@@ -60,6 +60,7 @@ bh_player_health = 0;
 bh_ability_index = 0;
 bh_ability_cooldown = 1;
 
+bh_bubble_type = 0;
 bh_bubble_max = 0;
 bh_bubble_start = 0;
 bh_bubble_start_health = 0;
@@ -84,7 +85,16 @@ bh_next_checkpoint = 0;
 bh_checkpoint_size = 0;
 bh_checkpoint_status = [];
 bh_time_spent = 0;
-bh_vignette_levels = sprite_get_number(spr_bh_vignette) - 1;
+bh_show_attack_hotkey = false;
+bh_attack_hotkey_text = "";
+bh_show_ability_hotkey = false;
+bh_ability_hotkey_text = "";
+
+bh_vignette_index = 0;
+bh_vignette_levels_total = sprite_get_number(spr_bh_vignette) - 1;
+bh_vignette_levels_after_start = bh_vignette_levels_total - BH_VIGNETTE_START_INDEX;
+bh_vignette_changes_per = bh_vignette_levels_after_start / BH_PLAYER_HEALTH_DEFAULT;
+bh_vignette_increasing = true;
 #endregion
 
 #region Dialogue

@@ -428,7 +428,7 @@ selection_46 = {
 	options: ["Mom", "Dad", "Uncle Danny"],
 	option_descriptions: ["You're just making it worse.", "Stop being an asshole.", "You're not my dad."],
 	option_jump_index: [47,49,51],  
-	option_choice_index: [0,0,0] 
+	option_choice_index: [BH_BATTLE_MOM, BH_BATTLE_DAD, BH_BATTLE_UNCLE] 
 }
 
 line_47 = {

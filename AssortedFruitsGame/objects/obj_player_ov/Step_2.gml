@@ -1,8 +1,5 @@
 /// @description Update animations
 
-// Inherit the parent event
-event_inherited();
-
 if(global.game_state == active_state)
 {
 	// Keeps the initial direction when moving diagonal

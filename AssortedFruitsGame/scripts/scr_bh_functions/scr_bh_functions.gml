@@ -46,6 +46,13 @@ function bh_update()
 function bh_start(level){
 	bh_active = true;
 	bh_time_spent = 0;
+	bh_vignette_index = 0
+	
+	bh_bubbles_popped = 0;
+	num_active_bubbles = 0;
+	
+	bh_dia_seq_created = false;
+	bh_boost_available = false;
 	
 	// Player	
 	bh_player_health = BH_PLAYER_HEALTH_DEFAULT;
@@ -54,9 +61,7 @@ function bh_start(level){
 	// Temporary fix for scaling issue
 	bh_player.image_xscale = 0.2;
 	bh_player.image_yscale = 0.2;
-	
-	bh_bubbles_popped = 0;
-	num_active_bubbles = 0;
+
 	bubble_height = sprite_get_height(spr_wordbubble_combined) * 0.2;
 	
 	bh_start_value_init();
@@ -67,6 +72,9 @@ function bh_start(level){
 	if(global.bh_ability_one > 0)
 	{
 		instance_create_layer(BH_UI_MARGIN * 2, BH_UI_MARGIN * 2, "Bullet_Hell", obj_ability_one_button);
+		
+		bh_ability_hotkey_text = BH_HOTKEY_ABILITY_TEXT + get_ability_one_hotkey();
+		bh_show_ability_hotkey = true;
 	}
 	
 	if(bh_busstop_choice == BH_NO_RESPONSE)
@@ -76,38 +84,51 @@ function bh_start(level){
 	else if(bh_busstop_choice == BH_PLEASE_STOP)
 	{
 		bh_player.chose_to_fight_back = true;
+		
+		bh_attack_hotkey_text = BH_HOTKEY_ATTACK_TEXT + get_attack_hotkey();
+		bh_show_attack_hotkey = true;
+	}
+	
+	if(bh_show_attack_hotkey || bh_show_ability_hotkey)
+	{
+		if(alarm_get(4) < 0)
+		{
+			alarm_set(4, BH_HOTKEY_VISIBLE_TIME * 60);
+		}
 	}
 	
 	// Setup the dialogue for during the battle
 	bh_dia_text = [];
 	if(level == LEVEL_2_BUS_BATTLE)
 	{
+		bh_bubble_type = BH_BUBBLE_BUSGUY;
 		bh_dia_text = get_bus_battle_dialogue();
 	}
 	else if(level == LEVEL_5_DINNER_BATTLE)
 	{
 		if(bh_dinner_choice == BH_BATTLE_MOM)
 		{
+			bh_bubble_type = BH_BUBBLE_MOM;
 			bh_dia_text = get_mom_battle_dialogue();
 		}
 		else if(bh_dinner_choice == BH_BATTLE_DAD)
 		{
+			bh_bubble_type = BH_BUBBLE_DAD;
 			bh_dia_text = get_dad_battle_dialogue();
 		}
 		else if(bh_dinner_choice == BH_BATTLE_UNCLE)
 		{
+			bh_bubble_type = BH_BUBBLE_UNCLE;
 			bh_dia_text = get_uncle_battle_dialogue();
 		}
 	}
 	
-	bh_time_spent = 0;
 	bh_progress_bar = instance_create_layer(0, BH_UI_MARGIN, "Bullet_Hell", obj_progress_bar);
 	bh_set_progress_icon();
 	
-	bh_dia_seq_created = false;
+
 	bh_setup_checkpoints();
 	
-	bh_boost_available = false;
 	alarm[1] = BH_SECONDS_BEFORE_BOOST * 60; // seconds * FPS
 	
 	// First wall of bubbles
@@ -144,7 +165,17 @@ function bh_start_value_init()
 
 function bh_update_player_health(change)
 {
-	obj_game.bh_player_health += change;
+	with(obj_game)
+	{
+		if(bh_player_health + change < BH_PLAYER_HEALTH_DEFAULT)
+		{
+			bh_player_health = bh_player_health + change;
+		}
+		else
+		{
+			bh_player_health = BH_PLAYER_HEALTH_DEFAULT;
+		}
+	}
 }
 
 function bh_get_player_health()
@@ -155,11 +186,33 @@ function bh_get_player_health()
 	}
 }
 
-function bh_status_index()
+function bh_update_vignette()
 {
 	with(obj_game)
 	{
-		return BH_PLAYER_HEALTH_DEFAULT - bh_player_health;
+		status = BH_PLAYER_HEALTH_DEFAULT - bh_player_health;
+		
+		if(status > 0)
+		{
+			bh_vignette_increasing = true;
+			// Check if it is less that the starting index plus the amount of change that should have taken place
+			if(bh_vignette_index < BH_VIGNETTE_START_INDEX + (status * bh_vignette_changes_per))
+			{
+				if(alarm_get(3) < 0)
+				{
+					alarm_set(3, BH_VIGNETTE_DELAY_TIME * 60);
+				}
+			}
+		}
+		else if(status < 1 && bh_vignette_index > 0)
+		{
+			bh_vignette_increasing = false;
+			
+			if(alarm_get(3) < 0)
+			{
+				alarm_set(3, BH_VIGNETTE_DELAY_TIME * 60);
+			}
+		}
 	}
 }
 
@@ -326,6 +379,14 @@ function bh_ability(ability)
 		event_user(ability);
 	}
 }
+
+function bh_set_ability_one_duration(duration)
+{
+	with(obj_ability_one_button)
+	{
+		alarm_set(0, duration);
+	}
+}
 #endregion
 
 #region BUBBLES
@@ -341,7 +402,7 @@ function bh_spawn_bubble(y_index, is_first)
 			// Returns a negative number when no instance is there
 			if(instance_position(x_pos, y_pos, obj_bubble_parent) < 0)
 			{
-				_inst = instance_create_layer(x_pos, y_pos, "Bullet_Hell", obj_bubble);
+				_inst = instance_create_layer(x_pos, y_pos, "Bullet_Hell", bh_bubble_type);
 				_inst.image_xscale = 0.4;
 				_inst.image_yscale = 0.4;
 
@@ -354,7 +415,7 @@ function bh_spawn_bubble(y_index, is_first)
 		}
 		else
 		{
-			_inst = instance_create_layer(x_pos, y_pos, "Bullet_Hell", obj_bubble);
+			_inst = instance_create_layer(x_pos, y_pos, "Bullet_Hell", bh_bubble_type);
 			_inst.image_xscale = 0.4;
 			_inst.image_yscale = 0.4;
 

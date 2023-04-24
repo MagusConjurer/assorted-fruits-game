@@ -28,6 +28,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Overworld","folderPath":"folders/Objects/Overworld.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Auto Interactables","folderPath":"folders/Objects/Overworld/Auto Interactables.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Decor","folderPath":"folders/Objects/Overworld/Decor.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Cafe","folderPath":"folders/Objects/Overworld/Decor/Cafe.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Characters","folderPath":"folders/Objects/Overworld/Decor/Characters.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Interactables","folderPath":"folders/Objects/Overworld/Decor/Interactables.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Bedroom","folderPath":"folders/Objects/Overworld/Decor/Interactables/Bedroom.yy",},
@@ -64,7 +65,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Menus","folderPath":"folders/Sprites/UI/Menus.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tile Sets","folderPath":"folders/Tile Sets.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Cafe","folderPath":"folders/Objects/Overworld/Decor/Cafe.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"BG_music.m4a","CopyToMask":-1,"filePath":"datafiles",},
@@ -162,7 +162,6 @@
     {"id":{"name":"obj_round_table","path":"objects/obj_round_table/obj_round_table.yy",},},
     {"id":{"name":"obj_cb_fullscreen","path":"objects/obj_cb_fullscreen/obj_cb_fullscreen.yy",},},
     {"id":{"name":"obj_trashcan","path":"objects/obj_trashcan/obj_trashcan.yy",},},
-    {"id":{"name":"obj_player_parent","path":"objects/obj_player_parent/obj_player_parent.yy",},},
     {"id":{"name":"spr_decor_default","path":"sprites/spr_decor_default/spr_decor_default.yy",},},
     {"id":{"name":"spr_Alex_overworld_combined","path":"sprites/spr_Alex_overworld_combined/spr_Alex_overworld_combined.yy",},},
     {"id":{"name":"scr_conversation_1","path":"scripts/scr_conversation_1/scr_conversation_1.yy",},},

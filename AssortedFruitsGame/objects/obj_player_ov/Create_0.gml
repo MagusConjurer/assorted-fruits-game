@@ -1,6 +1,9 @@
 /// @description 
 
-event_inherited();
+xSpeed = 0;
+ySpeed = 0;
+h_direction = 0;
+v_direction = 0;
 
 moveSpeed = WALKING_SPEED;
 active_state = OVERWORLD;
