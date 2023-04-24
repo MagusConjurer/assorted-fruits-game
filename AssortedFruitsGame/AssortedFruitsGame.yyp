@@ -356,6 +356,7 @@
     {"id":{"name":"IMPACT_Incoming_Bang_Wobble_01_mono","path":"sounds/IMPACT_Incoming_Bang_Wobble_01_mono/IMPACT_Incoming_Bang_Wobble_01_mono.yy",},},
     {"id":{"name":"obj_basic_transition","path":"objects/obj_basic_transition/obj_basic_transition.yy",},},
     {"id":{"name":"obj_uncle_dia","path":"objects/obj_uncle_dia/obj_uncle_dia.yy",},},
+    {"id":{"name":"Object104","path":"objects/Object104/Object104.yy",},},
     {"id":{"name":"obj_bubble_boost","path":"objects/obj_bubble_boost/obj_bubble_boost.yy",},},
     {"id":{"name":"alex_lookaway3","path":"sprites/alex_lookaway3/alex_lookaway3.yy",},},
     {"id":{"name":"rm_bedroom","path":"rooms/rm_bedroom/rm_bedroom.yy",},},

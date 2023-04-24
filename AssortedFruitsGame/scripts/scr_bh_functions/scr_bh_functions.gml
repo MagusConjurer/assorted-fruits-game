@@ -425,7 +425,8 @@ function bh_spawn_initial_bubbles()
 /// Called by the bubble objects
 function bh_bubble_destroyed(by_player){
 	play_sfx(AUDIO_BUBBLE_POP);
-	
+	part_system_position(global.P_system_pop,obj_bubble.x,obj_bubble.y);
+	part_emitter_burst(global.P_system_pop,obj_bubble.x,obj_bubble.y,global.P_system_pop_T);
 	loop_amount = bh_get_num_projectiles();
 	for(i = 0; i < loop_amount; i++) {
 		instance_create_layer(x,y,"Bullet_Hell",obj_bubble_projectile);

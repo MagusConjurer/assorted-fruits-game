@@ -243,6 +243,7 @@
     {"name":"spr_texting_start","order":28,"path":"sprites/spr_texting_start/spr_texting_start.yy",},
     {"name":"IMPACT_Incoming_Bang_Wobble_01_mono","order":9,"path":"sounds/IMPACT_Incoming_Bang_Wobble_01_mono/IMPACT_Incoming_Bang_Wobble_01_mono.yy",},
     {"name":"obj_uncle_dia","order":5,"path":"objects/obj_uncle_dia/obj_uncle_dia.yy",},
+    {"name":"Object104","order":20,"path":"objects/Object104/Object104.yy",},
     {"name":"alex_lookaway3","order":6,"path":"sprites/alex_lookaway3/alex_lookaway3.yy",},
     {"name":"obj_textbox_dia","order":2,"path":"objects/obj_textbox_dia/obj_textbox_dia.yy",},
     {"name":"scr_game_functions","order":2,"path":"scripts/scr_game_functions/scr_game_functions.yy",},

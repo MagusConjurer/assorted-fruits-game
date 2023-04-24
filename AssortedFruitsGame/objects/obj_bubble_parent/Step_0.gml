@@ -14,8 +14,10 @@ if(global.game_state == active_state)
 
 	if(bubble_current_health <= 0)
 	{
+		part_emitter_burst(global.P_system_pop,obj_bubble.x,obj_bubble.y,global.P_system_pop_T);
 		bh_bubble_destroyed(true);
 		instance_destroy();
+		
 	}
 	
 	bubble_pop_time = bh_get_bubble_pop_time();
