@@ -162,8 +162,6 @@ function bh_start_value_init()
 	
 	// Player	
 	bh_player_health = BH_PLAYER_HEALTH_DEFAULT;
-	bh_player.image_xscale = BH_PLAYER_SCALE;
-	bh_player.image_yscale = BH_PLAYER_SCALE;
 }
 
 #region BH PLAYER
@@ -287,10 +285,10 @@ function bh_show_dialogue(dialogue)
 		bh_dia_seq = layer_sequence_create("Bullet_Hell",0,0,seq_bh_dialogue);
 		_seq_inst  = layer_sequence_get_instance(bh_dia_seq);
 	
-		replacement_object = instance_create_layer(global.resolution_w * 1.25, 0,"Bullet_Hell",obj_bh_text);
-		replacement_object.bh_dialogue = dialogue;
+		bh_dia_active_text = instance_create_layer(global.resolution_w * 1.25, 0,"Bullet_Hell",obj_bh_text);
+		bh_dia_active_text.bh_dialogue = dialogue;
 	
-		sequence_instance_override_object(_seq_inst, obj_bh_text, replacement_object);
+		sequence_instance_override_object(_seq_inst, obj_bh_text, bh_dia_active_text);
 		
 		bh_dia_seq_created = true;
 	}
@@ -306,6 +304,26 @@ function bh_remove_dialogue()
 			instance_destroy(obj_bh_text);			
 			layer_sequence_destroy(bh_dia_seq);
 			bh_dia_seq_created = false;
+			bh_dia_active_text = 0;
+		}
+	}
+}
+
+function bh_dialogue_active()
+{
+	with(obj_game)
+	{
+		return bh_dia_active_text != 0;
+	}
+}
+
+function bh_collides_with_dialogue(x_pos, y_pos)
+{
+	with(obj_game)
+	{
+		with(bh_dia_active_text)
+		{
+			return point_in_rectangle(get_guix(x_pos), get_guiy(y_pos), left_x, top_y, right_x, bot_y);
 		}
 	}
 }

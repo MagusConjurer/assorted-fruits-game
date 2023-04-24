@@ -1,10 +1,11 @@
 // Macros for Bullet Hell
 
 #macro BH_AUTO_RESTART_SECONDS 5
+#macro BH_DIALOGUE_HAS_COLLISION true
 
 #region UI
 
-#macro BH_UI_MARGIN 20
+#macro BH_UI_MARGIN 25
 #macro BH_UI_CIRCLE 0
 #macro BH_UI_RECT   1
 
@@ -102,6 +103,8 @@
 #endregion
 
 #region ABILITIES
+
+#macro BH_ABILITY_BUTTON_SCALE 0.05
 
 // DASH ability
 #macro BH_ABILITY_DASH 1

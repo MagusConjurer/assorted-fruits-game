@@ -279,6 +279,7 @@
     {"id":{"name":"spr_booth","path":"sprites/spr_booth/spr_booth.yy",},},
     {"id":{"name":"VOICE_MALE_Of_Course_1_mono","path":"sounds/VOICE_MALE_Of_Course_1_mono/VOICE_MALE_Of_Course_1_mono.yy",},},
     {"id":{"name":"spr_quit_button","path":"sprites/spr_quit_button/spr_quit_button.yy",},},
+    {"id":{"name":"spr_bh_ability","path":"sprites/spr_bh_ability/spr_bh_ability.yy",},},
     {"id":{"name":"spr_deskchair","path":"sprites/spr_deskchair/spr_deskchair.yy",},},
     {"id":{"name":"UI_SCI_FI_Tone_Bright_Wet_18_stereo","path":"sounds/UI_SCI_FI_Tone_Bright_Wet_18_stereo/UI_SCI_FI_Tone_Bright_Wet_18_stereo.yy",},},
     {"id":{"name":"spr_mom_combined","path":"sprites/spr_mom_combined/spr_mom_combined.yy",},},

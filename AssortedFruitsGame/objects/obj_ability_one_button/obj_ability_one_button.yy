@@ -31,9 +31,12 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_ability_default",
-    "path": "sprites/spr_ability_default/spr_ability_default.yy",
+    "name": "spr_bh_ability",
+    "path": "sprites/spr_bh_ability/spr_bh_ability.yy",
   },
-  "spriteMaskId": null,
+  "spriteMaskId": {
+    "name": "spr_bh_ability",
+    "path": "sprites/spr_bh_ability/spr_bh_ability.yy",
+  },
   "visible": true,
 }

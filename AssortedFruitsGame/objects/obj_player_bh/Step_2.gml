@@ -24,6 +24,14 @@ if(global.game_state == active_state)
 	{
 		ySpeed = 0;
 	}
+	
+	if(bh_dialogue_active() && BH_DIALOGUE_HAS_COLLISION)
+	{
+		if(bh_collides_with_dialogue(lerped_x, lerped_y))
+		{
+			ySpeed = 0;
+		}
+	}
 
 	x = lerp(x, x + xSpeed, 0.1);
 	y = lerp(y, y + ySpeed, 0.1);
