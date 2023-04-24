@@ -14,7 +14,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false, 
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_HAPPY,  
 		text: "Hey hey! Right on time.",    
 		jump_to: 0				 
 	}
@@ -23,7 +23,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: true,   
 		speaker: 0,
-		emotion: 0,  
+		emotion: ALEX_HAPPY,  
 		text: "Heya Stella.",    
 		jump_to: 0				 
 	}
@@ -32,7 +32,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false,   
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_NEUTRAL,  
 		text: "How's it going?",    
 		jump_to: 0				 
 	}
@@ -41,7 +41,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: true,     
 		speaker: 0,
-		emotion: 0,  
+		emotion: ALEX_SIGH,  
 		text: "*sigh* I have had a hell of a time getting here.",    
 		jump_to: 0				 
 	}
@@ -50,7 +50,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false, 
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_DISGUST,  
 		text: "Oof. You can tell me about it over a drink. Whaddya want?",    
 		jump_to: 0				 
 	}
@@ -69,7 +69,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false,    
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_HAPPY,  
 		text: "Coming right up!",    
 		jump_to: 0				 
 	}
@@ -78,7 +78,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false,  
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_NEUTRAL,  
 		text: "Here's your drink. So, spill.",    
 		jump_to: 0				 
 	}
@@ -87,7 +87,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: true,   
 		speaker: 0,
-		emotion: 0,  
+		emotion: ALEX_CONFUSED,  
 		text: "Spill my drink?",    
 		jump_to: 0				 
 	}
@@ -96,7 +96,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false,    
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_UNIMPRESSED,  
 		text: "No dumb-dumb, tell me what happened.",    
 		jump_to: 0				 
 	}
@@ -105,7 +105,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: true,  
 		speaker: 0,
-		emotion: 0,  
+		emotion: ALEX_ANXIOUS,  
 		text: "Oh. Uh... Some old guy at the bus stop harassed me out of nowhere.",    
 		jump_to: 0				 
 	}
@@ -114,7 +114,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: true,   
 		speaker: 0,
-		emotion: 0,  
+		emotion: ALEX_ANXIOUS,  
 		text: "He called me slurs and said some really hateful stuff.",    
 		jump_to: 0				 
 	}
@@ -123,7 +123,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false,   
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_NERVOUS,  
 		text: "No shit! What'd you do?",    
 		jump_to: 0				 
 	}
@@ -132,7 +132,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: true, 
 		speaker: 0,
-		emotion: 0,  
+		emotion: ALEX_DEPRESSED,  
 		text: "Nothing, really. I didn't wanna make a scene in public.",    
 		jump_to: 0				 
 	}
@@ -141,7 +141,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: true, 
 		speaker: 0,
-		emotion: 0,  
+		emotion: ALEX_ANXIOUS,  
 		text: "I wish I could've stood up for myself, but the words just get stuck in my throat.",    
 		jump_to: 0				 
 	}
@@ -150,7 +150,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false,
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_LOOKAWAY,  
 		text: "Plus with strangers, things could escalate if you say the wrong thing...",    
 		jump_to: 0				 
 	}
@@ -159,7 +159,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: true,      
 		speaker: 0,
-		emotion: 0,  
+		emotion: ALEX_NEUTRAL,  
 		text: "Exactly.",    
 		jump_to: 0				 
 	}
@@ -168,7 +168,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false,       
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_LOOKAWAY,  
 		text: "Jeez, that really sucks Alex. I'm sorry.",    
 		jump_to: 0				 
 	}
@@ -177,7 +177,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: true,   
 		speaker: 0,
-		emotion: 0,  
+		emotion: ALEX_SIGH,  
 		text: "It's fine. Can't say I'm surprised that happened, considering the town we live in.",    
 		jump_to: 0				 
 	}
@@ -186,7 +186,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false,  
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_UNIMPRESSED,  
 		text: "Lucky us.",    
 		jump_to: 0				 
 	}
@@ -195,7 +195,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: true,  
 		speaker: 0,
-		emotion: 0,  
+		emotion: ALEX_NEUTRAL,  
 		text: "How's the new apartment? I know you said your girlfriend was pretty nervous about moving.",    
 		jump_to: 0				 
 	}
@@ -204,7 +204,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false,   
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_NEUTRAL,  
 		text: "Ehh, it's fine. Smaller than it looked online, but we're managing.",    
 		jump_to: 0				 
 	}
@@ -213,7 +213,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false,   
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_JOKING,  
 		text: "You should come over sometime. Just uh, don't say the G-word in front of the landlord. He still thinks we're two besties sharing a unit.",    
 		jump_to: 0				 
 	}
@@ -222,7 +222,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: true,  
 		speaker: 0,
-		emotion: 0,  
+		emotion: ALEX_SIGH,  
 		text: "Ah, the old \"Gal Pals\" excuse.",    
 		jump_to: 0				 
 	}
@@ -231,7 +231,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false,
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_JOKING,  
 		text: "Yup. Works every time.",    
 		jump_to: 0				 
 	}
@@ -240,7 +240,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false,     
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_DISGUST,  
 		text: "Speaking of which, you mentioned last night didn't go so well?",    
 		jump_to: 0				 
 	}
@@ -249,7 +249,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false, 
 		speaker: 0,
-		emotion: 0,  
+		emotion: ALEX_ANXIOUS,  
 		text: "Right. That.",    
 		jump_to: 0				 
 	}
@@ -258,7 +258,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: true,   
 		speaker: 0,
-		emotion: 0,  
+		emotion: ALEX_DEPRESSED,  
 		text: "They took it... badly. For different reasons. Mom didn't yell like Dad did, but she thinks I'm... sick. Dad texted Uncle Danny about it, and apparently he lost his shit.",    
 		jump_to: 0				 
 	}
@@ -267,7 +267,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false, 
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_NERVOUS,  
 		text: "Oh no...",    
 		jump_to: 0				 
 	}
@@ -276,7 +276,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: true,  
 		speaker: 0,
-		emotion: 0,  
+		emotion: ALEX_AFRAID,  
 		text: "We're having a family dinner tonight to \"talk about my lifestyle decisions\" and Danny's joining. I feel lke I'm gonna barf just thinking about it.",    
 		jump_to: 0				 
 	}
@@ -285,7 +285,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false, 
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_NERVOUS,  
 		text: "Will you be able to handle it? If you want I can ask Alya if you can stay over, I'm sure she won't mind...",    
 		jump_to: 0				 
 	}
@@ -294,7 +294,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: true,      
 		speaker: 0,
-		emotion: 0,  
+		emotion: ALEX_DEPRESSED,  
 		text: "Thanks Stel, but I think skipping out on dinner will only make things worse.",    
 		jump_to: 0				 
 	}
@@ -303,7 +303,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false,  
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_THINKING,  
 		text: "Fair.",    
 		jump_to: 0				 
 	}
@@ -312,7 +312,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: true,   
 		speaker: 0,
-		emotion: 0,  
+		emotion: ALEX_SIGH,  
 		text: "I wish I knew how to handle confrontation better, but I freeze up every time. It sucks.",    
 		jump_to: 0				 
 	}
@@ -321,7 +321,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false,     
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_LOOKAWAY,  
 		text: "Hmm...",    
 		jump_to: 0				 
 	}
@@ -330,7 +330,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false, 
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_THINKING,  
 		text: "Ya know, the chapter I'm reading right now in my psych textbook is about coping mechanisms - maybe some of those can help?",    
 		jump_to: 0				 
 	}
@@ -339,7 +339,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: true,   
 		speaker: 0,
-		emotion: 0,  
+		emotion: ALEX_NEUTRAL,  
 		text: "Maybe.",    
 		jump_to: 0				 
 	}
@@ -348,7 +348,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false,   
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_THINKING,  
 		text: "Seriously, having coping mechanisms in your mental health toolkit can be hella useful during stressful situations.",    
 		jump_to: 0				 
 	}
@@ -357,7 +357,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: true,     
 		speaker: 0,
-		emotion: 0,  
+		emotion: ALEX_HAPPY,  
 		text: "\"Mental health toolkit\"? Now you really sound like a psychologist. Paging Dr. Stella.",    
 		jump_to: 0				 
 	}
@@ -366,7 +366,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false,  
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_HAPPY,  
 		text: "That's the goal!",    
 		jump_to: 0				 
 	}
@@ -375,7 +375,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false,    
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_NEUTRAL,  
 		text: "Now, what would you say you struggle with most?",    
 		jump_to: 0				 
 	}
@@ -394,7 +394,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: true,   
 		speaker: 0,
-		emotion: 0,  
+		emotion: ALEX_ANXIOUS,  
 		text: "I struggle with negative thoughts spiraling. Every time someone says something negative, I can't help but think \"What if they're right?\"",    
 		jump_to: 0				 
 	}
@@ -403,7 +403,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: true,  
 		speaker: 0,
-		emotion: 0,  
+		emotion: ALEX_DEPRESSED,  
 		text: "Then I start thinking negative thoughts of my own, and it just spirals. ",    
 		jump_to: 0				 
 	}
@@ -412,7 +412,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false,  
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_LOOKAWAY,  
 		text: "I know how that feels. I used to struggle with that myself, actually.",    
 		jump_to: 0				 
 	}
@@ -421,7 +421,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false,  
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_THINKING,  
 		text: "When you realize you're spiraling, it can be helpful to take a step back and try to redirect your thoughts.",    
 		jump_to: 0				 
 	}
@@ -430,7 +430,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false,    
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_NEUTRAL,  
 		text: "Obvi this is easier said than done, but even a few affirmations can be helpful.",    
 		jump_to: 0				 
 	}
@@ -439,7 +439,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: true,   
 		speaker: 0,
-		emotion: 0,  
+		emotion: ALEX_CONFUSED,  
 		text: "Huh...",    
 		jump_to: 0				 
 	}
@@ -448,7 +448,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false,  
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_THINKING,  
 		text: "Like, if some a-hole hates on you for being queer, you gotta remind yourself that being yourself ain't a crime.",    
 		jump_to: 0				 
 	}
@@ -457,7 +457,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: true,   
 		speaker: 0,
-		emotion: 0,  
+		emotion: ALEX_NEUTRAL,  
 		text: "Right.",    
 		jump_to: 0				 
 	}
@@ -466,7 +466,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: true,    
 		speaker: 0,
-		emotion: 0,  
+		emotion: ALEX_NEUTRAL,  
 		text: "[Ability gained: Affirmations! You can now heal yourself in battle.]",    
 		jump_to: 77				 
 	}
@@ -475,7 +475,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: true,  
 		speaker: 0,
-		emotion: 0,  
+		emotion: ALEX_ANXIOUS,  
 		text: "I have a really hard time speaking my mind. Like I can feel the words on the tip of my tongue, but I choke whenever I try to talk back.",    
 		jump_to: 0				 
 	}
@@ -484,7 +484,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: true,   
 		speaker: 0,
-		emotion: 0,  
+		emotion: ALEX_DEPRESSED,  
 		text: "I hate feeling so powerless in conversations.",    
 		jump_to: 0				 
 	}
@@ -493,7 +493,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false,  
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_DISGUST,  
 		text: "Ugh, mood. That was totally me with my parents.",    
 		jump_to: 0				 
 	}
@@ -502,7 +502,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: true,   
 		speaker: 0,
-		emotion: 0,  
+		emotion: ALEX_CONFUSED,  
 		text: "Really?",    
 		jump_to: 0				 
 	}
@@ -511,7 +511,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false,   
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_LOOKAWAY,  
 		text: "Sure. Part of the reason I moved out was because I'd clam up whenever yelled at. Honestly, it still happens sometimes.",    
 		jump_to: 0				 
 	}
@@ -520,7 +520,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false,    
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_LOOKAWAY,  
 		text: "It's tough speaking up. But if you don't stand up for yourself, people will walk all over you.",    
 		jump_to: 0				 
 	}
@@ -529,7 +529,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: true,  
 		speaker: 0,
-		emotion: 0,  
+		emotion: ALEX_LOOKAWAY,  
 		text: "Yeah...",    
 		jump_to: 0				 
 	}
@@ -538,7 +538,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false,    
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_THINKING,  
 		text: "If you wanna move forward in a conversation, you have to be brave and just say your shit.",    
 		jump_to: 0				 
 	}
@@ -547,7 +547,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false,   
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_NEUTRAL,  
 		text: "And you gotta be self-compassionate. This stuff's hard.",    
 		jump_to: 0				 
 	}
@@ -556,7 +556,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false,    
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_JOKING,  
 		text: "You miss 100% of the shots you don't take, right?",    
 		jump_to: 0				 
 	}
@@ -565,7 +565,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: true,     
 		speaker: 0,
-		emotion: 0,  
+		emotion: ALEX_NEUTRAL,  
 		text: "Mm-hmm.",    
 		jump_to: 0				 
 	}
@@ -574,7 +574,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: true,    
 		speaker: 0,
-		emotion: 0,  
+		emotion: ALEX_NEUTRAL,  
 		text: "[Ability gained: Dash! Dash through your battles with ease.]",    
 		jump_to: 77				 
 	}
@@ -583,7 +583,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: true,    
 		speaker: 0,
-		emotion: 0,  
+		emotion: ALEX_LOOKAWAY,  
 		text: "I get overwhelmed super easily, especially when a topic comes up that I'm uncomfortable with.",    
 		jump_to: 0				 
 	}
@@ -592,7 +592,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: true,     
 		speaker: 0,
-		emotion: 0,  
+		emotion: ALEX_DEPRESSED,  
 		text: "My brain blanks and I shut down, which usually makes things worse.",    
 		jump_to: 0				 
 	}
@@ -601,7 +601,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false,   
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_JOKING,  
 		text: "Ah, good ol' fight or flight mode screwing you over.",    
 		jump_to: 0				 
 	}
@@ -610,7 +610,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false,       
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_THINKING,  
 		text: "Because your body's hyped up on adrenaline, the decision making part of your brain takes a back seat.",    
 		jump_to: 0				 
 	}
@@ -619,7 +619,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: true,    
 		speaker: 0,
-		emotion: 0,  
+		emotion: ALEX_CONFUSED,  
 		text: "Wait, there's an actual physical reason why I can't think straight when I'm overwhelmed? I'm not just being dumb?",    
 		jump_to: 0				 
 	}
@@ -628,7 +628,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false,   
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_UNIMPRESSED,  
 		text: "Sure there's a reason. And no, you're not being dumb. Don't be so hard on yourself. ",    
 		jump_to: 0				 
 	}
@@ -637,7 +637,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false,  
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_THINKING,  
 		text: "When you get overwhelmed, that means your brain needs a time-out to recuperate.",    
 		jump_to: 0				 
 	}
@@ -646,7 +646,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false,  
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_THINKING,  
 		text: "If you can't leave the conversation, try switching topics subtly.",    
 		jump_to: 0				 
 	}
@@ -655,7 +655,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false,     
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_NEUTRAL,  
 		text: "Talking about something else may give your brain time to chill the hell out and work again.",    
 		jump_to: 0				 
 	}
@@ -664,7 +664,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: true,   
 		speaker: 0,
-		emotion: 0,  
+		emotion: ALEX_ANXIOUS,  
 		text: "What if they go back to the topic though?",    
 		jump_to: 0				 
 	}
@@ -673,7 +673,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false,    
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_LOOKAWAY,  
 		text: "Well you can't control other people's actions, obvi. Admittedly it's a temporary fix.",    
 		jump_to: 0				 
 	}
@@ -682,7 +682,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false,    
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_NEUTRAL,  
 		text: "But it's better than shutting down, no?",    
 		jump_to: 0				 
 	}
@@ -691,7 +691,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: true,   
 		speaker: 0,
-		emotion: 0,  
+		emotion: ALEX_NEUTRAL,  
 		text: "Definitely.",    
 		jump_to: 0				 
 	}
@@ -700,7 +700,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: true,    
 		speaker: 0,
-		emotion: 0,  
+		emotion: ALEX_NEUTRAL,  
 		text: "[Ability gained: Shield! You can now protect yourself in battle.]",    
 		jump_to: 77				 
 	}
@@ -709,7 +709,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: true,   
 		speaker: 0,
-		emotion: 0,  
+		emotion: ALEX_HAPPY,  
 		text: "Thanks again for everything, Stella.",    
 		jump_to: 0				 
 	}
@@ -718,7 +718,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false,   
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_NEUTRAL,  
 		text: "No problem, dude. I'll check in with you later, k? You got this.",    
 		jump_to: 0				 
 	}
@@ -727,7 +727,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: true,    
 		speaker: 0,
-		emotion: 0,  
+		emotion: ALEX_HAPPY,  
 		text: "Yeah.",    
 		jump_to: 0				 
 	}
@@ -736,7 +736,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false,   
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_NEUTRAL,  
 		text: "Say you got this.",    
 		jump_to: 0				 
 	}
@@ -745,7 +745,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: true,       
 		speaker: 0,
-		emotion: 0,  
+		emotion: ALEX_LOOKAWAY,  
 		text: "...I got this.",    
 		jump_to: 0				 
 	}
@@ -754,7 +754,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: false,   
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_JOKING,  
 		text: "Louder!! I can't hear you!",    
 		jump_to: 0				 
 	}
@@ -763,7 +763,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: true,    
 		speaker: 0,
-		emotion: 0,  
+		emotion: ALEX_HAPPY,  
 		text: "I got this!!",    
 		jump_to: 0				 
 	}
@@ -772,7 +772,7 @@ function get_convo_two()
 		type: "line",			 
 		on_the_left: true,     
 		speaker: 0,
-		emotion: 0,  
+		emotion: STELLA_HAPPY,  
 		text: "Hell yeah! Now go get em tiger.",    
 		jump_to: 0				 
 	}
