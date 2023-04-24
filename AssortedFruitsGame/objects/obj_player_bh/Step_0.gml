@@ -4,6 +4,12 @@ event_inherited();
 
 if (global.game_state == active_state) 
 {
+	if(!dash_active)
+	{
+		h_direction = get_movement_h();
+		v_direction = get_movement_v();
+	}
+	
 	if(attack_pressed() && chose_to_fight_back)
 	{
 		if(alarm[0] < 0)
@@ -67,14 +73,9 @@ if (global.game_state == active_state)
 	{
 		image_index = current_frame;
 	}
-	
-	// May want to move all the movement checking to a script function for readability
 
-	if(alarm[1] < 0) {
-		// Get x and y speed if not dashing
-		xSpeed = h_direction * moveSpeed * DELTA;
-		ySpeed = v_direction * moveSpeed * DELTA;
-	}
+	xSpeed = h_direction * moveSpeed * DELTA;
+	ySpeed = v_direction * moveSpeed * DELTA;
 	
 	// Draws the player above the darkened area
 	depth = BH_DEPTH;

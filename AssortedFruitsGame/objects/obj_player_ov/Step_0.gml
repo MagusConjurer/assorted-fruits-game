@@ -1,9 +1,10 @@
 /// @description
 
-event_inherited();
-
 if(global.game_state == active_state) 
 {	
+	h_direction = get_movement_h();
+	v_direction = get_movement_v();
+	
 	// Set x and y speed
 	xSpeed = h_direction * moveSpeed;
 	ySpeed = v_direction * moveSpeed;

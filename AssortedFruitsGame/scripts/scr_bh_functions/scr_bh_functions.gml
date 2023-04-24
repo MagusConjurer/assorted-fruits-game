@@ -165,7 +165,17 @@ function bh_start_value_init()
 
 function bh_update_player_health(change)
 {
-	obj_game.bh_player_health += change;
+	with(obj_game)
+	{
+		if(bh_player_health + change < BH_PLAYER_HEALTH_DEFAULT)
+		{
+			bh_player_health = bh_player_health + change;
+		}
+		else
+		{
+			bh_player_health = BH_PLAYER_HEALTH_DEFAULT;
+		}
+	}
 }
 
 function bh_get_player_health()
@@ -184,6 +194,7 @@ function bh_update_vignette()
 		
 		if(status > 0)
 		{
+			bh_vignette_increasing = true;
 			// Check if it is less that the starting index plus the amount of change that should have taken place
 			if(bh_vignette_index < BH_VIGNETTE_START_INDEX + (status * bh_vignette_changes_per))
 			{
@@ -191,6 +202,15 @@ function bh_update_vignette()
 				{
 					alarm_set(3, BH_VIGNETTE_DELAY_TIME * 60);
 				}
+			}
+		}
+		else if(status < 1 && bh_vignette_index > 0)
+		{
+			bh_vignette_increasing = false;
+			
+			if(alarm_get(3) < 0)
+			{
+				alarm_set(3, BH_VIGNETTE_DELAY_TIME * 60);
 			}
 		}
 	}
@@ -357,6 +377,14 @@ function bh_ability(ability)
 {
 	with(obj_player_bh) {
 		event_user(ability);
+	}
+}
+
+function bh_set_ability_one_duration(duration)
+{
+	with(obj_ability_one_button)
+	{
+		alarm_set(0, duration);
 	}
 }
 #endregion

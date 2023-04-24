@@ -77,7 +77,6 @@
     {"name":"obj_round_table","order":11,"path":"objects/obj_round_table/obj_round_table.yy",},
     {"name":"obj_cb_fullscreen","order":3,"path":"objects/obj_cb_fullscreen/obj_cb_fullscreen.yy",},
     {"name":"obj_trashcan","order":4,"path":"objects/obj_trashcan/obj_trashcan.yy",},
-    {"name":"obj_player_parent","order":6,"path":"objects/obj_player_parent/obj_player_parent.yy",},
     {"name":"spr_decor_default","order":9,"path":"sprites/spr_decor_default/spr_decor_default.yy",},
     {"name":"spr_Alex_overworld_combined","order":5,"path":"sprites/spr_Alex_overworld_combined/spr_Alex_overworld_combined.yy",},
     {"name":"spr_bh_vignette","order":8,"path":"sprites/spr_bh_vignette/spr_bh_vignette.yy",},
