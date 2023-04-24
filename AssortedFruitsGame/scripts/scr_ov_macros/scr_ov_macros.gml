@@ -5,6 +5,9 @@
 #macro AUTO_INTERACT_DISTANCE 200
 // #macro INTERACT_KEY "E" -- replaced by global.hotkey_interact
 
+#macro OV_BUSSTOP_ALEX_X 575
+#macro OV_BUSSTOP_ALEX_Y 775
+#macro OV_POS_TOLERANCE 10
 
 // Sprite Directions
 #macro UP 0
