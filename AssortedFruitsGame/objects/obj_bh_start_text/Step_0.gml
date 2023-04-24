@@ -5,9 +5,9 @@ event_inherited();
 
 if(global.game_state == active_state)
 {
-	text_color = c_white;
+	text_color = BH_START_SEQ_ACTIVE_COLOR;
 }
 else
 {
-	text_color = c_gray;
+	text_color = BH_START_SEQ_PAUSED_COLOR;
 }

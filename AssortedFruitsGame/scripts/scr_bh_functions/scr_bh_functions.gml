@@ -10,12 +10,22 @@ function bh_update()
 		
 		if(bh_dia_paused)
 		{
-			bh_resume_sequence();
+			bh_resume_sequence(bh_dia_seq);
+		}
+		else if(bh_start_paused)
+		{
+			bh_resume_sequence(bh_start_seq);
 		}
 		
 		bh_update_progress_bar(dt * BH_TIME_PROGRESS_PERCENTAGE);
 		
 		bh_check_checkpoint();
+		
+		if(bh_start_seq != 0 && layer_sequence_is_finished(bh_start_seq))
+		{
+			layer_sequence_destroy(bh_start_seq);
+			bh_start_seq = 0;
+		}
 
 		if(bh_player_health <= 0)
 		{
@@ -38,29 +48,19 @@ function bh_update()
 	{
 		if(!bh_dia_paused)
 		{
-			bh_pause_sequence();
+			bh_pause_sequence(bh_dia_seq);
+		}
+		else if(!bh_start_paused)
+		{
+			bh_pause_sequence(bh_start_seq);
 		}
 	}
 }
 
 function bh_start(level){
 	bh_active = true;
-	bh_time_spent = 0;
-	bh_vignette_index = 0
-	
-	bh_bubbles_popped = 0;
-	num_active_bubbles = 0;
-	
-	bh_dia_seq_created = false;
-	bh_boost_available = false;
-	
-	// Player	
-	bh_player_health = BH_PLAYER_HEALTH_DEFAULT;
+
 	bh_player = instance_create_layer(camera_x + (camera_width * 0.2), camera_y + (camera_height * 0.5), "Bullet_Hell", obj_player_bh);
-	
-	// Temporary fix for scaling issue
-	bh_player.image_xscale = 0.2;
-	bh_player.image_yscale = 0.2;
 
 	bubble_height = sprite_get_height(spr_wordbubble_combined) * 0.2;
 	
@@ -72,9 +72,6 @@ function bh_start(level){
 	if(global.bh_ability_one > 0)
 	{
 		instance_create_layer(BH_UI_MARGIN * 2, BH_UI_MARGIN * 2, "Bullet_Hell", obj_ability_one_button);
-		
-		bh_ability_hotkey_text = BH_HOTKEY_ABILITY_TEXT + get_ability_one_hotkey();
-		bh_show_ability_hotkey = true;
 	}
 	
 	if(bh_busstop_choice == BH_NO_RESPONSE)
@@ -84,17 +81,6 @@ function bh_start(level){
 	else if(bh_busstop_choice == BH_PLEASE_STOP)
 	{
 		bh_player.chose_to_fight_back = true;
-		
-		bh_attack_hotkey_text = BH_HOTKEY_ATTACK_TEXT + get_attack_hotkey();
-		bh_show_attack_hotkey = true;
-	}
-	
-	if(bh_show_attack_hotkey || bh_show_ability_hotkey)
-	{
-		if(alarm_get(4) < 0)
-		{
-			alarm_set(4, BH_HOTKEY_VISIBLE_TIME * 60);
-		}
 	}
 	
 	// Setup the dialogue for during the battle
@@ -125,7 +111,6 @@ function bh_start(level){
 	
 	bh_progress_bar = instance_create_layer(0, BH_UI_MARGIN, "Bullet_Hell", obj_progress_bar);
 	bh_set_progress_icon();
-	
 
 	bh_setup_checkpoints();
 	
@@ -133,6 +118,8 @@ function bh_start(level){
 	
 	// First wall of bubbles
 	bh_spawn_initial_bubbles();
+	
+	bh_run_start_seq();
 }
 
 function bh_start_value_init()
@@ -159,6 +146,23 @@ function bh_start_value_init()
 		bh_bubble_pop_time			= BH_S_BUBBLE_TIME_BEFORE_POPPING;
 		bh_bubble_move_speed		= BH_S_BUBBLE_MOVE_SPEED;
 	}
+	
+	bh_time_spent = 0;
+	bh_vignette_index = 0
+	
+	bh_bubbles_popped = 0;
+	num_active_bubbles = 0;
+	
+	bh_dia_seq_created = false;
+	bh_dia_paused = false;
+	bh_start_paused = false;
+	
+	bh_boost_available = false;
+	
+	// Player	
+	bh_player_health = BH_PLAYER_HEALTH_DEFAULT;
+	bh_player.image_xscale = BH_PLAYER_SCALE;
+	bh_player.image_yscale = BH_PLAYER_SCALE;
 }
 
 #region BH PLAYER
@@ -216,10 +220,26 @@ function bh_update_vignette()
 	}
 }
 
+function bh_player_attacks()
+{
+	with(obj_game)
+	{
+		return bh_busstop_choice;
+	}
+}
+
+function bh_player_ability_one_available()
+{
+	with(obj_game)
+	{
+		return global.bh_ability_one > 0;
+	}
+}
 #endregion
 
-#region BH DIALOGUE
+#region BH SEQUENCES (Start, Dialogue, etc)
 
+// Dialogue checkpoints
 function bh_setup_checkpoints()
 {
 	with(obj_game)
@@ -289,26 +309,50 @@ function bh_remove_dialogue()
 	}
 }
 
-function bh_pause_sequence() 
+function bh_run_start_seq()
 {
 	with(obj_game)
 	{
-		if(bh_dia_seq != 0)
+		bh_start_seq = layer_sequence_create("Bullet_Hell",0,0,seq_bh_start);
+	}
+}
+
+function bh_pause_sequence(bh_seq) 
+{
+	with(obj_game)
+	{
+		if(bh_seq != 0)
 		{
-			layer_sequence_pause(bh_dia_seq);
-			bh_dia_paused = true;
+			layer_sequence_pause(bh_seq);
+			
+			if(bh_seq == bh_dia_seq)
+			{
+				bh_dia_paused = true;
+			} 
+			else if(bh_seq = bh_start_seq)
+			{
+				bh_start_paused = true;
+			}
 		}
 	}
 }
 
-function bh_resume_sequence()
+function bh_resume_sequence(bh_seq)
 {
 	with(obj_game)
 	{
-		if(bh_dia_seq != 0)
+		if(bh_seq != 0)
 		{
-			layer_sequence_play(bh_dia_seq);
-			bh_dia_paused = false;
+			layer_sequence_play(bh_seq);
+			
+			if(bh_seq == bh_dia_seq)
+			{
+				bh_dia_paused = false;
+			}
+			else if(bh_seq = bh_start_seq)
+			{
+				bh_start_paused = false;
+			}
 		}
 	}
 }

@@ -7,18 +7,20 @@
 #macro BH_UI_MARGIN 20
 #macro BH_UI_CIRCLE 0
 #macro BH_UI_RECT   1
+
+#macro BH_TIME_COLOR c_green
+
+// Vignette
 #macro BH_VIGNETTE_START_INDEX 5
 #macro BH_VIGNETTE_DELAY_TIME 1
 
-#macro BH_TIME_COLOR c_green
-#macro BH_HOTKEY_COLOR c_white
+// Start of BH
+#macro BH_START_MESSAGE "Survive until the end of conversation!"
+#macro BH_START_SEQ_ACTIVE_COLOR c_white
+#macro BH_START_SEQ_PAUSED_COLOR c_gray
 // Text to show before the actual hotkey, which I will add before actually drawing it
 #macro BH_HOTKEY_ATTACK_TEXT "Attack - "
 #macro BH_HOTKEY_ABILITY_TEXT "Ability - "
-#macro BH_HOTKEY_X 150
-#macro BH_HOTKEY_ATTACK_Y 150
-#macro BH_HOTKEY_ABILITY_Y 160
-#macro BH_HOTKEY_VISIBLE_TIME 5
 
 #endregion
 
@@ -47,6 +49,7 @@
 #region PLAYER
 
 #macro BH_PLAYER_SPEED 40
+#macro BH_PLAYER_SCALE 0.2
 #macro BH_PLAYER_PROJECTILE_SPEED 60
 #macro BH_PLAYER_PROJECTILE_DAMAGE -1
 #macro BH_PLAYER_PROJECTILE_DELAY 5

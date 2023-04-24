@@ -51,7 +51,9 @@ settings_selected = 0;
 #region Bullet Hell
 bh_active = false;
 bh_dia_seq = 0;
+bh_start_seq = 0;
 bh_dia_paused = false;
+bh_start_paused = false;
 bh_dia_seq_created = false;
 bh_dia_text = [];
 bh_player = 0;

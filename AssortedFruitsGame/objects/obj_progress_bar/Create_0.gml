@@ -20,6 +20,8 @@ pulse_toggle = false;
 
 
 xWidth = sprite_get_width(sprite_index);
-percentToScale = (obj_game.camera_width) / xWidth;
+percentToScale = (global.resolution_w / 2) / xWidth;
 image_xscale = percentToScale;
-x = obj_game.camera_x + (xWidth * percentToScale * 0.5);
+
+x = (global.resolution_w - (xWidth * percentToScale)) / 2;
+
