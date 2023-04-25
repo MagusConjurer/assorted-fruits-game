@@ -2,7 +2,7 @@
 
 if(global.game_state == active_state)
 {
-	if(object_index == BH_BUBBLE_BUSGUY)
+	if(!(object_index == BH_BUBBLE_MOM))
 	{
 		// Movement
 		x_speed = x_direction * bubble_speed * DELTA;
@@ -11,17 +11,19 @@ if(global.game_state == active_state)
 		bubble_collision = place_meeting(x + x_speed, y + y_speed, obj_bubble_parent);
 		player_collision = place_meeting(x + x_speed, y + y_speed, obj_player_bh);
 
-		if(bh_is_outside_bounds_x(x + x_speed, sprite_width) || bubble_collision || player_collision)
+		if(bh_is_outside_bounds_x(x + x_speed, sprite_width))
 		{
 			x_speed = 0;
+			y_speed = 0;
 		}
 		
 		if(bh_is_outside_bounds_y(y + y_speed, sprite_height) || bubble_collision || player_collision)
 		{
-			y_speed = y_speed * -1;
+			y_direction *= -1;
+			y_speed		*= -1;
 		}
 	
-		if(x_speed == 0)
+		if(x_speed == 0 && y_speed == 0)
 		{
 			bubble_time += delta_time / 1000000;
 		}
@@ -29,7 +31,7 @@ if(global.game_state == active_state)
 		x = lerp(x, x + x_speed, 0.1);
 		y = lerp(y, y + y_speed, 0.1);
 	}
-	else if(object_index == BH_BUBBLE_MOM)
+	else
 	{
 		next_angle = current_angle + (rot_direction * arctan(BH_MOM_BUBBLE_ROT_SPEED/radius));
 		next_x = center_x + (radius * cos(next_angle));
@@ -82,8 +84,5 @@ if(global.game_state == active_state)
 			bubble_time += delta_time / 1000000;
 		}
 	}
-	else if(object_index == BH_BUBBLE_DAD)
-	{
-		
-	}
+
 }

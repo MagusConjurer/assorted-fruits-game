@@ -84,7 +84,6 @@ function bh_start(level){
 		if(bh_dinner_choice == BH_BATTLE_MOM)
 		{
 			bh_bubble_type = BH_BUBBLE_MOM;
-			//bh_bubble_move_speed = BH_MOM_BUBBLE_SPEED;
 			bh_dia_text = get_mom_battle_dialogue();
 		}
 		else if(bh_dinner_choice == BH_BATTLE_DAD)
@@ -558,12 +557,40 @@ function bh_get_bubble_pop_time()
 	}
 }
 
-function bh_get_bubble_move_speed()
+function bh_get_bubble_move_speed(type)
 {
 	with(obj_game)
 	{
 		// Can add switch on which battle we are in
-		return bh_bubble_move_speed;
+		if(bh_player_attacks())
+		{
+			switch(type)
+			{
+				case BH_BUBBLE_MOM:
+					return BH_S_MOM_BUBBLE_MOVE_SPEED;
+				case BH_BUBBLE_DAD:
+					return BH_S_DAD_BUBBLE_MOVE_SPEED;
+				case BH_BUBBLE_UNCLE:
+					return BH_S_UNCLE_BUBBLE_MOVE_SPEED;
+				default:
+					return bh_bubble_move_speed;
+			}
+		}
+		else
+		{
+			switch(type)
+			{
+				case BH_BUBBLE_MOM:
+					return BH_NS_MOM_BUBBLE_MOVE_SPEED;
+				case BH_BUBBLE_DAD:
+					return BH_NS_DAD_BUBBLE_MOVE_SPEED;
+				case BH_BUBBLE_UNCLE:
+					return BH_NS_UNCLE_BUBBLE_MOVE_SPEED;
+				default:
+					return bh_bubble_move_speed;
+			}
+		}
+		
 	}
 }
 
