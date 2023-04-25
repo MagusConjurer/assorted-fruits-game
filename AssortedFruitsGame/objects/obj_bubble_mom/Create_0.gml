@@ -23,4 +23,4 @@ else
 }
 
 center_x = x - radius;
-center_y = y + radius;
+center_y = y;
