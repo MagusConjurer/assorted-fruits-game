@@ -9,6 +9,8 @@ function set_game_state(new_state)
 	global.game_state = new_state;
 	
 	game_state_music_swap();
+	
+	update_progress_file();
 }
 
 function set_game_state_and_start(new_state)
@@ -46,6 +48,8 @@ function set_game_state_and_start(new_state)
 		
 		game_state_music_swap();
 	}
+	
+	update_progress_file();
 }
 
 function return_to_prev_state(current_state)
@@ -56,6 +60,8 @@ function return_to_prev_state(current_state)
 	{
 		global.prev_state = current_state;
 	}
+	
+	update_progress_file();
 }
 
 function state_change_transition(state)
@@ -113,6 +119,8 @@ function room_transition(level)
 			instance_create_layer(0,0,"Background",obj_basic_transition);
 		}
 	}
+	
+	update_progress_file();
 }
 
 function is_type_of_dialogue()

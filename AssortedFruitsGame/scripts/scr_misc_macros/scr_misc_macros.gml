@@ -21,7 +21,7 @@
 #macro ROOM_CAFE	rm_cafe
 // #macro ROOM_DINNER dinner
 
-#macro LEVEL_X_MENU          "X"
+#macro LEVEL_X_MENU          -1
 #macro LEVEL_0_BEDROOM		 0 
 #macro LEVEL_1_BUS_STOP		 1 
 #macro LEVEL_2_BUS_BATTLE	 2 
