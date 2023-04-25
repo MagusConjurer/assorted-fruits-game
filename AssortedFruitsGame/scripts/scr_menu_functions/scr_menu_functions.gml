@@ -392,6 +392,8 @@ function settings_menu_destroy()
 	{
 		settings_menu_visible = false;
 		
+		update_settings_file();
+		
 		for(i = 0; i < array_length(settings_buttons); i++)
 		{
 			instance_destroy(settings_buttons[i]);
