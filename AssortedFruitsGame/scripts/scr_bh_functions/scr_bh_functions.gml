@@ -471,12 +471,21 @@ function bh_spawn_bubble(y_index, is_first)
 		x_pos = camera_x + (camera_width * 0.9);
 		y_pos = camera_y + (0.5 * bubble_height) + (possible_bubble_spots * y_index);
 		
+		if(global.current_level == LEVEL_5_DINNER_BATTLE)
+		{
+			bubble_type = bh_get_dinner_type_to_spawn();
+		}
+		else
+		{
+			bubble_type = bh_bubble_type;
+		}
+		
 		if(is_first)
 		{
 			// Returns a negative number when no instance is there
 			if(instance_position(x_pos, y_pos, obj_bubble_parent) < 0)
 			{
-				_inst = instance_create_layer(x_pos, y_pos, "Bullet_Hell", bh_bubble_type);
+				_inst = instance_create_layer(x_pos, y_pos, "Bullet_Hell", bubble_type);
 				_inst.image_xscale = 0.4;
 				_inst.image_yscale = 0.4;
 
@@ -489,7 +498,7 @@ function bh_spawn_bubble(y_index, is_first)
 		}
 		else
 		{
-			_inst = instance_create_layer(x_pos, y_pos, "Bullet_Hell", bh_bubble_type);
+			_inst = instance_create_layer(x_pos, y_pos, "Bullet_Hell", bubble_type);
 			_inst.image_xscale = 0.4;
 			_inst.image_yscale = 0.4;
 
@@ -525,6 +534,42 @@ function bh_spawn_initial_bubbles()
 			bh_spawn_random_bubble(true);
 		}
 	}
+}
+
+function bh_get_dinner_type_to_spawn()
+{
+	pick = random(1);
+	alt_prob = (1 - (BH_MAIN_BUBBLE_PERCENTAGE)) / 2;
+	
+	switch(bh_bubble_type)
+	{
+		case BH_BUBBLE_MOM:
+			alt_type_1 = BH_BUBBLE_DAD;
+			alt_type_2 = BH_BUBBLE_UNCLE;
+		break;
+		case BH_BUBBLE_DAD:
+			alt_type_1 = BH_BUBBLE_MOM;
+			alt_type_2 = BH_BUBBLE_UNCLE;
+		break;
+		case BH_BUBBLE_UNCLE:
+			alt_type_1 = BH_BUBBLE_MOM;
+			alt_type_2 = BH_BUBBLE_DAD;
+		break;
+	}
+	
+	if(pick < BH_MAIN_BUBBLE_PERCENTAGE)
+	{
+		return bh_bubble_type;
+	}
+	else if(pick < BH_MAIN_BUBBLE_PERCENTAGE + alt_prob)
+	{
+		return alt_type_1;
+	}
+	else
+	{
+		return alt_type_2;
+	}
+	
 }
 
 /// Called by the bubble objects
