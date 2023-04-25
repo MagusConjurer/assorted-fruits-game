@@ -31,89 +31,59 @@ if(global.game_state == active_state)
 	}
 	else if(object_index == BH_BUBBLE_MOM)
 	{
-		if(counter_clockwise)
-		{
-			next_angle = current_angle - arctan(bubble_speed/radius);
-		}
-		else
-		{
-			next_angle = current_angle + arctan(bubble_speed/radius);
-		}
+		next_angle = current_angle + (rot_direction * arctan(BH_MOM_BUBBLE_ROT_SPEED/radius));
+		next_x = center_x + (radius * cos(next_angle));
+		next_y = center_y + (radius * sin(next_angle));
 		
-		if(next_angle > 360)
-		{
-			next_angle -= 360;
-		}
-		else if(next_angle < -180)
-		{
-			next_angle += 360;
-		}
-		
-		next_x = lengthdir_x(radius, next_angle) + center_x;
-		next_y = lengthdir_y(radius, next_angle) + center_y;
+		moving = true;
 		
 		if(center_x < BH_UI_MARGIN || next_x < BH_UI_MARGIN)
 		{
-			bubble_time += delta_time / 1000000;
+			moving = false;
 		}
 		else
 		{
-			variant_bubble_collision = place_meeting(next_x, next_y, obj_bubble_dad) || place_meeting(next_x, next_y, obj_bubble_uncle);
-			match_bubble_collision = place_meeting(next_x, next_y, obj_bubble_mom)
+			variant_bubble_collision = (place_meeting(next_x, next_y, obj_bubble_dad) || place_meeting(next_x, next_y, obj_bubble_uncle));
+			match_bubble_collision = place_meeting(next_x, next_y, obj_bubble_mom);
 			player_collision = place_meeting(next_x, next_y, obj_player_bh);
 				
 			if(bh_is_outside_bounds_y(next_y, sprite_height) || player_collision || match_bubble_collision)
 			{
-				if(counter_clockwise)
-				{
-					if(next_angle < 0)
-					{
-						current_angle = -180 - next_angle;
-					}
-					else
-					{
-						current_angle = 180 - next_angle;
-					}
-				}
-				else
-				{
-					if(next_angle < 180)
-					{
-						current_angle = 180 - next_angle ;
-					}
-					else
-					{
-						current_angle = 360 + (180 - next_angle);
-					}
-				}
 				
-				hit_dist_x = lengthdir_x(radius, next_angle);
-				new_dist_x = lengthdir_x(radius, current_angle);
-				change_x = hit_dist_x - new_dist_x;
-					
-				center_x += change_x;
 			}
 			else if(variant_bubble_collision)
 			{
-				bubble_time += delta_time / 1000000;
+				moving = false;
 			}
-			else
+
+			if(moving)
 			{
-				current_angle = next_angle;
-			}
-			
-			center_x -= 1;
-			
-			move_x = lerp(x,lengthdir_x(radius, current_angle) + center_x, 0.1);
-			if(!bh_is_outside_bounds_x(move_x, sprite_width) || !player_collision)
-			{
-				x = move_x;
-				y = lerp(y,lengthdir_y(radius, current_angle) + center_y, 0.1);
-			}
-			else
-			{
-				bubble_time += delta_time / 1000000;
+				center_x = lerp(center_x, center_x - (bubble_speed * DELTA * 0.5), 0.1);
+				
+				next_x = center_x + (radius * cos(next_angle));
+				next_y = center_y + (radius * sin(next_angle));
+				
+				if(!bh_is_outside_bounds_x(next_x, sprite_width) && !player_collision)
+				{
+					x = next_x;
+					y = next_y;
+					
+					current_angle = next_angle;
+				}
+				else
+				{
+					moving = false;
+				}
 			}
 		}
+		
+		if(!moving)
+		{
+			bubble_time += delta_time / 1000000;
+		}
+	}
+	else if(object_index == BH_BUBBLE_DAD)
+	{
+		
 	}
 }

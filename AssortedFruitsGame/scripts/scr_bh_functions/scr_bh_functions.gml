@@ -84,6 +84,7 @@ function bh_start(level){
 		if(bh_dinner_choice == BH_BATTLE_MOM)
 		{
 			bh_bubble_type = BH_BUBBLE_MOM;
+			//bh_bubble_move_speed = BH_MOM_BUBBLE_SPEED;
 			bh_dia_text = get_mom_battle_dialogue();
 		}
 		else if(bh_dinner_choice == BH_BATTLE_DAD)

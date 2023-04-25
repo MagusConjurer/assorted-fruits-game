@@ -12,14 +12,16 @@ bubble_color = C_MOM;
 
 radius = irandom_range(BH_MOM_BUBBLE_RADIUS_MIN, BH_MOM_BUBBLE_RADIUS_MAX);
 counter_clockwise = irandom(1);
+current_angle = 0;
+rot_direction = 0;
 
 if(counter_clockwise)
 {
-	current_angle = 180;
+	rot_direction = -1;
 }
 else
 {
-	current_angle = 0;
+	rot_direction = 1;
 }
 
 center_x = x - radius;
