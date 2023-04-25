@@ -21,7 +21,6 @@ global.sfx_volume = 0.5;
 if(global.debugging == true) 
 {
 	global.music_enabled = false;
-	global.fullscreen_enabled = false;
 }
 
 window_set_fullscreen(global.fullscreen_enabled);
