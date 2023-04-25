@@ -1,64 +1,123 @@
 // Macros for Bullet Hell
 
-#macro BH_UI_MARGIN 20
-<<<<<<< HEAD
-=======
-#macro BH_TIME_PROGRESS_PERCENTAGE 0.01
-#macro BH_PLAYER_POP_PROGRESS 0.008
->>>>>>> e8f4fe9102527b7b40d2107bf4f7e9c96354be04
-#macro BH_VIGNETTE_START_INDEX 5
+#macro BH_AUTO_RESTART_SECONDS 5
 
-#region PROGRESS BAR
-#macro BH_TIME_PROGRESS_PERCENTAGE 0.01
-#macro BH_BUBBLE_POP_PROGRESS 0.04
-#macro BH_BOOST_PROGRESS 0.08
-#macro BH_BOOST_PULSE_TIME 2
-#macro BH_BOOST_ICON_X global.resolution_w * 0.2
-#macro BH_BUS_ICON spr_slider_button
-#macro BH_BED_ICON spr_slider_button
+#region BH DIALOGUE
+#macro BH_DIALOGUE_HAS_COLLISION true
+#macro BH_DIALOGUE_BG_SPRITE spr_dialogue
+#macro BH_DIALOGUE_BG_PERCENT_LARGER 0.1
 
 #endregion
 
-#region Player
+#region UI
 
-#macro BH_PLAYER_SPEED 4
-#macro BH_PLAYER_PROJECTILE_SPEED 6
+#macro BH_UI_MARGIN 25
+#macro BH_UI_CIRCLE 0
+#macro BH_UI_RECT   1
+
+#macro BH_TIME_COLOR c_green
+
+// Vignette
+#macro BH_VIGNETTE_START_INDEX 5
+#macro BH_VIGNETTE_DELAY_TIME 1
+
+// Start of BH
+#macro BH_START_MESSAGE "Survive until the end of conversation!"
+#macro BH_START_SEQ_ACTIVE_COLOR c_white
+#macro BH_START_SEQ_PAUSED_COLOR c_gray
+// Text to show before the actual hotkey, which I will add before actually drawing it
+#macro BH_HOTKEY_ATTACK_TEXT "Attack - "
+#macro BH_HOTKEY_ABILITY_TEXT "Ability - "
+
+#endregion
+
+#region BATTLE IMPACT CHOICES
+
+#macro BH_NO_RESPONSE   0
+#macro BH_PLEASE_STOP   1
+
+#macro BH_BATTLE_MOM	0
+#macro BH_BATTLE_DAD	1
+#macro BH_BATTLE_UNCLE  2
+
+#endregion
+
+#region PROGRESS BAR
+#macro BH_TIME_PROGRESS_PERCENTAGE 0.01
+#macro BH_BUBBLE_POP_PROGRESS 0.007
+#macro BH_BOOST_PROGRESS 0.08
+#macro BH_BOOST_PULSE_TIME 2
+#macro BH_BUS_ICON spr_bus_icon
+#macro BH_BED_ICON spr_bed_icon
+
+#endregion
+
+#region PLAYER
+
+#macro BH_PLAYER_SPEED 40
+#macro BH_PLAYER_SCALE 0.2
+#macro BH_PROJECTILE_SCALE 0.1
+#macro BH_PLAYER_PROJECTILE_SPEED 60
 #macro BH_PLAYER_PROJECTILE_DAMAGE -1
 #macro BH_PLAYER_PROJECTILE_DELAY 5
 #macro BH_PLAYER_HEALTH_DEFAULT 8
 #macro BH_PLAYER_NUM_IFRAMES 240 //Note: Game runs at 60 fps
 
-<<<<<<< HEAD
 #endregion
 
 #region BUBBLES
-#macro BH_STARTING_BUBBLE_HEALTH 7
-#macro BH_NUM_STARTING_BUBBLES 18 
-#macro BH_NUM_BUBBLES_PER_SPAWN 3
-#macro BH_BUBBLE_TIME_BEFORE_POPPING 10
-#macro BH_BUBBLE_MOVE_SPEED 0.7
-#macro BH_MAX_BUBBLES 50
-=======
-#macro BH_STARTING_BUBBLE_HEALTH 6
-#macro BH_NUM_STARTING_BUBBLES 12 // 18 is the max with current setup
-#macro BH_NUM_BUBBLES_PER_SPAWN 8
-#macro BH_BUBBLE_TIME_BEFORE_POPPING 6
-#macro BH_BUBBLE_MOVE_SPEED 0.9
-#macro BH_MAX_BUBBLES 70
->>>>>>> e8f4fe9102527b7b40d2107bf4f7e9c96354be04
-#macro BH_NUM_BUBBLE_PROJECTILES 25
-#macro BH_STARTING_BUBBLE_PROJECTILE_SCALE 0.015
-#macro BH_BUBBLE_PROJECTILE_SPEED 3
+// Shared values
+#macro BH_BUBBLE_PROJECTILE_SPEED 30
 #macro BH_BUBBLE_PROJECTILE_DAMAGE -1
+
+// Non shooting values
+#macro BH_NS_STARTING_BUBBLE_HEALTH		2
+<<<<<<< HEAD
+#macro BH_NS_SECONDS_BETWEEN_SPAWNS		5
+#macro BH_NS_NUM_STARTING_BUBBLES		10 
+#macro BH_NS_NUM_BUBBLES_PER_SPAWN		12
+=======
+#macro BH_NS_NUM_STARTING_BUBBLES		10
+#macro BH_NS_NUM_BUBBLES_PER_SPAWN		14
+>>>>>>> b425d8aa192012f36b34de566166b7da693e4aba
+#macro BH_NS_BUBBLE_TIME_BEFORE_POPPING	0.8
+#macro BH_NS_MAX_BUBBLES				60
+#macro BH_NS_NUM_BUBBLE_PROJECTILES		12
+#macro BH_NS_BUBBLE_PROJECTILE_SCALE	0.015
+#macro BH_NS_BUBBLE_MOVE_SPEED			35
+
+// Shooting Values
+#macro BH_S_STARTING_BUBBLE_HEALTH		2
+#macro BH_S_SECONDS_BETWEEN_SPAWNS		5
+#macro BH_S_NUM_STARTING_BUBBLES		8 
+#macro BH_S_NUM_BUBBLES_PER_SPAWN		6
+#macro BH_S_BUBBLE_TIME_BEFORE_POPPING	6
+#macro BH_S_MAX_BUBBLES					70
+#macro BH_S_NUM_BUBBLE_PROJECTILES		20
+#macro BH_S_BUBBLE_PROJECTILE_SCALE		0.015
+#macro BH_S_BUBBLE_MOVE_SPEED			9
+
+// TYPES
+#macro BH_BUBBLE_BUSGUY obj_bubble
+#macro BH_BUBBLE_MOM obj_bubble_mom
+#macro BH_BUBBLE_DAD obj_bubble_dad
+#macro BH_BUBBLE_UNCLE obj_bubble_uncle
 
 #endregion
 
 #region BOOST
-#macro BH_BOOST_MOVE_SPEED 0.5
-#macro BH_BOOST_SCALING_FACTOR 0.2
+#macro BH_BOOST_SEQ_ACTIVE_COLOR c_white
+#macro BH_BOOST_SEQ_PAUSED_COLOR c_gray
+#macro BH_BOOST_AVAILABLE_TEXT "Find the purple bubble for a progress boost!"
+#macro BH_BOOST_MOVE_SPEED 0.9
+#macro BH_BOOST_SCALING_FACTOR 0.05
 #macro BH_SECONDS_BEFORE_BOOST 10
 
 #endregion
+
+#region ABILITIES
+
+#macro BH_ABILITY_BUTTON_SCALE 0.05
 
 // DASH ability
 #macro BH_ABILITY_DASH 1
@@ -68,11 +127,14 @@
 
 // SHIELD ability
 #macro BH_ABILITY_SHIELD 2
-#macro BH_SHIELD_RADIUS 1.2
-#macro BH_SHIELD_DURATION 130
+#macro BH_SHIELD_MAX_SCALE 1.2
+#macro BH_SHIELD_MIN_SCALE 0.7
+#macro BH_SHIELD_NUM_HITS 5
 #macro BH_SHIELD_COOLDOWN 600
 
 // HEAL ability
 #macro BH_ABILITY_HEAL 3
 #macro BH_HEAL_AMOUNT 1
 #macro BH_HEAL_COOLDOWN 1000
+
+#endregion
