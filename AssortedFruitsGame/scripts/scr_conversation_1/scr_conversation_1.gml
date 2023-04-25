@@ -12,7 +12,7 @@ line_0 = {
 	type: "line",
 	on_the_left: true,  
 	speaker: 0,
-	emotion: BUS_GUY_RUDE,  
+	emotion: BUS_GUY_GRIMACE,  
 	text: "Eugh.",
 	jump_to: 0
 }
@@ -21,7 +21,7 @@ line_1 = {
 	type: "line",
 	on_the_left: false,      
 	speaker: 0,
-	emotion: ALEX_ANXIOUS,  
+	emotion: ALEX_LOOKAWAY,  
 	text: "...",
 	jump_to: 0
 }
@@ -30,7 +30,7 @@ line_2 = {
 	type: "line",
 	on_the_left: true,     
 	speaker: 0,
-	emotion: BUS_GUY_RUDE,  
+	emotion: BUS_GUY_ARMSCROSS,  
 	text: "F@$%!t.",
 	jump_to: 0 
 }
@@ -39,7 +39,7 @@ line_3 = {
 	type: "line",
 	on_the_left: false,     
 	speaker: 0,
-	emotion: ALEX_ANXIOUS,  
+	emotion: ALEX_AFRAID,  
 	text: "(internal) Did he seriously say that to me? I didn't even do anything to him!",
 	jump_to: 0
 }
@@ -58,7 +58,7 @@ line_5 = {
 	type: "line",
 	on_the_left: false, 
 	speaker: 0,
-	emotion: ALEX_ANXIOUS,  
+	emotion: ALEX_LOOKAWAY,  
 	text: "...",
 	jump_to: 0
 }
@@ -67,7 +67,7 @@ line_6 = {
 	type: "line",
 	on_the_left: true,      
 	speaker: 0,
-	emotion: BUS_GUY_RUDE,  
+	emotion: BUS_GUY_GRIMACE,  
 	text: "What, can't even look at me when I'm talking to you?",
 	jump_to: 0 
 }
@@ -85,7 +85,7 @@ line_8 = {
 	type: "line",
 	on_the_left: true,      
 	speaker: 0,
-	emotion: BUS_GUY_RUDE,  
+	emotion: BUS_GUY_SMOKING,  
 	text: "Lookin' away ain't gonna do you any favors, kid.",
 	jump_to: 13  
 }
@@ -94,7 +94,7 @@ line_9 = {
 	type: "line",
 	on_the_left: false,  
 	speaker: 0,
-	emotion: ALEX_ANXIOUS,  
+	emotion: ALEX_ANGRY,  
 	text: "Please stop.",
 	jump_to: 0
 }
@@ -103,7 +103,7 @@ line_10 = {
 	type: "line",
 	on_the_left: true,    
 	speaker: 0,
-	emotion: BUS_GUY_RUDE,  
+	emotion: BUS_GUY_SMOKING,  
 	text: "What, I'm just stating the obvious. You're practically screaming it to the entire town looking like that.",
 	jump_to: 0  
 }
@@ -112,7 +112,7 @@ line_11 = {
 	type: "line",
 	on_the_left: false,      
 	speaker: 0,
-	emotion: ALEX_ANXIOUS,  
+	emotion: ALEX_LOOKAWAY,  
 	text: "It's not a nice thing to say, though.",
 	jump_to: 0
 }
@@ -121,7 +121,7 @@ line_12 = {
 	type: "line",
 	on_the_left: true,     
 	speaker: 0,
-	emotion: BUS_GUY_RUDE,  
+	emotion: BUS_GUY_GRIMACE,  
 	text: "I don't gotta be nice to you.",
 	jump_to: 0 
 }
@@ -139,7 +139,7 @@ line_14 = {
 	type: "line",
 	on_the_left: true,        
 	speaker: 0,
-	emotion: BUS_GUY_RUDE,  
+	emotion: BUS_GUY_ARMSCROSS,  
 	text: "Hey! You deaf or something?",
 	jump_to: 0
 }

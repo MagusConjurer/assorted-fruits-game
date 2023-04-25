@@ -49,7 +49,8 @@ enum align{
 #macro DIA_DAD 1
 #macro DIA_UNCLE 2
 
-/// Emotions
+#region EMOTIONS
+
 #macro ALEX_NEUTRAL 0
 #macro ALEX_AFRAID 1
 #macro ALEX_SHOCKED 2
@@ -72,5 +73,25 @@ enum align{
 #macro STELLA_JOKING 8
 #macro STELLA_NERVOUS 9
 
-#macro BUS_GUY_RUDE 0
+#macro MOM_NEUTRAL 0
+#macro MOM_HAPPY 1
+#macro MOM_ANXIOUS 2
+#macro MOM_ANGRY 4
+#macro MOM_ANNOYED 5
+
+#macro DAD_UNIMPRESSED 0
+#macro DAD_IRRITATED 1
+#macro DAD_PREACHING 2
+#macro DAD_ANGRY 3
+
+#macro UNCLE_NEUTRAL 0
+#macro UNCLE_UNIMPRESSED 1
+#macro UNCLE_PRAYING 2
+#macro UNCLE_ANGRY 3
+
+#macro BUS_GUY_GRIMACE		0
+#macro BUS_GUY_ARMSCROSS	0
+#macro BUS_GUY_SMOKING		0
+
+#endregion
 

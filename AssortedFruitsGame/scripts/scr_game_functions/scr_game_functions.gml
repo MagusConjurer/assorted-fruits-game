@@ -1,3 +1,4 @@
+#region ROOM & GAME STATE CHANGES
 function set_game_state(new_state)
 {
 	if(global.game_state != PAUSED)
@@ -6,6 +7,8 @@ function set_game_state(new_state)
 	}
 	
 	global.game_state = new_state;
+	
+	game_state_music_swap();
 }
 
 function set_game_state_and_start(new_state)
@@ -40,6 +43,8 @@ function set_game_state_and_start(new_state)
 				global.game_state = OVERWORLD;
 			}
 		}
+		
+		game_state_music_swap();
 	}
 }
 
@@ -73,6 +78,72 @@ function state_change_transition(state)
 	}
 }
 
+function room_transition(level)
+{
+	with(obj_game)
+	{
+		if(level != LEVEL_X_MENU && !level_completed[level])
+		{
+			global.current_level = level;
+		}
+	
+		if(level == LEVEL_X_MENU)
+		{
+			global.current_room = ROOM_MENU;
+		}
+		else if(level == LEVEL_0_BEDROOM || level == LEVEL_6_BEDROOM)
+		{
+			global.current_room = ROOM_BEDROOM;
+		}
+		else if(level == LEVEL_1_BUS_STOP || level == LEVEL_2_BUS_BATTLE)
+		{
+			global.current_room = ROOM_OUTSIDE;
+		}
+		else if(level == LEVEL_3_CAFE)
+		{
+			global.current_room = ROOM_CAFE;
+		}
+		else if(level == LEVEL_4_DINNER || level == LEVEL_5_DINNER_BATTLE)
+		{
+			//global.current_room = ROOM_DINNER;
+		}
+	
+		if(!instance_exists(obj_transition_parent))
+		{
+			instance_create_layer(0,0,"Background",obj_basic_transition);
+		}
+	}
+}
+
+function is_type_of_dialogue()
+{
+	return (global.game_state == DIALOGUE || global.game_state == ENVIRONMENTAL || global.game_state == PRE_TRANSITION);
+}
+
+function game_state_music_swap()
+{
+	if(global.game_state == OVERWORLD)
+	{
+		play_background_music(AUDIO_OV_MUSIC);
+	}
+	else if(global.game_state == BULLET_HELL)
+	{
+		if(!check_level_completed(LEVEL_2_BUS_BATTLE))
+		{
+			play_background_music(AUDIO_BH_MUSIC_SIMPLE);
+		}
+		else
+		{
+			play_background_music(AUDIO_BH_MUSIC_FULL);
+		}
+	}
+	else if(global.game_state == MENU)
+	{
+		pause_background_music();
+	}
+}
+#endregion
+
 function darken_background(depth_value)
 {
 	depth = depth_value;
@@ -85,48 +156,6 @@ function darken_background(depth_value)
 	draw_set_alpha(1.0);
 }
  
-function room_transition(level)
-{
-	if(level != LEVEL_X_MENU)
-	{
-		global.current_level = level;
-	}
-	
-	switch(level)
-	{
-		case LEVEL_X_MENU:
-			global.current_room = ROOM_MENU;
-		break;
-		case LEVEL_0_BEDROOM:
-			global.current_room = ROOM_BEDROOM;
-		break;
-		case LEVEL_1_BUS_STOP:
-			global.current_room = ROOM_OUTSIDE;
-		break;
-		case LEVEL_2_BUS_BATTLE:
-			global.current_room = ROOM_OUTSIDE;
-		break;
-		case LEVEL_3_CAFE:
-			global.current_room = ROOM_CAFE;
-		break;
-		case LEVEL_4_DINNER:
-			//global.current_room = ROOM_DINNER;
-		break;
-		case LEVEL_5_DINNER_BATTLE:
-			//global.current_room = ROOM_DINNER;
-		break;
-		case LEVEL_6_BEDROOM:
-			global.current_room = ROOM_BEDROOM;
-		break;
-	}
-	
-	if(!instance_exists(obj_transition_parent))
-	{
-		instance_create_layer(0,0,"Background",obj_basic_transition);
-		
-	}
-}
-
 function check_level_completed(level)
 {
 	with(obj_game)

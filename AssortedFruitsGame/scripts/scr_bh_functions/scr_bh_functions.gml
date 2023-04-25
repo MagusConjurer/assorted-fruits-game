@@ -43,7 +43,7 @@ function bh_update()
 		}
 		else if(alarm_get(0) < 0) 
 		{
-			alarm_set(0,room_speed * 5);
+			alarm_set(0,60 * bh_bubble_spawn_time);
 		}
 	}
 	else if (global.game_state != BULLET_HELL && bh_active == true)
@@ -70,15 +70,6 @@ function bh_start(level){
 	if(global.bh_ability_one > 0)
 	{
 		instance_create_layer(BH_UI_MARGIN * 2, BH_UI_MARGIN * 2, "Bullet_Hell", obj_ability_one_button);
-	}
-	
-	if(bh_busstop_choice == BH_NO_RESPONSE)
-	{
-		bh_player.chose_to_fight_back = false;
-	}
-	else if(bh_busstop_choice == BH_PLEASE_STOP)
-	{
-		bh_player.chose_to_fight_back = true;
 	}
 	
 	// Setup the dialogue for during the battle
@@ -124,8 +115,11 @@ function bh_start_value_init()
 {
 	if(bh_busstop_choice == BH_NO_RESPONSE)
 	{
+		bh_player.chose_to_fight_back = false;
+		
 		bh_bubble_max				= BH_NS_MAX_BUBBLES;
 		bh_bubble_start				= BH_NS_NUM_STARTING_BUBBLES;
+		bh_bubble_spawn_time		= BH_NS_SECONDS_BETWEEN_SPAWNS;
 		bh_bubble_start_health		= BH_NS_STARTING_BUBBLE_HEALTH;
 		bh_bubbles_per_spawn		= BH_NS_NUM_BUBBLES_PER_SPAWN;
 		bh_bubble_projectiles		= BH_NS_NUM_BUBBLE_PROJECTILES;
@@ -135,8 +129,11 @@ function bh_start_value_init()
 	}
 	else
 	{
+		bh_player.chose_to_fight_back = true;
+		
 		bh_bubble_max				= BH_S_MAX_BUBBLES;
 		bh_bubble_start				= BH_S_NUM_STARTING_BUBBLES;
+		bh_bubble_spawn_time		= BH_S_SECONDS_BETWEEN_SPAWNS;
 		bh_bubble_start_health		= BH_S_STARTING_BUBBLE_HEALTH;
 		bh_bubbles_per_spawn		= BH_S_NUM_BUBBLES_PER_SPAWN;
 		bh_bubble_projectiles		= BH_S_NUM_BUBBLE_PROJECTILES;
@@ -694,6 +691,8 @@ function bh_darken_object_circle(x1,y1,rad)
 
 function bh_lose_action()
 {
+	play_sfx(AUDIO_GAME_OVER);
+	
 	if(!instance_exists(obj_transition_parent))
 	{
 		instance_create_layer(0,0,"Background",obj_bh_lose_transition);

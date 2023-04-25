@@ -1,7 +1,7 @@
 /// Called by obj_game to check for necessary dialogue updates
 function dialogue_update()
 {
-	if ((global.game_state == DIALOGUE || global.game_state == ENVIRONMENTAL) && dialogue_active = true)
+	if (is_type_of_dialogue() && dialogue_active = true)
 	{
 		if(global.gamepad_id > -1)
 		{
@@ -18,19 +18,23 @@ function dialogue_update()
 					{
 						dialogue_selection = array_length(dialogue_selection_buttons) - 1;
 					}
+					
+					play_sfx(AUDIO_MENU_CLICK);
 					dialogue_selection_buttons[dialogue_selection].selected = true;
 				}
 				else if (menu_selection_right())
 				{
 					dialogue_selection_buttons[dialogue_selection].selected = false;
-					if(dialogue_selection > 0)
+					if(dialogue_selection < array_length(dialogue_selection_buttons) - 1)
 					{
-						dialogue_selection--;
+						dialogue_selection++;
 					}
 					else
 					{
-						dialogue_selection = array_length(dialogue_selection_buttons) - 1;
+						dialogue_selection = 0;
 					}
+					
+					play_sfx(AUDIO_MENU_CLICK);
 					dialogue_selection_buttons[dialogue_selection].selected = true;
 				}
 			}
@@ -534,7 +538,7 @@ function end_conversation()
 		dialogue_destroy();
 		
 		if(global.game_state == DIALOGUE)
-		{
+		{			
 			level_completed[global.current_level] = true;
 			
 			if (global.current_level == LEVEL_0_BEDROOM ||

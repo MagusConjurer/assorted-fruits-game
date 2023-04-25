@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_dinner_bubble",
+  "name": "obj_din_to_bed",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":10,"eventType":7,"isDnD":false,},
@@ -33,9 +33,9 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_wordbubble_combined",
-    "path": "sprites/spr_wordbubble_combined/spr_wordbubble_combined.yy",
+    "name": "spr_teleport",
+    "path": "sprites/spr_teleport/spr_teleport.yy",
   },
   "spriteMaskId": null,
-  "visible": true,
+  "visible": false,
 }
