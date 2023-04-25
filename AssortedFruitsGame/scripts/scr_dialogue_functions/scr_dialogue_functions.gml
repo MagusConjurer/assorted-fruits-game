@@ -18,6 +18,8 @@ function dialogue_update()
 					{
 						dialogue_selection = array_length(dialogue_selection_buttons) - 1;
 					}
+					
+					play_sfx(AUDIO_MENU_CLICK);
 					dialogue_selection_buttons[dialogue_selection].selected = true;
 				}
 				else if (menu_selection_right())
@@ -31,6 +33,8 @@ function dialogue_update()
 					{
 						dialogue_selection = 0;
 					}
+					
+					play_sfx(AUDIO_MENU_CLICK);
 					dialogue_selection_buttons[dialogue_selection].selected = true;
 				}
 			}

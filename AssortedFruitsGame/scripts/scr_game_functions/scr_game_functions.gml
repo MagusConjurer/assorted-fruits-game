@@ -7,6 +7,8 @@ function set_game_state(new_state)
 	}
 	
 	global.game_state = new_state;
+	
+	game_state_music_swap();
 }
 
 function set_game_state_and_start(new_state)
@@ -41,6 +43,8 @@ function set_game_state_and_start(new_state)
 				global.game_state = OVERWORLD;
 			}
 		}
+		
+		game_state_music_swap();
 	}
 }
 
@@ -114,6 +118,29 @@ function room_transition(level)
 function is_type_of_dialogue()
 {
 	return (global.game_state == DIALOGUE || global.game_state == ENVIRONMENTAL || global.game_state == PRE_TRANSITION);
+}
+
+function game_state_music_swap()
+{
+	if(global.game_state == OVERWORLD)
+	{
+		play_background_music(AUDIO_OV_MUSIC);
+	}
+	else if(global.game_state == BULLET_HELL)
+	{
+		if(!check_level_completed(LEVEL_2_BUS_BATTLE))
+		{
+			play_background_music(AUDIO_BH_MUSIC_SIMPLE);
+		}
+		else
+		{
+			play_background_music(AUDIO_BH_MUSIC_FULL);
+		}
+	}
+	else if(global.game_state == MENU)
+	{
+		pause_background_music();
+	}
 }
 #endregion
 

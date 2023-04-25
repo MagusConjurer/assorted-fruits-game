@@ -25,6 +25,7 @@ if (global.game_state == active_state)
 		if (_inst != noone)
 		{
 			bh_update_player_health(_inst.damage);
+			play_sfx(AUDIO_DAMAGE);
 			
 			ph = bh_get_player_health();
 			if(ph > 6)

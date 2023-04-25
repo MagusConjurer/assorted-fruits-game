@@ -35,35 +35,42 @@ function menu_update(){
 			alarm[3]++;
 		} 
 		
-		// Check for moving up or down on the menu
-		if(menu_selection_up())
+		if(global.game_state == PAUSED || global.game_state == MENU)
 		{
-			if(main_menu_visible)
+			// Check for moving up or down on the menu
+			if(menu_selection_up())
 			{
-				main_menu_up();
+				if(main_menu_visible)
+				{
+					main_menu_up();
+				}
+				else if(pause_menu_visible)
+				{
+					pause_menu_up();
+				}
+				else if(settings_menu_visible)
+				{
+					settings_menu_up();
+				}
+			
+				play_sfx(AUDIO_MENU_CLICK);
 			}
-			else if(pause_menu_visible)
+			else if(menu_selection_down())
 			{
-				pause_menu_up();
-			}
-			else if(settings_menu_visible)
-			{
-				settings_menu_up();
-			}
-		}
-		else if(menu_selection_down())
-		{
-			if(main_menu_visible)
-			{
-				main_menu_down();
-			}
-			else if(pause_menu_visible)
-			{
-				pause_menu_down();
-			}
-			else if(settings_menu_visible)
-			{
-				settings_menu_down();
+				if(main_menu_visible)
+				{
+					main_menu_down();
+				}
+				else if(pause_menu_visible)
+				{
+					pause_menu_down();
+				}
+				else if(settings_menu_visible)
+				{
+					settings_menu_down();
+				}
+			
+				play_sfx(AUDIO_MENU_CLICK);
 			}
 		}
 	}
@@ -185,6 +192,33 @@ function menu_quit()
 function main_menu_up()
 {
 	main_menu_buttons[main_menu_selected].selected = false;
+
+	main_menu_decrement();
+	
+	if(main_menu_buttons[main_menu_selected].enabled == false)
+	{
+		main_menu_decrement();
+	}
+	
+	main_menu_buttons[main_menu_selected].selected = true;
+}
+
+function main_menu_down()
+{
+	main_menu_buttons[main_menu_selected].selected = false;
+
+	main_menu_increment();
+
+	if(main_menu_buttons[main_menu_selected].enabled == false)
+	{
+		main_menu_increment();
+	}
+
+	main_menu_buttons[main_menu_selected].selected = true;
+}
+
+function main_menu_decrement()
+{
 	if(main_menu_selected > 0)
 	{
 		main_menu_selected--;
@@ -193,12 +227,10 @@ function main_menu_up()
 	{
 		main_menu_selected = array_length(main_menu_buttons) - 1;
 	}
-	main_menu_buttons[main_menu_selected].selected = true;
 }
 
-function main_menu_down()
+function main_menu_increment()
 {
-	main_menu_buttons[main_menu_selected].selected = false;
 	if(main_menu_selected < array_length(main_menu_buttons) - 1)
 	{
 		main_menu_selected++;
@@ -207,8 +239,8 @@ function main_menu_down()
 	{
 		main_menu_selected = 0;
 	}
-	main_menu_buttons[main_menu_selected].selected = true;
 }
+
 #endregion
 
 #region Pause Menu
@@ -217,6 +249,8 @@ function pause_menu_show()
 	with(obj_game)
 	{
 		pause_menu_visible = true;
+		main_menu_visible = false;
+		
 		pause_dialogue();
 		pause_background_music();
 	
@@ -320,6 +354,7 @@ function pause_menu_down()
 function settings_menu_show()
 {
 	settings_menu_visible = true;
+	main_menu_visible = false;
 	//background
 	sbg_x = global.resolution_w * 0.5;
 	sbg_y = global.resolution_h * 0.5;

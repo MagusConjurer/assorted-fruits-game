@@ -691,6 +691,8 @@ function bh_darken_object_circle(x1,y1,rad)
 
 function bh_lose_action()
 {
+	play_sfx(AUDIO_GAME_OVER);
+	
 	if(!instance_exists(obj_transition_parent))
 	{
 		instance_create_layer(0,0,"Background",obj_bh_lose_transition);
