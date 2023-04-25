@@ -540,7 +540,6 @@ function end_conversation()
 		if(global.game_state == DIALOGUE)
 		{			
 			level_completed[global.current_level] = true;
-			show_debug_message(["LEVEL COMPLETE:", global.current_level, level_completed[global.current_level]]);
 			
 			if (global.current_level == LEVEL_0_BEDROOM ||
 				global.current_level == LEVEL_3_CAFE	|| 

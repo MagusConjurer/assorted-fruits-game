@@ -1,7 +1,13 @@
 // Macros for Bullet Hell
 
 #macro BH_AUTO_RESTART_SECONDS 5
+
+#region BH DIALOGUE
 #macro BH_DIALOGUE_HAS_COLLISION true
+#macro BH_DIALOGUE_BG_SPRITE spr_dialogue
+#macro BH_DIALOGUE_BG_PERCENT_LARGER 0.1
+
+#endregion
 
 #region UI
 

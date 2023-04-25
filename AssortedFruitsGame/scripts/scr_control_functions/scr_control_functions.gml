@@ -202,7 +202,6 @@ function menu_interact_released()
 
 function menu_selection_up()
 {
-	show_debug_message(id);
 	with(obj_game)
 	{
 		if(global.gamepad_id > -1 && menu_input_active)
