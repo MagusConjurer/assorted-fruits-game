@@ -2,7 +2,7 @@
 
 event_inherited();
 
-bubble_speed = 0
+bubble_speed = 0;
 
 x_direction = 0;
 x_speed = 0;

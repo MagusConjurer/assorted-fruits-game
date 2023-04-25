@@ -10,8 +10,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Auto Interactables",
-    "path": "folders/Objects/Overworld/Auto Interactables.yy",
+    "name": "State or Room Change Interactables",
+    "path": "folders/Objects/Overworld/State or Room Change Interactables.yy",
   },
   "parentObjectId": {
     "name": "obj_interactable_parent",

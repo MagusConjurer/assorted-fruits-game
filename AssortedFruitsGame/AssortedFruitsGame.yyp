@@ -27,7 +27,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Settings","folderPath":"folders/Objects/Menus/Main/Settings.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Pause","folderPath":"folders/Objects/Menus/Pause.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Overworld","folderPath":"folders/Objects/Overworld.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Auto Interactables","folderPath":"folders/Objects/Overworld/Auto Interactables.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"State or Room Change Interactables","folderPath":"folders/Objects/Overworld/State or Room Change Interactables.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Decor","folderPath":"folders/Objects/Overworld/Decor.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Cafe","folderPath":"folders/Objects/Overworld/Decor/Cafe.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Characters","folderPath":"folders/Objects/Overworld/Decor/Characters.yy",},
