@@ -4,7 +4,10 @@ event_inherited();
 
 x_direction = -1;
 
-sprite_index = get_random_bubble_sprite_of_type(BH_BUBBLE_DAD);
+sprites = [spr_dad__1_,
+			spr_dad__2_,
+			spr_dad__3_,
+			spr_dad__4_];
 
 bubble_speed = bh_get_bubble_move_speed(BH_BUBBLE_DAD);
 bubble_starting_health = bh_get_bubble_start_health();

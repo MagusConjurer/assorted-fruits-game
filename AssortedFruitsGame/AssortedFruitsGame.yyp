@@ -122,7 +122,7 @@
     {"id":{"name":"spr__butstop_01","path":"sprites/spr__butstop_01/spr__butstop_01.yy",},},
     {"id":{"name":"obj_button_parent","path":"objects/obj_button_parent/obj_button_parent.yy",},},
     {"id":{"name":"scr_audio_functions","path":"scripts/scr_audio_functions/scr_audio_functions.yy",},},
-    {"id":{"name":"obj_cafe_to_bus_stop105","path":"objects/obj_cafe_to_bus_stop105/obj_cafe_to_bus_stop105.yy",},},
+    {"id":{"name":"obj_cafe_to_bus_stop","path":"objects/obj_cafe_to_bus_stop/obj_cafe_to_bus_stop.yy",},},
     {"id":{"name":"mixkit_short_laser_gun_shot_1670","path":"sounds/mixkit_short_laser_gun_shot_1670/mixkit_short_laser_gun_shot_1670.yy",},},
     {"id":{"name":"seq_bh_boost_hint","path":"sequences/seq_bh_boost_hint/seq_bh_boost_hint.yy",},},
     {"id":{"name":"obj_booth_2","path":"objects/obj_booth_2/obj_booth_2.yy",},},
