@@ -9,11 +9,13 @@ if(global.game_state == active_state)
 		{
 			facing_left = false;
 			sprite_index = sprite[RIGHT];
+			image_speed = WALK_ANIM_SPEED;
 		}
 		else if(h_direction < 0)
 		{
 			facing_left = true;
 			sprite_index = sprite[LEFT];
+			image_speed = WALK_ANIM_SPEED;
 		}
 	}
 	
@@ -34,6 +36,7 @@ if(global.game_state == active_state)
 		
 	if(h_direction == 0 && v_direction == 0)
 	{
+		image_speed = 0;
 		if(facing_forward)
 		{
 			sprite_index = sprite[DOWN];
@@ -42,9 +45,6 @@ if(global.game_state == active_state)
 		{
 			sprite_index = sprite[UP];
 		}
-		
-		// Temporary until we have updated sprites with actual animations for each direction
-		image_index = facing_left;
 	}
 	
 	// Final check for going out of the room bounds before moving the player
