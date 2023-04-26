@@ -1,13 +1,13 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_Wall_stairs",
+  "name": "obj_family",
   "eventList": [],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "lving room",
-    "path": "folders/Objects/Overworld/Decor/Interactables/lving room.yy",
+    "name": "Living Room",
+    "path": "folders/Objects/Overworld/Decor/Living Room.yy",
   },
   "parentObjectId": {
     "name": "obj_decor_parent",
@@ -28,10 +28,10 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": null,
-  "spriteMaskId": {
-    "name": "base__no_floating_furniture_",
-    "path": "sprites/base__no_floating_furniture_/base__no_floating_furniture_.yy",
+  "spriteId": {
+    "name": "spr_family",
+    "path": "sprites/spr_family/spr_family.yy",
   },
+  "spriteMaskId": null,
   "visible": true,
 }
