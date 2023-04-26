@@ -1,9 +1,9 @@
 // Macros for Overworld
 
 #macro WALKING_SPEED 3.65
+#macro WALK_ANIM_SPEED 2
 #macro PLAYER_INTERACT_DISTANCE 100
 #macro AUTO_INTERACT_DISTANCE 200
-// #macro INTERACT_KEY "E" -- replaced by global.hotkey_interact
 
 #macro OV_POS_TOLERANCE 10
 
