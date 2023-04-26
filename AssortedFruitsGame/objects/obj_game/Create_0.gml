@@ -1,7 +1,5 @@
 /// @description 
 
-load_data();
-
 // Audio
 // audio_stop_all();
 // audio_play_sound(BG_MUSIC, 10, true);
@@ -13,11 +11,14 @@ menu_input_active = false;
 
 #region Player Progress
 
-level_completed = [false, false, false, false, false, false, false];
+level_completed = DEFAULT_COMPLETION;
 new_game_started = false;
 main_continue_pressed = false;
 transition_event_hit  = false;
-state_before_main     = 0;
+state_before_main     = DEFAULT_BEFORE_MAIN;
+
+bh_busstop_choice	= DEFAULT_BUS_CHOICE;
+bh_dinner_choice	= DEFAULT_DIN_CHOICE;
 
 // OV Player Position
 ov_player_x = 0;
@@ -85,8 +86,6 @@ possible_bubble_spots = 0;
 
 bh_boost_available = false;
 bh_first_boost_used = false;
-bh_busstop_choice = BH_NO_RESPONSE;
-bh_dinner_choice = BH_BATTLE_MOM;
 
 bh_progress_bar = 0;
 bh_next_checkpoint = 0;
@@ -132,3 +131,6 @@ dialogue_selection_choices		= [];
 
 environmental_text = "";
 #endregion
+
+
+load_data();

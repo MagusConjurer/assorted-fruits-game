@@ -128,6 +128,7 @@ function main_menu_destroy()
 function main_menu_new()
 {	
 	reset_player_progress();
+	reset_progress_file();
 	with(obj_game)
 	{
 		new_game_started = true;
