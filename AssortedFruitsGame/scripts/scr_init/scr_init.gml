@@ -20,6 +20,7 @@ global.sfx_volume = 0.5;
 
 if(global.debugging == true) 
 {
+	show_debug_overlay(true);
 	global.music_enabled = false;
 }
 

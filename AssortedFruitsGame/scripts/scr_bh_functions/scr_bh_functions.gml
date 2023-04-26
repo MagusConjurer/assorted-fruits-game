@@ -257,9 +257,12 @@ function bh_setup_checkpoints()
 	{
 		bh_checkpoint_status = [];
 		num_checkpoints = array_length(bh_dia_text);
-		for(i = 0; i < num_checkpoints; i++)
+		
+		i = 0;
+		repeat(num_checkpoints)
 		{
 			bh_checkpoint_status[i] = false;
+			i++;
 		}
 		
 		bh_checkpoint_size = 1.0 / num_checkpoints;
@@ -529,11 +532,6 @@ function bh_spawn_random_bubble(is_first){
 		if(num_active_bubbles <= bh_bubble_max && bh_active == true)
 		{
 			bubble_rand = irandom_range(0,bh_bubble_start);
-			while(bubble_rand == bh_prev_bubble_rand)
-			{
-				bubble_rand = irandom_range(0,bh_bubble_start);
-			}
-			bh_prev_bubble_rand = bubble_rand;
 
 			bh_spawn_bubble(bubble_rand, is_first);
 		}
@@ -544,7 +542,7 @@ function bh_spawn_initial_bubbles()
 {
 	with(obj_game)
 	{
-		for(i=0; i< bh_bubble_start; i++)
+		repeat(bh_bubble_start)
 		{
 			bh_spawn_random_bubble(true);
 		}
@@ -592,7 +590,9 @@ function bh_bubble_destroyed(by_player){
 	play_sfx(AUDIO_BUBBLE_POP);
 	
 	loop_amount = bh_get_num_projectiles();
-	for(i = 0; i < loop_amount; i++) {
+	
+	repeat(loop_amount)
+	{
 		instance_create_layer(x,y,"Bullet_Hell",obj_bubble_projectile);
 	}
 
