@@ -105,7 +105,7 @@ function room_transition(level)
 		}
 		else if(level == LEVEL_4_DINNER || level == LEVEL_5_DINNER_BATTLE)
 		{
-			//global.current_room = ROOM_DINNER;
+			global.current_room = ROOM_DINNER;
 		}
 	
 		if(!instance_exists(obj_transition_parent))

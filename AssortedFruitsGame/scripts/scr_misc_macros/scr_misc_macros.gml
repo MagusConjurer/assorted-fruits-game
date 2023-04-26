@@ -19,7 +19,7 @@
 #macro ROOM_BEDROOM rm_bedroom
 #macro ROOM_OUTSIDE rm_bus_stop
 #macro ROOM_CAFE	rm_cafe
-// #macro ROOM_DINNER dinner
+#macro ROOM_DINNER  rm_Livingroom
 
 #macro LEVEL_X_MENU          "X"
 #macro LEVEL_0_BEDROOM		 0 

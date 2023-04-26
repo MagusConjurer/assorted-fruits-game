@@ -9,6 +9,11 @@ x_speed = 0;
 y_direction = 0;
 y_speed = 0;
 
+sprites = [];
+			
+sprite_change_time = 0;
+selected_index = 0;
+
 bubble_starting_health = 0;
 bubble_current_health = 0;
 bubble_time = 0;

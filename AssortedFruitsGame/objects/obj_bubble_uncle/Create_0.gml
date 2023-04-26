@@ -4,6 +4,11 @@ event_inherited();
 
 rand_angle = irandom_range(BH_UNCLE_BUBBLE_MIN_ANGLE, BH_UNCLE_BUBBLE_MAX_ANGLE);
 
+sprites = [spr_uncle__1_,
+			spr_uncle__2_,
+			spr_uncle__3_,
+			spr_uncle__4_];
+
 x_direction = cos(rand_angle);
 y_direction = sin(rand_angle);
 
