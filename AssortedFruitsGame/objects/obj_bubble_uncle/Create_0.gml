@@ -4,6 +4,8 @@ event_inherited();
 
 rand_angle = irandom_range(BH_UNCLE_BUBBLE_MIN_ANGLE, BH_UNCLE_BUBBLE_MAX_ANGLE);
 
+sprite_index = get_random_bubble_sprite_of_type(BH_BUBBLE_UNCLE);
+
 x_direction = cos(rand_angle);
 y_direction = sin(rand_angle);
 

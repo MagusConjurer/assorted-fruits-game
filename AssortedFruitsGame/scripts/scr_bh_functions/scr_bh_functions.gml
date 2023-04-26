@@ -587,6 +587,32 @@ function bh_get_dinner_type_to_spawn()
 	
 }
 
+function get_random_bubble_sprite_of_type(type)
+{
+	with(obj_game)
+	{
+		switch(type)
+		{
+			case BH_BUBBLE_BUSGUY:
+				options = bh_bus_bubbles;
+			break;
+			case BH_BUBBLE_MOM:
+				options = bh_bus_bubbles;
+			break;
+			case BH_BUBBLE_DAD:
+				options = bh_bus_bubbles;
+			break;
+			case BH_BUBBLE_UNCLE:
+				options = bh_bus_bubbles;
+			break;
+		}
+		
+		index = irandom(array_length(options) - 1);
+		
+		return options[index];
+	}
+}
+
 /// Called by the bubble objects
 function bh_bubble_destroyed(by_player){
 	play_sfx(AUDIO_BUBBLE_POP);

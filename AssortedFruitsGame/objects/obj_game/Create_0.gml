@@ -75,6 +75,12 @@ bh_bubble_projectiles_scale = 0;
 bh_bubble_pop_time = 0;
 bh_bubble_move_speed = 0;
 
+bh_bus_bubbles = [spr_bus_bubble_0,
+				  spr_bus_bubble_1,
+				  spr_bus_bubble_2,
+				  spr_bus_bubble_3,
+				  spr_bus_bubble_4];
+
 bh_bubbles_popped = 0;
 num_active_bubbles = 0;
 bh_prev_bubble_rand = 0;
