@@ -9,8 +9,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Menus",
-    "path": "folders/Objects/Menus.yy",
+    "name": "Main",
+    "path": "folders/Objects/Menus/Main.yy",
   },
   "parentObjectId": {
     "name": "obj_button_parent",

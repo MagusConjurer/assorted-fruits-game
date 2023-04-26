@@ -9,7 +9,19 @@
 
 #region MENUS
 
-#macro MAIN_MENU_BACKGROUND spr_title_screen_DRAFT 
+#macro MAIN_MENU_BACKGROUND spr_title_screen
+
+#macro MAIN_PLAY_X global.resolution_w * 0.5
+#macro MAIN_PLAY_Y 400
+
+#macro MAIN_CONT_X global.resolution_w * 0.5
+#macro MAIN_CONT_Y 700
+
+#macro MAIN_EXIT_X global.resolution_w * 0.75
+#macro MAIN_EXIT_Y 800
+
+#macro MAIN_SETTINGS_X global.resolution_w * 0.8
+#macro MAIN_SETTINGS_Y 700
 
 #endregion
 
