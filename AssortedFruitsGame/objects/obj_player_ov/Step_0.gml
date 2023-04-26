@@ -32,40 +32,98 @@ if(global.game_state == active_state)
 	// Depth -- allows player to be drawn below/above other sprites
 	depth = -bbox_bottom;
 }
-else
+else if (global.game_state == DIALOGUE || global.game_state == BULLET_HELL)
 {
 	depth = DARKENING_DEPTH + 1;
 	
-	if(global.current_level = LEVEL_1_BUS_STOP)
+	if(global.current_room == ROOM_OUTSIDE)
 	{
-		if (x != OV_BUSSTOP_ALEX_X)
+		if(global.current_level == LEVEL_1_BUS_STOP)
 		{
-			x = lerp(x,OV_BUSSTOP_ALEX_X,0.1);
-		}
+			if (x != OV_BUSSTOP_ALEX_X)
+			{
+				x = lerp(x,OV_BUSSTOP_ALEX_X,0.1);
+			}
 		
-		if (y != OV_BUSSTOP_ALEX_Y)
-		{
-			y = lerp(y,OV_BUSSTOP_ALEX_Y,0.1);
-		}
+			if (y != OV_BUSSTOP_ALEX_Y)
+			{
+				y = lerp(y,OV_BUSSTOP_ALEX_Y,0.1);
+			}
 		
-		if (x <= OV_BUSSTOP_ALEX_X + OV_POS_TOLERANCE  && 
-			y <= OV_BUSSTOP_ALEX_Y + OV_POS_TOLERANCE)
+			if (x <= OV_BUSSTOP_ALEX_X + OV_POS_TOLERANCE  && 
+				y <= OV_BUSSTOP_ALEX_Y + OV_POS_TOLERANCE)
+			{
+				sprite_index = Alex_sit_normal;
+			}
+		}
+		else if(global.current_level == LEVEL_2_BUS_BATTLE)
 		{
-			sprite_index = Alex_sit_normal;
+			if(bh_player_attacks())
+			{
+				sprite_index = Alex_sit_WTF;
+			}
+			else
+			{
+				sprite_index = Alex_sit_angry;
+			}
 		}
 	}
-	else if(global.current_level == LEVEL_2_BUS_BATTLE)
+	else if(global.current_room == ROOM_CAFE)
 	{
-		if(bh_player_attacks())
+		if(global.current_level == LEVEL_3_CAFE)
 		{
-			sprite_index = Alex_sit_WTF;
-		}
-		else
-		{
-			sprite_index = Alex_sit_angry;
-		}
+			if (x != OV_CAFE_ALEX_X)
+			{
+				x = lerp(x,OV_CAFE_ALEX_X,0.1);
+			}
 		
+			if (y != OV_CAFE_ALEX_Y)
+			{
+				y = lerp(y,OV_CAFE_ALEX_Y,0.1);
+			}
+		
+			if (x <= OV_CAFE_ALEX_X + OV_POS_TOLERANCE  && 
+				y <= OV_CAFE_ALEX_Y + OV_POS_TOLERANCE)
+			{
+				sprite_index = Alex_sit_normal;
+			}
+		}
+	}
+	else if(global.current_room == ROOM_DINNER)
+	{
+		if(global.current_level == LEVEL_4_DINNER)
+		{
+			if (x != OV_DINNER_ALEX_X)
+			{
+				x = lerp(x,OV_DINNER_ALEX_X,0.1);
+			}
+		
+			if (y != OV_DINNER_ALEX_Y)
+			{
+				y = lerp(y,OV_DINNER_ALEX_Y,0.1);
+			}
+		
+			if (x <= OV_DINNER_ALEX_X + OV_POS_TOLERANCE  && 
+				y <= OV_DINNER_ALEX_Y + OV_POS_TOLERANCE)
+			{
+				sprite_index = Alex_sit_normal;
+			}
+		}
+		else if (global.current_level == LEVEL_5_DINNER_BATTLE)
+		{
+			if(bh_player_attacks())
+			{
+				sprite_index = Alex_sit_WTF;
+			}
+			else
+			{
+				sprite_index = Alex_sit_angry;
+			}
+		}
 	}
 }
-
+else
+{
+	depth = DARKENING_DEPTH + 1;
+}
 

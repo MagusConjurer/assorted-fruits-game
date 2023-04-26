@@ -4,14 +4,6 @@ event_inherited();
 
 if(global.game_state == active_state)
 {
-	// https://manual.yoyogames.com/GameMaker_Language/GML_Reference/Asset_Management/Instances/instance_place.htm
-	var _inst = instance_place(x,y,obj_player_projectile);
-	if (_inst != noone)
-	{
-		bubble_current_health += _inst.damage;
-		instance_destroy(_inst);
-	}
-
 	if(bubble_current_health <= 0)
 	{
 		bh_bubble_destroyed(true);

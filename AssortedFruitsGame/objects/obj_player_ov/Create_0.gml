@@ -17,3 +17,19 @@ sprite[RIGHT] = Alex_walk_R;
 
 facing_forward = true;
 facing_left = true;
+
+if(room == ROOM_OUTSIDE && check_level_completed(LEVEL_3_CAFE))
+{
+	x = 160;
+	y = 900;
+}
+else if(room == ROOM_DINNER)
+{
+	x = 500;
+	y = 650;
+}
+else if(room == ROOM_BEDROOM && check_level_completed(LEVEL_5_DINNER_BATTLE))
+{
+	x = 560;
+	y = 850;
+}

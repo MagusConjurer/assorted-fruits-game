@@ -6,5 +6,5 @@ if(global.game_state == OVERWORLD)
 }
 else
 {
-	depth = DARKENING_DEPTH + 1
+	depth = DARKENING_DEPTH + 2
 }

@@ -151,7 +151,7 @@ function darken_background(depth_value)
 	// Darken the screen
 	draw_set_color(c_black);
 	draw_set_alpha(PERCENT_TO_DARKEN);
-	draw_rectangle(0,0, RESOLUTION_W, RESOLUTION_H, false);
+	draw_sprite(bh_background,0, 0, 0);
 	// Reset the alpha value
 	draw_set_alpha(1.0);
 }

@@ -251,7 +251,10 @@ function pause_menu_show()
 		pause_menu_visible = true;
 		main_menu_visible = false;
 		
-		pause_dialogue();
+		if(global.prev_state == DIALOGUE)
+		{
+			pause_dialogue();
+		}
 		pause_background_music();
 	
 		pm_x = global.resolution_w * 0.5;

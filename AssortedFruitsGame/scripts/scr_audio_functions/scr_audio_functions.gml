@@ -11,11 +11,16 @@ function set_sfx_percentage(value)
 
 function play_background_music(track_name)
 {
-	global.current_bg_track = track_name;
-	if(global.music_enabled)
+	if(audio_get_name(global.current_bg_track) != audio_get_name(track_name))
 	{
-		// Stores the index of the specific track
-		global.current_bg_track = audio_play_sound(global.current_bg_track, 10, true, global.music_volume);
+		audio_stop_sound(global.current_bg_track);
+		
+		global.current_bg_track = track_name;
+		if(global.music_enabled)
+		{
+			// Stores the index of the specific track
+			global.current_bg_track = audio_play_sound(global.current_bg_track, 10, true, global.music_volume);
+		}
 	}
 }
 

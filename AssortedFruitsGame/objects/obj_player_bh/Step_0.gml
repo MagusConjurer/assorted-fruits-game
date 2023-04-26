@@ -18,38 +18,6 @@ if (global.game_state == active_state)
 		}
 	}
 	
-	// Only check collisions with bubbles if not in iframes
-	if(iframes <= 0) 
-	{
-		var _inst = instance_place(x,y,obj_bubble_projectile);
-		if (_inst != noone)
-		{
-			bh_update_player_health(_inst.damage);
-			play_sfx(AUDIO_DAMAGE);
-			
-			ph = bh_get_player_health();
-			if(ph > 6)
-			{
-				current_frame = 0;
-			} 
-			else if(ph > 4)
-			{
-				current_frame = 2;
-			}
-			else if(ph > 2)
-			{
-				current_frame = 4;
-			}
-			else
-			{
-				current_frame = 6;
-			}
-			
-			instance_destroy(_inst);
-			iframes = BH_PLAYER_NUM_IFRAMES;
-		}
-	} 
-	
 	if(iframes > 0)
 	{
 		iframes--;

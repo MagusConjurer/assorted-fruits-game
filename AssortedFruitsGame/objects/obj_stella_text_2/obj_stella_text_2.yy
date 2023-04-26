@@ -1,19 +1,21 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_Busguy_test",
+  "name": "obj_stella_text_2",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":10,"eventType":7,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Characters",
-    "path": "folders/Objects/Overworld/Decor/Characters.yy",
+    "name": "State or Room Change Interactables",
+    "path": "folders/Objects/Overworld/State or Room Change Interactables.yy",
   },
   "parentObjectId": {
-    "name": "obj_decor_parent",
-    "path": "objects/obj_decor_parent/obj_decor_parent.yy",
+    "name": "obj_interactable_parent",
+    "path": "objects/obj_interactable_parent/obj_interactable_parent.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,
@@ -31,9 +33,9 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_BusGuy_look",
-    "path": "sprites/spr_BusGuy_look/spr_BusGuy_look.yy",
+    "name": "spr_texting_start",
+    "path": "sprites/spr_texting_start/spr_texting_start.yy",
   },
   "spriteMaskId": null,
-  "visible": true,
+  "visible": false,
 }
