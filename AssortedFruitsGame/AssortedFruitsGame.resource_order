@@ -6,11 +6,11 @@
     {"name":"group1","order":5,"path":"folders/Objects/Overworld/Decor/Interactables/Bedroom/group1.yy",},
     {"name":"lving room","order":1,"path":"folders/Objects/Overworld/Decor/Interactables/lving room.yy",},
     {"name":"livingroom","order":38,"path":"folders/Objects/Overworld/Decor/livingroom.yy",},
-    {"name":"Overworld","order":10,"path":"folders/Sprites/Characters/Stella/Overworld.yy",},
-    {"name":"Living room","order":1,"path":"folders/Sprites/Enviroment/Living room.yy",},
     {"name":"daddy","order":4,"path":"folders/Sprites/Characters/daddy.yy",},
     {"name":"mommydomy","order":5,"path":"folders/Sprites/Characters/mommydomy.yy",},
+    {"name":"Overworld","order":10,"path":"folders/Sprites/Characters/Stella/Overworld.yy",},
     {"name":"uncle","order":6,"path":"folders/Sprites/Characters/uncle.yy",},
+    {"name":"Living room","order":1,"path":"folders/Sprites/Enviroment/Living room.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"spr_teleport","order":27,"path":"sprites/spr_teleport/spr_teleport.yy",},
