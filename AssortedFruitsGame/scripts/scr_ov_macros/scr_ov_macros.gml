@@ -15,7 +15,7 @@
 #macro OV_CAFE_ALEX_Y 870
 
 #macro OV_DINNER_ALEX_X 1100
-#macro OV_DINNER_ALEX_Y 150
+#macro OV_DINNER_ALEX_Y 780
 
 
 // Sprite Directions

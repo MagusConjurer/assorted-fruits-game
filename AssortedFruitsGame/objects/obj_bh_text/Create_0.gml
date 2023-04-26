@@ -4,7 +4,27 @@
 event_inherited();
 
 text_color = c_white;
-bg_color = c_red;
+
+if(global.current_level == LEVEL_2_BUS_BATTLE)
+{
+	bg_color = c_red;
+}
+else
+{
+	switch(obj_game.bh_dinner_choice)
+	{
+		case BH_BATTLE_MOM:
+			bg_color = C_MOM;
+		break;
+		case BH_BATTLE_DAD:
+			bg_color = C_DAD;
+		break;
+		case BH_BATTLE_UNCLE:
+			bg_color = C_UNCLE;
+		break;
+	}
+}
+
 bh_dialogue = "DEFAULT TEXT IS HERE FOR TESTING";
 
 spr_width = sprite_get_width(BH_DIALOGUE_BG_SPRITE);
