@@ -29,8 +29,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_round_table",
-    "path": "sprites/spr_round_table/spr_round_table.yy",
+    "name": "spr_round_table_p",
+    "path": "sprites/spr_round_table_p/spr_round_table_p.yy",
   },
   "spriteMaskId": null,
   "visible": true,

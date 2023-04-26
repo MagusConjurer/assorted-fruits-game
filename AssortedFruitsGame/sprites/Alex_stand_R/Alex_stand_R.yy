@@ -4,8 +4,8 @@
   "name": "Alex_stand_R",
   "bbox_bottom": 1994,
   "bbox_left": 250,
-  "bbox_right": 1005,
-  "bbox_top": 155,
+  "bbox_right": 976,
+  "bbox_top": 58,
   "bboxMode": 0,
   "collisionKind": 1,
   "collisionTolerance": 0,
@@ -13,8 +13,8 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"9ca3af0f-8f75-4254-a7e1-380e3499c85c",},
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"f8983c33-47b8-4c36-8119-86ee591071b9",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"f43f1d25-14e1-4232-be16-d444c72065a7",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"d7854e7c-6d55-4dba-9ba4-e099fae55c5c",},
   ],
   "gridX": 0,
   "gridY": 0,
@@ -55,8 +55,8 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"9ca3af0f-8f75-4254-a7e1-380e3499c85c","path":"sprites/Alex_stand_R/Alex_stand_R.yy",},},},"Disabled":false,"id":"470f61f7-9385-46ac-a83d-20da4cd51d12","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"f8983c33-47b8-4c36-8119-86ee591071b9","path":"sprites/Alex_stand_R/Alex_stand_R.yy",},},},"Disabled":false,"id":"ec174945-8c8b-421a-bc8a-b1a5bca0313e","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"f43f1d25-14e1-4232-be16-d444c72065a7","path":"sprites/Alex_stand_R/Alex_stand_R.yy",},},},"Disabled":false,"id":"d7578fcd-febc-46b9-912e-8ac743a1398d","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"d7854e7c-6d55-4dba-9ba4-e099fae55c5c","path":"sprites/Alex_stand_R/Alex_stand_R.yy",},},},"Disabled":false,"id":"55bddedf-92f9-434b-aed3-c6949f70e837","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
