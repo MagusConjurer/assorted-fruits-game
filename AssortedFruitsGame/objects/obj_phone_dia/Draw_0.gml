@@ -1,3 +1,6 @@
 /// @description Draw the behind portion
 
-draw_self();
+if(active_state)
+{
+	draw_self();
+}
