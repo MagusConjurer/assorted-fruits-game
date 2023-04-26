@@ -31,8 +31,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "BusGuy_duh2",
-    "path": "sprites/BusGuy_duh2/BusGuy_duh2.yy",
+    "name": "spr_bg_combined",
+    "path": "sprites/spr_bg_combined/spr_bg_combined.yy",
   },
   "spriteMaskId": null,
   "visible": true,

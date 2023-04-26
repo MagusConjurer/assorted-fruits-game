@@ -30,10 +30,7 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": {
-    "name": "spr_dad_combined",
-    "path": "sprites/spr_dad_combined/spr_dad_combined.yy",
-  },
+  "spriteId": null,
   "spriteMaskId": null,
   "visible": true,
 }
