@@ -4,23 +4,23 @@ function get_environmental_dialogue(item)
 	{
 		// Uses overworld macros
 		case CLOSET:
-			return "Ugh some clothes are missing again. I think Mom's been secretly trying to get rid of my more masculine clothes.";		
+			return "Ugh some clothes are missing again. I think Mom's been trying to get me to be more feminine again.";		
 		break;
 		
 		case LAUNDRY:
-			return "Oof that really piled up. I should do my laundry when no one is home so Mom doesn't try to sift through it.";
+			return "There's no room in the basket for anything. I should do my laundry when no one is home so Mom doesn't try to sift through it.";
 		break;
 		
 		case TRASH:
-			return "Oh my god did I really write this? Maybe I should tone it down a bit.";
+			return "Did mom empty my trash? It was full the other day.";
 		break;
 		
 		case GRAD_CAP:
-			return "I should get back to school soon. I almost have enough to move out.";
+			return "It's been almost a year since I took a break from uni... I should really get back to school soon. I almost have enough to move out.";
 		break;
 		
 		case NIGHTSTAND:
-			return "Is that a bible? \"You should read it.\" God damn it Dad.";
+			return "A bible? I don't remember that being here. Is that... a note?! \"You should read it.\" God damn it Dad.";
 		break;
 	}
 }
