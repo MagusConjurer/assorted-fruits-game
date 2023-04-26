@@ -13,8 +13,8 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"378469fd-f4b2-45fd-8eb0-ad3df3172080",},
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"540db766-8ca7-4fb5-9190-42e1dac430ff",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"e85d208f-7e39-4ef0-945e-83c3071193e6",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"2a0a1d08-28e6-40b9-8ca0-826a24ded8e4",},
   ],
   "gridX": 0,
   "gridY": 0,
@@ -55,8 +55,8 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"378469fd-f4b2-45fd-8eb0-ad3df3172080","path":"sprites/Alex_stand_B/Alex_stand_B.yy",},},},"Disabled":false,"id":"2648e0a4-eaab-4e2b-8a9d-575adda3bb92","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"540db766-8ca7-4fb5-9190-42e1dac430ff","path":"sprites/Alex_stand_B/Alex_stand_B.yy",},},},"Disabled":false,"id":"7ab7e32d-b033-4ba8-9182-f217d46dee7e","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"e85d208f-7e39-4ef0-945e-83c3071193e6","path":"sprites/Alex_stand_B/Alex_stand_B.yy",},},},"Disabled":false,"id":"97d8e1a5-6841-4bce-a696-047580f7f5bc","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"2a0a1d08-28e6-40b9-8ca0-826a24ded8e4","path":"sprites/Alex_stand_B/Alex_stand_B.yy",},},},"Disabled":false,"id":"b026da5d-73cd-42f9-9d8d-6e2551ed207d","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
