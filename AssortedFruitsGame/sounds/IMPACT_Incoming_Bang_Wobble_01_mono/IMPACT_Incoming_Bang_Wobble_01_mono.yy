@@ -19,5 +19,5 @@
   "sampleRate": 44100,
   "soundFile": "IMPACT_Incoming_Bang_Wobble_01_mono.wav",
   "type": 0,
-  "volume": 0.85,
+  "volume": 0.06,
 }

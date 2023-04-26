@@ -25,6 +25,7 @@
     {"name":"inst_722A6002","path":"rooms/rm_bedroom/rm_bedroom.yy",},
     {"name":"inst_3E54BF3D","path":"rooms/rm_bedroom/rm_bedroom.yy",},
     {"name":"inst_38B05FEC","path":"rooms/rm_bedroom/rm_bedroom.yy",},
+    {"name":"inst_5D3CD5B5","path":"rooms/rm_bedroom/rm_bedroom.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -32,7 +33,9 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_500A2938","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_closet","path":"objects/obj_closet/obj_closet.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":800.0,"y":448.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Dialogue","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
-    {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Bullet_Hell","depth":200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
+    {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Bullet_Hell","depth":200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5D3CD5B5","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_dinner_bubble","path":"objects/obj_dinner_bubble/obj_dinner_bubble.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":960.0,"y":576.0,},
+      ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Overworld","depth":300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4B59D38A","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_nightstand","path":"objects/obj_nightstand/obj_nightstand.yy",},"properties":[],"rotation":0.0,"scaleX":0.5,"scaleY":0.5,"x":1363.0,"y":711.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1CB66C19","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_desk","path":"objects/obj_desk/obj_desk.yy",},"properties":[],"rotation":0.0,"scaleX":0.5,"scaleY":0.5,"x":531.0,"y":663.25,},
