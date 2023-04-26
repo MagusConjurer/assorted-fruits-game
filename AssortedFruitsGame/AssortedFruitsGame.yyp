@@ -245,6 +245,7 @@
     {"id":{"name":"BG_Angry","path":"sprites/BG_Angry/BG_Angry.yy",},},
     {"id":{"name":"spr_bh_vignette_old","path":"sprites/spr_bh_vignette_old/spr_bh_vignette_old.yy",},},
     {"id":{"name":"spr_text_bubble","path":"sprites/spr_text_bubble/spr_text_bubble.yy",},},
+    {"id":{"name":"obj_stella_text_2","path":"objects/obj_stella_text_2/obj_stella_text_2.yy",},},
     {"id":{"name":"obj_new_button","path":"objects/obj_new_button/obj_new_button.yy",},},
     {"id":{"name":"stella_unimpressed6","path":"sprites/stella_unimpressed6/stella_unimpressed6.yy",},},
     {"id":{"name":"obj_chair_left","path":"objects/obj_chair_left/obj_chair_left.yy",},},

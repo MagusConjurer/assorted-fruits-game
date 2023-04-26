@@ -25,7 +25,7 @@ if(room == ROOM_OUTSIDE && check_level_completed(LEVEL_3_CAFE))
 }
 else if(room == ROOM_DINNER)
 {
-	x = 450;
+	x = 500;
 	y = 650;
 }
 else if(room == ROOM_BEDROOM && check_level_completed(LEVEL_5_DINNER_BATTLE))

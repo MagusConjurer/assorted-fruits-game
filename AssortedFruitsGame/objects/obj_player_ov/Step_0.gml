@@ -9,11 +9,6 @@ if(global.game_state == active_state)
 	xSpeed = h_direction * moveSpeed;
 	ySpeed = v_direction * moveSpeed;
 	
-	if(keyboard_check_pressed(ord("P")))
-	{
-		show_debug_message([x,y]);
-	}
-	
 	// Check collision
 	if (place_meeting(x + xSpeed, y, obj_wall))
 	{
@@ -127,5 +122,8 @@ else if (global.game_state == DIALOGUE || global.game_state == BULLET_HELL)
 		}
 	}
 }
-
+else
+{
+	depth = DARKENING_DEPTH + 1;
+}
 
