@@ -86,12 +86,14 @@ function bh_start(level){
 			bh_bubble_start = BH_S_DINNER_BUBBLE_START;
 			bh_bubbles_per_spawn = BH_S_DINNER_BUBBLE_PER_SPAWN;
 			bh_bubble_max = BH_S_DINNER_BUBBLE_MAX;
+			bh_bubble_spawn_time = BH_S_SECONDS_DINNER_SPAWNS;
 		}
 		else
 		{
 			bh_bubble_start = BH_NS_DINNER_BUBBLE_START;
 			bh_bubbles_per_spawn = BH_NS_DINNER_BUBBLE_PER_SPAWN;
 			bh_bubble_max = BH_NS_DINNER_BUBBLE_MAX;
+			bh_bubble_spawn_time = BH_NS_SECONDS_DINNER_SPAWNS;
 		}
 		
 		if(bh_dinner_choice == BH_BATTLE_MOM)
