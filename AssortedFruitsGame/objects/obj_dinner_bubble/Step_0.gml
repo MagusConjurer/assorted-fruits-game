@@ -1,17 +1,8 @@
 /// @description 
 
-if(global.debugging)
+if(!check_level_completed(LEVEL_4_DINNER))
 {
-	global.current_level = LEVEL_4_DINNER;
-	
+	// Inherit the parent event
 	event_inherited();
-}
-else
-{
-	if(!check_level_completed(LEVEL_4_DINNER))
-	{
-		// Inherit the parent event
-		event_inherited();
-	}
 }
 
