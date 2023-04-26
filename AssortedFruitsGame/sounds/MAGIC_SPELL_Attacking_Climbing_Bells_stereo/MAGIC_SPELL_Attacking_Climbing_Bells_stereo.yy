@@ -19,5 +19,5 @@
   "sampleRate": 44100,
   "soundFile": "MAGIC_SPELL_Attacking_Climbing_Bells_stereo.wav",
   "type": 0,
-  "volume": 1.0,
+  "volume": 0.74,
 }
