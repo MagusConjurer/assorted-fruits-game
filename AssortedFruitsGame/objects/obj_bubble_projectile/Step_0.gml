@@ -29,9 +29,10 @@ if (_inst != noone)
 		{
 			_inst.current_frame = 6;
 		}
-			
-		instance_destroy();
+	
 		_inst.iframes = BH_PLAYER_NUM_IFRAMES;
+		
+		instance_destroy();
 	}
 } 
 
