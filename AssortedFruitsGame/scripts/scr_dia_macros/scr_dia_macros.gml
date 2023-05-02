@@ -6,8 +6,6 @@
 
 #macro DIALOGUE_TM_LEFT_LARGE  0
 #macro DIALOGUE_TM_RIGHT_LARGE 1
-#macro DIALOGUE_TM_LEFT_SMALL  2
-#macro DIALOGUE_TM_RIGHT_SMALL 3
 
 #macro TEXTBOX_PADDING 16
 #macro TEXTBOX_MARGIN 10
@@ -27,7 +25,6 @@ enum align{
 #region PORTRAITS
 #macro PORTRAIT_SCALE 0.2
 #macro PORTRAIT_MARGIN 10
-#macro PORTRAIT_HEIGHT 1000
 #endregion
 
 // Controls type of dialogue box and other details
@@ -64,12 +61,12 @@ enum align{
 
 #macro STELLA_NEUTRAL 0
 #macro STELLA_DISGUST 1
-#macro STELLA_INLOVE 2
+//#macro STELLA_INLOVE 2
 #macro STELLA_HAPPY 3
 #macro STELLA_THINKING 4
 #macro STELLA_LOOKAWAY 5
 #macro STELLA_UNIMPRESSED 6
-#macro STELLA_SHOCKED 7
+//#macro STELLA_SHOCKED 7
 #macro STELLA_JOKING 8
 #macro STELLA_NERVOUS 9
 
@@ -90,8 +87,8 @@ enum align{
 #macro UNCLE_ANGRY 3
 
 #macro BUS_GUY_GRIMACE		0
-#macro BUS_GUY_ARMSCROSS	0
-#macro BUS_GUY_SMOKING		0
+#macro BUS_GUY_ARMSCROSS	1
+#macro BUS_GUY_SMOKING		2
 
 #endregion
 

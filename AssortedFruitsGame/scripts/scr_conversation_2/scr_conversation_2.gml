@@ -1,4 +1,4 @@
-/// @description Duplicate to use as a template for additional conversations
+/// @description Cafe
 
 function get_convo_two()
 {
@@ -247,7 +247,7 @@ function get_convo_two()
 
 	line_26 = {
 		type: "line",			 
-		on_the_left: false, 
+		on_the_left: true, 
 		speaker: 0,
 		emotion: ALEX_ANXIOUS,  
 		text: "Right. That.",    
@@ -770,7 +770,7 @@ function get_convo_two()
 
 	line_84 = {
 		type: "line",			 
-		on_the_left: true,     
+		on_the_left: false,     
 		speaker: 0,
 		emotion: STELLA_HAPPY,  
 		text: "Hell yeah! Now go get em tiger.",    
