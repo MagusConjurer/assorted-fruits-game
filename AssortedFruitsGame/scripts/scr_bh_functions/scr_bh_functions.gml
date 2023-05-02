@@ -159,6 +159,7 @@ function bh_start_value_init()
 	
 	bh_time_spent = 0;
 	bh_vignette_index = 0
+	bh_vignette_target_index = 0;
 	
 	bh_bubbles_popped = 0;
 	num_active_bubbles = 0;
@@ -190,6 +191,8 @@ function bh_update_player_health(change)
 		{
 			bh_player_health = BH_PLAYER_HEALTH_DEFAULT;
 		}
+		
+		bh_update_vignette();
 	}
 }
 
@@ -207,26 +210,20 @@ function bh_update_vignette()
 	{
 		status = BH_PLAYER_HEALTH_DEFAULT - bh_player_health;
 		
-		if(status > 0)
+		bh_vignette_target_index = BH_VIGNETTE_START_INDEX + (status * bh_vignette_changes_per);
+		
+		if(bh_vignette_target_index < BH_VIGNETTE_START_INDEX)
 		{
-			bh_vignette_increasing = true;
-			// Check if it is less that the starting index plus the amount of change that should have taken place
-			if(bh_vignette_index < BH_VIGNETTE_START_INDEX + (status * bh_vignette_changes_per))
-			{
-				if(alarm_get(3) < 0)
-				{
-					alarm_set(3, BH_VIGNETTE_DELAY_TIME * 60);
-				}
-			}
+			bh_vignette_target_index = BH_VIGNETTE_START_INDEX;
 		}
-		else if(status < 1 && bh_vignette_index > 0)
+		else if(bh_vignette_target_index > bh_vignette_levels_total)
 		{
-			bh_vignette_increasing = false;
-			
-			if(alarm_get(3) < 0)
-			{
-				alarm_set(3, BH_VIGNETTE_DELAY_TIME * 60);
-			}
+			bh_vignette_target_index = bh_vignette_levels_total;
+		}
+		
+		if(bh_vignette_index != bh_vignette_target_index && alarm_get(3) < 0)
+		{
+			alarm_set(3, BH_VIGNETTE_DELAY_TIME * 60);
 		}
 	}
 }

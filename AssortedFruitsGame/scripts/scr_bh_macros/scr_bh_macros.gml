@@ -19,7 +19,7 @@
 
 // Vignette
 #macro BH_VIGNETTE_START_INDEX 5
-#macro BH_VIGNETTE_DELAY_TIME 1
+#macro BH_VIGNETTE_DELAY_TIME 0.5
 
 // Start of BH
 #macro BH_START_MESSAGE "Survive until the end of conversation!"
@@ -162,7 +162,7 @@
 
 // HEAL ability
 #macro BH_ABILITY_HEAL 3
-#macro BH_HEAL_AMOUNT 1
+#macro BH_HEAL_AMOUNT 2
 #macro BH_HEAL_COOLDOWN 1000
 
 #endregion

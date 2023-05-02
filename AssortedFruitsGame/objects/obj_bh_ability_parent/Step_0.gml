@@ -29,7 +29,5 @@ if (global.game_state == BULLET_HELL)
 		time_since_used += DELTA;
 		
 		percentage_to_draw = time_since_used / cooldown;
-		
-		show_debug_message(percentage_to_draw);
 	}
 }
