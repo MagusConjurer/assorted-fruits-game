@@ -118,7 +118,7 @@ line_11 = {
 
 line_12 = {
 	type: "line",
-	on_the_left: true,    
+	on_the_left: false,    
 	speaker: 0,
 	emotion: 0,   
 	text: "(internal) Yeah... Even if things seem tough now, I think it'll work out ok.",    
@@ -127,7 +127,7 @@ line_12 = {
 
 line_13 = {
 	type: "line",
-	on_the_left: true,    
+	on_the_left: false,    
 	speaker: 0,
 	emotion: 0,   
 	text: "(internal) I've got Stella and my other friends to help me out. They're my safe space.",    
@@ -136,7 +136,7 @@ line_13 = {
 
 line_14 = {
 	type: "line",
-	on_the_left: true,    
+	on_the_left: false,    
 	speaker: 0,
 	emotion: 0,   
 	text: "(internal) Regardless of my family, I know I'll push through in the end.",    

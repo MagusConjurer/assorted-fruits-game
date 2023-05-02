@@ -104,6 +104,15 @@ function dialogue_start(dialogue_level)
 			phone_x = camera_x + (camera_width * 0.5);
 			phone_y = camera_y + (camera_height * 0.5);
 			dialogue_phone = instance_create_layer(phone_x,phone_y,"Dialogue",obj_phone_dia);
+			
+			// Don't let it play a audio if it switches from text to internal dialogue
+			dialogue_l_has_spoken[0] = true;
+			dialogue_r_has_spoken[0] = true;
+		}
+		else
+		{
+			// Index is updated when drawing the textbox, so we have to check the previous one for the first line
+			dialogue_play_first_sound(conversation[conversation_index-1].on_the_left, conversation[conversation_index-1].speaker);
 		}
 	
 		dialogue_button_init(DIALOGUE_STANDARD);
@@ -292,7 +301,6 @@ function draw_multi_textbox()
 			{
 				box = conversation_boxes[i];
 				box.y -= box.sprite_height + TEXTBOX_MARGIN;
-			
 			}
 		}
 	}
@@ -371,12 +379,14 @@ function load_conversation(level)
 		{
 			dialogue_left[l] = instance_create_layer(0,0, "Dialogue", l_speaker_data[l]);
 			dialogue_left[l].visible = false;
+			dialogue_l_has_spoken[l] = false;
 		}
 		
 		for(r = 0; r < array_length(r_speaker_data); r++)
 		{
 			dialogue_right[r] = instance_create_layer(0,0, "Dialogue", r_speaker_data[r]);
 			dialogue_right[r].visible = false;
+			dialogue_r_has_spoken[r] = false;
 		}
 
 		// Only display the first speakers
@@ -424,15 +434,15 @@ function dialogue_set_portraits()
 {
 	with(obj_game)
 	{		
-		dialogue_current_left.image_xscale = PORTRAIT_SCALE;
+		dialogue_current_left.image_xscale = -PORTRAIT_SCALE;
 		dialogue_current_left.image_yscale = PORTRAIT_SCALE;
-		dialogue_current_left.x = camera_x + PORTRAIT_MARGIN * 0.2;
-		dialogue_current_left.y = camera_y + camera_height - (PORTRAIT_HEIGHT * 0.2 /2);
+		dialogue_current_left.x = camera_x + dialogue_current_left.mid_xwidth + PORTRAIT_MARGIN;
+		dialogue_current_left.y = camera_y  + camera_height - dialogue_current_left.mid_yheight;
 
 		dialogue_current_right.image_xscale = PORTRAIT_SCALE;
 		dialogue_current_right.image_yscale = PORTRAIT_SCALE;
-		dialogue_current_right.x = camera_x + camera_width - PORTRAIT_MARGIN * 0.2;
-		dialogue_current_right.y = camera_y + camera_height - (PORTRAIT_HEIGHT * 0.2 /2);
+		dialogue_current_right.x = camera_x + camera_width  - dialogue_current_right.mid_xwidth  - PORTRAIT_MARGIN;
+		dialogue_current_right.y = camera_y + camera_height - dialogue_current_right.mid_yheight;
 	}
 }
 
@@ -443,7 +453,7 @@ function dialogue_update_portraits()
 		speaker_index = conversation[conversation_index].speaker;
 		
 		if(conversation[conversation_index].on_the_left)
-		{
+		{			
 			if(dialogue_prev_left_index != speaker_index)
 			{
 				dialogue_current_left.visible = false;
@@ -452,9 +462,11 @@ function dialogue_update_portraits()
 				
 				dialogue_prev_left_index = speaker_index;
 			}
+			
+			dialogue_play_first_sound(true, speaker_index);
 		}
 		else
-		{
+		{			
 			if(dialogue_prev_right_index != speaker_index)
 			{
 				dialogue_current_right.visible = false;
@@ -463,6 +475,8 @@ function dialogue_update_portraits()
 				
 				dialogue_prev_right_index = speaker_index;
 			}
+			
+			dialogue_play_first_sound(false, speaker_index);
 		}
 		
 		dialogue_set_portraits();
@@ -482,6 +496,29 @@ function check_if_in_person(line)
 	else if(line.type == "message")
 	{
 		obj_game.dialogue_in_person = false;
+	}
+}
+
+function dialogue_play_first_sound(on_left, speaker_index)
+{
+	if(global.game_state == DIALOGUE)
+	{
+		if(on_left)
+		{
+			if(dialogue_l_has_spoken[speaker_index] == false)
+			{
+				play_sfx(dialogue_current_left.speak_audio);
+				dialogue_l_has_spoken[speaker_index] = true;
+			}
+		}
+		else
+		{
+			if(dialogue_r_has_spoken[speaker_index] == false)
+			{
+				play_sfx(dialogue_current_right.speak_audio);
+				dialogue_r_has_spoken[speaker_index] = true;
+			}
+		}
 	}
 }
 

@@ -53,6 +53,11 @@ if(current_alignment == align.centered)
 	text_y = y + (TEXTBOX_PADDING*2);
 	
 	text_max_width = (box_width * 0.95) - (TEXTBOX_PADDING*2);
+	
+	if(visible == false)
+	{
+		visible = true;
+	}
 }
 else
 {
@@ -88,6 +93,11 @@ else
 		else
 		{
 			text_x = x - (box_width  * TEXTBOX_OFFSET_PERCENT) + (TEXTBOX_PADDING*2);
+		}
+		
+		if(visible == false)
+		{
+			visible = true;
 		}
 	}
 }

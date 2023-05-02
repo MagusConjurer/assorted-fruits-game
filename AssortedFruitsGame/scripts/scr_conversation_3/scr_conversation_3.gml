@@ -297,7 +297,7 @@ line_31 = {
 
 line_32 = {
 	type: "line",
-	on_the_left: false,
+	on_the_left: true,
 	speaker: 0,
 	emotion: ALEX_ANGRY,
 	text: "They don't even use that term anymore! You should know that as a doctor.",
