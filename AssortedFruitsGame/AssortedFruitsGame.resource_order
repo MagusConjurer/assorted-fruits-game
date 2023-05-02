@@ -188,6 +188,7 @@
     {"name":"spr_slider_button","order":21,"path":"sprites/spr_slider_button/spr_slider_button.yy",},
     {"name":"VOICE_FEMALE_Ahh_1_mono","order":18,"path":"sounds/VOICE_FEMALE_Ahh_1_mono/VOICE_FEMALE_Ahh_1_mono.yy",},
     {"name":"spr_trashcan","order":6,"path":"sprites/spr_trashcan/spr_trashcan.yy",},
+    {"name":"obj_debug_battle_bubble","order":10,"path":"objects/obj_debug_battle_bubble/obj_debug_battle_bubble.yy",},
     {"name":"obj_menu_button","order":1,"path":"objects/obj_menu_button/obj_menu_button.yy",},
     {"name":"VOICE_FEMALE_Sigh_1_mono","order":21,"path":"sounds/VOICE_FEMALE_Sigh_1_mono/VOICE_FEMALE_Sigh_1_mono.yy",},
     {"name":"obj_bh_start_text","order":1,"path":"objects/obj_bh_start_text/obj_bh_start_text.yy",},

@@ -133,6 +133,7 @@
 #endregion
 
 #region BOOST
+
 #macro BH_BOOST_SEQ_ACTIVE_COLOR c_white
 #macro BH_BOOST_SEQ_PAUSED_COLOR c_gray
 #macro BH_BOOST_AVAILABLE_TEXT "Find the purple bubble for a progress boost!"

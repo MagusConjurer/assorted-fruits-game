@@ -77,7 +77,6 @@ bh_bubble_move_speed = 0;
 
 bh_bubbles_popped = 0;
 num_active_bubbles = 0;
-bh_prev_bubble_rand = 0;
 bubble_height = 0;
 possible_bubble_spots = 0;
 
