@@ -6,3 +6,5 @@ event_inherited();
 
 textbox_color = C_STELLA; // The can be a c_"color" or the $FFCC11 hex based color
 textbox_name = "Stella";
+
+speak_audio = AUDIO_DIA_STELLA;

@@ -6,6 +6,8 @@ event_inherited();
 image_xscale = 0.5;
 image_yscale = 0.5;
 
+visible = false;
+
 box_sprite = DIALOGUE_INPERSON_BOX_SPRITE;
 box_tint = c_white; // white is no tint
 

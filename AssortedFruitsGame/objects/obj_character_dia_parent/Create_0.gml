@@ -11,3 +11,5 @@ textbox_name = "Name";
 
 mid_xwidth = (sprite_get_width(sprite_index) * PORTRAIT_SCALE) / 2;
 mid_yheight = (sprite_get_height(sprite_index) * PORTRAIT_SCALE) / 2;
+
+speak_audio = 0;
