@@ -424,15 +424,15 @@ function dialogue_set_portraits()
 {
 	with(obj_game)
 	{		
-		dialogue_current_left.image_xscale = PORTRAIT_SCALE;
+		dialogue_current_left.image_xscale = -PORTRAIT_SCALE;
 		dialogue_current_left.image_yscale = PORTRAIT_SCALE;
-		dialogue_current_left.x = camera_x + PORTRAIT_MARGIN * 0.2;
-		dialogue_current_left.y = camera_y + camera_height - (PORTRAIT_HEIGHT * 0.2 /2);
+		dialogue_current_left.x = camera_x + dialogue_current_left.mid_xwidth + PORTRAIT_MARGIN;
+		dialogue_current_left.y = camera_y  + camera_height - dialogue_current_left.mid_yheight - PORTRAIT_MARGIN;
 
 		dialogue_current_right.image_xscale = PORTRAIT_SCALE;
 		dialogue_current_right.image_yscale = PORTRAIT_SCALE;
-		dialogue_current_right.x = camera_x + camera_width - PORTRAIT_MARGIN * 0.2;
-		dialogue_current_right.y = camera_y + camera_height - (PORTRAIT_HEIGHT * 0.2 /2);
+		dialogue_current_right.x = camera_x + camera_width  - dialogue_current_right.mid_xwidth  - PORTRAIT_MARGIN;
+		dialogue_current_right.y = camera_y + camera_height - dialogue_current_right.mid_yheight - PORTRAIT_MARGIN;
 	}
 }
 

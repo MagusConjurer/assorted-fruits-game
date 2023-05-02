@@ -26,7 +26,7 @@ enum align{
 
 #region PORTRAITS
 #macro PORTRAIT_SCALE 0.2
-#macro PORTRAIT_MARGIN 256
+#macro PORTRAIT_MARGIN 10
 #macro PORTRAIT_HEIGHT 1000
 #endregion
 

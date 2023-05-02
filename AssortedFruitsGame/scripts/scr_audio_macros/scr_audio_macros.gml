@@ -13,3 +13,10 @@
 #macro AUDIO_MENU_CLICK BUTTON_Light_Switch_01_stereo
 #macro AUDIO_BUS_TRANSITION bus_horn
 #macro AUDIO_BH_TRANSITION 0
+
+#macro AUDIO_DIA_ALEX 0
+#macro AUDIO_DIA_BUSGUY 0
+#macro AUDIO_DIA_STELLA 0
+#macro AUDIO_DIA_MOM 0
+#macro AUDIO_DIA_DAD 0
+#macro AUDIO_DIA_UNCLE 0
