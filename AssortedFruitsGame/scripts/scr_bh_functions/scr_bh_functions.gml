@@ -440,13 +440,13 @@ function bh_set_ability(ability)
 		bh_ability_index = ability;
 		switch(ability) {
 			case BH_ABILITY_DASH:
-				bh_ability_cooldown = BH_DASH_COOLDOWN;
+				bh_ability_cooldown = BH_DASH_COOLDOWN_TIME * 60;
 			break;
 			case BH_ABILITY_SHIELD:
-				bh_ability_cooldown = BH_SHIELD_COOLDOWN;
+				bh_ability_cooldown = BH_SHIELD_COOLDOWN_TIME * 60;
 			break;
 			case BH_ABILITY_HEAL:
-				bh_ability_cooldown = BH_HEAL_COOLDOWN;
+				bh_ability_cooldown = BH_HEAL_COOLDOWN_TIME * 60;
 			break;
 			default:
 				bh_ability_index = 0;
@@ -469,11 +469,11 @@ function bh_ability(ability)
 	}
 }
 
-function bh_set_ability_one_duration(duration)
+function bh_reset_ability_one()
 {
 	with(obj_ability_one_button)
 	{
-		alarm_set(0, duration);
+		alarm_set(0, 1);
 	}
 }
 #endregion

@@ -14,9 +14,11 @@ moveSpeed = BH_PLAYER_SPEED;
 active_state = BULLET_HELL;
 
 iframes = 0;
+healFrames = 0;
 toggle = true;
 current_frame = 0;
 
 dash_active = false;
+dash_time_active = 0;
 
 chose_to_fight_back = false;
