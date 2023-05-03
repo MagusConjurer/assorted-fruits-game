@@ -121,6 +121,17 @@ else if (global.game_state == DIALOGUE || global.game_state == BULLET_HELL)
 			}
 		}
 	}
+	else
+	{
+		if(facing_forward)
+		{
+			sprite_index = sprite[DOWN];
+		}
+		else
+		{
+			sprite_index = sprite[UP];
+		}
+	}
 }
 else
 {
