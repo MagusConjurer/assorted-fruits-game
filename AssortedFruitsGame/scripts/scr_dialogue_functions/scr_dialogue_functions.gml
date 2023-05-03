@@ -85,12 +85,14 @@ function dialogue_start(dialogue_level)
 				load_conversation(BUS_STOP_DIALOGUE);
 			break;
 			case LEVEL_3_CAFE:
+				get_convo_two();
 				load_conversation(CAFE_DIALOGUE);
 			break;
 			case LEVEL_4_DINNER:
 				load_conversation(DINNER_DIALOGUE);
 			break;
 			case LEVEL_6_BEDROOM:
+				get_convo_four();
 				load_conversation(FINAL_DIALOGUE);
 			break;
 		}
@@ -362,12 +364,7 @@ function dialogue_get_bottom()
 #endregion
 
 function load_conversation(level)
-{
-	if(level == 2)
-	{
-		get_convo_two();
-	}
-	
+{	
 	conversation_data = global.conversations[level];
 	
 	with(obj_game)
@@ -485,17 +482,20 @@ function dialogue_update_portraits()
 
 function check_if_in_person(line)
 {
-	if(line.type == "line")
+	with(obj_game)
 	{
-		if(obj_game.dialogue_in_person == false)
+		if(line.type == "line")
 		{
-			obj_game.dialogue_in_person = true;
-			remove_multi_boxes();
+			if(dialogue_in_person == false)
+			{
+				dialogue_in_person = true;
+				remove_multi_boxes();
+			}
 		}
-	}
-	else if(line.type == "message")
-	{
-		obj_game.dialogue_in_person = false;
+		else if(line.type == "message")
+		{
+			dialogue_in_person = false;
+		}
 	}
 }
 

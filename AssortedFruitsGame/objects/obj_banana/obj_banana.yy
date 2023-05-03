@@ -2,7 +2,9 @@
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
   "name": "obj_banana",
-  "eventList": [],
+  "eventList": [
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
+  ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
@@ -29,8 +31,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_chair_right",
-    "path": "sprites/spr_chair_right/spr_chair_right.yy",
+    "name": "spr_banana_brew",
+    "path": "sprites/spr_banana_brew/spr_banana_brew.yy",
   },
   "spriteMaskId": null,
   "visible": true,

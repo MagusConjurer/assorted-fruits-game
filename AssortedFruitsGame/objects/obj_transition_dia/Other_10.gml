@@ -1,2 +1,5 @@
 end_conversation();
-room_transition(global.current_level);
+if(global.current_level != LEVEL_6_BEDROOM)
+{
+	room_transition(global.current_level);
+}

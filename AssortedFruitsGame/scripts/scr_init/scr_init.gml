@@ -45,6 +45,7 @@ global.conversations = [];
 // Resettable global variables.
 global.current_level = LEVEL_0_BEDROOM;
 global.current_room = ROOM_MENU;
+global.room_before_main = ROOM_BEDROOM;
 global.game_state = MENU;
 global.prev_state = OVERWORLD;
 

@@ -19,18 +19,18 @@ if (_inst != noone)
 		} 
 		else if(ph > 4)
 		{
-			_inst.current_frame = 2;
+			_inst.current_frame = 3;
 		}
 		else if(ph > 2)
 		{
-			_inst.current_frame = 4;
+			_inst.current_frame = 6;
 		}
 		else
 		{
-			_inst.current_frame = 6;
+			_inst.current_frame = 9;
 		}
 	
-		_inst.iframes = BH_PLAYER_NUM_IFRAMES;
+		_inst.iframes = BH_PLAYER_IFRAME_SECONDS * 60;
 		
 		instance_destroy();
 	}
