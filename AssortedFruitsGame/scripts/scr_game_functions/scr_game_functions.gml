@@ -87,25 +87,34 @@ function room_transition(level)
 			global.current_level = level;
 		}
 	
-		if(level == LEVEL_X_MENU)
+		// Only set to the new room if they were there before going to the menu
+		if(global.prev_state != MENU)
 		{
-			global.current_room = ROOM_MENU;
+			if(level == LEVEL_X_MENU)
+			{
+				global.room_before_main = global.current_room;
+				global.current_room = ROOM_MENU;
+			}
+			else if(level == LEVEL_0_BEDROOM || level == LEVEL_6_BEDROOM)
+			{
+				global.current_room = ROOM_BEDROOM;
+			}
+			else if(level == LEVEL_1_BUS_STOP || level == LEVEL_2_BUS_BATTLE)
+			{
+				global.current_room = ROOM_OUTSIDE;
+			}
+			else if(level == LEVEL_3_CAFE)
+			{
+				global.current_room = ROOM_CAFE;
+			}
+			else if(level == LEVEL_4_DINNER || level == LEVEL_5_DINNER_BATTLE)
+			{
+				global.current_room = ROOM_DINNER;
+			}
 		}
-		else if(level == LEVEL_0_BEDROOM || level == LEVEL_6_BEDROOM)
+		else
 		{
-			global.current_room = ROOM_BEDROOM;
-		}
-		else if(level == LEVEL_1_BUS_STOP || level == LEVEL_2_BUS_BATTLE)
-		{
-			global.current_room = ROOM_OUTSIDE;
-		}
-		else if(level == LEVEL_3_CAFE)
-		{
-			global.current_room = ROOM_CAFE;
-		}
-		else if(level == LEVEL_4_DINNER || level == LEVEL_5_DINNER_BATTLE)
-		{
-			global.current_room = ROOM_DINNER;
+			global.current_room = global.room_before_main;
 		}
 	
 		if(!instance_exists(obj_transition_parent))
@@ -168,6 +177,7 @@ function reset_player_progress()
 {
 	global.current_level = LEVEL_0_BEDROOM;
 	global.current_room = ROOM_MENU;
+	global.room_before_main = ROOM_BEDROOM;
 	global.game_state = MENU;
 	global.prev_state = OVERWORLD;
 
