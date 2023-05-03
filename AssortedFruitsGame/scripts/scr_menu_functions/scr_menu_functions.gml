@@ -93,11 +93,8 @@ function main_menu_show()
 				layer_background_sprite(_bg_id, MAIN_MENU_BACKGROUND);
 			}
 	
-			mm_x = global.resolution_w * 0.5;
-			mm_y = global.resolution_h * 0.5;
-	
-			main_menu_buttons[0] = instance_create_layer(MAIN_PLAY_X, MAIN_PLAY_Y, "Main_Menu", obj_new_button);
-			main_menu_buttons[1] = instance_create_layer(MAIN_CONT_X, MAIN_CONT_Y, "Main_Menu", obj_play_button);
+			main_menu_buttons[0] = instance_create_layer(MAIN_CONT_X, MAIN_CONT_Y, "Main_Menu", obj_play_button);
+			main_menu_buttons[1] = instance_create_layer(MAIN_PLAY_X, MAIN_PLAY_Y, "Main_Menu", obj_new_button);
 			main_menu_buttons[2] = instance_create_layer(MAIN_SETTINGS_X, MAIN_SETTINGS_Y, "Main_Menu", obj_settings_button);
 			main_menu_buttons[3] = instance_create_layer(MAIN_EXIT_X, MAIN_EXIT_Y, "Main_Menu", obj_main_quit_button);
 			main_menu_buttons[3].layer_to_check = "Main_Menu"; // Needed due to using same button for two menus
