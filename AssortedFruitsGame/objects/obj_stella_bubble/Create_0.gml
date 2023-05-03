@@ -7,4 +7,4 @@ can_interact	= true;
 interact_starts = true;
 radius = AUTO_INTERACT_DISTANCE;
 
-image_blend = c_purple;
+image_blend = c_white;

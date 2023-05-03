@@ -14,8 +14,8 @@
     "path": "folders/Objects/Overworld/State or Room Change Interactables.yy",
   },
   "parentObjectId": {
-    "name": "obj_interactable_parent",
-    "path": "objects/obj_interactable_parent/obj_interactable_parent.yy",
+    "name": "obj_decor_parent",
+    "path": "objects/obj_decor_parent/obj_decor_parent.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,
@@ -33,8 +33,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_mom__2_",
-    "path": "sprites/spr_mom__2_/spr_mom__2_.yy",
+    "name": "spr_mom_bubble_nc",
+    "path": "sprites/spr_mom_bubble_nc/spr_mom_bubble_nc.yy",
   },
   "spriteMaskId": null,
   "visible": true,

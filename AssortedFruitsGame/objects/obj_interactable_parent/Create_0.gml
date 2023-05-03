@@ -1,4 +1,5 @@
 /// @description 
+event_inherited();
 
 radius = PLAYER_INTERACT_DISTANCE;
 
