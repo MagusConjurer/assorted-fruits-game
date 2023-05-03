@@ -19,9 +19,9 @@ function get_mom_battle_dialogue()
 	battle_text = [];
 	
 	battle_text[0] = "How could you do this to me?";
-	battle_text[1] = "After all I've done for you…";
+	battle_text[1] = "After all I've done for you...";
 	battle_text[2] = "What did I do to deserve this?";
-	battle_text[3] = "I just want my daughter back…";
+	battle_text[3] = "I just want my daughter back...";
 	battle_text[4] = "How could you turn your back on family?";
 	battle_text[5] = "You know it hurts me to see you this way.";
 	
