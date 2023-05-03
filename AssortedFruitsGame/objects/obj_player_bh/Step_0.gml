@@ -1,7 +1,5 @@
 /// @description 
 
-event_inherited();
-
 if (global.game_state == active_state) 
 {
 	if(!dash_active)
@@ -56,11 +54,11 @@ if (global.game_state == active_state)
 			
 			if(toggle) 
 			{
-				// image_index = current_frame;
+				image_index = current_frame;
 			}
 			else
 			{
-				// image_index = current_frame + 2;
+				image_index = current_frame + 2;
 			}
 		}
 	}
