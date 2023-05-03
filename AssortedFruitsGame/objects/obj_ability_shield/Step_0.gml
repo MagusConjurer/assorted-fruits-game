@@ -11,6 +11,8 @@ if (_inst != noone)
 	instance_destroy(_inst);
 	shield_scale -= decrement;
 	
+	show_debug_message([_inst, shield_scale]);
+	
 	if(shield_scale <= BH_SHIELD_MIN_SCALE)
 	{
 		instance_destroy();

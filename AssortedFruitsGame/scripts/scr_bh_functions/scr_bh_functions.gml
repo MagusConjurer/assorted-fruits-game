@@ -159,6 +159,7 @@ function bh_start_value_init()
 	
 	bh_time_spent = 0;
 	bh_vignette_index = 0
+	bh_vignette_target_index = 0;
 	
 	bh_bubbles_popped = 0;
 	num_active_bubbles = 0;
@@ -190,6 +191,8 @@ function bh_update_player_health(change)
 		{
 			bh_player_health = BH_PLAYER_HEALTH_DEFAULT;
 		}
+		
+		bh_update_vignette();
 	}
 }
 
@@ -207,26 +210,20 @@ function bh_update_vignette()
 	{
 		status = BH_PLAYER_HEALTH_DEFAULT - bh_player_health;
 		
-		if(status > 0)
+		bh_vignette_target_index = BH_VIGNETTE_START_INDEX + (status * bh_vignette_changes_per);
+		
+		if(bh_vignette_target_index < BH_VIGNETTE_START_INDEX)
 		{
-			bh_vignette_increasing = true;
-			// Check if it is less that the starting index plus the amount of change that should have taken place
-			if(bh_vignette_index < BH_VIGNETTE_START_INDEX + (status * bh_vignette_changes_per))
-			{
-				if(alarm_get(3) < 0)
-				{
-					alarm_set(3, BH_VIGNETTE_DELAY_TIME * 60);
-				}
-			}
+			bh_vignette_target_index = BH_VIGNETTE_START_INDEX;
 		}
-		else if(status < 1 && bh_vignette_index > 0)
+		else if(bh_vignette_target_index > bh_vignette_levels_total)
 		{
-			bh_vignette_increasing = false;
-			
-			if(alarm_get(3) < 0)
-			{
-				alarm_set(3, BH_VIGNETTE_DELAY_TIME * 60);
-			}
+			bh_vignette_target_index = bh_vignette_levels_total;
+		}
+		
+		if(bh_vignette_index != bh_vignette_target_index && alarm_get(3) < 0)
+		{
+			alarm_set(3, BH_VIGNETTE_DELAY_TIME * 60);
 		}
 	}
 }
@@ -298,14 +295,78 @@ function bh_show_dialogue(dialogue)
 	with(obj_game)
 	{
 		bh_dia_seq = layer_sequence_create("Bullet_Hell",0,0,seq_bh_dialogue);
-		_seq_inst  = layer_sequence_get_instance(bh_dia_seq);
-	
-		bh_dia_active_text = instance_create_layer(global.resolution_w * 1.25, 0,"Bullet_Hell",obj_bh_text);
+		_seq_inst  = layer_sequence_get_instance(bh_dia_seq);		
+		
+		bh_dia_active_text = instance_create_layer(0, 0,"Bullet_Hell",obj_bh_text);
 		bh_dia_active_text.bh_dialogue = dialogue;
-	
+		
 		sequence_instance_override_object(_seq_inst, obj_bh_text, bh_dia_active_text);
 		
+		// Testing out custom sequence for variable y value
+		//my_seq = sequence_create();
+		//my_seq.length = 600;
+		//my_seq.playbackSpeed = 60;
+		//my_seq.xorigin = -960;
+		//my_seq.yorigin = -540;
+		//my_seq.name = "bh_dialogue_text_seq";
+		
+		//tracks[0] = sequence_track_new(seqtracktype_instance);
+		//tracks[0].name = "obj_bh_text";
+		//inst_frames[0] = sequence_keyframe_new(seqtracktype_instance);
+		//inst_frames[0].frame = 0;
+		//inst_frames[0].length  = 600;
+		//inst_data[0] = sequence_keyframedata_new(seqtracktype_instance);
+		//inst_data[0].objectIndex = obj_bh_text;
+		//inst_frames[0].channels = inst_data;
+		//tracks[0].keyframes = inst_frames;
+		
+		
+		//sub_tracks[0] = sequence_track_new(seqtracktype_instance);
+		//sub_tracks[0].name = "position";
+		
+		//sub_keys[0] = sequence_keyframe_new(seqtracktype_instance);
+		//sub_keys[0].frame = 0;
+		//sub_keys[0].length = 1;
+		//sub_keys[1] = sequence_keyframe_new(seqtracktype_instance);
+		//sub_keys[1].frame = 59;
+		//sub_keys[1].length = 1;
+	
+		//first_key_data[0] = sequence_keyframedata_new(seqtracktype_instance);
+		//first_key_data[0].channel = 0;
+		//first_key_data[0].value = 1250;
+		//first_key_data[1] = sequence_keyframedata_new(seqtracktype_instance);
+		//first_key_data[1].channel = 1;
+		//first_key_data[1].value = 300;
+		
+		//second_key_data[0] = sequence_keyframedata_new(seqtracktype_instance);
+		//second_key_data[0].channel = 0;
+		//second_key_data[0].value = -2500;
+		//second_key_data[1] = sequence_keyframedata_new(seqtracktype_instance);
+		//second_key_data[1].channel = 1;
+		//second_key_data[1].value = 300;
+
+		//sub_keys[0].channels = first_key_data;
+		//sub_keys[1].channels = second_key_data;
+		
+		//sub_tracks[0].keyframes = sub_keys;
+		//tracks[0].tracks = sub_tracks;
+		//my_seq.tracks = tracks;
+		
+		//bh_dia_seq = layer_sequence_create("Bullet_Hell",0,0,my_seq);
+		
 		bh_dia_seq_created = true;
+	}
+}
+
+// Needed since track is not active until end of first frame
+function bh_update_dialogue_seq_pos()
+{
+	with(obj_game)
+	{
+		//_seq_inst  = layer_sequence_get_instance(bh_dia_seq);
+		//tracks = _seq_inst.activeTracks;
+		
+		//tracks[0].posy = -300;
 	}
 }
 
@@ -346,7 +407,7 @@ function bh_collides_with_dialogue(x_pos, y_pos)
 function bh_run_start_seq()
 {
 	with(obj_game)
-	{
+	{	
 		bh_start_seq = layer_sequence_create("Bullet_Hell",0,0,seq_bh_start);
 	}
 }
@@ -443,13 +504,13 @@ function bh_set_ability(ability)
 		bh_ability_index = ability;
 		switch(ability) {
 			case BH_ABILITY_DASH:
-				bh_ability_cooldown = BH_DASH_COOLDOWN;
+				bh_ability_cooldown = BH_DASH_COOLDOWN_TIME * 60;
 			break;
 			case BH_ABILITY_SHIELD:
-				bh_ability_cooldown = BH_SHIELD_COOLDOWN;
+				bh_ability_cooldown = BH_SHIELD_COOLDOWN_TIME * 60;
 			break;
 			case BH_ABILITY_HEAL:
-				bh_ability_cooldown = BH_HEAL_COOLDOWN;
+				bh_ability_cooldown = BH_HEAL_COOLDOWN_TIME * 60;
 			break;
 			default:
 				bh_ability_index = 0;
@@ -472,11 +533,11 @@ function bh_ability(ability)
 	}
 }
 
-function bh_set_ability_one_duration(duration)
+function bh_reset_ability_one()
 {
 	with(obj_ability_one_button)
 	{
-		alarm_set(0, duration);
+		alarm_set(0, 1);
 	}
 }
 #endregion

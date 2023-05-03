@@ -77,7 +77,6 @@ bh_bubble_move_speed = 0;
 
 bh_bubbles_popped = 0;
 num_active_bubbles = 0;
-bh_prev_bubble_rand = 0;
 bubble_height = 0;
 possible_bubble_spots = 0;
 
@@ -97,10 +96,12 @@ bh_show_ability_hotkey = false;
 bh_ability_hotkey_text = "";
 
 bh_vignette_index = 0;
+bh_vignette_target_index = 0;
 bh_vignette_levels_total = sprite_get_number(spr_bh_vignette) - 1;
 bh_vignette_levels_after_start = bh_vignette_levels_total - BH_VIGNETTE_START_INDEX;
 bh_vignette_changes_per = bh_vignette_levels_after_start / BH_PLAYER_HEALTH_DEFAULT;
-bh_vignette_increasing = true;
+
+
 #endregion
 
 #region Dialogue

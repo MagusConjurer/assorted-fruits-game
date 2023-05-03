@@ -292,6 +292,7 @@
     {"id":{"name":"obj_player_bh","path":"objects/obj_player_bh/obj_player_bh.yy",},},
     {"id":{"name":"VOICE_FEMALE_Ahh_1_mono","path":"sounds/VOICE_FEMALE_Ahh_1_mono/VOICE_FEMALE_Ahh_1_mono.yy",},},
     {"id":{"name":"spr_trashcan","path":"sprites/spr_trashcan/spr_trashcan.yy",},},
+    {"id":{"name":"obj_debug_battle_bubble","path":"objects/obj_debug_battle_bubble/obj_debug_battle_bubble.yy",},},
     {"id":{"name":"obj_menu_button","path":"objects/obj_menu_button/obj_menu_button.yy",},},
     {"id":{"name":"VOICE_FEMALE_Sigh_1_mono","path":"sounds/VOICE_FEMALE_Sigh_1_mono/VOICE_FEMALE_Sigh_1_mono.yy",},},
     {"id":{"name":"obj_bh_start_text","path":"objects/obj_bh_start_text/obj_bh_start_text.yy",},},

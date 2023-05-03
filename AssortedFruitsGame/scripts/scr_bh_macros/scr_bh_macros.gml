@@ -19,7 +19,7 @@
 
 // Vignette
 #macro BH_VIGNETTE_START_INDEX 5
-#macro BH_VIGNETTE_DELAY_TIME 1
+#macro BH_VIGNETTE_DELAY_TIME 0.5
 
 // Start of BH
 #macro BH_START_MESSAGE "Survive until the end of conversation!"
@@ -133,6 +133,7 @@
 #endregion
 
 #region BOOST
+
 #macro BH_BOOST_SEQ_ACTIVE_COLOR c_white
 #macro BH_BOOST_SEQ_PAUSED_COLOR c_gray
 #macro BH_BOOST_AVAILABLE_TEXT "Find the purple bubble for a progress boost!"
@@ -148,20 +149,21 @@
 
 // DASH ability
 #macro BH_ABILITY_DASH 1
-#macro BH_DASH_DISTANCE 150
-#macro BH_DASH_DURATION 8
-#macro BH_DASH_COOLDOWN 120
+#macro BH_DASH_DISTANCE 50
+#macro BH_DASH_DURATION 0.25
+#macro BH_DASH_COOLDOWN_TIME 2
 
 // SHIELD ability
 #macro BH_ABILITY_SHIELD 2
 #macro BH_SHIELD_MAX_SCALE 1.2
 #macro BH_SHIELD_MIN_SCALE 0.7
-#macro BH_SHIELD_NUM_HITS 5
-#macro BH_SHIELD_COOLDOWN 600
+#macro BH_SHIELD_NUM_HITS 10
+#macro BH_SHIELD_COOLDOWN_TIME 10
 
 // HEAL ability
-#macro BH_ABILITY_HEAL 3
-#macro BH_HEAL_AMOUNT 1
-#macro BH_HEAL_COOLDOWN 1000
+#macro BH_ABILITY_HEAL			3
+#macro BH_HEAL_AMOUNT			2
+#macro BH_HEAL_FLASH_TIME		2
+#macro BH_HEAL_COOLDOWN_TIME	15
 
 #endregion
