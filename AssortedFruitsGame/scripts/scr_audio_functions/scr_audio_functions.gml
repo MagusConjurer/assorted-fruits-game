@@ -44,6 +44,6 @@ function play_sfx(sound_name)
 {
 	if(global.sfx_enabled)
 	{
-		audio_play_sound(sound_name, 9, false, global.sfx_volume);
+		audio_play_sound(sound_name, 1, false, global.sfx_volume);
 	}
 }

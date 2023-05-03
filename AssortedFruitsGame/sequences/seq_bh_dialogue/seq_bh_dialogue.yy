@@ -23,8 +23,11 @@
     "resourceVersion": "1.0",
     "Keyframes": [
       {"resourceType":"Keyframe<MomentsEventKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"MomentsEventKeyframe","resourceVersion":"1.0","Events":[
+              "bh_update_dialogue_seq_pos",
+            ],},},"Disabled":false,"id":"876268c3-4594-4249-9016-789af0828848","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
+      {"resourceType":"Keyframe<MomentsEventKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"MomentsEventKeyframe","resourceVersion":"1.0","Events":[
               "bh_remove_dialogue",
-            ],},},"Disabled":false,"id":"5e01d6d4-f30a-4187-8089-93dde7b4fbd1","IsCreationKey":false,"Key":599.9999,"Length":1.0,"Stretch":false,},
+            ],},},"Disabled":false,"id":"dcbc9ae2-433e-42d7-ade6-178c72585343","IsCreationKey":false,"Key":599.9999,"Length":1.0,"Stretch":false,},
     ],
   },
   "parent": {
