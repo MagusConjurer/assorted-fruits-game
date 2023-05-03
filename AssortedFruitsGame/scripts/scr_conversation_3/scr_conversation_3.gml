@@ -138,7 +138,7 @@ line_14 = {
 	on_the_left: false,
 	speaker: DIA_UNCLE,
 	emotion: UNCLE_UNIMPRESSED,
-	text: "‘sides, ain't that why you invited me over?",
+	text: "'sides, ain't that why you invited me over?",
 	jump_to: 0
 }
 
@@ -173,7 +173,7 @@ selection_18 = {
 	text_to_show: "",
 	color: c_gray,
 	options: ["", ""],
-	option_descriptions: ["I haven't changed.", "I've always been like this"],
+	option_descriptions: ["I'm still me.", "You're just mad."],
 	option_jump_index: [19,26],  
 	option_choice_index: [0,0] 
 }
@@ -291,7 +291,7 @@ line_31 = {
 	on_the_left: false,
 	speaker: DIA_MOM,
 	emotion: MOM_ANXIOUS,
-	text: "She's got this disorder- ah, what was it called? ‘Gender identity disorder'. They taught it in med school.",
+	text: "She's got this disorder- ah, what was it called? 'Gender identity disorder'. They taught it in med school.",
 	jump_to: 0
 }
 
