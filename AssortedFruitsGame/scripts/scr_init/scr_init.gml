@@ -53,4 +53,23 @@ global.prev_state = OVERWORLD;
 global.bh_ability_one = 0;
 
 
+// Catch rogue error as per https://manual.yoyogames.com/GameMaker_Language/GML_Reference/Debugging/exception_unhandled_handler.htm
 
+exception_unhandled_handler(function(_exception)
+{
+	// Print some messages to the output log
+    show_debug_message( "--------------------------------------------------------------");
+    show_debug_message( "Unhandled exception " + string(_exception) );
+    show_debug_message( "--------------------------------------------------------------");
+
+    // Write the exception struct to a file
+    if file_exists("crash.txt") file_delete("crash.txt");
+    var _f = file_text_open_write("crash.txt");
+    file_text_write_string(_f, string(_exception));
+    file_text_close(_f);
+
+    // Show the error message (for debug purposes only)
+    show_message(_exception.longMessage);
+
+    return 0;
+});

@@ -447,7 +447,6 @@
     {"id":{"name":"obj_busguy_dia","path":"objects/obj_busguy_dia/obj_busguy_dia.yy",},},
     {"id":{"name":"ts_default","path":"tilesets/ts_default/ts_default.yy",},},
     {"id":{"name":"table_chairs","path":"sprites/table_chairs/table_chairs.yy",},},
-    {"id":{"name":"seq_bh_dialogue","path":"sequences/seq_bh_dialogue/seq_bh_dialogue.yy",},},
     {"id":{"name":"spr_family","path":"sprites/spr_family/spr_family.yy",},},
     {"id":{"name":"obj_fence","path":"objects/obj_fence/obj_fence.yy",},},
     {"id":{"name":"spr_house_ground_01","path":"sprites/spr_house_ground_01/spr_house_ground_01.yy",},},

@@ -293,95 +293,94 @@ function bh_check_checkpoint()
 function bh_show_dialogue(dialogue)
 {
 	with(obj_game)
-	{
-		bh_dia_seq = layer_sequence_create("Bullet_Hell",0,0,seq_bh_dialogue);
-		_seq_inst  = layer_sequence_get_instance(bh_dia_seq);		
+	{		
+		rand_y = irandom_range(-BH_DIALOGUE_VARIATION_FROM_CENTER, BH_DIALOGUE_VARIATION_FROM_CENTER);
 		
 		bh_dia_active_text = instance_create_layer(0, 0,"Bullet_Hell",obj_bh_text);
 		bh_dia_active_text.bh_dialogue = dialogue;
 		
+		// Testing out custom sequence for variable y value
+		my_seq = sequence_create();
+		my_seq.length = 600;
+		my_seq.playbackSpeed = 60;
+		my_seq.xorigin = -960;
+		my_seq.yorigin = -540;
+		my_seq.name = "bh_dialogue_text_seq";
+		
+		tracks[0] = sequence_track_new(seqtracktype_instance);
+		tracks[0].name = "obj_bh_text";
+		inst_frames[0] = sequence_keyframe_new(seqtracktype_instance);
+		inst_frames[0].frame = 0;
+		inst_frames[0].length  = 600;
+		inst_data[0] = sequence_keyframedata_new(seqtracktype_instance);
+		inst_data[0].channel = 0;
+		inst_data[0].objectIndex = obj_bh_text;
+		inst_frames[0].channels = inst_data;
+		tracks[0].keyframes = inst_frames;
+		
+		sub_tracks[0] = sequence_track_new(seqtracktype_real);
+		sub_tracks[0].name = "position";
+		sub_tracks[0].interpolation = 1;
+		
+		sub_keys[0] = sequence_keyframe_new(seqtracktype_real);
+		sub_keys[0].frame = 0;
+		sub_keys[0].length = 1;
+		sub_keys[1] = sequence_keyframe_new(seqtracktype_real);
+		sub_keys[1].frame = 599;
+		sub_keys[1].length = 1;
+	
+		first_key_data[0] = sequence_keyframedata_new(seqtracktype_real);
+		first_key_data[0].channel = 0;
+		first_key_data[0].value = 1250;
+		first_key_data[1] = sequence_keyframedata_new(seqtracktype_real);
+		first_key_data[1].channel = 1;
+		first_key_data[1].value = rand_y;
+		
+		second_key_data[0] = sequence_keyframedata_new(seqtracktype_real);
+		second_key_data[0].channel = 0;
+		second_key_data[0].value = -2500;
+		second_key_data[1] = sequence_keyframedata_new(seqtracktype_real);
+		second_key_data[1].channel = 1;
+		second_key_data[1].value = rand_y;
+
+		sub_keys[0].channels = first_key_data;
+		sub_keys[1].channels = second_key_data;
+				
+		moment_key[0] = sequence_keyframe_new(seqtracktype_moment);
+		moment_key[0].frame = 599;
+		moment_key[0].length = 0;
+		
+		moment_data[0] = sequence_keyframedata_new(seqtracktype_moment);
+		moment_data[0].channel = 0;
+		moment_data[0].event = method(moment_data[0], bh_remove_dialogue);
+		
+		moment_key[0].channels = moment_data;
+		
+		sub_tracks[0].keyframes = sub_keys;
+		tracks[0].tracks = sub_tracks;
+		my_seq.tracks = tracks;
+		my_seq.momentKeyframes = moment_key;
+		
+		bh_dia_seq = layer_sequence_create("Bullet_Hell",0,0,my_seq);
+		_seq_inst  = layer_sequence_get_instance(bh_dia_seq);
+		
 		sequence_instance_override_object(_seq_inst, obj_bh_text, bh_dia_active_text);
 		
-		// Testing out custom sequence for variable y value
-		//my_seq = sequence_create();
-		//my_seq.length = 600;
-		//my_seq.playbackSpeed = 60;
-		//my_seq.xorigin = -960;
-		//my_seq.yorigin = -540;
-		//my_seq.name = "bh_dialogue_text_seq";
-		
-		//tracks[0] = sequence_track_new(seqtracktype_instance);
-		//tracks[0].name = "obj_bh_text";
-		//inst_frames[0] = sequence_keyframe_new(seqtracktype_instance);
-		//inst_frames[0].frame = 0;
-		//inst_frames[0].length  = 600;
-		//inst_data[0] = sequence_keyframedata_new(seqtracktype_instance);
-		//inst_data[0].objectIndex = obj_bh_text;
-		//inst_frames[0].channels = inst_data;
-		//tracks[0].keyframes = inst_frames;
-		
-		
-		//sub_tracks[0] = sequence_track_new(seqtracktype_instance);
-		//sub_tracks[0].name = "position";
-		
-		//sub_keys[0] = sequence_keyframe_new(seqtracktype_instance);
-		//sub_keys[0].frame = 0;
-		//sub_keys[0].length = 1;
-		//sub_keys[1] = sequence_keyframe_new(seqtracktype_instance);
-		//sub_keys[1].frame = 59;
-		//sub_keys[1].length = 1;
-	
-		//first_key_data[0] = sequence_keyframedata_new(seqtracktype_instance);
-		//first_key_data[0].channel = 0;
-		//first_key_data[0].value = 1250;
-		//first_key_data[1] = sequence_keyframedata_new(seqtracktype_instance);
-		//first_key_data[1].channel = 1;
-		//first_key_data[1].value = 300;
-		
-		//second_key_data[0] = sequence_keyframedata_new(seqtracktype_instance);
-		//second_key_data[0].channel = 0;
-		//second_key_data[0].value = -2500;
-		//second_key_data[1] = sequence_keyframedata_new(seqtracktype_instance);
-		//second_key_data[1].channel = 1;
-		//second_key_data[1].value = 300;
-
-		//sub_keys[0].channels = first_key_data;
-		//sub_keys[1].channels = second_key_data;
-		
-		//sub_tracks[0].keyframes = sub_keys;
-		//tracks[0].tracks = sub_tracks;
-		//my_seq.tracks = tracks;
-		
-		//bh_dia_seq = layer_sequence_create("Bullet_Hell",0,0,my_seq);
+		show_debug_message([bh_dia_active_text.x,bh_dia_active_text.y]);
 		
 		bh_dia_seq_created = true;
 	}
 }
 
-// Needed since track is not active until end of first frame
-function bh_update_dialogue_seq_pos()
+// Called by the sequence moment above
+function bh_remove_dialogue()
 {
 	with(obj_game)
 	{
-		//_seq_inst  = layer_sequence_get_instance(bh_dia_seq);
-		//tracks = _seq_inst.activeTracks;
-		
-		//tracks[0].posy = -300;
-	}
-}
-
-// Called by seq_bh_dialogue moment
-function bh_remove_dialogue()
-{
-	if(sequence_exists(seq_bh_dialogue))
-	{
-		with(obj_game)
-		{
-			instance_destroy(obj_bh_text);			
-			layer_sequence_destroy(bh_dia_seq);
-			bh_dia_seq_created = false;
-			bh_dia_active_text = 0;
-		}
+		instance_destroy(obj_bh_text);			
+		layer_sequence_destroy(bh_dia_seq);
+		bh_dia_seq_created = false;
+		bh_dia_active_text = 0;
 	}
 }
 
@@ -398,7 +397,7 @@ function bh_collides_with_dialogue(x_pos, y_pos)
 	with(obj_game)
 	{
 		with(bh_dia_active_text)
-		{
+		{			
 			return point_in_rectangle(get_guix(x_pos), get_guiy(y_pos), left_x, top_y, right_x, bot_y);
 		}
 	}
@@ -425,7 +424,7 @@ function bh_pause_sequences()
 	with(obj_game)
 	{		
 		if(bh_dia_seq != 0)
-		{
+		{		
 			layer_sequence_pause(bh_dia_seq);
 		}
 		

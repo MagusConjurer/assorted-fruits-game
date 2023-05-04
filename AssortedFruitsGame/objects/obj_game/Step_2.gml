@@ -33,9 +33,3 @@ bh_update();
 menu_input_update();
 
 menu_update();
-
-
-
-
-
-
