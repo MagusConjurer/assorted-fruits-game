@@ -17,3 +17,7 @@ bubble_starting_health = bh_get_bubble_start_health();
 bubble_current_health = bubble_starting_health;
 
 bubble_color = C_UNCLE;
+
+time_since_switch = 0;
+next_switch = random_range (BH_UNCLE_BUBBLE_TURN_TIME_MIN * 60, 
+							BH_UNCLE_BUBBLE_TURN_TIME_MAX * 60);

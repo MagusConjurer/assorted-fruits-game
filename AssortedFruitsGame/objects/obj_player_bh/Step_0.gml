@@ -26,39 +26,49 @@ if (global.game_state == active_state)
 		}
 	}
 	
-	if(iframes > 0)
+	if(iframes > 0 || healFrames > 0)
 	{
-		iframes--;
-		healFrames = 0; // don't allow it to show healing anymore
-		if(iframes % 10 == 0) 
+		if(iframes > 0)
 		{
-			// switches sprite back and forth every 10 frames
-			toggle = !toggle;
+			iframes--;
+		}
+		
+		if(healFrames > 0)
+		{
+			healFrames--;
+		}
+		
+		if(iframes > healFrames)
+		{
+			if(iframes % 10 == 0) 
+			{
+				// switches sprite back and forth every 10 frames
+				toggle = !toggle;
 			
-			if(toggle) 
-			{
-				image_index = current_frame;
-			}
-			else
-			{
-				image_index = current_frame + 1;
+				if(toggle) 
+				{
+					image_index = current_frame;
+				}
+				else
+				{
+					image_index = current_frame + 1;
+				}
 			}
 		}
-	}
-	else if(healFrames > 0)
-	{
-		healFrames--;
-		if(healFrames % 10 == 0)
+		else
 		{
-			toggle = !toggle;
+			if(healFrames % 10 == 0)
+			{
+				toggle = !toggle;
 			
-			if(toggle) 
-			{
-				image_index = current_frame;
-			}
-			else
-			{
-				image_index = current_frame + 2;
+				if(toggle) 
+				{
+					image_index = current_frame;
+				}
+				else
+				{
+					image_index = current_frame + 2;
+				}
 			}
 		}
 	}

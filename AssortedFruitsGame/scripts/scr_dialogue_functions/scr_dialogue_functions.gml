@@ -341,7 +341,6 @@ function remove_multi_boxes()
 				instance_destroy(obj_phone_dia);
 			}
 		}
-		draw_textbox(DIALOGUE_STANDARD);
 	}
 }
 
