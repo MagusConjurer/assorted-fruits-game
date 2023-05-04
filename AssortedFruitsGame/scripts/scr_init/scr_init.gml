@@ -4,7 +4,7 @@
 // to allow for more unique experiences where randomness is being used.
 randomize();
 
-global.debugging = false;
+global.debugging = true;
 
 global.delta_factor = 1;
 
@@ -20,8 +20,9 @@ global.sfx_volume = 0.5;
 
 if(global.debugging == true) 
 {
-	show_debug_overlay(true);
+	//show_debug_overlay(true);
 	global.music_enabled = false;
+	global.fullscreen_enabled = false;
 }
 
 window_set_fullscreen(global.fullscreen_enabled);

@@ -650,24 +650,25 @@ function bh_get_dinner_type_to_spawn()
 function bh_bubble_destroyed(by_player){
 	play_sfx(AUDIO_BUBBLE_POP);
 	
-	loop_amount = bh_get_num_projectiles();
+	with(obj_game)
+	{
+		num_active_bubbles--;
+		bh_bubbles_popped++;
+	}
+	
+	if(by_player)
+	{
+		loop_amount = BH_S_NUM_POPPED_PROJECTILES;
+	}
+	else
+	{
+		loop_amount = bh_get_num_projectiles();
+	}
 	
 	repeat(loop_amount)
 	{
 		instance_create_layer(x,y,"Bullet_Hell",obj_bubble_projectile);
 	}
-
-	with(obj_game)
-	{
-		num_active_bubbles--;
-		bh_bubbles_popped++;
-		
-		if(by_player)
-		{
-			bh_update_progress_bar(BH_BUBBLE_POP_PROGRESS);
-		}
-	}
-	
 }
 
 function bh_get_bubble_pop_time()
@@ -766,14 +767,18 @@ function bh_spawn_progress_boost()
 	}
 }
 
-function bh_apply_progress_boost()
+function bh_apply_progress_boost(grabbed)
 {
-	bh_update_progress_bar(BH_BOOST_PROGRESS);
 	with(obj_game)
 	{
-		bh_progress_bar.progress_pulse_color = C_STELLA;
-		bh_progress_bar.progress_pulse_frames = BH_BOOST_PULSE_TIME * 60;
-		bh_first_boost_used = true;
+		if(grabbed)
+		{
+			bh_update_progress_bar(BH_BOOST_PROGRESS);
+		
+			bh_progress_bar.progress_pulse_color = C_STELLA;
+			bh_progress_bar.progress_pulse_frames = BH_BOOST_PULSE_TIME * 60;
+			bh_first_boost_used = true;
+		}
 		
 		bh_boost_available = false;
 		alarm[1] = BH_SECONDS_BEFORE_BOOST * 60;
