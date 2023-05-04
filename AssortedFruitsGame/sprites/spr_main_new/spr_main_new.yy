@@ -26,7 +26,7 @@
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"d12bc574-555f-42b0-a672-a600fb8d0652","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
-  "origin": 9,
+  "origin": 4,
   "parent": {
     "name": "Menus",
     "path": "folders/Sprites/UI/Menus.yy",
@@ -66,7 +66,7 @@
     "visibleRange": null,
     "volume": 1.0,
     "xorigin": 196,
-    "yorigin": 7,
+    "yorigin": 85,
   },
   "swatchColours": null,
   "swfPrecision": 2.525,
