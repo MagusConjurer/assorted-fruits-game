@@ -1,6 +1,6 @@
 /// @description Only continue started game
 
-if(obj_game.new_game_started == false)
+if(obj_game.new_game_started == false || global.current_level > LEVEL_6_BEDROOM)
 {
 	enabled = false;
 }
