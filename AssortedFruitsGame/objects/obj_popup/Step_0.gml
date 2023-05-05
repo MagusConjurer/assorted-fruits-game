@@ -2,6 +2,8 @@
 
 if(global.game_state == active_state)
 {
+	depth = -999;
+	
 	if(moving_up)
 	{
 		if(y > move_y_bound)
@@ -24,4 +26,8 @@ if(global.game_state == active_state)
 			moving_up = true;
 		}
 	}
+}
+else
+{
+	depth = DARKENING_DEPTH + 1;
 }

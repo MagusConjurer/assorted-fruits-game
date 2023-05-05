@@ -30,8 +30,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_popup_default",
-    "path": "sprites/spr_popup_default/spr_popup_default.yy",
+    "name": "spr_interact_button",
+    "path": "sprites/spr_interact_button/spr_interact_button.yy",
   },
   "spriteMaskId": null,
   "visible": true,

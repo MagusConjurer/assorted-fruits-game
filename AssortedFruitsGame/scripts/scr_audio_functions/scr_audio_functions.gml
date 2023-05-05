@@ -11,7 +11,7 @@ function set_sfx_percentage(value)
 
 function play_background_music(track_name)
 {
-	if(audio_get_name(global.current_bg_track) != audio_get_name(track_name))
+	if(audio_get_name(global.current_bg_track) != audio_get_name(track_name) || global.prev_state == MENU)
 	{
 		audio_stop_sound(global.current_bg_track);
 		

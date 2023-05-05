@@ -27,10 +27,27 @@
 #region Interactables
 // Bedroom
 #macro INTERACT_BEDROOM_COUNT 5
-#macro CLOSET     1
-#macro LAUNDRY    2
-#macro TRASH      3
-#macro GRAD_CAP   4
-#macro NIGHTSTAND 5
+#macro CLOSET			1
+#macro LAUNDRY			2
+#macro TRASH			3
+#macro GRAD_CAP			4
+#macro NIGHTSTAND		5
+
+#macro TREE				6
+#macro BUS_STOP_DENT	7
+#macro BUS_STOP			8
+#macro GARBAGE_CANS		9
+#macro TREE_ROOT		10
+
+#macro DRINKS			11
+#macro PRIDE_FLAG		12
+#macro CAFE_MENU		13
+#macro MISSING_MUFFINS	14
+
+#macro RETABLO			15
+#macro FISHING_PHOTO	16
+#macro TELEVISION		17
+#macro YARN				18
+#macro BIBLE_CALENDAR	19
 
 #endregion
