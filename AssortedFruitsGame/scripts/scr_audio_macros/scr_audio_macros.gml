@@ -14,7 +14,9 @@
 #macro AUDIO_BUS_TRANSITION bus_horn
 #macro AUDIO_BH_TRANSITION UI_SCI_FI_Tone_Deep_Wet_10_stereo
 
-#macro AUDIO_DIA_ALEX Alex_Bark4
+#macro AUDIO_DIA_ALEX_BUS Alex_Bark4
+#macro AUDIO_DIA_ALEX_CAFE Alex_Bark1
+#macro AUDIO_DIA_ALEX_DINNER Alex_Bark5
 #macro AUDIO_DIA_BUSGUY Bus_guy_barks1
 #macro AUDIO_DIA_STELLA Stella_Bark1
 #macro AUDIO_DIA_MOM Mom_Bark1
