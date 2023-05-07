@@ -31,7 +31,6 @@
   "isDnd": false,
   "layers": [
     {"resourceType":"GMRAssetLayer","resourceVersion":"1.0","name":"Assets_1","assets":[
-        {"resourceType":"GMRParticleSystem","resourceVersion":"1.0","name":"particle_72E16BC7","colour":4294967295,"frozen":false,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"particleSystemId":{"name":"ParticleSystem5","path":"particles/ParticleSystem5/ParticleSystem5.yy",},"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1770.0,"y":289.0,},
         {"resourceType":"GMRParticleSystem","resourceVersion":"1.0","name":"particle_7B29A6E","colour":4294967295,"frozen":false,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"particleSystemId":{"name":"PS_bus_guy","path":"particles/PS_bus_guy/PS_bus_guy.yy",},"rotation":0.0,"scaleX":0.25,"scaleY":0.25,"x":449.0,"y":736.0,},
       ],"depth":0,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Pause_Menu","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
