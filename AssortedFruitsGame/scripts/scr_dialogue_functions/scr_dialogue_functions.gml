@@ -577,13 +577,15 @@ function end_conversation()
 		{			
 			level_completed[global.current_level] = true;
 			
-			if (global.current_level == LEVEL_0_BEDROOM ||
-				global.current_level == LEVEL_3_CAFE	|| 
-				global.current_level == LEVEL_6_BEDROOM)
+			if (global.current_level == LEVEL_0_BEDROOM || global.current_level == LEVEL_3_CAFE)
 			{
 				global.current_level += 1;
 				set_game_state(OVERWORLD);
 			}			
+			else if(global.current_level == LEVEL_6_BEDROOM)
+			{
+				set_game_state(CREDITS);
+			}
 			else 
 			{
 				global.current_level += 1;
