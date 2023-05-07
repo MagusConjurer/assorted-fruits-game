@@ -9,5 +9,6 @@ radius = AUTO_INTERACT_DISTANCE;
 
 if(check_level_completed(LEVEL_3_CAFE))
 {
+	layer_set_visible("Assets_1", false);
 	instance_destroy();
 }
