@@ -1,5 +1,10 @@
 /// @description Draw sprites or details on the GUI level
 
+if(global.game_state == CREDITS)
+{
+	draw_sprite(spr_credits, 0, global.resolution_w / 2, global.resolution_h / 2);
+}
+
 if (bh_active)
 {
 	bh_update_vignette();
@@ -28,20 +33,7 @@ if (bh_active)
 	}
 	
 	draw_set_color(BH_TIME_COLOR);
-	draw_text(150, BH_UI_MARGIN * 0.5,bh_time_spent);
-	
-	if(bh_show_ability_hotkey)
-	{
-		draw_set_color(BH_HOTKEY_COLOR);
-		draw_text(BH_HOTKEY_X, BH_HOTKEY_ABILITY_Y,bh_ability_hotkey_text);
-	}
-	
-	if(bh_show_attack_hotkey)
-	{
-		draw_set_color(BH_HOTKEY_COLOR);
-		draw_text(BH_HOTKEY_X, BH_HOTKEY_ATTACK_Y, bh_attack_hotkey_text);
-	}
-	
+	draw_text(150, BH_UI_MARGIN * 0.5,bh_time_spent);	
 	
 	draw_set_color(c_black);
 }

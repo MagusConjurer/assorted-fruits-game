@@ -340,6 +340,7 @@
     {"name":"obj_bustop","order":1,"path":"objects/obj_bustop/obj_bustop.yy",},
     {"name":"spr_mom__2_","order":1,"path":"sprites/spr_mom__2_/spr_mom__2_.yy",},
     {"name":"obj_dropdown_resolution","order":7,"path":"objects/obj_dropdown_resolution/obj_dropdown_resolution.yy",},
+    {"name":"spr_credits","order":1,"path":"sprites/spr_credits/spr_credits.yy",},
     {"name":"spr_long_table","order":6,"path":"sprites/spr_long_table/spr_long_table.yy",},
     {"name":"Mom_Neutral","order":4,"path":"sprites/Mom_Neutral/Mom_Neutral.yy",},
     {"name":"spr_title_screen_DRAFT","order":4,"path":"sprites/spr_title_screen_DRAFT/spr_title_screen_DRAFT.yy",},

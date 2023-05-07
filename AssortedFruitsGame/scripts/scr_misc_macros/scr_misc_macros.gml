@@ -69,6 +69,7 @@
 #macro PRE_TRANSITION 4
 #macro PAUSED 5
 #macro MENU 6
+#macro CREDITS 7
 
 // Depths
 #macro DARKENING_DEPTH -990

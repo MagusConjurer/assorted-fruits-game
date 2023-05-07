@@ -470,6 +470,7 @@
     {"id":{"name":"obj_bustop","path":"objects/obj_bustop/obj_bustop.yy",},},
     {"id":{"name":"spr_mom__2_","path":"sprites/spr_mom__2_/spr_mom__2_.yy",},},
     {"id":{"name":"obj_dropdown_resolution","path":"objects/obj_dropdown_resolution/obj_dropdown_resolution.yy",},},
+    {"id":{"name":"spr_credits","path":"sprites/spr_credits/spr_credits.yy",},},
     {"id":{"name":"scr_bh_macros","path":"scripts/scr_bh_macros/scr_bh_macros.yy",},},
     {"id":{"name":"spr_long_table","path":"sprites/spr_long_table/spr_long_table.yy",},},
     {"id":{"name":"Mom_Neutral","path":"sprites/Mom_Neutral/Mom_Neutral.yy",},},
