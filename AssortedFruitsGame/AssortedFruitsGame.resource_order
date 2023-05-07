@@ -161,6 +161,7 @@
     {"name":"obj_interactable_parent","order":1,"path":"objects/obj_interactable_parent/obj_interactable_parent.yy",},
     {"name":"knitting_chair","order":5,"path":"sprites/knitting_chair/knitting_chair.yy",},
     {"name":"BUTTON_Light_Switch_01_stereo","order":10,"path":"sounds/BUTTON_Light_Switch_01_stereo/BUTTON_Light_Switch_01_stereo.yy",},
+    {"name":"bh_final","order":3,"path":"sounds/bh_final/bh_final.yy",},
     {"name":"obj_selection_dia","order":6,"path":"objects/obj_selection_dia/obj_selection_dia.yy",},
     {"name":"spr_bedroombackground","order":2,"path":"sprites/spr_bedroombackground/spr_bedroombackground.yy",},
     {"name":"PS_ballon_pop","order":18,"path":"particles/PS_ballon_pop/PS_ballon_pop.yy",},

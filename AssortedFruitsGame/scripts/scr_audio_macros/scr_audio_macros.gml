@@ -2,7 +2,7 @@
 // Music
 #macro AUDIO_OV_MUSIC BG_music
 #macro AUDIO_BH_MUSIC_SIMPLE bh_battle
-#macro AUDIO_BH_MUSIC_FULL bh_battle
+#macro AUDIO_BH_MUSIC_FULL bh_final
 
 // Sound Effects
 #macro AUDIO_BUBBLE_POP IMPACT_Incoming_Bang_Wobble_01_mono
