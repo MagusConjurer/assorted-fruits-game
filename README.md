@@ -4,7 +4,6 @@ about what a wonderful support your found-family can be in the midst of hostilit
 
 CONTENT WARNING:  The game shows homophobia, transphobia, and may contain triggering phrases. Please proceed with caution.
 
-***
 ## Created by Assorted Fruits:  
 **Cameron Davis**&nbsp; - Gameplay/Systems Engineer  
 **Duncan Regan**&nbsp; &nbsp;- Sound Designer  
@@ -17,13 +16,9 @@ CONTENT WARNING:  The game shows homophobia, transphobia, and may contain trigge
 **Class**: EAE 3720 Spring 2023 Alternative Game Development  
 **Instructor**: Matt Anderson  
 
-*** 
-
 ## Purpose
 
 The purpose of this project was to design and build a game that has a goal beyond just entertainment. 
-
-***
 
 ## How to Play
 Download the game from our Itch.io page: [Safe Spaces](https://magusconjurer.itch.io/safe-spaces)  
@@ -39,7 +34,6 @@ Controls:
     - Interact: A (Xbox) / X (Playstation)
     - Shoot: Left or Right Trigger
     - Special Ability: X (Xbox) / &#9634; (Playstation)
-***
 
 ## Technology Used
 * GameMaker
